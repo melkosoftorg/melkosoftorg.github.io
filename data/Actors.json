@@ -1,4 +1,4 @@
 [
 null,
-{"id":1,"battlerName":"Actor1_5","characterIndex":4,"characterName":"Actor1","classId":1,"equips":[1,1,2,3,0],"faceIndex":4,"faceName":"Actor1","traits":[],"initialLevel":1,"maxLevel":99,"name":"Михаэль","nickname":"","note":"","profile":""}
+{"id":1,"battlerName":"Actor1_5","characterIndex":0,"characterName":"pers misha","classId":1,"equips":[1,1,2,3,0],"faceIndex":0,"faceName":"Misha face","traits":[],"initialLevel":1,"maxLevel":99,"name":"Михаэль","nickname":"","note":"","profile":""}
 ]
