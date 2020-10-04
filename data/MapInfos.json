@@ -1,7 +1,9 @@
 [
 null,
-{"id":1,"expanded":true,"name":"MAP001","order":1,"parentId":0,"scrollX":386,"scrollY":260.6666666666667},
-{"id":2,"expanded":true,"name":"MAP002","order":2,"parentId":1,"scrollX":386,"scrollY":255.33333333333334},
-{"id":3,"expanded":true,"name":"MAP003","order":3,"parentId":2,"scrollX":386,"scrollY":260.6666666666667},
-{"id":4,"expanded":false,"name":"MAP004","order":4,"parentId":3,"scrollX":386,"scrollY":260.6666666666667}
+{"id":1,"expanded":true,"name":"MAP001","order":1,"parentId":0,"scrollX":384.6666666666667,"scrollY":259.3333333333333},
+{"id":2,"expanded":true,"name":"MAP002","order":2,"parentId":1,"scrollX":431.3333333333333,"scrollY":254},
+{"id":3,"expanded":true,"name":"MAP003","order":3,"parentId":2,"scrollX":384.6666666666667,"scrollY":259.3333333333333},
+{"id":4,"expanded":true,"name":"MAP004","order":4,"parentId":3,"scrollX":577,"scrollY":389},
+{"id":5,"expanded":true,"name":"piaterOchka","order":5,"parentId":4,"scrollX":577,"scrollY":389},
+{"id":6,"expanded":false,"name":"Торговый квартал","order":6,"parentId":5,"scrollX":832,"scrollY":381}
 ]
