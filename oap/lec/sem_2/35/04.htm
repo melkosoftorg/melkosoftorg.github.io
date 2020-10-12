@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Лекция | Структуры</title>
+
+<link rel="stylesheet" type="text/css" href="../../../css/lec.css"></head><body>
+<a name="#start"></a>
+<table class="pages" align="center" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr colspan="5">
+<td>&nbsp;&nbsp;<a href="../../../plan_2.htm" class="p">Календарно-тематический план</a>&nbsp;&nbsp;</td>
+<td><a href="index.htm" class="p">&nbsp; План лекции &nbsp;</a></td>
+<td><a href="01.htm" class="p">&nbsp; 1 &nbsp;</a></td>
+<td><a href="02.htm" class="p">&nbsp; 2 &nbsp;</a></td>
+<td><a href="03.htm" class="p">&nbsp; 3 &nbsp;</a></td>
+<td><a href="04.htm" class="a">&nbsp; 4 &nbsp;</a></td>
+<td><a href="05.htm" class="p">&nbsp; 5 &nbsp;</a></td>
+<td><a href="06.htm" class="p">&nbsp; 6 &nbsp;</a></td>
+</tr>
+</tbody></table>
+<!-- -------Inside table------- -->
+<table border="0" cellpadding="5" cellspacing="0" width="98%">
+<tbody><tr>
+<td class="usual">
+<p class="dbi" align="center"><br>Структурные объекты - указатели на структуру</p>
+<p><b>Определение указателя на структуру</b>
+</p><p>Так как имя структурного типа обладает всеми правами имен типов, то разрешено 
+определять указатели на структуры:
+</p><p><b></b></p><center><b>имя_структурного_типа *имя_указателя_на_структуру;</b></center>
+<p>Декларация struct point *pp; сообщает, что pp есть 
+указатель на структуру типа struct point.
+</p><p>Указатели на структуры ничем не отличаются от указателей на обычные переменные. Как обычно, 
+определяемый указатель может быть инициализирован. <span style="font-weight: bold;">Значением каждого указателя на структуру 
+может быть адрес структуры того же типа</span>, то есть номер байта, начиная с которого структура размещается в памяти. 
+<br>Наиболее корректно в качестве инициализирующего значения применять
+адрес структурного объекта того же типа, что и тип определяемого
+указателя.
+</p><pre>		struct part<br>		{<br>			double mass;<br>			float koord[3];<br>		} dot[3], point, *pine;<br>		// инициализация указателей адресами созданных объектов<br>		struct part *p_d = &amp;dot[1], *pint = &amp;point;<br></pre>
+<br>Значение указателя на структуру может быть определено и с помощью обычного присваивания:
+<pre>		pine = &amp;dot[0];<br></pre>
+<p>Если функции передается большая структура, то, чем копировать ее целиком, 
+эффективнее передать указатель на нее.
+</p><p> &nbsp; </p>
+<p><b>Обращение к элементу структуры</b>
+</p><p>Обращение к элементу структуры можно организовать двумя способами:
+</p><p><b><center>( *имя_указателя ).имя_элемента_структуры</center></b>
+<br>или
+<br><b><center>имя_указателя -&gt; имя_элемента_структуры</center></b>
+<br><span style="text-decoration: underline;">Первый способ</span> традиционный. Он основан на обратимости операций разыменования * и получения адреса &amp;, то есть,
+если pine&nbsp;==&nbsp;&amp;dot[0], то *pine&nbsp;==&nbsp;dot[0].
+</p><p><span style="text-decoration: underline;">Второй способ</span> доступа к элементам структуры с помощью настроенного на нее указателя предусматривает применение <b style="font-weight: bold;">специальной операции стрелка -&gt;</b>, которую иногда называют 
+      <span style="font-weight: bold;">операцией косвенного выбора компонента (элемента) структурированного объекта</span>, адресуемого указателя. 
+</p><pre>		struct point <br>		{<br>			int x, y;<br>		};<br></pre>
+<p>Если pp ссылается на структуру point, то *pp есть сама структура, а (*pp)<b>.</b>x и (*pp)<b>.</b>y - ее члены.
+</p><p>Используя указатель pp, можно написать
+</p><pre>		struct point origin, *pp;<br>		pp = &amp;origin;<br>		<b style="font-weight: bold;">printf("origin: ( %d, %d )\n", (*pp).</b><span style="font-weight: bold;">x, (*pp)</span><b style="font-weight: bold;">.</b><span style="font-weight: bold;">y);</span><br></pre>
+<br><span style="font-style: italic;">Скобки в (*pp)</span><b style="font-style: italic;">.</b><span style="font-style: italic;">x необходимы, поскольку приоритет оператора </span><b style="font-style: italic;">.</b><span style="font-style: italic;"> выше приоритета </span><b style="font-style: italic;">*</b><span style="font-style: italic;">. 
+      </span><br style="font-style: italic;"><span style="font-style: italic;">Выражение *pp</span><b style="font-style: italic;">.</b><span style="font-style: italic;">x будет проинтерпретировано как *(pp</span><b style="font-style: italic;">.</b><span style="font-style: italic;">x), что неверно, поскольку pp</span><b style="font-style: italic;">.</b><span style="font-style: italic;">x не является указателем.</span>
+<p>Указатели на структуры используются часто, поэтому для доступа к ее членам 
+используется более короткая форма записи.
+<br>Если pp - указатель на структуру, то pp -&gt; член_структуры - ее отдельный член.
+</p><pre>		<span style="font-weight: bold;">printf("origin: ( %d, %d )\n", pp -&gt; x, pp -&gt; y);</span><br></pre>
+<p>Оба оператора <b>.</b> и <b>-&gt;</b> выполняются слева направо.<br>Значит при наличии декларации &nbsp; &nbsp; struct 
+rect r, *rp = r; &nbsp; &nbsp; следующие выражения будут эквивалентны: 
+</p><pre>		r<b>.</b>pt1.x <br>		rp -&gt; pt1<b>.</b>x <br>		(r<b>.</b>pt1)<b>.</b>x <br>		(rp -&gt; pt1)<b>.</b>x<br></pre>
+<p><span style="font-weight: bold;">Операторы доступа к членам структуры </span><b style="font-weight: bold;">.</b><span style="font-weight: bold;"> и </span><b style="font-weight: bold;">-&gt;</b><span style="font-weight: bold;"> вместе с операторами вызова функции () и 
+индексации массива [] занимают самое высокое положение в иерархии приоритетов и 
+выполняются раньше любых других операторов</span>. Например, если задана декларация 
+</p><pre>		struct <br>		{<br>			int len;<br>			char *str;<br>		} *p;<br></pre>
+<br>то ++p -&gt; len увеличит на 1 значение члена структуры len, а не указатель p, поскольку в 
+этом выражении как бы неявно присутствуют скобки: ++(p -&gt; len). <br>Чтобы изменить 
+порядок выполнения операций, нужны явные скобки.<ul><li>Так в (++p) -&gt; len, прежде чем взять 
+значение len, программа продвинет указатель p.</li><li>В (p++) -&gt; len указатель p увеличится 
+после того, как будет взято значение len, то есть в этом случае скобки не обязательны.</li></ul>
+<pre><b><i>Примеры:</i></b>
+	*p -&gt; str - содержимое объекта, на который ссылается str,
+	*p -&gt; str++ - продвинет указатель str после получения значения объекта, на который он указывал,
+	(*p -&gt; str)++ - увеличит значение объекта, на который ссылается str,
+	*p++ -&gt; str - продвинет p после того, как будет получено то, на что указывает str.
+</pre><p> &nbsp; </p>
+</td></tr>
+</tbody></table>
+<!-- -------End of Inside table------- -->
+<table class="pages" align="center" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr colspan="5">
+<td>&nbsp;&nbsp;<a href="../../../plan_2.htm" class="p">Календарно-тематический план</a>&nbsp;&nbsp;</td>
+<td><a href="index.htm" class="p">&nbsp; План лекции &nbsp;</a></td>
+<td><a href="01.htm" class="p">&nbsp; 1 &nbsp;</a></td>
+<td><a href="02.htm" class="p">&nbsp; 2 &nbsp;</a></td>
+<td><a href="03.htm" class="p">&nbsp; 3 &nbsp;</a></td>
+<td><a href="04.htm" class="a">&nbsp; 4 &nbsp;</a></td>
+<td><a href="05.htm" class="p">&nbsp; 5 &nbsp;</a></td>
+<td><a href="06.htm" class="p">&nbsp; 6 &nbsp;</a></td>
+</tr>
+</tbody></table>
+<a name="#end"></a>
+</body></html>

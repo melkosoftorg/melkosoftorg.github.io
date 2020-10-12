@@ -1,0 +1,213 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 13</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+
+
+
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Внешние переменные</p>
+<b><center>Переменная, описанная вне функции, является внешней.</center></b> 
+<p>Глобальные данные определяются и им  выделяется  память  в конкретном исходном файле программы на языке Си,
+  который образует модуль. 
+<p> Все функции модуля видят глобальные данные своего модуля и имеют к ним доступ.
+  Функции других модулей тоже могут иметь доступ к глобальным данным первого модуля, однако, они не видят эти данные.
+ Для обеспечения <b>видимости</b> используется специальное описание данных,  не выделяющее память для них
+ (то  есть описание, а не определение). Это описание должно полностью повторять определение данных,
+  по которому выделяется  память,  но перед ним должно стоять<b> ключевое слово extern</b>. Например, описание
+  <pre>
+       extern double Speed;
+  </pre>
+говорит о том, что в каком-то из модулей программы выделена память под переменную Speed
+ типа double и функции данного  модуля могут ее использовать.
+
+
+
+<p>Внешнюю переменную можно описать в функции, которая использует ее, при помощи ключевого слова <b>extern</b>:
+<pre>
+	// описаны вне функции	
+	int err; 
+	char cl; 
+	double up;
+	main()
+	{
+		// объявлено, что 3 переменные являются внешними
+		extern int err; 
+		extern char cl; 
+		extern double up;
+		. . .
+	}
+</pre>
+Группу extern-описаний можно опустить, если исходные определения переменных 
+появляются в том же файле и перед функцией, которая их использует. 
+<p>Включение ключевого слова extern позволяет функции использовать внешнюю переменную, даже 
+если она определяется позже в этом или в другом файле. (Оба файла должны быть 
+скомпилированы, связаны или собраны в одно и то же время). 
+<p>Если слово extern не включено в описание внутри функции, то под этим именем создается новая 
+автоматическая переменная. 
+<br>Можно пометить вторую переменную как автоматическую с помощью слова auto и тем самым показать, что это ваше намерение, а не оплошность.
+<p>Примеры иллюстрируют область действия внешних переменных. Они существуют, пока 
+работает программа, и так как эти переменные доступны любой функции, они не 
+исчезнут, если какая-нибудь одна функция закончит свою работу.
+<p><table align=center width=80% border=0 cellpadding=10>
+<tr><td><left><b>Пример 1</b></left></td>
+<td><left><b>Пример 2</b></left></td>
+<td><left><b>Пример 3</b></left></td></tr>
+<tr><td><pre>
+int hs;
+main()
+{   extern int hs;
+     . . .
+}</pre></td>
+<td><pre>
+int hs;
+main()
+{   extern int hs;
+     . . .
+}</pre></td>
+<td><pre>
+int hs;
+main()
+{   int hs;
+     . . .
+}</pre></td>
+</tr>
+<tr><td><pre>
+mag()
+{   extern int hs;
+     . . .
+}</pre></td>
+<td><pre>
+mag()
+{   // hs не описана 
+     . . .
+}</pre></td>
+<td><pre>
+mag()
+{   auto int hs;
+     . . .
+}</pre></td>
+</tr><tr>
+<td>Внешняя переменная hs известна функциям main() и mag()</td>
+<td>Внешняя переменная hs известна функциям main() и mag()</td>
+<td>Созданы 3 разные переменные hs с одинаковым именем</td>
+</tr>
+</table>
+В последнем примере переменная hs в функции main() является автоматической по умолчанию и 
+локальной для main().
+<br>В функции mag() она явно описана автоматической, известна только для mag().
+<br>Внешняя переменная hs не описана ни в main() ни в mag(), но известна main() и mag(), 
+и любой другой функции в файле. 
+<p>В следующем примере используется внешняя переменная un. В теле функции main() 
+и в теле функции crit() она описана с использованием extern-описаний.
+<br>Даже если мы опустим extern-описания, она будет известна этим функциям.
+<pre>
+	#include&lt;conio.h&gt;
+	#include&lt;stdio.h&gt;
+	crit();
+	int un;		// внешняя переменная
+	void main()
+	{
+		extern int un; clrscr();
+		printf("Число ? "); scanf("%d", &un);
+		while(un != 56)
+		{
+			printf("Ищите! \n"); crit();
+		}
+		printf("Все в порядке! \n"); getch();
+	}
+	void crit()
+	{
+		extern int un;
+		printf("Не повезло. Еще попытка. \n"); scanf("%d", &un);
+	}
+		<b><i>Результаты:</i></b>	Число ? 67
+				Ищите!
+				Не повезло. Еще попытка.
+				-8
+				Ищите!
+				Не повезло. Еще попытка.
+				95
+				Ищите!
+				Не повезло. Еще попытка.
+				56
+				Все в порядке!
+</pre>
+<p>В следующем примере показано, что внешняя переменная temp, объявленная в глобальной области, известна (видна) всем функциям, определенным ниже точки ее объявления.
+<pre>
+	#include&lt;stdio.h>
+	#include&lt;conio.h>
+	// temp - внешняя переменная
+	int temp;
+	convert()
+	{
+		float celsius;
+		celsius = 5.0 / 9.0 * (temp - 32);
+		printf("%d градусов по шкале Фаренгейта = %6.2f градусам по шкале Цельсия\n", temp, celsius);
+		return(0);
+	}
+	freeze()
+	{
+		printf("\t%d градусов до точки замерзания воды\n", temp - 32);
+		return(0);
+	}
+	boil()
+	{
+		printf("\t%d градусов до точки кипения воды\n", 212 - temp);
+		return(0);
+	}
+	main()
+	{
+		clrscr();
+		printf("Введите значение температуры: "); scanf("%d", &temp);
+		convert(); freeze(); boil();
+		getch();
+	}
+		<b><i>Результаты:</i></b>
+			Введите значение температуры: 65
+			65 градусов по шкале Фаренгейта =  18.33 градусам по шкале Цельсия
+			        33 градусов до точки замерзания воды
+			        147 градусов до точки кипения воды
+</pre>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

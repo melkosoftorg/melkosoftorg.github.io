@@ -1,0 +1,127 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 36</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Инициализация структур</p>
+<p>Инициализация структур аналогична инициализациям массивов: за определением следует 
+список инициализаторов, заключенный в фигурные скобки
+<pre>
+	struct key
+	{
+		char *word;
+		int col;
+	} keytab[] = {"auto", 0, "break", 0, "enum", 0, "while", 0}; 
+</pre>
+<p>или
+<pre>
+	{ {"auto", 0}, {"break", 0}, {"enum", 0}, {"while", 0} }
+</pre>
+<p>Также значения можно ввести присваиванием и с клавиатуры.
+Рассмотрим на примере инвентаризации большого количества книг
+<pre>
+	#include&lt;stdio.h&gt;
+	#include&lt;string.h&gt;
+	#include&lt;conio.h&gt;
+	#define MAXT 40			// количество символов в названии книги
+	#define MAXA 40			// количество символов в фамилии автора
+	#define MAXB 100		// максимальное количество книг
+	#define STOP ""			// нулевая строка прекращает ввод
+	// создание шаблона типа book
+	struct book
+	{	
+		char tit[MAXT];
+		char aut[MAXA];
+		int val;
+	};
+	main()
+	{
+<i>		struct book lib[MAXB];	// массив структур типа book
+		int num, col=0; clrscr();
+		printf("Введите название книги.\n");
+		printf("Нажмите ENTER в начале строки для останова\n");
+		while(strcmp(gets(lib[col].tit), STOP) != 0 && col < MAXB )
+		{
+			printf("Введите фамилию автора.\n"); gets(lib[col].aut);
+			printf("Введите цену.\n"); scanf("%d",&lib[col++].val);
+			while(getchar() != '\n');	// очистить строку ввода
+			if (col < MAXB)
+			printf("Введите название следующей книги.\n");
+		} </i>clrscr();
+		printf("Список ваших книг:\n");
+		for(num = 0; num < col; num++)
+			printf("%s, %s: %d\n", lib[num].tit, lib[num].aut, lib[num].val);
+		getch(); return 0;
+	}
+</pre>
+<p>Инициализировать структуру можно присваиванием значений, достаточно заменить 
+выделенный курсивом текст, например, следующим:
+<pre>
+	struct book lib[MAXB] =
+	{	// Список MAXB книг
+		"Искусство программирования для ЭВМ", "Д. Кнут", 12000,
+		"ПЛ/1 для программистов", "Р.Скотт, Н.Сондак", 9000 
+			. . .
+	};
+</pre>
+<p>Если структура содержит другие структуры в качестве полей, то начальные значения должны строго следовать порядку как структур, так и полей в их определениях.
+<pre>
+		struct customer
+		{	char fio[20];
+			char it[25];
+		};
+		struct sale
+		{	struct customer ber;
+			char tit[20];
+			float at;
+		} mysale =	{
+					{ "Александр Блок", "Годы жизни 1880 - 1921" },
+					"Гамаюн, птица вещая",
+					167.87
+				};
+</pre>
+<p>В этом фрагменте выполняются следующие инициализации:
+<ul>
+<li>поле <i>mysale.ber.fio</i> инициализируется значением <i>Александр Блок</i>
+<li>поле <i>mysale.ber.it</i> инициализируется значением <i>Годы жизни 1880 - 1921</i>
+<li>поле <i>mysale.tit</i> инициализируется значением <i>Гамаюн, птица вещая</i>
+<li>поле <i>mysale.at</i> инициализируется значением <i>167.87</i>
+</ul>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

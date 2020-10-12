@@ -1,0 +1,104 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>ОП | СР 29_32</title>
+<link rel="stylesheet" type="text/css" href="01_files/lec.css">
+</head>
+<body>
+<a name="#start"></a>
+<table class="pages" align="center" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr colspan="5">
+<td>&nbsp;&nbsp;<a href="http://prep.scc/%7Eblp/uch/op/plan_2.htm" class="p">Календарно-тематический план</a>&nbsp;&nbsp;</td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/index.htm" class="p">&nbsp; План лекции &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/01.htm" class="a">&nbsp; 1 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/02.htm" class="p">&nbsp; 2 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/03.htm" class="p">&nbsp; 3 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/04.htm" class="p">&nbsp; 4 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/05.htm" class="p">&nbsp; 5 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/06.htm" class="p">&nbsp; 6 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/07.htm" class="p">&nbsp; 7 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/08.htm" class="p">&nbsp; 8 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/09.htm" class="p">&nbsp; 9 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/10.htm" class="p">&nbsp; 10 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/11.htm" class="p">&nbsp; 11 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/12.htm" class="p">&nbsp; 12 &nbsp;</a></td>
+</tr>
+</tbody></table>
+<!-- -------Inside table------- -->
+<table border="0" cellpadding="5" cellspacing="0" width="98%">
+<tbody><tr><td class="usual"><p class="dbi" align="center"><br>Иерархия данных</p>
+<p>Файлы предназначены для постоянного хранения больших объемов данных. 
+Компьютеры сохраняют файлы на вспомогательных запоминающих устройствах, 
+таких, как магнитные диски, оптические диски и магнитные ленты.
+</p><p>Программисты создают программы и элементы данных с помощью 
+символов, а компьютеры манипулируют и обрабатывают символы как 
+комбинацию битов.
+</p><p>Элементы данных, обрабатываемые компьютерами, образуют иерархию 
+данных, в которой элементы данных укрупняются и становятся все более 
+сложными по структуре, поскольку процесс обработки переходит от битов к 
+символам (байтам), полям и так далее.
+</p><p>Запись (то есть struct или class в C++) образуется из нескольких полей, (называемых в C++ элементами или членами).
+<br>В платежной ведомости, например, запись для отдельного служащего может состоять из следующих полей:
+</p><ol><li>Идентификационный номер служащего
+</li><li>Имя
+</li><li>Адрес
+</li><li>Почасовой оклад
+</li><li>Число заявленных льгот
+</li><li>Годовой доход
+</li><li>Объем удерживаемых федеральных налогов и так далее.
+</li></ol>
+<p>Таким образом, <b><i>запись - это группа связных полей.</i></b>
+</p><p><b><i>Файл - это группа связных записей.</i></b>
+</p><p>Файл платежных ведомостей компании обычно содержит по одной 
+записи для каждого служащего. Следовательно, файл платежных ведомостей 
+мелкой компании может иметь несколько десятков записей, в то время как 
+для крупной компании он может содержать тысячи записей.
+<br>Весьма распространенным явлением для компании является наличие 
+многих файлов, каждый из которых содержит миллионы символов информации.
+</p><p>Для облегчения поиска в файле заданных записей, по крайней мере 
+одно из полей в каждой записи выбирается в качестве ключа записи.
+<br>Ключ идентифицирует, что запись относится к конкретному человеку или
+ сущности, то есть что она является уникальной среди других записей в 
+файле.
+<br>В платежной записи, описанной выше, идентификационный номер служащего обычно выбирается в качестве ключа записи.
+</p><p>Существует множество способов организации записей в файле. 
+Наиболее распространенный тип организации записей в файле называется 
+последовательным файлом, в котором записи обычно хранятся в 
+последовательности, соответствующей ключевому полю.
+</p><p>В файле платежных ведомостей записи обычно размещаются в 
+последовательности, соответствующей идентификационному номеру служащего.
+ Первая запись служащего в файле содержит наименьший идентификационный 
+номер служащего, а последующих записей хранятся в порядке возрастания 
+идентификационных номеров служащих.
+</p><p>Большинство фирм использует множество разнообразных файлов для 
+хранения данных. Например, компании могут иметь файлы по заработной 
+плате, файлы счетов по кредитной задолженности (со списками сумм по 
+задолженности клиентов), итоговые файлы (со списком фактов по всем 
+статьям) и многие другие типы файлов.
+<br>Группу связных файлов, порой, называют базой данных. Совокупность 
+программ, предназначенных для создания баз данных и управления ими, 
+называется системой управления базой данных - СУБД.
+</p><p>&nbsp;</p>
+</td></tr>
+</tbody></table>
+<!-- -------End of Inside table------- -->
+<table class="pages" align="center" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr colspan="5">
+<td>&nbsp;&nbsp;<a href="http://prep.scc/%7Eblp/uch/op/plan_2.htm" class="p">Календарно-тематический план</a>&nbsp;&nbsp;</td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/index.htm" class="p">&nbsp; План лекции &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/01.htm" class="a">&nbsp; 1 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/02.htm" class="p">&nbsp; 2 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/03.htm" class="p">&nbsp; 3 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/04.htm" class="p">&nbsp; 4 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/05.htm" class="p">&nbsp; 5 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/06.htm" class="p">&nbsp; 6 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/07.htm" class="p">&nbsp; 7 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/08.htm" class="p">&nbsp; 8 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/09.htm" class="p">&nbsp; 9 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/10.htm" class="p">&nbsp; 10 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/11.htm" class="p">&nbsp; 11 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/12.htm" class="p">&nbsp; 12 &nbsp;</a></td>
+</tr>
+</tbody></table>
+<a name="#end"></a>
+
+</body></html>

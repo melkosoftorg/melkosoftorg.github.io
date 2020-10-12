@@ -1,0 +1,112 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 15</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Встраивание в *.exe - файл *.bgi - драйвера</p>
+В Borland C предусмотрена возможность встраивания в *.exe - файл *.bgi - драйвера. 
+Для этого необходимо выполнить следующие три действия:
+<ol>
+<p><li><b><i>Преобразовать бинарный файл драйвера *.bgi в объектный файл типа *.obj с 
+помощью утилиты BGIOBJ.</i></b> 
+<br>Полный синтаксис утилиты: 
+<pre>
+	<b>BGIOBJ [/F] <исх_файл> <рез_файл> <внеш_имя> <имя_сегм> <класс_сегм></b>
+</pre>
+<ul>
+<li type="disc">/F - ключ, позволяющий управлять выбираемыми по умолчанию именами для тех 
+сегментов программы, в которых будут размещены графические драйверы,
+<li type="disc"><исх_файл> - имя исходного файла драйвера (все остальные параметры, за 
+исключением этого, необязательные),
+<li type="disc"><рез_файл> - имя создаваемого объектного файла. <br>Например, в результате вызова 
+BGIOBJ /F CGA будет получен объектный модуль CGAF.OBJ, содержащий 
+графический драйвер, который при компоновке задачи будет помещен в сегмент 
+CGA_TEXT.
+<li type="disc"><внеш_имя> - имя драйвера, которое будет использоваться в прикладной программе 
+при вызове функций registerbgidriver или registerfarbgidriver (для шрифтов 
+registerbgifont или registerfarbgifont), дополненное слева символом подчеркивания.
+<li type="disc"><имя_сегм> - имя сегмента программы, в которой следует разместить графический 
+драйвер.
+<li type="disc"><класс_сегм> - класс сегмента программы, предназначенного для размещения 
+драйвера (по умолчанию CODE).
+</ul>
+<p>Если файлы с расширением BGI и CHR расположены в каталоге \BC, а стандартные 
+файлы с расширениями *.OBJ и *.LIB - в каталоге \BC\LIB, то тогда можно записать: 
+<pre>
+	CD\BC	BGIOBJ /F CGA BGIOBJ /F EGAVGA BGIOBJ /F HERС 
+			BGLOBJ /F TRIP BGIOBJ /F LITT BGIOBJ /F SANS
+</pre>
+<li><b><i>Сообщить графической системе, что драйвер уже находится в оперативной памяти и 
+не требуется его загрузка с диска</i></b>, для чего включить в исходный текст перед вызовом 
+initgraph вызов int registerbgidriver(void (*driver)(void)) для регистрации этого 
+графического драйвера, например EGAVGA_driver.
+<p><li><b><i>При компоновке программы скомпоновать файлы *.OBJ для всех зарегистрированных 
+драйверов.</i></b> <br>Это можно сделать одним из следующих способов:
+<ul>
+<li type="disc">Создать файл проекта *.PRJ, куда поместить имя исходного файла *.CPP и 
+*.OBJ - файл, полученный из *.BGI - файла.
+<li type="disc">Перечислить эти файлы в командной строке компилятора BCC или 
+компоновщика TLINK.
+<li type="disc">С помощью утилиты TLIB включить *.OBJ - файл в графическую библиотеку 
+GRAPHICS.LIB, откуда компоновщик возьмет ее автоматически.
+<br>Перенести полученные *.OBJ файлы из каталога \ВС в каталог \BC\LIB, для 
+чего написать:	
+<pre>		COPY CGAF.OBJ\BC\LIB	DEL CGAF.OBJ
+</pre>
+и повторить аналогичные строки для остальных файлов.
+<br>Добавить файлы *.OBJ к библиотеке GRAPHICS.LIB:	
+<pre>   CD \BC\LIB TLIB GRAPHICS +CGAF +EGAVGAF +HERCF +TRIPF +LITTF +SANSF
+</ul>
+</ol>
+
+<p>
+
+</td>
+</tr>
+
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

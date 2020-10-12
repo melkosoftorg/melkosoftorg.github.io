@@ -1,0 +1,99 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 14</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=a>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Построчное чтение данных из файла и запись в файл</p>
+<b><i>fgets</i></b> - получает строку символов из потока str и помещает ее в string. Ввод завершается 
+при получении символа перехода на следующую строку. 
+<br><b>Синтаксис</b> char *fgets(char *string, int n, FILE *str);
+<br><b>Прототип</b> в stdio.h
+<p><b><i>fputs</i></b> - выводит строку символов в поток, копирует строку, ограниченную нулевым 
+байтом в поток str, не добавляет в конец строки символ перехода на новую строку и не 
+выводит нулевой символ.
+<br><b>Синтаксис</b> int fputs(char *string, FILE *str);
+<br><b>Прототип</b> в stdio.h
+<p>При успешном завершении возвращает последний выведенный символ, в противном 
+случае возвращает EOF.
+<p><b><i>fread</i></b> считывает n элементов данных, каждый длиной size байтов, из потока str в блок с 
+адресной ссылкой ptr. Общее число вводимых байт равно n &#8729; size.
+<br><b>Синтаксис</b> size_t fread(void *ptr, size_t size, size_t n, FILE *str);
+<br><b>Прототип</b> в stdio.h
+При успешном завершении функция возвращает количество элементов данных (не 
+байтов), реально прочитанных. В случае достижения конца файла или возникновения 
+ошибки возвращает short count (возможно 0).
+<p><b><i>fwrite</i></b> записывает данные в поток, добавляет n элементов данных, каждое величиной size 
+байт в данный выходной поток. Данные записываются из ptr. Общее число выведенных 
+байт равно n &#8729; size. ptr должен быть объявлен как указатель на некоторый объект.
+<br><b>Синтаксис</b> int fwrite(void *ptr, int size, size_t n, FILE *str);
+<br><b>Прототип</b> в stdio.h
+<p>При успешном завершении fwrite возвращает число выведенных элементов (не байт), при 
+ошибке возвращает меньшее число.
+<pre>
+	#include&lt;stdio.h&gt;
+	#include&lt;string.h&gt;
+	#include&lt;conio.h&gt;
+	void main()
+	{
+		FILE *str; char ch, msg[] = "Тестовый пример";
+		str = fopen("dum.fil", "a+");	// создать файл для изменения 
+		fwrite(msg, strlen(msg), 1, str);	// записать в файл данные 
+		fseek(str, 0, SEEK_SET);	// перейти в начало файла 
+		do
+		{
+			ch = fgetc(str);	// ввести символ из файла 
+			putch(ch);		// вывести символ на экран 
+		} while( !feof(str) );		// пока не конец файла
+		printf("Конец файла\n");
+		fclose(str);		// закрыть файл
+		getch();
+	}
+</pre>
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=a>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

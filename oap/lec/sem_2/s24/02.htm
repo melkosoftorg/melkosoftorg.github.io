@@ -1,0 +1,65 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | СР 24 </title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Преобразование строки в число двойной точности</p>
+<p><b><i>strtod</i></b> преобразует символьную строку str в число двойной точности, 
+прекращает чтение строки на первом встретившемся символе, который не 
+может быть интерпретирован, как соответствующая часть числа двойной 
+точности.
+<p><b>Синтаксис</b> double strtod(char *str, char **endptr);
+<br><b>Прототип</b> в string.h
+<P>Если параметр endptr не NULL, функция strtod присваивает endptr указатель на 
+символ, который остановил считывание (*endvar = &stopper). <br>Возвращает 
+значение str как число двойной точности. <br>В случае переполнения возвращает 
+положительное или отрицательное значение HUGE_VAL.
+<p><b><i>Символы должны соответствовать формату:</i></b>
+<pre>
+		<b>[ws] [sn] [ddd] [.] [ddd] [fmt[sn]ddd]</b>
+
+		[ws]	- необязательный	незначащий символ;
+		[sn]	- необязательный	знак (+ или -);
+		[ddd]	- необязательные	цифры;
+		[fmt]	- необязательные	символы e или E;
+		[.]	- необязательная	десятичная точка.
+</pre>
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

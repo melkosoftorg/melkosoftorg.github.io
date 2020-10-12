@@ -1,0 +1,124 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | СР 13_14</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Открытие файла</p>
+<b><i>_open</i></b> - открывает файл для чтения или записи.
+<br><b><i>&nbsp  open</i></b> - открывает файл для чтения или записи.
+<pre>
+<b>Синтаксис</b>	#include&ltfcntl.h>
+		int _open(char *pathname, int access);
+		int open(char *pathname, int access[,int permiss]);
+<b>Прототип</b> в io.h
+</pre>
+<p>open открывает файл, имя которого определено параметром pathname, затем производит 
+подготовительные операции для чтения или записи соответственно значению access. 
+<p>Параметр access конструируется путем логического сложения из битовых флажков, 
+перечисленных в двух следующих списках. 
+<br>Из первого списка может быть использован только один флажок; остальные флажки могут применяться в любых логических 
+комбинациях. 
+<p><b><i>Список 1. Флажки чтение/запись</i></b>
+<table align=center width=98% border=0 cellpadding=2>
+<tr><td>O_RDONLY</td><td>-</td><td>открытие только для чтения</td></tr>
+<tr><td>O_WRONLY</td><td>-</td><td>открытие только для записи</td></tr>
+<tr><td>O_RDWR</td><td>-</td><td>открытие для чтения и записи</td></tr>
+</table>
+
+<p><b><i>Список 2. Остальные флажки доступа</i></b>
+<table align=center width=98% border=0 cellpadding=2>
+<tr><td>O_NDELAY</td><td> - </td><td>не используется; для совместимости с системой UNIX</td></tr>
+<tr><td>O_APPEND</td><td> - </td><td>если флажок установлен перед каждой операцией записи, указатель файла будет устанавливаться на конец файла</td></tr>
+<tr><td>O_CREAT</td><td> - </td><td>если файл существует, этот флажок не имеет никакого значения. Если файл не существует, он будет создан, и биты из аргумента permiss будут использованы для установки битов-атрибутов файла, как и в функции chmod</td></tr>
+<tr><td>O_TRUNC</td><td> - </td><td>если файл существует, его длина усекается до 0. Атрибуты файла остаются неизменными</td></tr>
+<tr><td>O_EXCL</td><td> - </td><td>не используется; для совместимости с UNIX</td></tr>
+<tr><td>O_BINARY</td><td> - </td><td>данный флажок может быть установлен для гарантированного открытия файла в двоичном режиме</td></tr>
+<tr><td>O_TEXT</td><td> - </td><td>данный флажок может быть установлен для гарантированного открытия файла в текстовом режиме</td></tr>
+</table>
+<p>Если ни флажок O_BINARY, ни O_TEXT не установлены, файл открывается в режиме 
+трансляции, соответственно глобальной переменной _fmode.
+<p>Если в построении параметра access участвует флажок O_CREAT, можно построить 
+необязательный <b><i>аргумент permiss из следующих символических констант:</i></b>
+<table align=center width=98% border=0 cellpadding=2>
+<tr><td>S_IWRITE</td><td> - </td><td>разрешение на запись</td></tr>
+<tr><td>S_IREAD</td><td> - </td><td>разрешение на чтение</td></tr>
+<tr><td>S_IREAD | S_IWRITE</td><td> - </td><td>разрешение на чтение/запись</td></tr>
+</table>
+<p>Для функции _open значение параметра access в операционной системе MS-DOS 2.x 
+ограничивается тремя флажками: O_RDONLY, O_WRONLY, O_RDWR.
+<p>Для операционной системы MS-DOS версий 3.x при конструировании параметра access 
+можно использовать дополнительные значения:
+<table align=center width=98% border=0 cellpadding=2>
+<tr><td>O_NOINHERIT</td><td> - </td><td>Включается, если файл не может быть передан дочерней программе</td></tr>
+<tr><td>O_DENYALL</td><td> - </td><td>Позволяет доступ к файлу только по текущему номеру handle</td></tr>
+<tr><td>O_DENYWRITE</td><td> - </td><td>Позволяет любому другому открытию файла только чтение</td></tr>
+<tr><td>O_DENYREAD</td><td> - </td><td>Позволяет любому другому открытию файла только запись</td></tr>
+<tr><td>O_DENYNONE</td><td> - </td><td>Разрешает разделенное открытие файла</td></tr>
+</table>
+<p>В единственный вызов функции open под версией DOS 3.x может быть включено только 
+одно значение из значений O_DENYxxx. 
+<br>Эти атрибуты разделения доступа к файлу даны в дополнение к операциям "замыкания". 
+<br>Максимальное число одновременно открытых файлов задается, как параметр, при конфигурации системы. 
+<p>При успешном завершении данные функции возвращают целое неотрицательное число handle - логический номер 
+открытого файла, и указатель файла (указатель текущей позиции) устанавливается на 
+начало файла. <br>При ошибке обе функции возвращают значение -1, и переменная errno 
+получает одно из следующих значений:
+<ul>
+<li>ENOENT - маршрут или имя файла не найдены.
+<li>EMFILE - слишком много открытых файлов.
+<li>EACCES - доступ запрещен.
+<li>EINVACC - неверный код доступа.
+</ul>
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

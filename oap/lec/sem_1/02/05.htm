@@ -1,0 +1,185 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 02</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+
+<table width=98% border=0 cellpadding=0 cellspacing=0>
+
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Правила хорошего стиля программирования<p>
+Считается хорошим стилем программирования придерживаться следующих правил:
+<ul>
+<li>помещать функцию main() на отдельной строке,
+<li>помещать фигурные скобки на отдельных строках,
+<li>создавать в тексте программы отступы с помощью табуляции,
+<li>снабжать программу комментариями, которые можно помещать в любом месте программы. Компилятор и компоновщик игнорируют комментарии, их содержимое не включается в объектные и исполняемые файлы. Комментарий заключается в символы:
+<pre>
+	/* многострочный комментарий в языке C */ 
+	// однострочный комментарий для C++ .
+</pre>
+<li>команды и имена функций писать маленькими буквами,
+<li>заглавные буквы употреблять для задания имен констант и макроопределений,
+<li>не употреблять ключевые слова (зарезервированные слова) языка C в качестве имен констант и переменных.
+</ul>
+<p>Команды и имена функций ВСЕГДА пишутся маленькими буквами, так что следует писать puts(), но не PUTS() или Puts(). 
+Если эта функция определена вами, то вы не получите сообщения об ошибке, но исходный текст программы 
+не будет похож на программу, написанную на языке Си++. Заглавные буквы в языке Си обычно употребляются
+ для задания имен констант и макроопределений.
+
+<br>Ниже приведён список зарезервированных ключевых слов, который содержит  ключевые слова языка С и дополнительные ключевые слова,  существующие только в С++. 
+<b><i><center>Ключевые слова</center></i></b><p>
+<table border=0 align=center cellspacing=0 cellpadding=5>
+<tr>
+<td>	  auto </td>
+<td>            bool </td>
+<td>            break </td>
+<td>            case </td>
+<td>            catch </td>
+</tr><tr>
+<td>            char </td>
+<td>            class </td>
+<td>            const </td>
+<td>            continue </td>
+<td>	  default </td>
+</tr><tr>
+<td>            delete </td>
+<td>                    do </td>
+<td>                    double </td>
+<td>                    enum </td>
+<td>                    except </td>
+</tr><tr>
+<td>                    explicit </td>
+<td>                    extern </td>
+<td>                    false </td>
+<td>                    finally </td>
+<td>                    float </td>
+</tr><tr>
+<td>                    for </td>
+<td>                    friend </td>
+<td>                    goto </td>
+<td>                    if </td>
+<td>                    inline </td>
+</tr><tr>
+<td>                    int </td>
+<td>                    long </td>
+<td>                    mutable </td>
+<td>                    namespace new </td>
+<td>                    operator </td>
+</tr><tr>
+<td>                    private </td>
+<td>                    protected </td>
+<td>                    public </td>
+<td>                    register </td>
+<td>                    return </td>
+</tr><tr>
+<td>                    short </td>
+<td>                    signed </td>
+<td>                    sizeof </td>
+<td>                    static </td>
+<td>                    stuct </td>
+</tr><tr>
+<td>                    switch </td>
+<td>                    template </td>
+<td>                    this </td>
+<td>                    true </td>
+<td>                    try </td>
+</tr><tr>
+<td>                    typedef</td> 
+<td>                    typeid </td>
+<td>                    typename </td>
+<td>                    union </td>
+<td>                    unsigned </td>
+</tr><tr>
+<td>                    using </td>
+<td>                    virtual </td>
+<td>                    void </td>
+<td>                    volatile </td>
+<td>                    while </td>
+</tr>
+</table>
+<pre>
+<br>	/* Эта программа выводит сообщение на экран,
+<br>	    она содержит инструкцию return(0) для совместимости с компиляторами,
+<br>	    не имеющими автоматического возврата в систему
+<br>	*/
+<br>	#include&lt;stdio.h>
+<br>	main()
+<br>	{
+<br>		// На экран выводится сообщение: Как тебя зовут?
+<br>		puts("Как тебя зовут?");
+<br>		return(0); 		// Возврат в операционную систему
+<br>	}
+</pre>
+<p>Инструкция <b>return(0)</b> указывает компьютеру, что необходимо вернуться назад в исходную среду. При работе с большинством компиляторов включение подобной инструкции в текст программы не является обязательным, вы не получите сообщения об ошибке, даже если она отсутствует. 
+<p>Когда в программе используется функция, такая как puts(), принято говорить, что происходит вызов функции. Выражение <i>«вызов функции»</i> означает, что вы указываете  Си++ выполнить некую функцию.   Круглые скобки после имени функции могут оставаться пустыми или содержать параметры. 
+<p><b>Параметр</b> - это элемент информации, необходимой для того, чтобы функция могла выполнить задачу.  Например, puts() является библиотечной функцией, она содержит инструкции,  указывающие компьютеру вывести строку символов на монитора. Но какую именно строку он должен вывести? Мы должны определить это путем помещения соответствующей информации в круглые скобки.
+<p><b>рuts("Привет");</b> — это инструкция, которая вызывает функцию puts() и передает ей слово «Привет» в качестве параметра.
+
+
+<p><b><i><center>Используйте аккуратные столбцы везде, где можно</center></i></b>
+<p>	Так как форматирование по сути является видом комментирования, то это правило применяйте также и к тексту программы. Два следующих блока функционально одинаковы, но заметьте, насколько легче искать имена переменных во втором блоке, причем не из-за выравнивания комментариев, а потому что имена образовали аккуратный столбец:
+<pre>
+	int x; // Опишите, что делает x.
+	unsigned long int (*pfi)(); // Опишите, что делает pfi.
+	const char *the_variable; // Опишите, что делает the_variable.
+	int z; // Опишите, что делает z.
+	x = 10; // Здесь идет комментарий.
+	the_variable = x; // Здесь второй комментарий.
+	z = x; // A здесь третий.
+
+</pre>
+по сравнению с:
+
+<pre>
+	int			x;		// Опишите, что делает x.
+	unsigned long int ( *pfi )();	// Опишите, что делает pfi.
+	int			z;		// Опишите, что делает z.
+	
+	const char       *the_variable;	// Опишите, что делает
+								//   the_variable.
+	x			= 10; // Здесь идет комментарий.
+	the_variable 	= x;	// Здесь второй комментарий.
+	z			= x;	 // A здесь третий.
+
+</pre>
+
+<br><br>
+
+
+</td>
+</tr>
+</table>
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

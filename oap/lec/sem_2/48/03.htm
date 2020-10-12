@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 48</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Глобальные идентификаторы Borland C++</p>
+<p>Рассмотрим теперь глобальные идентификаторы Borland C++ (макроимена):
+
+<ul>
+<p><li><b>__BCPLUSPLUS__</b> - определен при компиляции программ на языке Borland C++.
+Задает версию системы, например, для системы программирования Borland C++ 3.0 
+имеет значение 0 х 0300, для системы программирования Borland C++ 3.1 имеет 
+значение 0 х 0310.
+<p><li><b>__CDECL__</b> - определен, если используются соглашения, принятые в языке Си.
+<p>Система программирования Borland C++ поддерживает шесть различных <a href="05.htm">моделей памяти</a>:
+<ul><p><li>tiny (минимальная),<li>small (малая),<li>medium (средняя),<li>compact (компактная), 
+<li>large (большая),<li>huge (максимальная).</ul>
+
+<p><li><b>__TINY__, __SMALL__, __COMPACT__, __MEDIUM__, __LARGE__, __HUGE__</b> - позволяют установить 
+модель памяти, заданную пользователем в Borland C++. При конкретной компиляции 
+определено только одно из этих макроимен.
+<p><li><b>__cplusplus</b> - определен при использовании компилятора языка C++ (принимает значение 1);
+<pre>
+	// Если программа не будет откомпилирована средствами языка C++,
+	// вывод значений осуществится с помощью функции printf().
+	#ifndef __cplusplus
+		#include&lt;stdio.h>
+	#else
+		#include&lt;iostream.h>
+	#endif
+	void main(void)
+	{	#ifdef __cplusplus
+			cout << "1 - Hello " << endl;
+		#else
+			printf("2 - Hello \n");
+		#endif
+	}
+</pre>
+<p><li><b>__DLL__</b> - определен, если используются динамически связанные библиотеки;
+<p><li><b>__MSDOS__</b> - дает целочисленную константу для всех случаев компиляции;
+<p><li><b>__OVERLAY__</b> - определен, если включена поддержка оверлейных структур;
+<p><li><b>__PASCAL__</b> - определен, если используются соглашения, принятые в языке Pascal;
+<p><li><b>__TCPLUSPLUS__</b> - принимает те же значения, что и _BCPLUSPLUS;
+<p><li><b>__TEMPLATES__</b> - определен, если поддерживается оператор template;
+<p><li><b>__TURBOC__</b> - дает номер текущей версии Borland C++ в виде шестнадцатеричной 
+константы (для системы программирования Borland C++ 3.1 эта константа будет 
+равна 0х0410);
+<p><li><b>__WINDOWS__</b> - определен, если генерируется код, специфичный для системы Windows.
+</ul>
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

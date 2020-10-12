@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 07</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Установить позицию курсора, определить позицию курсора</p>
+<b><i>gotoxy</i></b> - устанавливает курсор в заданную позицию текстового окна. Если координата по 
+какой-то причине некорректна, то обращение к gotoxy игнорируется. 
+<br>Примером такой 
+ошибки может служить вызов gotoxy(30, 40), когда правой нижней границе окна 
+соответствует (35,25).
+<pre>
+<b>Синтаксис</b>	void gotoxy(int x, int y);
+<b>Прототип</b> в	conio.h
+</pre>
+<p>gotoxy(10, 20);&nbsp;&nbsp;&nbsp;&nbsp;// установить курсор в 10 колонку 20 строки 
+<p><b><i>wherex</i></b> - возвращает координату x текущей позиции курсора (внутри текущего текстового 
+окна), возвращает целое в диапазоне от 1 до 80.
+<p><b><i>wherey</i></b> - возвращает координату y текущей позиции курсора (внутри текущего текстового 
+окна), возвращает целое в диапазоне от 1 до 25.
+<pre>
+<b>Синтаксис</b> 	int wherex(void);
+			int wherey(void);
+<b>Прототип</b> в	conio.h
+</pre>
+cprintf("Позиция курсора (%d, %d)\n", wherex(), wherey());
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

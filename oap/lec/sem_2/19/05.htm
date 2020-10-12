@@ -1,0 +1,116 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 19</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</td></tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Вычисление логических выражений</p>
+<p><i>Логические выражения</i> - выражения с операциями отношения - ничем не отличаются от других и при вычислении дают значение или 0 (False) или 1 (True), то есть, их можно использовать и как обычные числовые значения.
+<p>Составными частями логических выражений могут быть: числа (0 или неравные ему), отношения.
+<p><i>Порядок действий при вычислении значения логического выражения:</i>
+<ol>
+<li>вычисляются значения в скобках;
+<li>вычисляются значения функций;
+<li>выполняется унарные операции (!);
+<li>выполняется операция &&;
+<li>выполняются операции ||;
+<li>выполняются операции отношения.
+</ol>
+<p>Действия выполняются слева направо с учетом их старшинства. Желаемая последовательность операций обеспечивается путем расстановки скобок в соответствующих местах выражения.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;stdio.h>
+	main()
+	{	int a; clrscr();
+		a = (5 == 5);
+		printf("a = (5 == 5)\t - True \ta = %d\n", a);
+	
+		a = (5 != 5);
+		printf("a = (5 != 5)\t - False \ta = %d\n", a);
+
+		a = (5 != 1);
+		printf("a = (5 != 1)\t - True \ta = %d\n", a);
+
+		a = (12 == 12) + (5 != 1);
+		printf("\na = (12 == 12) + (5 != 1)\ta = %d\n", a);
+
+		getch(); return 0;
+	}
+
+                <b><i>Результаты:</i></b>	a = (5 == 5)	- True         a = 1
+						a = (5 != 5)	- False        a = 0
+						a = (5 != 1)	- True         a = 1
+
+						a = (12 == 12) + (5 != 1)       a = 2
+</pre>
+<p>Как и арифметические операции, операции отношения имеют разные уровни приоритета, которые определяют порядок их выполнения в выражениях. Аналогичным образом можно использовать и скобки для изменения этого порядка.
+
+<br>Все операции отношения имеют более низкий <a href="../../sem_1/05/08.htm" target="window-1">приоритет</a>, чем арифметические операции. Среди самих операций отношения имеется два уровня приоритетности:
+
+<blockquote><b>
+&nbsp;&nbsp;&nbsp;1-й&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<&nbsp;&nbsp;&nbsp;<=&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;>=
+<br>&nbsp;&nbsp;&nbsp;2-й&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!=&nbsp;&nbsp;&nbsp;==
+</b></blockquote>
+
+<P>Как операции сравнения, так и логические операции имеют низший приоритет по сравнению с арифметическими. То есть, выражение 10&gt;1+12 интерпретируется как 10&gt;(1+12). Результат, конечно, равен ЛОЖЬ.
+<P>В одном выражении можно использовать несколько операций:
+<PRE>10&gt;5 && !(10&lt;9) || 3&lt;4</PRE>
+<P>В этом случае результатом будет ИСТИНА.
+
+<p>Следующая программа иллюстрирует приоритет логических выражений.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;stdio.h>
+	main()
+	{	int x, a = 5, b = 6, c = 5, d = 1; clrscr();
+
+		// Операция && имеет более высокий приоритет, поэтому запись
+		// a < b || a < c && c < d эквивалентна a < b || (a < c && c < d)
+		// и будет всегда истинно при a < b
+		x = a < b || a < c && c < d;
+		printf("x = %d < %d || %d < %d && %d < %d\t - True \tx = %d\n", a, b, a, c, c, d, x);
+
+		// скобки меняют приоритет операций
+		x = (a < b || a < c) && c < d;
+		printf("x = (%d < %d || %d < %d) && %d < %d\t - False \tx = %d\n", a, b, a, c, c, d, x);
+
+		getch(); return 0;
+	}
+                <b><i>Результаты:</i></b>		x = 5 < 6 || 5 < 5 && 5 < 1      - True         x = 1
+							x = (5 < 6 || 5 < 5) && 5 < 1    - False        x = 0
+
+</pre>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</td></tr>
+</table>
+</body>
+</html>

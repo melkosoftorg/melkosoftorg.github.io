@@ -1,0 +1,144 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОАП | Лекция № 14</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="10.htm" class=a>&nbsp 8 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td>&nbsp&nbsp<a href="#end" class=p>Конец страницы</a>&nbsp&nbsp</td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Управление вызовом функций</p>
+Рассмотрим, как можно в программе использовать описанные и определенные функции.
+<p>Как обычно, вначале необходимо подключить библиотечные файлы. 
+<pre>
+		#include&lt;conio.h>
+		#include&lt;stdio.h>
+</pre>
+<p>В функции put_ratio() в качестве флага используется константа INFINITY.
+<p>Следующая строка описывает константу с плавающей точкой, которой присваивается имя 
+INFINITY (в соответствии с принятым в C соглашением имена констант состоят из 
+заглавных букв). Эта константа имеет очень большое положительное значение - 
+наибольшее из допустимых значений для типа float, и используется как флаг 
+возникновения ситуации деления на ноль (divide_by_zero).
+<br>Несмотря на то, что константа описана здесь, она "видима" внутри всех функций (включая 
+главную функцию).
+<pre>		const float INFINITY = 3.4E+38;
+</pre>
+Константы, типы данных и переменные, описанные вне функций (включая main), 
+считаются глобальными ниже точки описания. Это позволяет использовать их внутри 
+функций в пределах всей программы вследствие того, что они уже описаны и известны во 
+всех функциях ниже точки описания. Если вы переместите описание INFINITY в конец 
+программы, то компилятор выдаст сообщение о том, что им обнаружены две ошибки: 
+одна из них - в get_ratio, a другая - в put_ratio. 
+<br>Причина ошибок - использование неописанного идентификатора.
+<p>Далее следуют описания (прототипы) функций
+<pre>
+		void get_parms(float *p1, float *p2);
+		float get_ratio(float divident, float divisor);
+		void put_ratio (float quotient);
+</pre>
+И, наконец, функция main (главная функция), которая является основным телом 
+программы. 
+<p>Каждая программа на C обязательно содержит функцию с именем main. Когда 
+программа начинает выполняться, вызывается функция main и дальнейшее выполнение 
+программы продолжается под ее управлением. 
+
+<p>Функция main может быть расположена в любом месте программы, наиболее часто - это 
+первая функция программы. Это обусловлено тем, что расположение функции main в 
+начале программы облегчает ее чтение, описание прототипов функций и различных 
+глобальных переменных. Это, в свою очередь, позволяет облегчить поиск и 
+документирование функций во всей программе. 
+<p>Функция main определяет начало 
+программы и обеспечивает вызов других функций. 
+<p>Функции выполняются в порядке 
+вызова независимо от их местоположения в тексте программы.
+<pre>
+	main()
+	{ 	// начало main
+		float a,b,ratio;
+		char ch;
+		clrscr();
+		do 
+		{
+			get_parms(&a, &b); // ввод параметров
+			ratio = get_ratio(a, b); // вычисление частного
+			put_ratio(ratio); // печать выходного результата
+			printf("Нажми 'q' для выхода или любую клавишу для продолжения \n\n");
+		} while (ch = getch() != 'q');
+		return 0;
+	} // конец main
+</pre>
+Функция main() вызывает функцию get_ratio() и передает ей значения переменных a и b.
+<br>a, b - фактические параметры.
+<p>После main() следует фактическое определение трех функций, прототипы которых были 
+описаны выше: get_parms, get_ratio и put_ratio.
+<p>Если определение функций разместить не после, а до функции  main(), то можно обойтись без описаний (прототипов) функций.
+<p>Можно поступить иначе: сохранить определения функций в отдельных файлах, например 
+get_parms.h, get_ratio.h и put_ratio.h. 
+<br>В глобальной области добавить библиотеку этих своих функций
+<pre>
+		#include"get_parms.h"
+		#include"get_ratio.h"
+		#include"put_ratio.h"
+</pre>
+Далее, как показано выше.
+
+<p>
+
+</td>
+</tr>
+
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="10.htm" class=a>&nbsp 8 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td>&nbsp&nbsp<a href="#start" class=p>Начало страницы</a>&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<FONT color="#FFFF66" size=1><i>Copyright</i> &copy; <a class=p href="http://prep.scc/~blp">
+Болгак Л. П.</a> <i>2003</i></font>
+</td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

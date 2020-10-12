@@ -1,0 +1,109 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 32</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Сортировка строк в алфавитном порядке</p>
+Рассмотрим программу сортировки строк в алфавитном порядке.
+Последовательность действий будет состоять из считывания массива строк, их сортировки и вывода.
+Для этого созданы функции:
+<ul>
+<li type="disc"><i>get_lin()</i> - подсчет количества введенных строк, возвращение этого количества в вызывающую программу;
+запрет ввода количества строк, большего допустимого; распределение памяти для каждой строки;
+запоминание местонахождения каждой строки путем помещения указателя на нее в массив;
+возвращение в вызывающую программу после ввода пустой строки.
+<li type="disc"><i>sort()</i> - пройти весь массив от начала до конца, сравнивая все пары строк и меняя их местами в случае необходимости.
+Массив из <i>n</i> элементов придется перебрать <i>n - 1</i> раз. Это довольно неэкономичный и грубый метод сортировки, но довольно прост для понимания и реализации.
+<li type="disc"><i>print_str()</i> - вывод отсортированных строк текста на экран.
+</ul>
+<pre>
+	#include&lt;stdio.h>
+	#include&lt;string.h>
+	#include&lt;conio.h>
+	#include&lt;stdlib.h>
+	#include&lt;alloc.h>
+	// функция - сортировка строк с использованием указателей
+	void sort(char *strings[], int num)
+	{
+		char *temp;
+		int top, seek;
+		for (top = 0; top < num - 1; top++)
+			for(seek = top + 1; seek < num; seek++)
+				if (strcmp(strings[top], strings[seek]) > 0)
+				{	temp = strings[top];
+					strings[top] = strings[seek];
+					strings[seek] = temp;
+				}
+	}
+	// Функция - вывод строк на экран
+	void print_str(char *p[ ], int n)
+	{	int i;
+		for(i = 0; i < n; i++)
+			printf("%s\n", p[i]);
+	}
+	#define SIZE	81			// предельная длина строки, включая \0
+	#define LIM	20			// максимальное количество считываемых строк
+	// Функция - ввод строк с клавиатуры до ввода пустой строки
+	int get_lin(char *lines[])
+	{	int n = 0;
+		char buf[SIZE];	  		// временное хранилище для строки
+		while((n < LIM) && (gets(buf) != 0) && (buf[0] != '\0'))
+		{	if((lines[n] = (char *) malloc(strlen(buf) + 1)) == NULL)
+				return -1;
+			strcpy(lines[n++], buf);
+		} return n;
+	}
+	void main()
+	{	clrscr();
+		char *str[LIM];		// массив переменных типа указатель
+		printf("Введите до %d строк, и я их отсортирую.\n", LIM);
+		printf("Для прекращения ввода - ENTER в начале строки.\n\n");
+		int ct = get_lin(str);		// количество введенных строк
+		if(ct < 0)
+		{	puts("Error");
+			exit(-1);
+		}
+		puts("Отсортированный список строк: \n");
+		sort(str, ct); print_str(str, ct);
+		getch();
+	}
+</pre>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

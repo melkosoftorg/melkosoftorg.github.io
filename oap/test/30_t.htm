@@ -1,0 +1,110 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Вопросы теста 30 </title>
+<link rel=stylesheet type=text/css href=lec.css>
+</head>
+<body>
+<table cellpadding=0 cellspacing=0>
+<tr id=top><td colspan=5>
+<center>
+<a id=top href=../plan_2.htm>Тематический план &nbsp &nbsp </a>
+</center>
+</td></tr>
+<tr>
+<td class=bok></td>
+<td class=bok1></td>
+<td>
+<p id=head>Вопросы тестирования по теме:
+<br>Функции работы со строками
+</p>
+<p id=head1>Что будет выведено на экран после исполнения фрагмента программы</p>
+<ol>
+<li><pre>
+char atl[50] = "Люди нас ждут", str[50] = "Горы не ждут";
+strncpy(str, atl, 5);
+cout << str;
+</pre>
+<li><pre>
+char str[20] = "Люди нас ждут", *ptr;
+ptr = (char *) calloc(20, sizeof(char));
+strxfrm(ptr, str, 5);
+cout << ptr;
+</pre>
+<li><pre>
+char atl[20] = "Люди нас ждут", s[20] = "Горы не ждут", *ptr;
+ptr = strpbrk(atl, s);
+if (ptr)
+    cout << *ptr;
+</pre>
+<li><pre>
+char str[20] = "Люди нас ждут", *ptr;
+ptr = strtok(str, "с");
+if (ptr)
+	cout << ptr;
+</pre>
+<li><pre>
+char str[20] = "Горы не ждут", *ptr;
+ptr = strcat(strtok(str, " "), " нас ждут");
+if (ptr)
+    cout << ptr;
+</pre>
+<li><pre>
+char des[20] = "Люди нас ждут", str[] = "Горы не ждут";
+strncat(strtok(des, "н"), str, 4);
+cout << des;
+</pre>
+<li><pre>
+char str[20] = "тудж сан идюЛ";
+cout << strrev(str);
+</pre>
+<li><pre>
+char ch = 'д', str[20] = "Люди нас ждут";
+cout << strchr(str, ch) - str;
+</pre>
+<li><pre>
+char ch = 'д', str[20] = "Люди нас ждут", *ptr;
+ptr = strrchr(str, ch);
+if (ptr != 0)
+    cout << ptr - str;
+</pre>
+<li><pre>
+char str[20] = "Люди нас ждут", c[10] = "нет";
+cout << strcspn(str, c);
+</pre>
+<li><pre>
+char str[20] = "Люди нас ждут", strl[20] = "Люди насторожены";
+cout << strspn(strl, str);
+</pre>
+<li><pre>
+char str[20] = "Люди нас ждут";
+cout << strlen(str);
+</pre>
+<li><pre>
+char des[15], str[15] = "оГырн  еджту";
+swab(str, des, strlen(str));
+cout << des << endl << str;
+</pre>
+<li><pre>
+char str[] = "Горы не ждут";
+strnset(str, 'р', 4);
+cout << str;
+</pre>
+<li><pre>
+char str[] = "Горы не ждут";
+strset(str, 'р');
+cout << str;
+</pre>
+</ol>
+<p>&nbsp</p>
+</td>
+<td class=bok1></td>
+<td class=bok></td>
+</tr>
+<tr id=top><td colspan=5>
+<center>
+<a id=top href=../plan_1.htm>Тематический план &nbsp &nbsp </a>
+</center>
+</td></tr>
+</body>
+</html>

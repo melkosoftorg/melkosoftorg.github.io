@@ -1,0 +1,87 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 21</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual><p align=center class=dbi><br>Посчитаем количество различных символов</p>
+<p>Используя оператор множественного выбора switch ... case ... default ... break, 
+подсчитать, сколько раз каждый из символов "Вет втр" встретился в фразе "Веет ветер".
+<br>Если введенного символа нет в перечне, вывести * и количество таких символов.
+<p>Счетчик количества символов организуем в массиве mas[10], где в качестве 
+индекса будет выступать переменная p - номер присваиваемый определенному символу.
+<br>Значение каждого символа будем хранить в массиве str[p].
+<p><table align=center border=0 cellspacing=0 cellpadding=10>
+<tr><td><pre><b>
+#include&lt;conio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;iostream.h&gt;
+#include&lt;iomanip.h&gt;
+main()
+{  char ch, *str; int i, p; 
+   int mas[10] = {0}; // инициализация массива нулями
+   clrscr();
+   while((ch = getchar()) != '\n')
+      {   switch(ch)
+           {  case 'В': p = 0; break;
+              case 'в': p = 1; break;
+              case ' ': p = 2; break; 
+              case 'е': p = 3; break;
+              case 'т': p = 4; break;  
+              case 'р': p = 5; break;
+              default : p = 6; ch = '*'; break; 
+           }  ++mas[p]; str[p] = ch;
+      }
+   for(i = 0; i <= 6; i++)   
+         cout << setw(1) << str[i] << setw(4) << mas[i] << endl;
+   getch(); return 0;
+}
+</b></pre>
+</td><td><pre>
+<i>Результаты:</i>
+
+ПаD G  Вепрет ветер
+В   1
+в   1
+     4
+е   4
+т   2
+р   2
+*   5
+</pre>
+</td></tr>
+</table>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

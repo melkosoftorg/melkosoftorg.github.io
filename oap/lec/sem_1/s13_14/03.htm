@@ -1,0 +1,147 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | СР 13_14</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Режим открытия файла и информация о файле</p>
+<b><center>Режим открытия файла</center></b>
+<p><b><i>setmode</i></b> - устанавливает режим открытия файла (либо бинарный, либо текстовый), 
+соответствующий параметру handle.
+<br><b>Синтаксис</b> int setmode(int handle, unsigned mode);
+<br><b>Прототип</b> в io.h
+<p>Аргумент mode принимает при этом значение либо O_BINARY, либо O_TEXT. 
+<br>При успешном завершении функция setmode возвращает значение 0; в случае ошибки - значение -1, кроме того, глобальная переменная errno 
+получает значение: EINVAL Неверный аргумент.
+<P><b><center>Информация о файле</center></b>
+<p><b><i>stat</i></b> - получает информацию об открытом файле
+<br><b><i>fstat</i></b> - получает информацию об открытом файле, соответствующем номеру handle.
+<br><b>Синтаксис</b> int stat(char *pathname, struct stat *buff);
+<br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp int fstat (char *handle, struct stat *buff);
+<br><b>Прототип</b> в sys\stat.h
+<p>Функции stat и fstat записывают информацию об открытом файле (или директории) в 
+структуру stat. 
+<br>Функция stat получает информацию об открытом файле или директории с 
+именем *pathname. 
+<br>В обоих случаях аргумент buff адресует структуру stat (определенную 
+в файле sys\stat.h). <p>Структура содержит следующие поля:<p>
+<table align=center width=98% border=0 cellpadding=2>
+<tr><td>st_mode</td><td>битовая маска, дающая информацию о режиме открытия файла.</td></tr>
+<tr><td>st_dev</td><td>идентификатор дисковода, на котором был открыт файл, или номер handle, 
+если файл находится на устройстве (например, консоль, принтер)</td></tr>
+<tr><td>st_rdev</td><td>так же, как и st_dev</td></tr>
+<tr><td>st_nlink</td><td>присваивается целая константа 1</td></tr>
+<tr><td>st_size</td><td>размер открытого файла в байтах</td></tr>
+<tr><td>st_atime</td><td> ближайшее время открытия файла, во время которого он был модифицирован</td></tr>
+<tr><td>st_mtime</td><td>также, как и st_atime</td></tr>
+<tr><td>st_ctime</td><td>также, как и st_atime</td></tr>
+</table>
+<p>Структура stat содержит на три поля больше, чем перечислено выше, они содержат 
+данные, которые под управлением MS-DOS не имеют значения. 
+<p><b><i>Битовая маска, дающая информацию о режиме открытого файла</i></b>, содержит следующие биты:
+<ul>
+<li>Один из следующих битов должен быть выставлен:
+<ul>
+<li>S_IFCHR установлен, если параметр handle указывает на устройство (fstat);
+<li>S_IFREG установлен, если обычный файл определяется параметром handle (fstat),или параметром pathname (stat).
+<li>S_IFDIR установлен, если параметр pathname определяет директорию (stat);
+</ul>
+<li>Один или оба следующих бита должны быть выставлены:
+<ul>
+<li>S_IWRITE установлен, если пользователь имеет разрешение на запись;
+<li>S_IREAD установлен, если пользователь имеет разрешение на чтение.
+</ul>
+</ul>
+<p>Для функции stat битовая маска содержит также биты пользовательского выполнения; они 
+устанавливаются в соответствии с расширением имени открытого файла. 
+<br>Битовая маска также имеет биты чтения/записи, они устанавливаются в соответствии с режимом доступа 
+к файлу. 
+<p>Если информация об открытом файле была успешно получена, обе функции возвращают значение 0. 
+<br>В случае ошибки (невозможно получить информацию), обе функции возвращают значение -1 и устанавливают переменную errno. 
+<br>При сбое функция stat присваивает переменной errno значение: ENOENT - Файл или маршрут не найдены.
+<br>Функция fstat в случае ошибки присваивает переменной errno значение: EBADF - 
+Неверный номер файла (handle).
+<pre>
+	#include&lt;sys\stat.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;time.h&gt;
+	#define FILENAME "TEST.$$$"
+	int main(void)
+	{
+		struct stat statbuf; FILE *stream;
+		// открыть файл для изменения
+		if ((stream = fopen(FILENAME, "w+")) == NULL)
+		{ 
+			fprintf(stderr, "Не могу открыть файл\n"); 
+			return(1); 
+		}
+		// получить информацию о файле
+		stat(FILENAME, &statbuf); fclose(stream);
+		// вывести полученную информацию
+		if (statbuf.st_mode & S_IFCHR)   
+			printf("Это устройство\n");
+		if (statbuf.st_mode & S_IFREG)   
+			printf("Это файл\n");
+		if (statbuf.st_mode & S_IREAD)  
+			printf("Разрешение на чтение\n");
+		if (statbuf.st_mode & S_IWRITE) 
+			printf("Разрешение на запись\n");
+		printf("Метка диска: %c\n", 'A'+statbuf.st_dev);
+		printf("Размер в байтах: %ld\n", statbuf.st_size);
+		printf("Время последнего открытия: %s\n", 
+			ctime(&statbuf.st_ctime));
+		return 0;
+	}
+</pre>
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

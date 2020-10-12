@@ -1,0 +1,132 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 16</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Управление цветом</p>
+Графический экран состоит из массива точек растра, каждая точка растра соответствует 
+одной (цветной) точке на экране. Величина (значение) такой точки растра 
+непосредственно не задает цвет; она является индексом в таблице цветов, называемой 
+палитрой. <br>Элемент палитры, соответствующий заданному значению точки растра, 
+содержит точную информацию о цвете данной точки. <p>Например, EGA аппаратура может 
+производить 64 различных цвета, но только 16 из них могут отображаться одновременно. 
+Размер палитры для EGA = 16. 
+<p><b><i>Размер палитры size</i></b> определяет диапазон значений точек растра от 0 до (size - 1).
+<p>Цвет фона всегда соответствует значению 0 точки растра. При очистке некоторой области 
+в цвет фона, точки растра этой области просто устанавливаются в 0. Цвет вычерчивания 
+соответствует значению, в которое устанавливаются точки растра при вычерчивании 
+линии.
+<p><b><i>getbkcolor</i></b> возвращает текущий цвет фона.
+<br><b><i>setbkcolor</i></b> устанавливает, используя палитру, текущий цвет фона, заданный в color, 
+ничего не возвращает.
+<pre>
+<b>Синтаксис</b>	void far getbkcolor(void);
+		void far setbkcolor(int color);
+</pre>
+Например, чтобы установить голубой цвет фона, надо написать setcolor (BLUE) или 
+setcolor (1). На системах с CGA и EGA setbkcolor изменяет цвет фона изменением первого 
+элемента палитры.
+<p><b><i>Аргумент color</i></b> может быть идентификатором или числом в соответствии с приведенной 
+ниже таблицей.
+<p align=center><img src="color.gif" alt="Значения цветов" ismap>
+<p><b><i>getcolor</i></b> возвращает текущий цвет рисования.
+<br><b><i>setcolor</i></b> устанавливает текущий цвет вычерчивания в color, который может быть в 
+диапазоне от 0 до getmaxcolor().
+<pre>
+<b>Синтаксис</b>	int far getcolor(void);
+		void far setcolor(int color);
+</pre>
+Цвет рисования является величиной, присваиваемой точкам растра при вычерчивании 
+линий и других. <br>Например, в режиме CGAC0 в палитру входит четыре цвета: цвет фона, 
+светло зеленый, светло красный и желтый. В этом режиме, если getcolor() возвращает 1, 
+текущим цветом рисования является светло зеленый, соответственно, setcolor(3) 
+установит желтый цвет рисования.
+<p><b><i>getmaxcolor</i></b> возвращает максимально допустимую величину значения цвета точки 
+растра (размер палитры) для текущего графического драйвера и режима.
+<p><b>Синтаксис</b> int far getmaxcolor(void);
+<p><b><i>getpalette</i></b> получает информацию о текущей палитре, заносит в структуру palettetype, на 
+которую указывает palette, информацию о текущем размере палитры и цветов.
+<br><b><i>setpalette</i></b> изменяет один цвет в палитре
+<br><b><i>setallpalette</i></b> изменяет всю палитру красок, устанавливает значения текущей палитры, 
+получая их из структуры palettetype, на которую указывает palette.
+<pre>
+<b>Синтаксис</b>	void far getpalette(struct palettetype far *palette);
+		void far setpalette(int index, int actual_color);
+		void far setallpalette(struct palettetype far *palette);
+</pre>
+Можно частично (или полностью) изменять цвета палитры адаптеров EGA/VGA с 
+помощью setpallete (или setallpalette). <br>Для адаптера CGA можно изменять только первый 
+элемент палитры (index = 0, цвет фона) с помощью setpalette. setpalette изменяет элемент 
+палитры index на acvtual_color.
+<p>Например, setpalette(0, 5) изменяет первый цвет в текущей палитре (цвет фона) на цвет 
+номер 5. Если size - число элементов текущей палитры, то index может принимать 
+значения от 0 до (size-1).
+<p>Структура palettetype и константа MAXCOLORS описаны в GRAPHICS.H.
+Функция setallpalette не изменяет цвета палитры, если соответствующий элемент массива 
+colors равен -1.
+<p><i>actual_color</i>, параметр функции setpalette, может быть задан символическими константами, 
+описанными в GRAPHICS.H.
+<p>Реальные цвета зависят от текущего графического драйвера и режима. Изменения, 
+производимые над палитрой, немедленно отображаются на экране. Каждый раз, когда 
+производится изменение цвета палитры, все окрашенные элементы экрана приобретают 
+новую окраску. <br>Если в setpalette передан некорректный параметр, graphresult вернет -11 и 
+текущая палитра останется неизменной.
+<P>&nbsp</p>
+
+</td>
+</tr>
+
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

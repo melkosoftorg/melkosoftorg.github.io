@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 38</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Указатели на структуры как компоненты структур</p>
+<p>Компонентами структур могут быть данные любых типов, за исключением структур того же типа, что и определяемый структурный тип.
+<p>Например, определим структуру
+<pre>
+		struct mix
+		{	int n;
+			double *d;
+		};
+</pre>
+<p>и введем ее в качестве элемента в следующую структуру типа struct hole
+<pre>
+		struct hole
+		{	struct mix exit;
+			float b;
+		};
+</pre>
+Однако элементом структуры может быть указатель на структуру того же типа, что и определяемый структурный тип.<br>Рассмотрим 
+на примере структурного типа химические элементы, где next - указатель на структуру того же типа, что позволит при необходимости пройтись по всем элементам таблицы. 
+<pre>
+		struct element
+		{	int number;
+			double mass;
+			char name[16];
+			struct element *next;
+		};
+
+</pre>
+<p>Указатели на структуры удобно использовать, когда надо организовать взаимные перекрестные связи между структурами разных типов. 
+Например:
+<pre>
+		struct part
+		{	double modul;
+			struct cell *element_cell;
+			struct part *element_part;
+		};
+
+		struct cell
+		{	long summa;
+			struct cell *one;
+			struct part *two;
+		};
+</pre>
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

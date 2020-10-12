@@ -1,0 +1,124 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 23</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual><p align=center class=dbi><br>Вложенные ветвления в цикле do...while</p>
+<p><b>Организовать ввод положительных чисел с клавиатуры в окно ввода, снабженное тенью, размером (5, 5, 73, 22) в две колонки и 5 строк.</b>
+<br>Окончанием ввода считать ввод с клавиатуры отрицательного числа или заполнение окна ввода.
+<br>Ремарки, поясняющие работу программы, расположены в программе.
+<pre>
+	#include&lt;conio.h&gt;
+	#include&lt;iostream.h&gt;
+	void main()
+	{
+		int x, i = 6, j = 20;
+		// вычистить экран 11 цветом
+		window(1, 1, 80, 25); textbackground(11); clrscr();
+
+		// Построить окно с тенью шириной 68
+		window(7, 6, 75, 23); textbackground(0); clrscr();
+		window(5, 5, 73, 22); textcolor(7); textbackground(1); clrscr();
+
+		// до тех пор, пока позиция вывода в пределах окна
+		// И введено положительное число продолжать цикл
+		do  
+		{
+			gotoxy(j, i++); cout << "x = "; cin >> x;
+			if(i % 11 == 0)		// начать новую колонку
+			{
+				j += 25; i = 6;
+			}
+		} while(x >= 0 && j < 70);
+		getch();
+	}
+</pre>
+<p><b>Вычислить шесть значений функции <img src="i12_04.gif" align=middle> при заданных значениях аргумента x.</b>
+<br>Чтобы повторить вычисления шесть раз, воспользуемся циклом do...while. Введем переменную i - счетчик числа повторений, которая будет управлять циклом.
+<br>До цикла зададим начальное значение управляющей переменной цикла: i&nbsp;=&nbsp;1.
+<br>В теле цикла изменим значение управляющей переменной цикла: i&nbsp;=&nbsp;i&nbsp;+&nbsp;1.
+<br>Проверим условие окончания или повторения цикла: i&nbsp;<&nbsp;7. Как только получим i&nbsp;=&nbsp;7, вычисления прекратить.
+<p>Среди значений аргументов могут оказаться недопустимые для данной функции значения x&nbsp;=&nbsp;0 или x&nbsp;=&nbsp;1, при которых знаменатель обращается в 0, что приведет к ошибке - деление на ноль. 
+<br>Чтобы избежать этого, неодходимо каждое введенное значение проверить, не является ли оно 0 или 1 и только после этого либо вычислять, либо выводить сообщение о недопустимом значении аргумента.
+В программе командой continue; организован пропуск опасной итерации.
+<br>Итак, мы имеем цикл с постусловием do...while с вложенной в него полной развилкой.
+<p><table width="99%" align="center" border=0>
+<tr valign="top"><td width="37%" align="left">
+<img src="i12_01.gif" alt="Цикл-до с вложенным полным ветвлением" ismap>
+</td><td width="41%">
+<pre>
+#include&lt;conio.h>
+#include&lt;iostream.h>
+main()
+{
+	clrscr();
+	float x, y;
+	int i = 1;
+	do
+	{
+		cout << "x = "; cin >> x;
+		if(x == 0 || x == 1)
+		{
+			cout << '\t' << i << ". x = " << x << endl;
+			continue;
+		}
+		y = 1 / x + 1 / (x - 1);
+		cout << '\t' << i << ". x = " << x << "\ty = " << y << endl;
+	} while(++i < 7);
+	getch();
+}
+</pre>
+</td><td>
+<pre>
+<i>Результаты:</i>
+
+x = 3
+	1. x = 3        y = 0.833333
+x = 0
+	2. x = 0
+x = 5
+	3. x = 5        y = 0.45
+x = 1
+	4. x = 1
+x = 2.87
+	5. x = 2.87     y = 0.883191
+x = 4
+	6. x = 4        y = 0.583333
+</pre>
+</td></tr>
+</table>
+<p>Тело цикла - это команды: ввести значение аргумента x, проверить значение аргумента на допустимость и выполнить соответствующую ветвь команды ветвления, нарастить значение управляющей переменной цикла.
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

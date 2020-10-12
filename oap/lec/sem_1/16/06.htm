@@ -1,0 +1,164 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 16</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Круги и дуги</p>
+<b><i>arc</i></b> рисует круговую дугу с центром в (x, y) и радиусом r от st до end. Если st = 0, а end = 
+360, то вычерчивается полный круг.
+<p><b><i>circle</i></b> вычерчивает круг с центром в (x, y) и радиусом r.
+<p><b><i>ellipse</i></b> рисует эллиптические дуги с центром в (x, y) и горизонтальной и вертикальной 
+осями, заданными в xr и yr соответственно, от st до end. Если st = 0, а end = 360 - полный 
+эллипс.
+<p><b><i>getarccoords</i></b> выдает координаты последнего обращения к arc.
+<p><b><i>getaspectratio</i></b>- возвращает коэффициент сжатия текущего графического режима.
+<p><b><i>pieslice</i></b> рисует и закрашивает сектор круга с центром в (x, y) и радиусом r от st до end. 
+Формирование сектора осуществляется текущим цветом, после чего он заполняется с 
+использованием текущего шаблона и цвета заполнения.
+<pre>
+<b>Синтаксис</b>        void far arc(int x, int y, int st, int end, int r);
+                void far circle(int x, int y, int r);
+                void far ellipse(int x, int y, int st, int end, int xr, int yr);
+                void far getarccoords(struct arccoordstype far *arccoords);
+                void far getaspectratio(int far *xasp, int far *yasp);
+                void far pieslice (int x, int y, int st, int end, int r);
+</pre>
+<p>Углы для arc, ellipse и pieslice формируются против часовой стрелки.
+<p>Фрагмет программы иллюстрирует построение на белом фоне синим цветом кругов, эллипсов, дуг, секторов круга.
+<p><center><table width="95%">
+<tr><td width="15%" align="right"><img src="circle.gif" alt="Круги, эллипсы, дуги" ismap>
+</td><td valign="top" width="30%">
+<pre>
+        setbkcolor(15); setcolor(1);
+        arc(50, 50, 30, 300, 7);
+        circle(50, 68, 7);
+        ellipse(50, 85, 50, 360, 15, 5);
+        setfillstyle(7, 9);
+        pieslice(50, 105, 40, 340, 10);
+</pre>
+</td><td valign="top">
+<pre>
+// задать цвет фона и цвет рисования
+// нарисовать дугу окружности
+// нарисовать круг
+// нарисовать дугу эллипса
+// задать цвет и стиль заполнения
+// нарисовать и закрасить сектор круга
+</pre>
+</td></tr>
+</table></center>
+<p><b><i>sector</i></b> - рисует и закрашивает эллиптические сектора текущим цветом и закрашивает заданным цветом и шаблоном.
+<p><b><i>fillellipse</i></b> - рисует и закрашивает эллипс текущим цветом и закрашивает его заданным цветом и шаблоном.
+<pre>
+<b>Синтаксис</b>
+                        void far sector(int x, int y, int st, int end, int xr, int yr);
+                        void far fillellipse(int x, int y, int xr, int yr);
+</pre>
+<p>Так можно на белом фоне синим цветом нарисовать эллиптический сектор и эллипс и закрасить их красными расходящимися линиями. 
+<p><center><table width="80%">
+<tr><td><img src="sector.gif" alt="Закрашенные эллипсы и сектора" ismap>
+</td><td valign="top">
+<pre>
+        setbkcolor(15); setcolor(1); setfillstyle(9, 4);
+        sector(50, 130, 40, 290, 20, 9);
+        fillellipse(50, 160, 20, 9);
+</pre>
+</td></tr>
+</table></center>
+<p>Изображение клоуна - это сплошные эллипсы.
+<p><center><table width="80%" border=0>
+<tr valign="top"><td><img src="kloun.gif" alt="Клоун" ismap>
+</td><td>
+<pre>
+#include&lt;graphics.h>
+#include&lt;conio.h>
+#include&lt;stdio.h>
+#include&lt;stdlib.h>
+#include"..\\h\\init.h"
+main()
+{
+	init();
+	setbkcolor(0); setcolor(15);
+	// голова
+	setfillstyle(1, 14); fillellipse(300, 260, 160, 160);
+	// глаза
+	setfillstyle(1, 3);
+	fillellipse(240, 200, 40, 60); fillellipse(360, 200, 40, 60);
+	setfillstyle(1, 0);
+	fillellipse(250, 200, 20, 30); fillellipse(350, 200, 20, 30);
+	// нос
+	setfillstyle(1, 6); fillellipse(300, 280, 50, 30);
+	// рот
+	setfillstyle(1, 4); fillellipse(300, 360, 80, 30);
+	setfillstyle(1, 15); fillellipse(300, 360, 80, 5);
+	getch(); closegraph();
+}
+</pre>
+</td></tr>
+</table></center>
+<p><b><i>Каждому графическому драйверу и графическому режиму поставлен в соответствие 
+коэффициент сжатия.</i></b> <br>Функции arc, cirсle и pieslice используют коэффициент сжатия в 
+качестве масштабного коэффициента для получения на экране нормальных окружностей. 
+<p>Коэффициент может быть вычислен обращением к функции <b><i>getaspectratio</i></b>, помещающей 
+результат в *xasp и *yasp. <br>Коэффициент сжатия по <b>y</b> (yasp) нормализован к 10.000; 
+коэффициент сжатия по <b>x</b> (xasp) на всех графических адаптерах, за исключением VGA, 
+меньше чем *yasp, так как высота точек растра больше их ширины. <br>На адаптере VGA, 
+имеющем "квадратные" точки растра, *xasp = *yasp. 
+<p>В общем случае связь между *xasp и *yasp может быть установлена: 
+<pre>                   *xasp = 10.000, *yasp <= 10.000</pre>
+<p><b><i>getarccoords</i></b> заносит в структуру asccordstype, описанную в GRAPHICS.H, на которую 
+указывает arccoords, информацию о последнем вызове arc. <br>Члены структуры 
+используются для определения: центральной точки (х, y), начальной позиции (xstart, 
+ystart), конечной позиции (xend, yend) угла.
+<br>Эта информация может быть полезной при необходимости провести линию от конца угла. 
+<p>В случае ошибки при заполнении "куска пирога" graphresult вернет величину -6.
+<p>&nbsp</p>
+</td></tr>
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

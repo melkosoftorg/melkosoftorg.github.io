@@ -1,0 +1,94 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 14</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=a>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Копирование содержимого одного файла в другой</p>
+В программе показаны возможности копирования содержимого одного файла в другой или на принтер.
+<pre>
+	#include&lt;stdio.h&gt;
+	#include&lt;string.h&gt;
+	#include&lt;stdlib.h&gt;
+	#include&lt;dir.h&gt;
+	#include&lt;conio.h&gt;
+	void main()
+	{
+		FILE *fp1, *fp2, *ptr;
+		char *name1 = "mim.txt";
+		char *name2 = "out_file.txt";
+		int num; clrscr();
+		if ((fp1 = fopen(name1, "r")) == NULL)	// Открыть файл для чтения
+		{ 
+			puts("Невозможно открыть файл"); exit(1); 
+		}
+		printf("%s\n\n", searchpath(name1));	// Маршрут доступа к файлу
+		/* Открыть файл для вывода на принтер - принтер должен быть 
+		    подключен
+		    if ((ptr = fopen("PRN", "w")) == NULL)
+		    { 
+			puts("Принтер не готов к работе"); fclose(fp1); 
+			exit(1); 
+		    }
+		*/
+		if ((fp2 = fopen(name2, "w")) == NULL) // Открыть файл для записи
+		{ 
+			puts("Невозможно открыть файл"); exit(1); 
+		}
+		printf("%s\n\n", searchpath(name2)); // Маршрут доступа к файлу
+		while((num = fgetc(fp1)) != EOF)
+		{
+			fputc(num, fp2);	// Запись в файл
+			printf("%c",num);	// Вывод на экран
+			/* fprintf(ptr,"%c",num);// Вывод на принтер */
+		}
+		fclose(fp1); fclose(fp2); getch();
+	}
+</pre>
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=a>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

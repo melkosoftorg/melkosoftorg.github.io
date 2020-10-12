@@ -1,0 +1,91 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 40</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Обращение к битовым полям</p>
+Для обращения к битовым полям используются те же конструкции, что и для обращения к 
+обычным элементам структур:
+<pre>			имя_структуры.имя_поля
+
+			(*указатель_на_структуру).имя_поля
+
+			указатель_на_структуру -> имя_поля
+
+			ссылка_на структуру.имя_поля
+</pre>
+Для введения структуры XX и указателя *px допустимы операторы:
+<pre>			XX.a = 1; 
+			px = &xx; 
+			px -> b = 2;
+</pre>
+<p>В любом случае битовые поля следует воспринимать как небольшие целые числа без знака с заданным количеством двоичных разрядов.
+<p>Битовое поле длиной <b>n</b> бит может содержать число из диапазона от <b>0</b>&nbsp;до&nbsp;<b>2<sup>n&nbsp;-&nbsp;1</sup></b> включительно.
+<p>Если попытаться поместить в такое поле число, не входящее в допустимый диапазон, то сообщения об ошибке не будет, но результаты окажутся непредсказуемыми.
+<p>Следующая программа показывает, как влияет на объем памяти, выделяемый под экземпляр структурного типа, наличие битовых полей.
+<pre>
+	#include&lt;conio.h&gt;
+	#include&lt;iostream.h&gt;
+	void main()
+	{
+		// Объявление шаблона структуры point
+		struct p1
+		{
+			int x;
+			int y;
+		} xx;
+		struct p2
+		{
+			int x : 6 ;
+			int y;
+		} yy;
+		cout << "Количество байт памяти для структуры" <<  endl;
+		cout << "\tБез битовых полей: " << sizeof(xx) <<  endl;
+		cout << "\tС битовыми полями: " << sizeof(yy) <<  endl;
+		getch();
+	}
+
+	Количество байт памяти для структуры
+		Без битовых полей: 4
+		С битовыми полями: 3
+</pre>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

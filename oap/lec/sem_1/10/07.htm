@@ -1,0 +1,253 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 10</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Использование флагов состояния (фрагменты программ)</p>
+<center><table border="5" width="90%" cellpadding=5>
+<tr><td width="6%" align="center"><a href="#01">1</a></td><td>Управление процессом печати нулевых младших разрядов и десятичной точки для значений с плавающей запятой</td></tr>
+<tr><td width="6%" align="center"><a href="#02">2</a></td><td>Использование функций-элементов setf, unsetf</td></tr>
+<tr><td width="6%" align="center"><a href="#03">3</a></td><td>Печать целого числа с внутренними пробелами и принудительной печатью знака плюс</td></tr>
+<tr><td width="6%" align="center"><a href="#04">4</a></td><td>Использование функции-элемента fill и манипулятора setfill для изменения заполняющего символа полей, ширина которых превышает ширину, необходимую для печати</td></tr>
+<tr><td width="6%" align="center"><a href="#05">5</a></td><td>Использование флага ios::showbase</td></tr>
+<tr><td width="6%" align="center"><a href="#06">6</a></td><td>Отображение на экране значений с плавающей запятой в форматах по умолчанию, экспоненциальном и с фиксированной точкой</td></tr>
+<tr><td width="6%" align="center"><a href="#07">7</a></td><td>Использование флага ios::uppercase</td></tr>
+<tr><td width="6%" align="center"><a href="#08">8</a></td><td>Демонстрация функции-элемента flags</td></tr>
+</table></center>
+<p>&nbsp </p>
+<a name="01"></a>
+<p><b><center>Управление процессом печати нулевых младших разрядов <br>и десятичной точки
+для значений с плавающей запятой</center></b>
+<pre>
+	cout << "cout печатает" << endl 
+		<< "До установки флага ios::showpoint" << endl 
+		<< "9.9900 как: " << 9.9900 << endl 
+		<< "9.9000 как: " << 9.9000 << endl 
+		<< "9.0000 как: " << 9.0000 << endl 
+		<< "После установки флага ios::showpoint" << endl;  
+	cout.setf(ios::showpoint);
+	cout << "9.9900 как: " << 9.9900 << endl
+		<< "9.9000 как: " << 9.9000 << endl
+		<< "9.0000 как: " << 9.0000 << endl;
+
+	<b><i>Результат:</i></b>	cout печатает
+			До установки флага ios::showpoint
+			9.9900 как: 9.99
+			9.9000 как: 9.9
+			9.0000 как: 9
+
+			После установки флага ios::showpoint
+			9.9900 как: 9.990000
+			9.9000 как: 9.900000
+			9.0000 как: 9.000000
+
+</pre>
+<a name="02"></a>
+<p><b><center>Использование функций-элементов setf, unsetf</center></b>
+<pre>
+	int x = 12345;
+	cout << "По умолчанию - выравнивание"
+		<< " по правой границе поля:"<< endl << setw(10) << x << endl
+		<< "Левое выравнивание ios::left:" << endl << setw (10);
+	cout.setf(ios::left, ios::adjustfield) ;
+	cout << x << endl << "Восстановление умолчания:" << endl;
+	cout.unsetf(ios::left);
+	cout << setw (10) << x << endl << endl
+		<< "Параметризированные манипуляторы потока" << endl
+		<< "setiosflags для установки ios::left:" << endl 
+		<< setw (10) << setiosflags(ios::left) << x << endl
+		<< "resetiosflags для восстановления умолчания:" << endl 
+		<< setw (10) << resetiosflags(ios::left) << x << endl;
+
+	<b><i>Результат:</i></b>	По умолчанию - выравнивание по правой границе поля:
+			     12345
+			Левое выравнивание ios::left:
+			12345
+			Восстановление умолчания:
+			     12345
+
+			Параметризированные манипуляторы потока
+			setiosflags для установки ios::left:
+			12345
+			resetiosflags для восстановления умолчания:
+			     12345
+
+</pre>
+<a name="03"></a>
+<p><b><center>Печать целого числа с внутренними пробелами <br>и принудительной печатью знака 
+плюс</center></b>
+<pre>
+	int c = 123;
+	cout << setiosflags (ios::internal | ios::showpos) << setw(10) << c << endl;
+
+	<b><i>Результат:</i></b>	+      123
+
+</pre>
+<a name="04"></a>
+<p><b><center>Использование функции-элемента fill и манипулятора setfill <br>для изменения 
+заполняющего символа полей, <br>ширина которых превышает ширину, необходимую для 
+печати</center></b>
+<pre>
+	int x = 10000;
+	cout << "Заполняющий символ по умолчанию - пробел" << endl;
+	cout.setf (ios::showbase);
+	cout << x << " напечатанное как целое" << endl 
+		<< "с выравниванием right" << endl;
+	cout << setw (10) << x << endl;
+	cout << "с выравниванием left" << endl;
+	cout.setf (ios::left, ios::adjustfield);
+	cout << setw (10) << x << endl;
+	cout << "как шестнадцатеричное с выравниванием internal"<< endl;
+	cout.setf (ios::internal, ios::adjustfield);
+	cout << setw (10) << hex << x << endl << endl;
+	cout << "Использование различных заполняющих символов:" << endl;
+	cout.setf (ios::right, ios::adjustfield);
+	cout.fill ('*');
+	cout << setw (10) << dec << x << endl;
+	cout.setf (ios::left, ios::adjustfield);
+	cout << setw (10) << setfill ('%') << x << endl;
+	cout.setf (ios::internal, ios::adjustfield);
+	cout << setw (10) << setfill ('*') << hex << x << endl;
+
+	<b><i>Результат:</i></b>	Заполняющий символ по умолчанию - пробел
+			10000 напечатанное как целое
+			с выравниванием right
+			     10000
+			с выравниванием left
+			10000
+			как шестнадцатеричное с выравниванием internal
+			0x    2710
+
+			Использование различных заполняющих символов:
+			*****10000
+			10000%%%%%
+			0x****2710
+
+</pre>
+<a name="05"></a>
+<p><b><center>Использование флага ios::showbase</center></b>
+<pre>
+	int x = 100;
+	cout << setiosflags (ios::showbase) << "Целые числа с основаниями:" << endl
+		<< " 10  " << "  8  " << "  16 " << endl
+		<< x << "  " << oct << x << "  " << hex << x << endl;
+
+	<b><i>Результат:</i></b>	Целые числа с основаниями:
+			 10    8    16
+			100  0144  0x64
+
+</pre>
+<a name="06"></a>
+<p><b><center>Отображение на экране значений с плавающей запятой в форматах <br>по умолчанию, 
+экспоненциальном и с фиксированной точкой</center></b>
+<pre>
+	double x1 = .001234567, y = 1.946e9;
+	cout << "Отображение в формате по умолчанию:" << endl 
+		<< x1 << '\t' << y << endl;
+	cout.setf  (ios::scientific, ios::floatfield);
+	cout << "В экспоненциальном формате:" << endl 
+		<< x1 << '\t' << y << endl;
+	cout.unsetf (ios::scientific);
+	cout << "В формате по умолчанию после unsetf:" << endl
+		<< x1 << '\t' << y << endl;
+	cout.setf (ios::fixed, ios::floatfield);
+	cout << "В формате с фиксированной точкой:" << endl
+		<< x1 << '\t' << y << endl;
+
+	<b><i>Результат:</i></b>	Отображение в формате по умолчанию:
+			0.001235        1.946e+09
+
+			В экспоненциальном формате:
+			1.234567e-03    1.946e+09
+
+			В формате по умолчанию после unsetf:
+			0.001235        1.946e+09
+
+			В формате с фиксированной точкой:
+			0.001235        1946000000
+
+</pre>
+<a name="07"></a>
+<p><b><center>Использование флага ios::uppercase</center></b>
+<pre>
+	cout << setiosflags (ios::uppercase) 
+		<< "Печать в верхнем регистре чисел" << endl 
+		<< "в экспоненциальном формате:  " << 4.345e10 << endl
+		<< "шестнадцатеричных значений:" << hex << 123456789 << endl;
+
+	<b><i>Результат:</i></b>	Печать в верхнем регистре чисел
+			в экспоненциальном формате:  4.345E+10
+			шестнадцатеричных значений:  75BCD15
+
+</pre>
+<a name="08"></a>
+<p><b><center>Демонстрация функции-элемента flags</center></b>
+<pre>
+	int i  = 1000; double d = 0.0947628;
+	cout << "Значение переменной flags равно: " << cout.flags () << endl
+		<< "Печать данных типа int и double в исходном формате:"
+		<< endl << i << '\t' << d << endl << endl;
+	long originalFormat = cout.flags (ios::oct | ios::scientific);
+	cout << "Значение переменной flags равно: " << cout.flags () << endl
+		<< "Печать данных типа int и double в новом формате, " << endl
+		<< "заданном с помощью функции-элемента flags:" << endl
+		<< i << '\t' << d << endl << endl;
+	cout.flags (originalFormat);
+	cout << "Значение переменной flags равно: " << cout.flags () << endl
+		<< "Повторная печать данных в исходном формате:" << endl
+		<< i << '\t' << d << endl;
+
+	<b><i>Результат:</i></b>	Значение переменной flags равно: 8193
+			Печать данных типа int и double в исходном формате:
+			1000    0.094763
+
+			Значение переменной flags равно: 4040
+			Печать данных типа int и double в новом формате,
+			заданном с помощью функции-элемента flags:
+			1750    9.47628e-02
+
+			Значение переменной flags равно: 8193
+			Повторная печать данных в исходном формате:
+			1000    0.094763
+
+</pre>
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

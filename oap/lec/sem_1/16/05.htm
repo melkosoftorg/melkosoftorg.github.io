@@ -1,0 +1,160 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 16</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Стили линий</p>
+<b><i>getlinesettings</i></b> получает текущие стиль линии, шаблон и толщину, заносит в структуру 
+linesettingstype, на которую указывает lineinfo, информацию о текущем стиле линии, 
+шаблоне и толщине.
+<br><b><i>setlinestyle</i></b> устанавливает текущие толщину и стиль вычерчивания всех линий, рисуемых 
+графическими функциями.
+<pre>
+<b>Синтаксис</b>	void far getlinesettings(struct linesettingstype far *lineinfo);
+			void far setlinestyle(int linestyle, unsigned upattern, int thickness);
+</pre>
+<p><b><i><center>Имена стилей</center></i></b>
+<p><table align=center border=1 cellpadding=5>
+<tr><td>  <b><center>Имя</center></b>
+</td><td> <b><center>Значение</center></b>
+</td><td> <b><center>Описание</center></b>
+</td></tr>
+<tr><td>  SOLID_LINE
+</td><td> <center>0</center>
+</td><td> сплошная линия
+</td></tr>
+<tr><td>  DOTTED_LINE
+</td><td> <center>1</center>
+</td><td> точечная линия
+</td></tr>
+<tr><td>  CENTER_LINE
+</td><td> <center>2</center>
+</td><td> концентрированная линия
+</td></tr>
+<tr><td>  DASHED_LINE
+</td><td> <center>3</center>
+</td><td> штриховая линия
+</td></tr>
+<tr><td>  USERBIT_LINE
+</td><td> <center>4</center>
+</td><td> стиль пользователя
+</td></tr>
+</table>
+<p><b><i><center>thickness определяет толщину вычерчиваемых линий</center></i></b>
+<p><table align=center border=1 cellpadding=5>
+<tr><td>  <b><center>Имя</center></b>
+</td><td> <b><center>Значение</center></b>
+</td><td> <b><center>Описание</center></b>
+</td></tr>
+<tr><td>  NORM_WIDTH
+</td><td> <center>1</center>
+</td><td> Ширина в 1 точку растра
+</td></tr>
+<tr><td>  THICK_WIDTH
+</td><td> <center>3</center>
+</td><td> Ширина в 3 точки растра
+</td></tr>
+</table>
+<p>upattern является 16-битным шаблоном, используемым только в случае, если linestyle 
+равно USERBIT_LINE (4). В этом случае всякий бит шаблона, установленный в 1, 
+соответствует точке линии, вычерчиваемой в текущем цвете. 
+<p>Например, сплошная линия соответствует upattern равному 0xFFFF (рисуются все точки), а штриховая линия может 
+соответствовать upattern, равному 0x3333 или 0x0F0F. <br>Если же параметр linestyle не равен 
+USERBIT_LINE (!= 4), то, хотя параметр upattern все равно должен быть использован, он 
+игнорируется.
+<p>Если в setlinestyle передан некорректный параметр, то graphresult вернет -11, а текущий 
+стиль линии останется без изменений.
+<p>Пример построения линий с использованием различных функций, стилей и толщины.
+<p align=center><img src="line_style.gif" alt="Стили ниний" ismap>
+<pre>
+	#include&lt;graphics.h>
+	#include&lt;stdlib.h>
+	#include&lt;stdio.h>
+	#include&lt;conio.h>
+	#include"..\\h\\init.h"
+	void main()
+	{	
+		init();
+		int x1, y1, x2, y2, dx, dy, style;
+		// Установить цвет рисования и цвет фона
+		setcolor(15); setbkcolor(0);
+        
+		// Шириной в 1 точку растра линии разных стилей
+		x1 = 20; y1 = 50; x2 = 120; y2 = y1; setlinestyle(0, 1, 1); line(x1, y1, x2, y2);
+		y1 = 70; y2 = y1; setlinestyle(1, 1, 1); line(x1, y1, x2, y2);
+		y1 = 90; y2 = y1; setlinestyle(2, 1, 1); line(x1, y1, x2, y2);
+		y1 = 110; y2 = y1; setlinestyle(3, 1, 1); line(x1, y1, x2, y2);
+		y1 = 130; y2 = y1; setlinestyle(4, 0xf1f2, 1); line(x1, y1, x2, y2);
+        
+		// Шириной в 3 точки растра линии разных стилей
+		x1 = 150; y1 = 50; x2 = 250; y2 = y1; setlinestyle(0, 1, 3); line(x1, y1, x2, y2);
+		y1 = 70; y2 = y1; setlinestyle(1, 1, 3); line(x1, y1, x2, y2);
+		y1 = 90; y2 = y1; setlinestyle(2, 1, 3); line(x1, y1, x2, y2);
+		y1 = 110; y2 = y1; setlinestyle(3, 1, 3); line(x1, y1, x2, y2);
+		y1 = 130; y2 = y1; setlinestyle(4, 0x1111, 3); line(x1, y1, x2, y2);
+        
+		// Описание стиля линий
+		style=installuserfont("rlit.chr"); settextstyle(style, 0, 6);
+		outtextxy(280, 40, "Сплошная");
+		outtextxy(280, 60, "Точечная");
+		outtextxy(280, 80, "Концентрированная");
+		outtextxy(280, 100, "Штриховая");
+		outtextxy(280, 120, "Стиль пользователя");
+        
+		// Построение линий с использованием lineto() и linerel()
+		y1 = 150; y2 = 200; dx = 50; dy = -50;
+		moveto(x1, y1); setlinestyle(0, 1, 3); lineto(x2, y2);
+		setlinestyle(3, 1, 3); linerel(dx, dy);
+		setlinestyle(4, 0x123f, 3); lineto(x1, y1);
+		getch(); 
+		closegraph();
+	}
+<pre>
+<p>&nbsp</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

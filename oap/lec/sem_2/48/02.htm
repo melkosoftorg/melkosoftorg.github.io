@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 48</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Встроенные макросы Turbo C</p>
+<p>Препроцессор Turbo C определяет различные дополнительные макросы. Также, как для макросов, предписанных ANSI - стандартом,
+каждый из них начинается и оканчивается символом двойного подчеркивания __.
+<ul>
+<p><li><b>__TURBOC__</b> - Выдача номера текущей версии Turbo-C - шеснадцатеричная константа. 
+<br>Версия 1.0 представляется как 0x0100; версия 1.2 - как 0x0102 и так далее.
+<p><li><b>__PASCAL__</b> - Определяет значение флага -p; устанавливается в целую константу, 
+равную 1, если используется флаг -p; иначе не определено.
+<p><li><b>__MSDOS__</b> - Целая константа, равная 1.
+<p><li><b>__CDECL__</b> - Определяет значение флага -p; устанавливается в целую константу, 
+равную 1, если флаг -p не используется; иначе не определено.
+</ul>
+<p>Следующие 6 макросов зависят от выбранной для компиляции <a href="05.htm">модели памяти</a>. 
+<br>Для любой компиляции определен может быть только один из них; остальные 
+(по определению) не определены.
+<br>Например, если вы компилируете с маленькой моделью, определено __SMALL__, а 
+остальные - нет; поэтому директива #if defined(__SMALL__) будет иметь значение 
+true (верно), в то время как #if defined(__HUGE__) (или любая другая) будет иметь 
+значение false (ложно). Действительное значение для любого определенного макроопределения равно 1.
+<ul>
+<p><li><b>__TINY__</b> - опции выбора крошечной модели памяти.
+<p><li><b>__SMALL__</b> - опции выбора маленькой модели памяти.
+<p><li><b>__MEDIUM__</b> - опции выбора средней модели памяти.
+<p><li><b>__COMPACT__</b> - опции выбора компактной модели памяти.
+<p><li><b>__LARGE__</b> - опции выбора большой модели памяти.
+<p><li><b>__HUGE__</b> - опции выбора максимальной модели памяти.</ul>
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

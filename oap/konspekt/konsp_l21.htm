@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>ОП | Для конспекта | Лекция № 21</title>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta http-equiv="Content-Language" content="ru">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../css/style.css" title="style">
+</head>
+<body bgcolor="#ffffff" text="000066">
+<p><center><table width="100%">
+<tr bgcolor="#f3f3f3" class="author"><td align=center valign=top>Для конспекта
+</td></tr>
+<tr><td>
+<p>&nbsp;</p>
+<h2>Множественный выбор</h2>
+<ol>
+<p><li>Переключатель switch представляет собой структуру, построенную по принципу меню, содержит возможные варианты условий и инструкции, которые следует выполнить в каждом конкретном случае.
+<p><li>
+<pre>
+switch (выражение)
+{       	
+	case n1:	инструкции;
+			break; 
+	case n2:	инструкции;
+			break;
+	<b>...</b>
+	case nn:	инструкции;
+			break;
+	default:	инструкции;
+			break;
+}
+</pre>
+<p>switch - ключевое слово, обозначающее начало команды выбора,
+<p>выражение - переменная типа int или char,
+<p>n1, n2 ... nn - целочисленная константа  или константное выражение, заключенное в апострофы; вычисления начинаются с той ветви case, в которой константа совпадает со значением выражения,
+<p>break - оператор, используемый для завершения данной команды выбора и передачи программного управления на первый оператор после структуры switch,
+<p>default - метка ветви, которая выполняется, если ни одна из констант не подходит.
+<p><li>enum - ключевое слово, применяется для задания перечислимого типа данных и для объявления идентификаторов объектов перечислимого типа данных.
+<ul>typedef enum { sun, mon, tues, wed, thur, fri, sat } days;</ul>
+<p><li>Присвоение осуществляется в порядке возрастания значений по умолчанию от sun = 0 до sat = 6.
+</ol>
+<p>&nbsp;</p>
+</td></tr>
+<tr bgcolor="#f3f3f3"><td align=center valign=top class="author">&copy;&nbsp;Ставропольский колледж связи, 2012
+</td></tr><tr><td>
+</table></center></p>
+</body>
+</html> 

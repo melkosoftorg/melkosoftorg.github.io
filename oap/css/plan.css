@@ -1,0 +1,78 @@
+BODY {
+	BACKGROUND: #cc9999; COLOR: #000; FONT-FAMILY: Bookman Old Style; MARGIN: 0px; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+Заголовок со страницами----- TABLE.pages {
+	FONT-SIZE: 14px; PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; PADDING-TOP: 5px
+}
+TD.a {
+	BACKGROUND: #ccf; COLOR: #336
+}
+TD.1 {
+	TEXT-ALIGN: center
+}
+A.p:link {
+	BACKGROUND: #FFE7E3; COLOR: #990033; FONT-SIZE: 10pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.p:visited {
+	BACKGROUND: #FFE7E3; COLOR: #990033; FONT-SIZE: 10pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.p:hover {
+	BACKGROUND: #660033; COLOR: #FFE7E3; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+A.a:link {
+	BACKGROUND: #ddf; COLOR: #336; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.a:visited {
+	BACKGROUND: #ddf; COLOR: #336; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.a:hover {
+	BACKGROUND: #ddf; COLOR: #336; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+A.mh:link {
+	COLOR: #fff; FONT-SIZE: 24px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.mh:visited {
+	COLOR: #fff; FONT-SIZE: 24px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.mh:hover {
+	TEXT-DECORATION: underline
+}
+A.mh:active {
+	COLOR: #fff
+}
+#head {
+	COLOR: #990000; FONT-FAMILY: Arial, serif; FONT-SIZE: 16px; FONT-WEIGHT: bold;
+}
+
+#head1 {
+	font-family: Times New Roman, serif;
+	font-size: 22;
+}
+
+#shapka {
+	BACKGROUND: #fff; COLOR: #336; FONT-SIZE: 17px; FONT-WEIGHT: bold; TEXT-ALIGN: center
+}
+#razdel {
+	BACKGROUND: #cc6611; FONT-FAMILY: Times New Roman, serif; FONT-SIZE: 15px; FONT-WEIGHT: bold; TEXT-ALIGN: center
+}
+#tema {
+	BACKGROUND: #cc9999; FONT-SIZE: 13px; TEXT-ALIGN: center
+}
+#lec {
+	BACKGROUND: #F7DEBC
+}
+#pr {
+	BACKGROUND: #cc6666 
+}
+A.table:link {
+	COLOR: #003; FONT-FAMILY: Courier New, serif; FONT-SIZE: 18px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.table:visited {                    
+	COLOR: #003; FONT-FAMILY: Courier New, serif; FONT-SIZE: 18px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.table:hover {
+	TEXT-DECORATION: underline
+}
+A.table:active {
+	
+}

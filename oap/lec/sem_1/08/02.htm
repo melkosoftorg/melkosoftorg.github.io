@@ -1,0 +1,92 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 08</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Ввод и вывод строки</p>
+
+<p><table width="95%" align="center" border=1 cellpadding=15 cellspacing=0>
+<tr valign="top"><td width="50%">
+<p align=center class=dbi><br>Ввод строки</p>
+<p>Функции ввода строк считывают из потока целые строки, то есть последовательности символов, до первого встретившегося символа конца строки. 
+<p><b><i>gets</i></b> - вводит строку в переменную, параметром функции является имя переменной. То есть
+функция считывает последовательность символов из потока stdin до тех пор, пока не встретится конец строки, и помещает ее в заданную строку.
+<br>Функция gets() позволяет вводить строки, содержащие символы пробела и табуляции. 
+<p><b><i>Внимание:</b> прежде чем вызывать gets(), необходимо позаботиться о выделении достаточного количества памяти для хранения строки.
+<br>Если память не была распределена корректно, введенная строка может затереть важные данные и вызвать ошибки в программе.</i>
+<p><b>Синтаксис</b> char *gets(char *s);
+<p><b>Прототип</b> в stdio.h 
+<pre>		char name [60]; 
+		puts("Как вас зовут?"); gets(name);
+		puts("Привет"); puts(name);
+</pre>
+<p>Функция gets читает все, что набирается до нажатия Enter. Она не помещает 
+Ввод в строку, однако, в конец строки добавляет нулевой символ \0.
+<p>&nbsp;</p>
+</td><td>
+
+<p align=center class=dbi><br>Вывод строки</p>
+<b><i>puts</i></b> - выводит строку на экран и завершает вывод символом новой строки. 
+<p><b>Синтаксис</b> int puts(const char *s);
+<p><b>Прототип</b> в stdio.h
+<p>Параметром может быть один из типов данных:
+<ul>
+<li>Константное выражение:
+<pre>
+	puts("Первая программа на С++ !");
+</pre>
+<p><li>Строковая константа: 
+<pre>
+	#define STR "Всем привет!"
+	main()
+	{
+		puts(STR);
+	}
+</pre>
+<li>Строковая переменная: 
+<pre>	char greet[20]="Всем привет!"
+	puts(greet);
+
+</pre>
+</ul>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<p>&nbsp;</p>
+
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 24</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</td></tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual><p align=center class=dbi><br>Вложенные циклы - цикл в цикле</p>
+<p><table width="90%" border=0>
+<tr valign=top><td width="35%"><img src="wlog_cikl_ris.gif">
+</td><td>
+<p>Если имеется два или более параметров, изменяющихся строго заданным образом, 
+рационально для многократного повторения вычислений использовать вложенные циклы. 
+<p><b>Вложенные циклы</b> - это конструкция, в которой внутрь одного цикла помещен другой цикл.
+<br>Язык C не накладывает никаких ограничений на вложение циклов, кроме того, что цикл должен содержаться целиком внутри другого цикла.
+Частично перекрывающиеся циклы не допускаются.
+<p>Итак:
+<ul type="disc">
+<li>Циклы нигде не должны пересекаться.
+<li>Внешний цикл всегда должен начинаться раньше и заканчиваться позднее.
+<br>Управляющая переменная внешнего цикла изменяется медленнее.
+<li>Внутренний цикл всегда должен начинаться позднее и заканчиваться раньше.
+<br>Управляющая переменная внутреннего цикла изменяется быстрее.
+</ul>
+</td></tr>
+</table>
+<p><b>Рассмотрим использование вложенных циклов for для получения таблицы умножения на 3 и 4.</b>
+<p><center><table width="90%" border=0>
+<tr valign="top"><td width="25%">
+<img src="i16_01.gif" alt="Вложенные циклы с параметром" ismap>
+</td><td width="50%">
+<pre>
+#include&lt;conio.h>
+#include&lt;iostream.h>
+#include&lt;iomanip.h>
+void main()
+{
+	int i, j, v; clrscr();<font color="Darkgreen">
+	for(i = 3; i < 5; i++)
+	{</font><font color="Darkblue"> 
+		for(j = 1; j < 11; j++)
+		{
+			v = i * j;
+			cout << setw(4) << i << " * " << setw(2) << j 
+				<< " = " << setw(2) << v << endl;
+		}</font><font color="Darkgreen">
+		cout << endl;
+	}</font>
+	getch();
+}
+</pre>
+</td><td>
+<pre>
+   3 *  1 =  3
+   3 *  2 =  6
+   3 *  3 =  9
+   3 *  4 = 12
+   3 *  5 = 15
+   3 *  6 = 18
+   3 *  7 = 21
+   3 *  8 = 24
+   3 *  9 = 27
+   3 * 10 = 30
+
+   4 *  1 =  4
+   4 *  2 =  8
+   4 *  3 = 12
+   4 *  4 = 16
+   4 *  5 = 20
+   4 *  6 = 24
+   4 *  7 = 28
+   4 *  8 = 32
+   4 *  9 = 36
+   4 * 10 = 40
+</pre>
+</td></tr></table></center>
+<p>Управляющая переменная внешнего цикла изменяется медленнее. За все время работы программы она сменила значение с 3 на 4.
+<br>Управляющая переменная внутреннего цикла изменяется быстрее. За то же самое время работы программы она дважды поменяла свои значения от 1 до 10.
+<p><b>Рассмотрим на примере вычисления значений функции </b>
+<img src="pic_01.gif" alt="pic_01.gif" ismap align="middle"> 
+при значениях аргументов, изменяющихся
+<br><b>x</b> от 0 до 1 с шагом 0.35, <b>y</b> от 0 до <img src="pic_02.gif" alt="pic_02.gif" ismap align="middle"> с шагом 0.7. 
+<br>Значение a = -3.1.
+<p>Для решения задач такого вида наиболее удобными являются регулярные 
+(с известным числом повторений) циклы for с управляющим параметром.
+<br>Организуем внешний цикл по переменной <b>x</b>, а внутренний цикл 
+по переменной <b>y</b>. <br>В задачах такого вида не играет роли, по какой 
+переменной внешний цикл и по какой - внутренний, значение z должно быть вычислено с каждым значением переменных x и y.
+<p><table align=center border=0 cellspacing=0 cellpadding=0>
+<tr valign="top"><td width="50%"><pre>
+#include&lt;conio.h&gt;
+#include&lt;math.h&gt;
+#include&lt;iomanip.h&gt;
+#include&lt;iostream.h&gt;
+main()
+{
+        float y, x, z, a = -3.1; clrscr();
+        cout << setw(2) << "x" << setw(7) << "y" 
+                << setw(10) << "z" << endl << endl;<font color="Darkgreen">
+        for(x = 0;x <= 1; x += .35)
+        {</font><font color="Darkblue"> 
+                for(y = 0; y <= M_PI_2; y += .7)
+                {
+                        z = a * exp(2 * x * y) * cos(M_PI_2 + y);
+                        cout << setw(4) << x << setw(6) 
+                                << y << setw(14) << z << endl;
+                }</font><font color="Darkgreen">
+                cout << endl;
+        }</font>
+	getch(); return 0;
+}
+</pre>
+</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td><td><pre>
+<b><i>Результаты:</i></b>
+
+x       y       z
+
+0       0       -1.89814e-16
+0       0.7     1.997075
+0       1.4     3.054894
+
+0.35    0       -1.89814e-16
+0.35    0.7     3.259857
+0.35    1.4     8.139631
+
+0.7     0       -1.89814e-16
+0.7     0.7     5.321118
+0.7     1.4     21.687691
+</pre></td></tr></table>
+<p>Проанализировав результаты вычислений видим, что управляющая переменная 
+внешнего цикла  <b>x</b> изменяется медленнее. Она сохраняет свое значение 
+неизменным до тех пор, пока управляющая переменная внутреннего цикла <b>y</b> 
+примет все значения, только после этого значение <b>x</b> изменяется.
+<br>Управляющая переменная внутреннего цикла <b>y</b> изменяется быстрее. 
+Она принимает все свои значения с каждым значением <b>x</b>.
+<br>В результате получим значения функции <b>z</b> со всеми заданными аргументами.
+<p><b>Такой симпатичный орнамент из пересекающихся окружностей построен посредством вложенных циклов while.</b>
+<br>(x, y) - координаты центра окружности радиусом 60.
+<br><b>x</b> изменяется от 70 до меньше 600 с шагом 50.
+<br><b>y</b> изменяется от 65 до меньше 420 с шагом 50.
+<br>Запустите программу и проверьте, какая из координат изменяется медленнее, а какая быстрее.
+<p><table align="center" width="90%" border=0>
+<tr valign=top><td width="35%">
+<pre>
+#include&lt;graphics.h>
+#include&lt;conio.h>
+#include&lt;stdio.h>
+#include&lt;stdlib.h>
+#include&lt;dos.h>
+#include"..\\h\\init.h"
+main()
+{
+	init();
+	int x, y;
+	setbkcolor(9);
+	x = 70; <font color="Darkgreen">
+	while(x < 600)
+	{
+		y = 65;</font><font color="Darkblue"> 
+		while(y < 420)
+		{
+			circle(x, y, 60);
+			y += 50;
+			delay(50);
+		}</font><font color="Darkgreen">
+		x += 50;
+	}</font>
+	getch(); closegraph();
+}
+</pre>
+</td><td>
+<img src="while_while.gif">
+</td></tr></table>
+<p>Вложенные циклы могут быть реализованы и посредством конструкций while и do ... while.
+<p><b>Рассмотрим использование операторов break и continue для управления итерациями внутреннего цикла.</b>
+<p>В программе вычисляется значение <b>cos(x) / sin(x)</b>.
+<br>При x = 0 значение синуса в знаменателе становится равным нулю (sin(0) = 0), то есть получим сообщение об ошибке - деление на 0.
+<br>Чтобы избежать этой ошибки добавим оператор continue - пропустить итерацию при x = 0, не вычислять sin(0).
+<br>Внутренний цикл программы бесконечный. Чтобы сделать его конечным добавим оператор break. 
+<br>Охарактеризовать этот алгоритм можно следующим образом: Цикл while с вложенным в него циклом do...while с вложенной последовательностью неполных развилок.
+<p><table align=center border=0 width="90%">
+<tr valign="top"><td width="55%">
+<pre>
+#include&lt;conio.h&gt;
+#include&lt;iostream.h&gt;
+#include&lt;math.h&gt;
+void main(void)
+{
+	clrscr();
+	int x, z = 0;<font color="Darkgreen">
+	while(++z < 3)		// Внешний цикл
+	{
+		cout << endl << "z = " << z;
+		x = -3;</font><font color="Darkblue"> 
+		do				// Внутренний цикл
+		{
+			x++;
+			cout << '\t' << "x = " << x << '\t';
+			// пропустить итерацию внутреннего цикла при x = 0
+			if(x == 0)
+			{
+				cout << endl;
+				continue;
+			}
+			// выйти из внутреннего цикла при x = 3
+			if(x > 2)
+				break;
+			cout << " y = " <<  cos(x) / sin(x) << endl;
+		} while(1);</font><font color="Darkgreen">
+		cout << endl;
+	}</font>
+	getch();
+}
+</pre>
+</td><td>
+<pre>
+<b><i>Результаты:</i></b>
+
+z = 1	x = -2   y = 0.457658
+		x = -1   y = -0.642093
+	        x = 0
+        	x = 1    y = 0.642093
+	        x = 2    y = -0.457658
+        	x = 3
+
+z = 2	x = -2   y = 0.457658
+        	x = -1   y = -0.642093
+	        x = 0
+        	x = 1    y = 0.642093
+	        x = 2    y = -0.457658
+        	x = 3
+</pre>
+</td></tr>
+</table>
+<p><b>Симпатичная программа с вложенными циклами while-for. Из разноцветных символов строится картинка, как в детской игрушке Калейдоскоп.</b>
+<pre>
+	#include&lt;stdlib.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;dos.h&gt;
+	#include&lt;conio.h&gt;
+	void main()
+	{
+		randomize(); clrscr(); textmode(3);
+		unsigned char ch;
+		int i, color, x, y, x1, y1;
+		// Можно выводить на экран определенный символ, например О
+		ch = 'O';<font color="Darkgreen">
+		// Цикл выполнять до нажатия любой клавиши
+		while(!kbhit())
+		{
+			textcolor(1 + random(15));
+			// А можно сгенерировать случайный символ для вывода
+			// ch = 32 + random(223);
+			</font><font color="Darkblue">
+			for(i = 0; i < 15; i++)
+			{
+				// Сгенерировать случайные числа позиции вывода символа
+				x = 1 + random(40); y  = 1 + random(12);
+				x1 = 80 - x; y1 = 24 - y;
+				// Вывести символ в заданной позиции
+				gotoxy(x, y); cprintf("%c", ch);
+				// а также три его зеркальных отображения
+				gotoxy(x1, y);	cprintf("%c", ch);
+				gotoxy(x, y1);	cprintf("%c", ch);
+				gotoxy(x1, y1); cprintf("%c", ch);
+				// задержать итерацию на 50 мс
+				delay(50);
+			}</font><font color="Darkgreen">
+		}</font>
+		getch();
+	}
+</pre>
+<p><b>Рассмотрим программу, содержащую вложенные циклы, глубина вложенности равна двум.</b>
+<br>Внешний цикл - цикл с параметром - позволяет 10 раз повторить выполнение следующих действий:
+<ul>
+<li>очистить экран,
+<li>случайным образом задать позицию вывода на экран - x = rand() % x1; y = rand() % y1; - символа <b>*</b>,
+<li>вывести символ в заданную позицию.
+</ul>
+<p>Количество итераций внутренних циклов while зависит от сгенерированных случайных значений <b>x</b> и <b>y</b>.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;stdlib.h>
+	#include&lt;iostream.h>
+	void main()
+	{
+		int x, y, x1 = 75, y1 = 15;
+		randomize();<font color="Maroon">
+		for(int i = 0; i < 10; i++)
+		{
+			clrscr();
+			textcolor(9 + rand() % 7);
+			x = rand() % x1;
+			y = rand() % y1;</font><font color="Darkgreen">
+			while(x != x1 / 2)
+			{       </font><font color="Darkblue">
+				while(y < y1 - 1)
+				{
+					gotoxy(x, y); cout << '*';
+					y = rand() % y1;
+				}</font><font color="Darkgreen">
+				x =  rand() % x1;
+			}</font><font color="Maroon">
+			getch();
+		}</font>
+	}
+</pre>
+<p>При использовании вложенных циклов следует помнить, что изменения, внесенные внутренним циклом в какие-либо данные, могут повлиять и на внешний цикл.
+<br>Внутренний цикл может как зависеть, так и не зависеть от переменных внешнего цикла.
+<p>&nbsp;</p>
+</td></tr>
+<table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</td></tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

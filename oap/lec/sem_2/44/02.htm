@@ -1,0 +1,154 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 44</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Пример использования дружественной функции</p>
+Предположим, что задано два класса Point и Circle с общей 
+дружественной функцией. <br>Функции putpixel и put_circle, первая из которых компонент 
+Point, а вторая Circle, обеспечивают отображение на экране дисплея точки и окружности. 
+<br>Допустим, нужна еще одна функция (назовем ее equal_color), которая сравнивает цвета 
+точки и окружности и выдает соответствующее сообщение (цвета совпадают или цвета не 
+совпадают). Рассматриваемая функция не является компонентом классов Point и Circle и в 
+то же время требует доступа к их компонентам с атрибутом private. <br>Чтобы разрешить 
+такой доступ, необходимо объявить функцию equal_color в классах Point и Circle со 
+спецификатором friend.
+<a name="01"></a>
+<pre>
+	#include&lt;iostream.h>
+	#include&lt;graphics.h>
+	#include&lt;conio.h>
+	#include&lt;stdio.h>
+	#include&lt;stdlib.h>
+	#include"..\\h\\init.h"
+	// пустое объявление класса - класс Circle будет описан позже
+	// необходимо лишь при наличии функций со спецификатором friend
+	class Circle;
+	// базовый класс для двух производных классов Point и Circle
+	class Location
+	{	protected:
+			int x,y;
+		public:
+			Location(int InitX, int InitY)
+			{ x = InitX; y = InitY; }
+			void set(int a, int b)
+			{ x = a; y = b; }
+			int getx()
+			{ cout << "x = " << x << "\n"; return x; }
+			int gety()
+			{ cout << "y = " << y << "\n"; return y; }
+	};
+	// класс производный от Location
+	class Point : public Location
+	{	int color;
+		public:
+			Point(int InitX, int InitY, int InitC);
+			void putpixel()
+			{ ::putpixel(x, y, color); }
+			friend void equal_color(Point p, Circle c);	// дружественная
+	};
+	// класс производный от Location
+	class Circle : public Location
+	{	int color, temp, radius;
+		public:
+			Circle(int InitX, int InitY, int InitC, int InitR);
+			void put_circle()
+			{	temp = getcolor(); setcolor(color);
+				circle(x, y, radius);
+				setcolor(temp);
+			}
+			friend void equal_color(Point p, Circle c);	// дружественная
+	};
+	// конструктор для класса Point
+	Point :: Point(int InitX, int InitY, int InitC) : Location(InitX, InitY)
+	{ color = InitC; }
+	// конструктор для класса Circle
+	Circle :: Circle(int InitX, int InitY, int InitC, int InitR) : Location(InitX, InitY)
+	{ color = InitC; radius = InitR; }
+	// дружественная функция equal_color сравнивает цвета точки и окружности
+	// она не является компонентом классов Point и Circle
+	void equal_color(Point p, Circle c)
+	{
+		if(p.color == c.color)
+			cout << "цвета совпадают\n";
+		else
+			cout << "\nцвета не совпадают";
+	}
+	void main(void)
+	{
+		init();			// инициализация графики
+		int color = 14;
+		Point my_point(380, 200, color);
+		Circle my_circle1(500, 200, color, 80);
+		color = 2;
+		Circle my_circle2(300, 200, color, 40);
+		my_point.putpixel();	// изобразить точку 14 цветом
+		my_circle1.put_circle();	// изобразить окружность 14 цветом
+		my_circle2.put_circle();	// изобразить окружность 2 цветом
+		// сравнить цвет точки с цветами окружностей
+		equal_color(my_point, my_circle1);
+		equal_color(my_point, my_circle2);
+		getch(); closegraph();
+	}
+	
+</pre>
+В начале программы появилось пустое объявление: &nbsp; &nbsp; &nbsp; class Circle; &nbsp; &nbsp; &nbsp; так как в классе Point есть 
+обращение к еще не описанному классу Circle (equal_color(Point р, Circle с); ). Поэтому в 
+начале программы компилятору сообщается, что класс Circle будет описан позже. 
+<br>Подобные описания необходимы лишь при наличии функций со спецификатором friend. <br>В 
+примере класс Location является базовым для двух производных классов - Point и Circle. <br>В 
+результате работы программы на экран будет выведена точка, две окружности и два 
+сообщения - "цвета совпадают" (для точки и первой окружности) и "цвета не совпадают" 
+(для точки и второй окружности).
+<p>Строки программы: &nbsp; &nbsp; &nbsp; temp = getcolor(); setcolor(color); clrcle(x, y, radius); setcolor(temp);
+<br>сохраняют текущий цвет в переменной temp, изменяют цвет, отображают окружность и 
+восстанавливают первоначальный цвет из переменной temp.
+<p>Класс может быть дружественным другому классу. Это означает, что все компонентные 
+функции класса являются дружественными для другого класса. Дружественный класс 
+должен быть определен вне тела класса, "предоставляющего дружбу". <br>Например, так:
+<pre>
+	class X2 { friend class X1; ... } ;
+	class X1 {	... // Определение дружественного класса
+			void f1(...); void f2(...);
+			...
+		};
+</pre>
+<br>В примере функции fl и f2 из класса X1 являются друзьями класса X2, хотя они 
+описываются без спецификатора friend. Все компоненты класса доступны в 
+дружественном классе. 
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

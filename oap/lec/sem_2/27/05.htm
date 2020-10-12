@@ -1,0 +1,117 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 27</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Массивы и указатели</p>
+<ol>
+<li>Имя массива можно использовать как указатель.
+<br>(list + i) == &(list[i]) - один и тот же адрес 
+<p><li>Можно определить указатель как массив.
+<br>*(list + i) == list[i] - одно и то же значение 
+</ol>
+<p>В обоих случаях выражение слева эквивалентно выражению справа и можно использовать 
+одно вместо другого, не принимая во внимание, описан ли list как указатель, или как массив.
+<p><b><i>Единственное различие состоит в размещении самого массива:</i></b>
+<ul>
+<li>если описан list как массив, то программа автоматически выделяет требуемый объем памяти. 
+<p><li>если описана переменная list как указатель, то надо обязательно выделить память 
+под массив, используя функцию calloc или сходную с ней функцию, или присвоить 
+переменной, адрес некоторого сегмента памяти, который уже был определен ранее. 
+</ul>
+<p>Выражение "прибавить единицу к указателю" означает добавить единицу памяти.
+<p>Рассмотрим пример заполнения динамического массива случайными вещественными числами.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;stdio.h>
+	#include&lt;stdlib.h>
+	main()
+	{
+		float *c;
+		const int N = 10;
+		c = new float [N];		// динамическое выделение памяти
+		clrscr(); randomize();
+		printf("%9s%9s\n", "Число", "Адрес");
+		for(int i = 0; i < N; i++)
+		{
+			c[i] = rand() % 30 * .11;
+			printf("%8.2f%12p\n", c[i], &c[i]);
+		}
+		getch(); return 0;
+	}
+	<i>Возможные результаты:</i>
+
+				Число	Адрес
+				2.31	914B:0004
+				1.21	914B:0008
+				0.00	914B:000C
+				1.54	914B:0010
+				2.97	914B:0014
+				0.55	914B:0018
+				0.00	914B:001C
+				1.98	914B:0020
+				2.42	914B:0024
+				0.99	914B:0028
+
+</pre>
+
+<p align=center class=dbi>Операции над указателями</p>
+<p><i>Инкрементировать указатель</i> означает увеличить его значение. Эту команду можно выполнить посредством операций &nbsp;<i>++</i>&nbsp;&nbsp;или&nbsp;&nbsp;<i>+=</i>
+<p><i>Декрементировать указатель</i> означает уменьшить его значение. Эту команду можно выполнить посредством операций &nbsp;<i>--</i>&nbsp;&nbsp;или&nbsp;&nbsp;<i>-=</i>
+<p>При изменении указателя на единицу, адресная арифметика автоматически изменяет хранимый адрес на длину элемента данных.
+<p><i>Вычисление смещения</i> - вычитание двух указателей на разные элементы одного массива и получение значения расстояния, на котором они находятся.
+Адресная арифметика обеспечивает автоматическое масштабирование результата, и в итоге расстояние выражается в количестве элементов.
+<p><i>Сравнение указателей</i> имеет смысл только для указателей на один и тот же массив, при этом операции сравнения
+&nbsp;==,&nbsp;&nbsp;!=,&nbsp;&nbsp;<,&nbsp;&nbsp;>,&nbsp;&nbsp;>=,&nbsp;&nbsp;<=&nbsp; выполняются корректно.
+<br>Младшие элементы массива - элементы с меньшими индексами - всегда имеют меньшие адреса, чем старшие элементы.
+Поэтому, если <i>p1</i> и <i>p2</i> указывают на элементы одного массива, то соотношение <i>p1 < p2</i> истинно тогда, когда <i>p1</i> указывает на элемент с меньшим индексом, чем <i>p2</i>.
+
+<p><table  align=center width=90% border=1 cellpadding=0 cellspacing=5>
+<tr><td class=rule>
+<blockquote>
+<br>Умножение и деление не имеют никакого смысла в применении к указателям. Поэтому компиляторы C++ не позволяют выполнять эти операции.
+<br>Например, если <i>ptr</i> - указатель, то оператор <i>ptr *= 2;</i> вызовет сообщение об ошибке.
+</blockquote>
+</td></tr>
+</table>
+
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

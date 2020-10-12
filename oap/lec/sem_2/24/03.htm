@@ -1,0 +1,77 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 24</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</td></tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual><p align=center class=dbi><br>Корни нелинейных уравнений</p>
+<p><b>Приближенное значение корня нелинейного уравнения</b></p>
+<p>Уточнить корень уравнения ln(x) - x + 5 = 0 с точностью t = 10<sup>-5</sup> методом итерации на отрезке [5, 100].
+<br>Выразим аргумент <b>x</b> как функцию <b>x</b>, то есть x = f(x). Имеем x = ln(x) + 5. 
+<br>Значением корня уравнения будет точка пересечения графиков функций <b>y<sub>1</sub> = x</b> и <b>y<sub>2</sub> = ln(x) + 5</b>.
+<br>В этой точке значение уравнения будет приблизительно (с точностью t = 10<sup>-5</sup>) равно нулю.
+<p>Обозначим x<sub>0</sub> - начальное приближение, n - счетчик числа итераций.
+<p><table border=0 width="95%" align="center">
+<tr valign="top"><td width="23%"><img src="korni.gif">
+</td><td>
+<pre>
+#include&lt;conio.h>
+#include&lt;iostream.h>
+#include&lt;math.h>
+void main()
+{
+	int n; float t = 1e-5, x, x0, x1, b, y;<font color="Darkgreen">
+	for(x = 5; x <= 100; x += 95)
+	{
+		x0 = x; n = 1; cout << "x0 = " << x;</font><font color="Darkblue">
+		while( (b = fabs((x1 = log(x0) + 5) - x0)) > t)
+		{
+			n++;
+			x0 = x1;
+		}</font><font color="Darkgreen">
+		y = log(x1) - x1 + 5;
+		cout << "\tx" << n << " = " << x1 << "\ty = " << y << endl;
+	 }</font>
+	getch();
+}
+
+При исполнении программы получим:
+
+	x0 = 5	x8 = 6.936847	y = 5.769464e-07
+	x0 = 100	x9 = 6.936848	y = -2.392485e-07
+</pre>
+</td><td width="28%">График функций <ul><b>y<sub>1</sub> = x</b><p><b>y<sub>2</sub> = ln(x) + 5</ul>
+<p><img src="i14_04.gif">
+</td></tr>
+</table>
+<p>&nbsp;</p>
+</td></tr>
+<table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</td></tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

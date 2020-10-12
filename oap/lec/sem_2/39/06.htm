@@ -1,0 +1,98 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 39</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Инициализация объединений</p>
+<p>При определении конкретных объединений разрешена их инициализация, причем инициализируется только первый элемент объединения.
+<p><center><table width=80% border=0 cellpadding=5>
+<tr><td width=40%><pre>
+union comp
+{
+	long tt;
+	int ww[2];
+	сhar ch[4];
+};
+comp mix = { 123455678 };
+</pre>
+</td><td width=20%>или</td><td width=40%>
+<pre>
+union
+{
+	char ch[4];
+	long tt;
+	int ww[2];
+} mix = {'a', 'b', 'c', 'd'};
+</pre>
+</td></tr>
+</table></center>
+<p>Как массивы, так и структуры могут быть элементами объединений.
+В программе продемонстрировано:
+<ul>
+<li>инициализация поля <i>f</i> объединения <i>FKH</i>, являющегося экземпляром структуры <i>P</i>,
+<li>определение объема памяти, необходимой для экземпляра объединения <i>FKH</i>,
+<li>значения полей объединения <i>FKH</i>.
+</ul>
+<pre>
+	#include&lt;conio.h&gt;
+	#include&lt;iostream.h&gt;
+	void main(void)
+	{
+		struct P
+		{
+			char str[30];
+			float b;
+		};
+		union
+		{
+			struct P f;
+			unsigned long k;
+			unsigned char h[34];
+		} FKH = {"Значение строки для структуры", 2.87};
+		int x = sizeof(FKH);
+		cout << "sizeof(FKH) = " << x << endl;
+		cout << FKH.f.str << ' ' << FKH.f.b << endl;
+		cout << FKH.k << endl;
+		for(int i = 0; i < x; i++)
+			cout << i << " - " << FKH.h[i] << endl;
+		getch();
+	}
+</pre>
+<p>&nbsp</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

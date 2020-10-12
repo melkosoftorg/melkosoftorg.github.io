@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | СР 13_14</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Получение данных о файле</p>
+<b><i>filelength</i></b> - получает размер файла в байтах.
+<br><b>Синтаксис</b> long filelength(int handle);
+<br><b>Прототип</b> в io.h
+<p>Функция filelength возвращает длину в байтах файла, соответствующего номеру handle. 
+<br>При успешном завершении функция filelength возвращает значение типа long длину файла 
+в байтах. <br>При ошибочном завершении функция возвращает значение -1L, и глобальной 
+переменной errno присваивается: EBADF - неверный номер файла.
+<pre>
+   #include&lt;string.h&gt;
+   #include&lt;stdio.h&gt;
+   #include&lt;fcntl.h&gt;
+   #include&lt;io.h&gt;
+   #include&lt;sys\stat.h&gt;
+   int main(void)
+   {
+      int handle;
+      char buf[20] = "0123456789";
+      // создать файл из 10 байт
+      handle = open("DUMMY.FIL", O_RDWR|O_CREAT|O_TRUNC|S_IREAD|S_IWRITE);
+      write(handle, buf, strlen(buf));
+      // Напечатать размер файла
+      printf("Размер файла в байтах: %ld\n", filelength(handle));
+      // Закрыть файл
+      close(handle); return 0;
+   }
+      <b><i>После исполнения программы:</i></b>	Размер файла в байтах: 10
+</pre>
+<b><i>fileno</i></b> - получает логический номер файла.
+<br><b>Синтаксис</b> int fileno(FILE * stream);
+<br><b>Прототип</b> в stdio.h
+<p>fileno представляет собой макрокоманду, которая возвращает логический номер файла для 
+заданного потока stream. <br>Если поток stream имеет более одного номера, функция fileno 
+возвращает номер, назначенный данному потоку при первом открытии. <br>fileno возвращает 
+целое число, обозначающее логический номер файла, соответствующий потоку stream.
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

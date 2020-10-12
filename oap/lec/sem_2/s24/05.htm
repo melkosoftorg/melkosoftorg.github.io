@@ -1,0 +1,126 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | СР 24</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Преобразование числа с плавающей точкой <br>в строку символов</p>
+<p><b><i>ecvt</i></b>,&nbsp &nbsp  <b><i>fcvt</i></b> преобразует число с плавающей точкой в строку символов, 
+возвращает адресный указатель статических данных, которые содержат 
+результат, перезаписываемый каждый раз при вызове функции.
+<pre>
+<b>Синтаксис</b>	char *ecvt(double value, int ndigit, int *decpt,int *sign);
+			char *fcvt(double value, int ndigit, int *decpt,int *sign);
+<b>Прототип в</b>	stdlib.h
+</pre>
+<p>Функция ecvt конвертирует значение value в строку с нулевым окончанием из 
+ndigit цифр и возвращает адресный указатель строки. <br>Позиция десятичной точки 
+относительно начала строки косвенным образом хранится в параметре decpt 
+(отрицательное значение decpt означает левый отсчет полученных цифр).
+<br>Если знак результата отрицательный, слово, на которое указывает адресный 
+указатель sign, имеет ненулевое значение, иначе оно имеет нулевое значение. 
+Младшие разряды округляются.
+<p>Функция fcvt идентична ecvt, за исключением того, что верные цифры 
+округляются соответственно формату вывода F, принятого в языке Фортран, по 
+числу цифр, определяемых параметром ndigit.
+<p><b><i>gcvt</i></b> преобразует число с плавающей точкой в символьную строку, 
+возвращает строку символов с адресным указателем buf.
+<p><b>Синтаксис</b> char * gcvt(double value, int ndigit, char * buf);
+<br><b>Прототип</b> в stdlib.h
+<p>Функция gcvt конвертирует значение value в строку с нулевым окончанием кода 
+ASCII и возвращает её адресный указатель buf. <br>Функция делает попытку 
+получить ndigit значащих цифр в формате F, принятом в языке Фортран, если 
+это возможно; в противном случае, в формате E (готовом для печати). 
+<br>Хвостовые нули могут быть подавлены.
+<pre>
+   #include&lt;stdlib.h&gt;
+   #include&lt;stdio.h&gt;
+   #include&lt;conio.h&gt;
+   void main()
+   {
+	char *str1, *str2, *str3;
+	double val1, val2, val3;
+	int dec, sign, ndig1, ndig2, ndig3;
+	ndig1 = 5; val1 = 9.876; clrscr();
+	puts("ecvt");
+	str1 = ecvt(val1, ndig1, &dec, &sign);
+	printf(" Число %f Строка %s\n dec= %d sign= %d\n", val1, str1, dec, sign);
+	ndig2 = 7; val2 = -123.45;
+	str2 = ecvt(val2, ndig2, &dec, &sign);
+	printf(" Число %f Строка %s\n dec = %d sign = %d\n", val2, str2, dec, sign);
+	ndig3 = 7; val3 = 0.6789e5;
+	str3 = ecvt(val3, ndig3, &dec, &sign);
+	printf(" Число %f Строка %s\n dec = %d sign = %d\n", val3, str3, dec, sign);
+	puts("fcvt");
+	str1 = fcvt(val1, ndig1, &dec, &sign);
+	printf(" Число %f Строка %s\n dec = %d sign = %d\n", val1, str1, dec, sign);
+	str2 = fcvt(val2, ndig2, &dec, &sign);
+	printf(" Число %f Строка %s\n dec = %d sign = %d\n", val2, str2, dec, sign);
+	str3 = fcvt(val3, ndig3, &dec, &sign);
+	printf(" Число %f Строка %s\n dec = %d sign = %d\n", val3, str3, dec, sign);
+	puts("gcvt");
+	gcvt(val1, ndig1, str1);
+	printf(" Число %f Строка %s\n",val1, str1);
+	gcvt(val2, ndig2, str2);
+	printf(" Число %f Строка %s\n",val2, str2);
+	gcvt(val3, ndig3, str3);
+	printf(" Число %f Строка\ %s\n",val3, str3);
+	getch();
+   }
+	<b><i>Результаты</i></b>	ecvt
+			 Число = 9.876000 Строка = 98760
+			 dec = 1 sign = 0
+			 Число = -123.450000 Строка = 1234500
+			 dec = 3 sign = 1
+			 Число = 67890.000000 Строка = 6789000
+			 dec = 5 sign = 0
+			fcvt
+			 Число = 9.876000 Строка = 987600
+			 dec = 1 sign = 0
+			 Число = -123.450000 Строка = 1234500000
+			 dec = 3 sign = 1
+			 Число = 67890.000000 Строка = 678900000000
+			 dec = 5 sign = 0
+			gcvt
+			 Число = 9.876000 Строка = 9.876
+			 Число = -123.450000 Строка = -123.45
+			 Число = 67890.000000 Строка = 67890
+
+</pre>
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

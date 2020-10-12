@@ -1,0 +1,71 @@
+body{margin: 0;
+padding: 0;
+font-family: Times, serif;
+font-size: 15pt;
+text-align: center;
+color: #003;
+background: #cc9999; 
+}
+-----Главная таблица-----
+#table{
+font-size: 12pt;
+}
+
+td.rule{
+padding: 10pt;
+background: #66f;
+color: #fff;
+}
+td.usual{
+padding: 5;
+background: #f7debc;
+color: #003;
+}
+
+-----Заголовок со страницами-----
+table.pages{
+padding: 5;
+spacing: 0;
+font-size: 10pt;}
+
+td.a{
+font-size: 10pt;
+background: #f7debc;
+color: #660033;
+}
+
+a:link.p,a:visited.p {text-decoration: none;
+font-size: 10pt;
+font-weight: bold;
+color: #f7debc;
+background: #660033;}
+a:hover.p {text-decoration: underline;}
+
+a:link.a,a:visited.a {text-decoration: none;
+font-size: 10pt;
+font-weight: bold;
+color: #660033;
+background: #;}
+a:hover.a {text-decoration: underline;}
+
+td.mlecn{
+text-align: center;
+background: #f7debc;
+color: #660033;
+}
+
+td.mleco{
+text-align: center;
+background: #f7debc;
+color: #e3ffe8;
+}
+
+a:link.mlecl,a:visited.mlecl {text-decoration: none;
+font-family: Arial;
+font-size: 13pt;
+font-weight: bold;
+color: #660033;
+}
+a:hover.mlecl {
+color: #660033;
+background: #ffe7e3;}

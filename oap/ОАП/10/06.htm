@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 10</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Заполнение, заполняющие символы</p>
+Функция-элемент <b><i>fill</i></b> задает заполняющий символ, который используется при 
+выравнивании в полях. <p>Если никакое значение заполняющего символа не задано, то для 
+заполнения используются пробелы. <p>Функция fill возвращает предыдущий заполняющий символ.
+<p>Манипулятор <b><i>setfill</i></b> также устанавливает значение заполняющего символа.
+<p>Программа иллюстрирует использование форматирования для задания ширины вывода, выравнивания, заполняющих символов.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;iostream.h>
+	#include&lt;iomanip.h>
+	void main( void )
+	{
+		clrscr();
+		char *l = "left", *r = "right";
+		cout << setfill('^') << setiosflags(ios :: left);
+		cout << setw(4) << 'l' << setw(10) << l << endl;
+
+		cout.fill('.'); cout.setf(ios :: right);
+		cout << setw(4) << 'r' << setw(10) << r << endl;
+		float x = 7.864;
+		cout.setf(ios :: left, ios :: adjustfield);
+		cout.fill('_'); cout << setw(6) << l;
+		cout.fill('~'); cout << setw(8) << x << endl;
+		cout << cout.fill();
+		getch();
+	}
+	<i>Результаты:</i>
+		l^^^left^^^^^^
+		...r.....right
+		left__7.864~~~
+</pre>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

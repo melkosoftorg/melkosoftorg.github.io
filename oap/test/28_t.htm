@@ -1,0 +1,317 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Вопросы теста 28 </title>
+<link rel=stylesheet type=text/css href=lec.css>
+</head>
+<body>
+<table cellpadding=0 cellspacing=0>
+<tr id=top><td colspan=5>
+<center>
+<a id=top href=../plan_2.htm>Календарно-тематический план &nbsp &nbsp </a>
+</center>
+</td></tr>
+<tr>
+<td class=bok></td>
+<td class=bok1></td>
+<td>
+<p id=head>Вопросы тестирования по теме:
+<br>Алгоритмы обработки двумерного числового массива.
+</p>
+<p id=head1>Что будет выведено на экран после исполнения фрагмента программы</p>
+<ol>
+<li><pre>
+int ss[3][3] = { {2, 0, 4}, {4, 0, 0}, {3, 3, 3} };
+int s = 0, i, j;
+for(i = 0; i < 3; i++)
+	for(j = 0; j < 3; j++)
+		s += ss[i][j];
+printf("%d ", s);
+</pre>
+<li><pre>
+int ss[3][3] = { {2, 3, 1}, {2, 0, 0}, {0, 2, 2} };
+int s = 1, i, j;
+for(i = 0; i < 3; i++)
+	for(j = 0; j < 3; j++)
+		if(ss[i][j] > 0)
+			s *= ss[i][j];
+printf("%d ", s);
+</pre>
+<li><pre>
+int ss[3][3] = { {3, 7, 0}, {8, 5, 0}, {0, 7, 3} };
+int s = 0, i, j;
+for(i = 0; i < 3; i++)
+{	for(j = 0; j < 3; j++)
+		if (i == j)
+			s += ss[i][j];
+}
+printf("%d ", s);
+</pre>
+<li><pre>
+int ss[3][3] = { {2, 3, 4}, {2, 3, 2}, {1, 6, 5} };
+int s = 1, i, j;
+for(i = 0; i < 3; i++)
+{	for(j = 0; j < 3; j++)
+		if (i == j)
+			s *= ss[i][j];
+}
+printf("%d ", s);
+</pre>
+<li><pre>
+int ss[3][3] = { {2, 3, 7}, {6, 2, 5}, {6, 8, 1} };
+int s = 1, i, j;
+for(i = 0; i < 3; i++)
+{	for(j = 0; j < 3; j++)
+		if (i + j == 2)
+			s *= ss[i][j];
+}
+printf("%d ", s);
+</pre>
+<li><pre>
+int ss[3][3] = { {17, 0, 16}, {1, 5, 2}, {6, 13, 17} };
+int s = 0, i, j;
+for(i = 0; i < 3; i++)
+{	for(j = 0; j < 3; j++)
+		if (i + j == 2)
+			s += ss[i][j];
+}
+printf("%d ", s);
+</pre>
+<li><pre>
+int ss[3][3] = { {1, 3, 1}, {2, 3, 2}, {4, 3, 1} };
+int s = 0, i, j;
+for(i = 0; i < 3; i++)
+	for(j = 0; j < 3; j++)
+		s += ss[i][j];
+printf("%d ", s);
+</pre>
+<li><pre>
+int ss[3][3] = { {0, 3, 1}, {3, 3, 0}, {2, 3, 1} };
+int s = 1, i, j;
+for(i = 0; i < 3; i++)
+	for(j = 0; j < 3; j++)
+		if(ss[i][j] > 0)
+			s *= ss[i][j];
+printf("%d ", s);
+</pre>
+<li><pre>
+int ss[3][3] = { {1, 2, 4}, {6, 2, 7}, {1, 0, 6} };
+int s = 0, i, j;
+for(i = 0; i < 3; i++)
+{	for(j = 0; j < 3; j++)
+		if (i == j)
+			s += ss[i][j];
+}
+printf("%d ", s);
+</pre>
+<li><pre>
+int ss[3][3] = { {3, 7, 5}, {4, 7, 3}, {3, 1, 6} };
+int s = 1, i, j;
+for(i = 0; i < 3; i++)
+{	for(j = 0; j < 3; j++)
+		if (i == j)
+			s *= ss[i][j];
+}
+printf("%d ", s);
+</pre>
+<li><pre>
+int ss[3][3] = { {0, 0, 6}, {3, 2, 5}, {8, 4, 7} };
+int s = 1, i, j;
+for(i = 0; i < 3; i++)
+{	for(j = 0; j < 3; j++)
+		if (i + j == 2)
+			s *= ss[i][j];
+}
+printf("%d ", s);
+</pre>
+<li><pre>
+int ss[3][3] = { {13, 4, 8}, {17, 13, 10}, {2, 13, 9} };
+int s = 0, i, j;
+for(i = 0; i < 3; i++)
+{	for(j = 0; j < 3; j++)
+		if (i + j == 2)
+			s += ss[i][j];
+}
+printf("%d ", s);
+</pre>
+<li><pre>
+int ss[3][3] = { {4, 6, 7}, {6, 8, 8}, {9, 4, 7} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = 0;
+	for(j = 0; j < 3; j++)
+		s += ss[i][j];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {7, 1, 7}, {7, 2, 7}, {3, 7, 5} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = 1;
+	for(j = 0; j < 3; j++)
+		s *= ss[i][j];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {0, 3, 5}, {1, 1, 5}, {2, 5, 1} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = 1;
+	for(j = 0; j < 3; j++)
+		s *= ss[j][i];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {7, 6, 13}, {3, 3, 10}, {14, 7, 3} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = 0;
+	for(j = 0; j < 3; j++)
+		s += ss[j][i];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {23, 27, 39}, {8, 36, 12}, {22, 3, 22} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = ss[i][0];
+	for(j = 0; j < 3; j++)
+		if(ss[i][j] < s)
+			s = ss[i][j];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {33, 40, 39}, {12, 21, 45}, {12, 37, 9} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = ss[0][i];
+	for(j = 0; j < 3; j++)
+		if(ss[j][i] < s)
+			s = ss[j][i];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {14, 13, 50}, {18, 39, 43}, {3, 40, 45} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = ss[i][0];
+	for(j = 0; j < 3; j++)
+		if(ss[i][j] > s)
+			s = ss[i][j];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {52, 23, 54}, {32, 49, 8}, {7, 17, 44} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = ss[0][i];
+	for(j = 0; j < 3; j++)
+		if(ss[j][i] > s)
+			s = ss[j][i];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {6, 6, 3}, {6, 8, 7}, {9, 7, 2} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = 0;
+	for(j = 0; j < 3; j++)
+		s += ss[i][j];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {6, 1, 4}, {1, 3, 6}, {4, 0, 5} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = 1;
+	for(j = 0; j < 3; j++)
+		s *= ss[i][j];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {3, 1, 0}, {5, 5, 5}, {5, 4, 3} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = 1;
+	for(j = 0; j < 3; j++)
+		s *= ss[j][i];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {17, 19, 12}, {12, 13, 10}, {17, 6, 3} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = 0;
+	for(j = 0; j < 3; j++)
+		s += ss[j][i];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {2, 22, 11}, {13, 13, 4}, {16, 28, 17} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = ss[i][0];
+	for(j = 0; j < 3; j++)
+		if(ss[i][j] < s)
+			s = ss[i][j];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {18, 14, 13}, {21, 23, 3}, {6, 15, 7} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = ss[0][i];
+	for(j = 0; j < 3; j++)
+		if(ss[j][i] < s)
+			s = ss[j][i];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {26, 12, 3}, {18, 8, 9}, {20, 13, 4} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = ss[i][0];
+	for(j = 0; j < 3; j++)
+		if(ss[i][j] > s)
+			s = ss[i][j];
+	printf("%d ", s);
+}
+</pre>
+<li><pre>
+int ss[3][3] = { {1, 16, 25}, {28, 30, 21}, {8, 13, 4} };
+int s, i, j;
+for(i = 0; i < 3; i++)
+{	s = ss[0][i];
+	for(j = 0; j < 3; j++)
+		if(ss[j][i] > s)
+			s = ss[j][i];
+	printf("%d ", s);
+}
+</pre>
+</ol>
+<p>&nbsp</p>
+</td>
+<td class=bok1></td>
+<td class=bok></td>
+</tr>
+<tr id=top><td colspan=5>
+<center>
+<a id=top href=../plan_2.htm>Календарно-тематический план &nbsp &nbsp </a>
+</center>
+</td></tr>
+</body>
+</html>

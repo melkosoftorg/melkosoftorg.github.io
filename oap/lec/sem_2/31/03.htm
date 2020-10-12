@@ -1,0 +1,87 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 31</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Работа со всеми элементами матрицы</p>
+При решении задач вида: 
+<ul>
+<li>Вычислить сумму (произведение) всех элементов матрицы.
+<li>Найти максимальный (минимальный) элемент матрицы и его индексы.
+<li>Подсчитать количество элементов положительных, отрицательных, нулевых, 
+больших или меньших заданного числа.
+</ul>
+нам приходится просматривать все элементы матрицы безразлично в какой 
+последовательности: по строкам или по столбцам.
+<p>При этом, если необходимо задать какие-либо начальные значения, сделать это надо до внешнего цикла.
+<p>Например, подсчитать количество элементов в массиве mas[3][4], больших заданного 
+числа p = 1600.
+<pre>
+        int mas[3][4] = {{   -34,       0,       11,  105},
+                         { 4534, 1567,    -191,     5},  
+                         {19374,    -1,  31412,  -15}}; 
+        int i, j, p = 1600, kol = 0;
+        for(i = 0; i < 3; i++)
+                for(j = 0; j < 4; j++)
+                        if (mas[i][j] > p) 
+                        {
+                                kol++;
+                                gotoxy(2+7*kol, 6); printf("%d", mas[i][j]);
+                        }
+        gotoxy(40, 8); printf("В массиве элементов, больших %d - %d ",  p, kol);
+</pre>
+В теле внутреннего цикла каждый элемент массива сравнивается с заданным числом,  
+суммируется количество элементов больших этого числа, значение каждого такого элемента выводится.
+<p>Вывод накопленного значения kol - за внешним циклом.
+<p>
+
+</td>
+</tr>
+
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

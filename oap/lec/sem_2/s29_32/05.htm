@@ -1,0 +1,104 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>ОП | СР 29_32</title>
+<link rel="stylesheet" type="text/css" href="05_files/lec.css">
+</head>
+<body>
+<a name="#start"></a>
+<table class="pages" align="center" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr colspan="5">
+<td>&nbsp;&nbsp;<a href="http://prep.scc/%7Eblp/uch/op/plan_2.htm" class="p">Календарно-тематический план</a>&nbsp;&nbsp;</td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/index.htm" class="p">&nbsp; План лекции &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/01.htm" class="p">&nbsp; 1 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/02.htm" class="p">&nbsp; 2 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/03.htm" class="p">&nbsp; 3 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/04.htm" class="p">&nbsp; 4 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/05.htm" class="a">&nbsp; 5 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/06.htm" class="p">&nbsp; 6 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/07.htm" class="p">&nbsp; 7 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/08.htm" class="p">&nbsp; 8 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/09.htm" class="p">&nbsp; 9 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/10.htm" class="p">&nbsp; 10 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/11.htm" class="p">&nbsp; 11 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/12.htm" class="p">&nbsp; 12 &nbsp;</a></td>
+</tr>
+</tbody></table>
+<!-- -------Inside table------- -->
+<table border="0" cellpadding="5" cellspacing="0" width="98%">
+<tbody><tr><td class="usual"><p class="dbi" align="center"><br>Обновление файлов последовательного доступа</p>
+<p>Данные, которые форматируются и записываются файл последовательного 
+доступа, не могут быть модифицированы без риска разрушения других данных
+ в файле.
+<br>Например, если Иванов требуется заменить на имя Иванников, то прежнее имя не может быть просто перезаписано.
+<br>Запись для Иванов была помещена в файл как &nbsp;&nbsp;100&nbsp;&nbsp;Иванов&nbsp;&nbsp;45.98
+</p><p>Если эта запись перезаписывается, начиная с той же самой позиции в
+ файле, но имеет более длинное имя, то новая запись принимает вид:
+&nbsp;&nbsp;100&nbsp;&nbsp;Иванников&nbsp;&nbsp;45.98
+</p><p>Новая запись содержит на три символа больше, чем первоначальная 
+запись, следовательно, часть символов в имени Иванников будут записаны 
+поверх начала следующей записи в файле.
+</p><p>Проблема в том, что в модели форматированного ввода-вывода, 
+используемой операциями поместить в поток и извлечь из потока, поля и, 
+следовательно, записи могут быть различных размеров.
+<br>Например, 7, 14, -117, 2074 и 27383 - все эти числа являются целыми 
+типа int, и каждое из них хранится в одинаковом количестве байтов, но 
+когда эти целые числа выводятся как форматированный текст на экран или в
+ файл на диске, то они занимают поля разных размеров.
+<br>Следовательно, модель форматированного ввода-вывода обычно не применима для обновления записей на месте.
+</p><p>Работа программы запроса кредитной информации
+</p><pre><b>
+	Запрос на ввод
+	 1 - Список счетов с нулевым балансом
+	 2 - Список счетов с кредитным балансом
+	 3 - Список счетов с дебетовым сальдо
+	 4 - Конец счета
+	 
+	? 1
+	Счета с нулевым балансом:
+	500       Перцев          0.00
+	
+	? 2
+	Счета с кредитовым балансом:
+	400       Сидоров        -9.76
+
+	? 3
+	Счета с дебетовым сальдо:
+	100       Иванов         45.98
+	200       Петров         23.11
+
+	? 4
+	Конец счета.
+</b></pre>
+<p>Такое обновление может быть реализовано, но оно затруднено.
+<br>Например, для того, чтобы изменить предыдущее имя, следует записи до
+ 100 Иванов 45.98 в файле последовательного доступа скопировать в новый 
+файл, затем записать в этот новый файл обновленную запись, а затем 
+скопировать в новый файл записи после 100 Иванов 45.98. Это требует 
+обработки всех записей в файле при обновлении одной записи. Такой метод 
+может быть приемлемым только в случае обновления в одном проходе многих 
+записей.
+</p><p>&nbsp;</p>
+</td></tr>
+</tbody></table>
+<!-- -------End of Inside table------- -->
+<table class="pages" align="center" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr colspan="5">
+<td>&nbsp;&nbsp;<a href="http://prep.scc/%7Eblp/uch/op/plan_2.htm" class="p">Календарно-тематический план</a>&nbsp;&nbsp;</td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/index.htm" class="p">&nbsp; План лекции &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/01.htm" class="p">&nbsp; 1 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/02.htm" class="p">&nbsp; 2 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/03.htm" class="p">&nbsp; 3 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/04.htm" class="p">&nbsp; 4 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/05.htm" class="a">&nbsp; 5 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/06.htm" class="p">&nbsp; 6 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/07.htm" class="p">&nbsp; 7 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/08.htm" class="p">&nbsp; 8 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/09.htm" class="p">&nbsp; 9 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/10.htm" class="p">&nbsp; 10 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/11.htm" class="p">&nbsp; 11 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/12.htm" class="p">&nbsp; 12 &nbsp;</a></td>
+</tr>
+</tbody></table>
+<a name="#end"></a>
+
+</body></html>

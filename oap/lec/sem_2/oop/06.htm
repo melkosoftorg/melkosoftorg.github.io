@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>Обзорная лекция | ООП</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Абстрактные классы</p>
+<p><b>Абстрактным классом называется</b> класс, в котором есть хотя бы одна чистая (пустая) виртуальная функция.
+<p><b>Чистая виртуальная функция</b> - компонентная функция, которая имеет определение:
+<pre>
+	virtual тип имя_функ(список_формальных_парам) = 0;
+</pre>
+<p>где &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>=&nbsp;0</b> - "чистый спецификатор". 
+<p><b>Пример:</b>     virtual void fpure(void) = 0; 
+<p>Чистая виртуальная функция
+<ul type="disc">
+<li>ничего не делает и недоступна для вызовов;
+<li>предназначена служить основой для подменяющих ее функций в производных классах, невозможно создать самостоятельные объекты абстрактного класса,
+<li>производные классы должны обеспечить определение функции для каждой чистой виртуальной функции базового класса.
+</ul>
+<p>Абстрактный класс может использоваться только в качестве базового для производных классов, чтобы построить иерархию классов и определить общие свойства для производных классов.
+<br>При создании объектов такого производного класса в качестве подобъектов создаются объекты абстрактного базового класса.
+<table align = center width="80%">
+<tr valign=top><td><b><i>Имеется абстрактный класс B</i></b>
+</td><td> &nbsp; &nbsp; &nbsp; &nbsp; 
+</td><td><b><i>Производные от класса B классы:</i></b>
+</td></tr>
+<tr><td valign="top"><pre>
+class В
+{	protected:
+		virtual void func(char) = 0;
+		void sos(int);
+};
+</pre>
+</td><td> &nbsp; &nbsp; 
+</td><td><pre>
+class D <b>:</b> public В
+{	<b>...</b>
+	void func(char);
+};
+class E <b>:</b> public В
+{
+	void sos(int);
+};
+</pre></td></tr>
+</table></center>
+В классе D чистая виртуальная функция func() заменена конкретной виртуальной 
+функцией того же типа. Функция B <b>::</b> sos() наследуется классом D и доступна в нем и в его 
+методах.
+<br>Класс D не абстрактный.
+<p>В классе E переопределена функция B <b>::</b> sos(), а виртуальная функция B <b>::</b> func() 
+унаследована.
+Тем самым класс B становится абстрактным и может использоваться только как базовый.
+<p>Как всякий класс, абстрактный класс может иметь явно определенный конструктор. Из 
+конструктора возможен вызов методов класса но любые прямые или опосредованные 
+обращения к чистым виртуальным функциям приведут к ошибкам во время выполнения 
+программы.
+<p><b>Правила:</b>
+<ul type="disc">
+<li>абстрактный класс не может использоваться в качестве типа аргумента функции или типа возвращаемого значения;
+<li>абстрактный класс нельзя использовать в явном преобразовании;
+<li>нельзя определить представитель абстрактного класса (локальную/глобальную переменную или элемент данных);
+<li>можно определять указатель или ссылку на абстрактный класс;
+<li>если класс, производный от абстрактного, не определяет все чистые виртуальные функции абстрактного класса, он также является абстрактным.
+</ul>
+<p>Пример использования абстрактных классов - предоставление интерфейса с полным отсутствием деталей реализации.
+<br>Например, операционная система может скрыть детали реализации драйверов устройств за интерфейсом абстрактного класса.
+
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

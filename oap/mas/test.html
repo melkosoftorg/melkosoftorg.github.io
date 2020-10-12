@@ -1,0 +1,293 @@
+<script type="text/javascript">var y5_pageId = 6259; var y5_statId = 0; document.write('<sc' + 'ript type="text/javascript" src="http://bs.yandex.ru/resource/narod_init.js?rnd=' + Math.round(Math.random() * 100000) + '"></sc' + 'ript>');</script>
+<div style="background:url(http://www.tns-counter.ru/V13a****yandex_ru/ru/CP1251/tmsec=narod_total/)"></div><html>
+<head>
+<title>| Проектное задание по дисциплине "Основы алгоритмизации и программирования" | Массивы | Тест |</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+<body bgcolor="#ADD8E6">
+<script language="JavaScript">
+<!-- hide
+
+var scrtxt = "Тесты. " ; 
+var length = scrtxt.length;
+var width = 100;
+var pos = -(width + 2);
+
+function scroll() {
+  pos++;
+  var scroller = "";
+  if (pos == length) {
+    pos = -(width + 2);
+  }
+
+  if (pos < 0) {
+    for (var i = 1; i <= Math.abs(pos); i++) {
+      scroller = scroller+" ";}
+    scroller = scroller + scrtxt.substring(0, width - i + 1);
+  }
+  else {
+    scroller = scroller + scrtxt.substring(pos, width + pos);
+  }
+
+  window.status = scroller;
+  setTimeout("scroll()", 100);
+}
+
+// -->
+</script>
+</head>
+
+<body onLoad="scroll()">
+
+<Script Language="JavaScript">
+<!--Начало сценария
+
+var res="2314134231"
+
+function test1()
+{
+	var count=0
+	with(document.test)
+	{
+		if(!Q1[0].checked&&!Q1[1].checked&&!Q1[2].checked&&!Q1[3].checked){count+=1};
+		if(!Q2[0].checked&&!Q2[1].checked&&!Q2[2].checked&&!Q2[3].checked){count+=1};
+		if(!Q3[0].checked&&!Q3[1].checked&&!Q3[2].checked&&!Q3[3].checked){count+=1};
+		if(!Q4[0].checked&&!Q4[1].checked&&!Q4[2].checked&&!Q4[3].checked){count+=1};
+		if(!Q5[0].checked&&!Q5[1].checked&&!Q5[2].checked&&!Q5[3].checked){count+=1};
+
+if(!Q6[0].checked&&!Q6[1].checked&&!Q6[2].checked&&!Q6[3].checked){count+=1};
+
+if(!Q7[0].checked&&!Q7[1].checked&&!Q7[2].checked&&!Q7[3].checked){count+=1};
+
+if(!Q8[0].checked&&!Q8[1].checked&&!Q8[2].checked&&!Q8[3].checked){count+=1};
+
+if(!Q9[0].checked&&!Q9[1].checked&&!Q9[2].checked&&!Q9[3].checked){count+=1};
+
+if(!Q10[0].checked&&!Q10[1].checked&&!Q10[2].checked&&!Q10[3].checked){count+=1};
+		if (count>0) {alert("Не торопитесь. Вы ответили не на все вопросы!")} 
+		else answer()
+	}
+}
+
+function control(k,f1,f2,f3,f4,f5)
+{
+	if (k==1&&f1.checked)return true;
+	if (k==2&&f2.checked)return true;
+	if (k==3&&f3.checked)return true;
+	if (k==4&&f4.checked)return true;
+	if (k==5&&f5.checked)return true;
+	if (k==6&&f6.checked)return true;
+	if (k==7&&f7.checked)return true;
+	if (k==8&&f8.checked)return true;
+	if (k==9&&f9.checked)return true;
+	if (k==10&&f10.checked)return true;
+	return false;
+}
+
+function answer()
+	{
+	answ="";
+	with(document)
+	{
+		answ+=control(res.charAt(0),test.Q1[0],test.Q1[1],test.Q1[2],test.Q1[3])?"1":"0";
+		answ+=control(res.charAt(1),test.Q2[0],test.Q2[1],test.Q2[2],test.Q2[3])?"1":"0";
+		answ+=control(res.charAt(2),test.Q3[0],test.Q3[1],test.Q3[2],test.Q3[3])?"1":"0";
+		answ+=control(res.charAt(3),test.Q4[0],test.Q4[1],test.Q4[2],test.Q4[3])?"1":"0";
+		answ+=control(res.charAt(4),test.Q5[0],test.Q5[1],test.Q5[2],test.Q5[3])?"1":"0";
+
+answ+=control(res.charAt(5),test.Q6[0],test.Q6[1],test.Q6[2],test.Q6[3])?"1":"0";
+
+answ+=control(res.charAt(6),test.Q7[0],test.Q7[1],test.Q7[2],test.Q7[3])?"1":"0";
+
+answ+=control(res.charAt(7),test.Q8[0],test.Q8[1],test.Q8[2],test.Q8[3])?"1":"0";
+
+answ+=control(res.charAt(8),test.Q9[0],test.Q9[1],test.Q9[2],test.Q9[3])?"1":"0";
+
+answ+=control(res.charAt(9),test.Q10[0],test.Q10[1],test.Q10[2],test.Q10[3])?"1":"0";
+		showResult();
+	}
+}
+
+function showResult(){
+	var nok=0;
+	var i,s;
+	for (i=0;i<answ.length;i++)
+	{
+		nok+=answ.charAt(i)=="1"?1:0;
+	}
+	if(nok<=4) s='"НЕУДОВЛЕТВОРИТЕЛЬНО"';
+	if(nok>4 && nok<6) s='"УДОВЛЕТВОРИТЕЛЬНО"';
+	if(nok==6) s='"УДОВЛЕТВОРИТЕЛЬНО"';
+	if(nok>6 && nok<8) s='"ХОРОШО"';
+	if(nok==8) s='"ХОРОШО"';
+	if(nok>8) s='"ОТЛИЧНО"';
+	document.test.s1.value="Количество правильных ответов "+nok+
+		". Ваша оценка "+s+". Загляните в окно рядом с номером вопроса. Если"+
+		" Вы ответили правильно, то там (+), если Вы ошиблись, то там (-).";
+	with(document.test)
+	{
+		if(answ.charAt(0)=="1"){T1.value=" +"}
+			else {T1.value=" -"}; 
+		if(answ.charAt(1)=="1"){T2.value=" +"}
+			else {T2.value=" -"}; 
+		if(answ.charAt(2)=="1"){T3.value=" +"}
+			else {T3.value=" -"}; 
+		if(answ.charAt(3)=="1"){T4.value=" +"}
+			else {T4.value=" -"}; 
+		if(answ.charAt(4)=="1"){T5.value=" +"}
+			else {T5.value=" -"};
+		if(answ.charAt(5)=="1"){T6.value=" +"}
+			else {T6.value=" -"};
+		if(answ.charAt(6)=="1"){T7.value=" +"}
+			else {T7.value=" -"};
+		if(answ.charAt(7)=="1"){T8.value=" +"}
+			else {T8.value=" -"};
+		if(answ.charAt(8)=="1"){T9.value=" +"}
+			else {T9.value=" -"};
+		if(answ.charAt(9)=="1"){T10.value=" +"}
+			else {T10.value=" -"};
+	}
+}
+
+//--Конец сценария-->
+</script>
+
+</head>
+<body bgcolor="white">
+<center>
+    <table align="center" valign="middle" bgcolor="#ADD8E6" border="0" width="80%" bordercolor="#ADD8E6" cellpadding="10%" cellspacing="3%">
+    <tbody>
+	<tr align="left" valign="bottom">
+		<td width="20%">
+		<font size="+3"><font color="1B88A9"><i><b>
+		Проектное задание
+		<br>на тему:
+		<br><a href="mas.html">Массивы</a>
+		</b></i></font></font>
+		</td>
+		<td align="right">
+		<img src="test.jpg">
+		</td>
+    </tr>
+	<tr>
+		<td valign="bottom">
+		<img src="g1_1.jpg">
+		</td>
+		<td rowspan="2" bgcolor="white" valign="top">
+	<left>
+<form name=test>
+
+<ol>
+	<li>
+	<h4> <input type=text name=T1 size=1 value=''> Массив -</h4>
+
+	<input type=radio name=Q1> последовательность, состоящая из одного или более символов <br>
+	<input type=radio name=Q1> индексированный набор данных определённого типа <br>
+	<input type=radio name=Q1> генератор случайных чисел <br>
+	<input type=radio name=Q1> законченное действие
+ <br>
+	<br>
+
+	<li>
+	<h4> <input type=text name=T2 size=1 value=''> Определение одномерного массива имеет вид: </h4>
+	<input type=radio name=Q2> template <список_параметров_шаблона> определение класса <br>
+	<input type=radio name=Q2> тип имя_массива[K1][K2]...[Kn] <br>
+	<input type=radio name=Q2> тип имя_массива [константное выражение]; <br>
+	<input type=radio name=Q2> имя_класса (фактические_параметры_конструктора); <br>
+	<br>
+
+	<li>
+	<h4> <input type=text name=T3 size=1 value=''> Укажите, пожалуйста, способ, с помощью которого можно инициализировать массив  : </h4>
+	<input type=radio name=Q3> с клавиатуры <br>
+	<input type=radio name=Q3> с телефона <br>
+	<input type=radio name=Q3> с закрытыми глазами (для опытных программистов) <br>
+	<input type=radio name=Q3> правильного ответа нет <br>
+	<br>
+
+	<li>
+
+	<h4> <input type=text name=T4 size=1 value=''> В многомерном массиве используется сразу несколько индексов. Вопрос: сколько индексов имеет трехмерный массив? </h4>
+	<input type=radio name=Q4> Два <br>
+	<input type=radio name=Q4> Десять <br>
+	<input type=radio name=Q4> Один <br>
+	<input type=radio name=Q4> Три <br>
+	<br>
+
+	<li>
+	<h4> <input type=text name=T5 size=1 value=''> Многомерный массив в соответствии с синтаксисом языка есть </h4>
+	<input type=radio name=Q5> массив массивов, то есть массив, элементами которого служат массивы.  <br>
+	<input type=radio name=Q5> переменная, содержащая адрес некоторых данных, а не их значение. <br>
+	<input type=radio name=Q5> переменная, изменяющаяся в цикле.  <br>
+	<input type=radio name=Q5> человек, компьютер, автомат, умеющий выполнять вполне определенный набор действий.  <br>
+	<br>
+
+<li>
+	<h4> <input type=text name=T6 size=1 value=''> Определение многомерного массива имеет вид:  </h4>
+	<input type=radio name=Q6> тип имя_массива [константное выражение]; <br>
+	<input type=radio name=Q6> int a, b, d; <br>
+	<input type=radio name=Q6> тип имя_массива[K1][K2]...[Kn] <br>
+	<input type=radio name=Q6> тип_результата имя_функции(список параметров, если он есть); <br>
+	<br>
+<li>
+	<h4> <input type=text name=T7 size=1 value=''> Общий объем памяти в байтах определяется выражением </h4>
+	<input type=radio name=Q7> sum = a + b++ <br>
+	<input type=radio name=Q7> y = e<sup>x</sup> <br>
+	<input type=radio name=Q7> N ++ (sizeof(тип)) <br>
+	<input type=radio name=Q7> N * (sizeof(тип)) <br>
+	<br>
+
+<li>
+	<h4> <input type=text name=T8 size=1 value=''> 	В фрагменте программы <i><u>con</u></i> - <br> 
+													<font color="#0000FF"><i><br>&emsp;&emsp;&emsp;#define S 2
+													<br>&emsp;&emsp;&emsp;#define K 3
+													<br>&emsp;&emsp;&emsp;#define L 2
+													<br>&emsp;&emsp;&emsp;float <u>con</u>[S][K][L]; </i></font> </h4>
+	<input type=radio name=Q8> Размерность <br>
+    <input type=radio name=Q8> Имя <br>
+	<input type=radio name=Q8> Слово <br>
+	<input type=radio name=Q8> Объем памяти <br>
+	<br>
+
+<li>
+	<h4> <input type=text name=T9 size=1 value=''> Количество измерений массива в языке C не ограничено, но имеется ограничение на </h4>
+	<input type=radio name=Q9> первый элемент массива. <br>
+	<input type=radio name=Q9> некоторый объект. <br>
+	<input type=radio name=Q9> общий размер массива.  <br>
+	<input type=radio name=Q9> тип данных элементов массива. <br>
+	<br>
+<li>
+	<h4> <input type=text name=T10 size=1 value=''> Последним элементом массива, использующимся для обозначения конца строки, является </h4>
+	<input type=radio name=Q10>  \0 <br>
+	<input type=radio name=Q10>  //e<br>
+	<input type=radio name=Q10>  \t <br>
+	<input type=radio name=Q10>  \n<br>
+	<br>
+</ol>
+<center>
+<input type=button value="Показать результат" onClick=test1()>
+<p>
+<textarea rows=5 cols=70 name=s1></textarea>
+</p>
+<input type=reset value="Очистить выбранные пункты">
+</form>
+	</left>
+<br>
+<br>
+<center>
+<font color="#ADD8E6">
+<a href="ogl.html"><font color="Blue">О</font>главление</a>
+<a href="about_mas.html"><font color="Blue">М</font>ассивы</a>
+<a href="example.html"><font color="Blue">П</font>римерам программ</a>
+<a href="test.html"><font color="Blue">Т</font>ест</a>
+<a href="spring.html"><font color="Blue">И</font>сточники</a>
+<a href="student.html"><font color="Blue">С</font>оздатель</a>
+</font>
+</center>
+	</tr>
+    </tbody>
+	</table>
+</center>
+    <br>
+    <br>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 21</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Использование ключевого слова enum</p>
+<p>В языке C списки определяются директивой #define<br>
+<pre><b>			#define sun 0
+			#define mon 1
+			#define tues 2
+			#define wed 3
+			#define thur 4
+			#define fri 5
+			#define sat 6
+</b></pre>
+<p>Современный метод позволяет представлять информацию более абстрактно и 
+содержательно, чем длинный список директив #define. Кроме того, можно описать 
+переменные, принадлежащие к абстрактному типу данных days. 
+<br>В Borland C введен так называемый перечислимый тип данных, который можно 
+объявить с помощью ключевого слова enum:
+<p><b><center>typedef enum { sun, mon, tues, wed, thur, fri, sat } days;</center></b></p>
+<p>Присвоение осуществляется в порядке возрастания значений по умолчанию от 
+sun = 0 до sat = 6. Можно выбирать значения, которые вы хотите присвоить 
+константам, но они должны быть целого типа (включая тип char): 
+<pre>		enum lev {low = 30, men = 70, im = 200};</pre>
+Если вы присвоите какое-либо значение только одной константе, то 
+константам, следующим за ней, будут присвоены последовательные значения, 
+идущие за явно присвоенным значением.
+<br>Например, enum feline {cat = 20, tiger, lion, puma}; присваивает 
+переменной tiger значение 21, переменной lion значение 22, переменной puma 
+значение 23.
+<p>Рассмотрим пример программы, в которой рабочим дням недели присваиваются 
+номера от 1 до 5, субботе - 6, воскресенью - 0 и в зависимости от введенного 
+значения переменной today типа days выводится результат:
+<pre>	today равно 1 - 5        Иди работать!
+	today равно 6             Убери во дворе и Расслабься!
+	today равно 0             Расслабься!
+	today не равно 0 - 6  Ошибка
+</pre>
+<pre><b>
+	#include&lt;conio.h&gt;
+	#include&lt;stdio.h&gt;
+	typedef enum{sun, mon, tues, wed, thur, fri, sat} days;
+	main()
+	{
+		days today;
+		clrscr();
+		printf("0 - 6\n"); scanf("%d", &today);
+		switch (today)
+		{
+			case mon:	//понедельник
+			case tues:	// вторник
+			case wed:	// среда
+			case thur:	// четверг
+			case fri:		// пятница
+				puts("Иди работать!");break;
+			case sat:	// суббота
+				printf("Убери во дворе и ");
+			case sun:	// воскресенье
+				puts("Расслабься!"); break;
+			default:	// нет такого дня недели
+				printf("Ошибка\n"); break;
+		} getch(); return 0;
+	}
+</b></pre>
+<p>Для значений от mon до fri выполняется одна и та же функции puts, после которой оператор break указывает на выход из switch. Если today равно sat, выполняется соответствующая функция printf, а затем выполняется puts ("Расслабься!"); если же today равно sun, выполняется только последняя функция puts.<br>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

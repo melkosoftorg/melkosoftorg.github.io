@@ -1,0 +1,164 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 23</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual><p align=center class=dbi><br>Вложенные ветвления в цикле for</p>
+<p><b>Рассмотрим программу, которая выводит прямоугольник из символов & размером 10 · 10.</b>
+<br>i - управляющая переменная цикла - количество выводимых символов - 100.
+<br>j и k - переменные, задающие позицию вывода символа на экран.
+<br>Проверка условия необходима, чтобы после вывода 10 символов в строке перейти в начало следующей строки для вывода следующих 10 символов. И так далее все 10 строк по 10 символов.
+<p><table width="75%" align=center border=0>
+<tr valign="top"><td width="45%">
+<pre>
+#include&lt;conio.h&gt;
+#include&lt;iostream.h&gt;
+main()
+{
+	int i, j = 1, k = 1,
+	textcolor(12); clrscr();
+	<i>for(i = 1; i < 101; i++)</i>
+	{
+		gotoxy(j++, k); cout << "&";
+		if(i % 10 == 0)
+		{
+			k++; j = 1;
+		}
+	} getch(); return 0;
+}
+</pre>
+</td><td>
+<pre>
+&&&&&&&&&&
+&&&&&&&&&&
+&&&&&&&&&&
+&&&&&&&&&&
+&&&&&&&&&&
+&&&&&&&&&&
+&&&&&&&&&&
+&&&&&&&&&&
+&&&&&&&&&&
+&&&&&&&&&&
+</pre>
+</td></tr>
+</table>
+<p>Аналогичные действия могут быть выполнены циклом while, заменившим выделенный курсивом фрагмент программы на &nbsp; <i><b>i&nbsp;=&nbsp;0;&nbsp;while(i++&nbsp;<&nbsp;100)</b></i> &nbsp;&nbsp;&nbsp;При этом результаты работы не изменятся.
+<p><b>Используя оператор условного перехода if ... else, вычислить для значений x, 
+изменяющихся от 0,9 до 3,1 с шагом 0,3, значения функции z.</b>
+<br>Указать номер формулы, по которой производилось вычисление.
+<br><img src="pic_02.gif" alt="pic_02.gif" ismap align="middle">, &nbsp;&nbsp;где &nbsp;&nbsp;
+<img src="pic_03.gif" alt="pic_03.gif" ismap align="middle">.
+<p>Управлять циклом будет переменная x, она изменяется строго закономерным образом от a до b с шагом h.
+<br>Проверять условие при каждом x после вычисления y необходимо для того, чтобы выбрать, по какой из формул вычислять z: либо по первой, либо по второй, либо по третьей.
+<p><table width="90%" align=center border=0>
+<tr valign="top"><td width="73%"><pre>
+#include&lt;conio.h&gt;
+#include&lt;math.h&gt;
+#include&lt;iostream.h&gt;
+#include&lt;iomanip.h&gt;
+main()
+{
+	float y, x, z; int num; clrscr();
+	cout.precision(2);
+	for(x = .9; x <= 3.1; x += .3)
+	{
+		y = 2 * sin(M_PI_2 * x) + cos(sqrt(x));
+		if(y < 0)
+		{
+			num = 1; z = exp(y) + exp(-y);
+		}
+		else	if(y >= 0 && y < 2)
+			{
+				num = 2; z = y * y + sqrt(y);
+			}
+			else
+			{
+				num = 3; z = y + log(y);
+			}
+		cout << setw(3) << "x = " << setw(3) << x;
+		cout << setw(3) << "y = " << setw(5) << y << setw(3) << "z" << num << " = " << z << endl;
+	} getch(); return 0;
+}
+</pre>
+</td><td>
+<pre>
+<i>Результаты:</i>
+
+ x = 0.9	y =  2.56	z3 = 3.5
+ x = 1.2	y = 2.36	z3 = 3.22
+ x = 1.5	y = 1.75	z2 = 4.4
+ x = 1.8	y = 0.85	z2 = 1.63
+ x = 2.1	y =-0.19	z1 = 2.04
+ x = 2.4	y =-1.15	z1 = 3.49
+ x = 2.7	y =-1.85	z1 = 6.54
+ x = 3	y =-2.16	z1 = 8.79
+</pre>
+</td></tr>
+</table>
+<p><b>Построить изображение круга, закрашенного чередующимися синими и красными кольцами</b>.
+<p>Построение чередующихся синих и красных кругов начинается с самого большого синего, затем сверху меньшим радиусом рисуется красный круг с такими же координатами центра круга, что и у синего. И так далее все 7 кругов. В результате создается иллюзия полосатого круга.
+<br>При проверке условия не указана никакая операция отношения, просто записано (i % 2). Это означает истина, то есть имеется остаток от деления на 2, значение i - число нечетное.
+<p><table width="90%" align="center" border=0>
+<tr valign="top"><td width="50%">
+<pre>
+#include&lt;graphics.h>
+#include&lt;conio.h>
+#include&lt;stdio.h>
+#include&lt;stdlib.h>
+#include&lt;dos.h>
+#include"..\\h\\init.h"
+main()
+{
+	init();
+	int i, x = getmaxx() / 2, y = getmaxy() / 2, color;
+	for(i = 7; i >= 1; i--)
+	{
+		if(i % 2)
+			color = BLUE;
+		else
+			color = RED;
+		setcolor(color); setfillstyle(SOLID_FILL, color);
+		fillellipse(x, y, 20 * i, 20 * i);
+		delay(300);
+	}
+	getch(); closegraph();
+}
+</pre>
+</td><td>
+<img src="krugi.gif" alt="krugi.gif">.
+</td></tr>
+</table>
+
+</p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr><td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp
+</td><td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a>
+</td><td><a href="01.htm" class=p>&nbsp 1 &nbsp</a>
+</td><td><a href="02.htm" class=a>&nbsp 2 &nbsp</a>
+</td><td><a href="03.htm" class=p>&nbsp 3 &nbsp</a>
+</td><td><a href="04.htm" class=p>&nbsp 4 &nbsp</a>
+</td><td><a href="05.htm" class=p>&nbsp 5 &nbsp</a>
+</td></tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

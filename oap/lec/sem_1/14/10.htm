@@ -1,0 +1,97 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 14</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=a>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Указатель файла в потоке</p>
+<b><i>fseek</i></b> устанавливает указатель файла в потоке.
+<br><b>Синтаксис</b> int fseek(FILE *str, long offset, int fromwhere);
+<br><b>Прототип</b> в stdio.h
+<p>fseek устанавливает адресный указатель файла, соответствующий потоку str, в новую 
+позицию, которая расположена по смещению offset относительно места в файле, 
+адресуемого параметром fromwhere. 
+<p>Параметр fromwhere может иметь одно из трех 
+значений 0, 1 или 2, которые представлены тремя символическими константами, 
+определенными в файле stdio.h, следующим образом: 
+<pre>	SEEK_SET  (0) начало файла,
+	SEEK_CUR (1) позиция текущего указателя файла,
+	SEEK_END (2) конец файла (EOF).
+</pre>
+fseek сбрасывает любой символ, записанный с помощью функции ungetc. Используется с 
+операциями ввода/вывода в поток, при работе с дескриптором файла необходимо 
+пользоваться lseek. 
+<p>Возвращает значение 0, если указатель файла успешно перемещен, и 
+ненулевое значение в случае неудачного завершения.
+<p><table align=center width=90% border=1 cellpadding=5 cellspacing=10>
+<tr><td class=rule>
+<b>Примечание:</b> fseek может вернуть нулевое значение даже в случае, если этого не было. 
+Это происходит в результате того, что DOS не проверяет установку указателя. 
+<br>fseek возвращает индикатор ошибки только в том случае, если устройство или файл не открыты.
+</td></tr>
+</table>
+<p><b><i>ftell</i></b> - возвращает положение указателя текущей позиции файла, связанного с потоком str. 
+<br>Значение выдается в виде смещения в байтах относительно начала файла.
+<br><b>Синтаксис</b> long int ftell (FILE *str);
+<br><b>Прототип</b> в stdio.h
+<p>Возвращает положение указателя текущей позиции при успешном завершении. 
+<br>Возвращаемое значение можно в дальнейшем использовать при вызове функции fseek. 
+<p>При ошибке возвращает -1L и присваивает переменной errno положительное значение.
+Прекращение выполнения программы
+<p><b><i>exit</i></b> прекращает выполнение программы. <br>Перед выходом из процесса все файлы 
+закрываются, записывается буферный вывод (ждущий вывода) и вызываются 
+зарегистрированные функции вывода.
+<br><b>Синтаксис</b> void exit (int status);
+<br><b>Прототип</b> в process.h, stdlib.h
+<p>status представляет собой статус выхода из данного процесса: 
+<ul>
+<li>при нулевом  0  EXIT_SUCCESS - нормальное завершение, 
+<li>при ненулевом  EXIT_FAILURE  - ненормальное завершение, с ошибкой.
+</ul>
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=a>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

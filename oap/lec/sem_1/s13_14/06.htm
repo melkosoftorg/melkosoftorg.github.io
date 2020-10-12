@@ -1,0 +1,112 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | СР 13_14</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Указатель чтения - записи файла</p>
+<b><i>lseek</i></b> устанавливает указатель чтения/записи файла.
+<br><b>Синтаксис</b> long lseek(int handle, long offset, int fromwhere);
+<br><b>Прототип</b> в io.h
+<p>lseek устанавливает указатель файла, соответствующий параметру handle, в новую 
+позицию, которая находится на offset байтов впереди месторасположения заданного 
+параметром fromwhere. 
+<p>Параметр fromwhere должен иметь одно из трех значений 0, 1 или 
+2, которые представлены тремя символическими константами (определенными в файле 
+stdio.h) следующим образом:<p>
+<table align=center width=98% border=0 cellpadding=2>
+<tr><td>SEEK_SET </td><td>0</td><td> - </td><td>начало файла                   </td></tr>
+<tr><td>SEEK_CUR </td><td>1</td><td> - </td><td>текущая позиция указателя файла</td></tr>
+<tr><td>SEEK_END </td><td>2</td><td> - </td><td>конец файла                    </td></tr>
+</table>
+<p>Функция lseek возвращает значение смещения новой позиции указателя, измеряемой в 
+байтах от начала файла. <p>В случае ошибки функция lseek возвращает значение -1L и 
+глобальная переменная errno получает одно из следующих значений:
+<ul>
+<li>EBADF - неверный номер файла
+<li>EINVAL - неверный аргумент
+</ul>
+На устройствах, непригодных для поиска, таких, как терминалы и принтеры, возвращаемое значение не определено.
+<p><b><i>tell</i></b> получает текущую позицию указателя файла, соответствующего параметру handle и 
+выражает ее количеством байтов от начала файла.
+<br><b>Синтаксис</b> long tell(int handle);
+<br><b>Прототип</b> в io.h
+<p>tell возвращает текущее значение указателя файла. 
+<br>Возврат значения -1 (long) означает ошибку, и глобальной переменной errno присваивается значение: EBADF - неверный 
+номер файла.
+<pre>
+   #include&lt;string.h&gt;
+   #include&lt;stdio.h&gt;
+   #include&lt;fcntl.h&gt;
+   #include&lt;io.h&gt;
+   int main(void)
+   {
+      int handle;
+      char msg[] = "Hello world";
+      if((handle = open("TEST.$$$", O_CREAT | O_TEXT | O_APPEND)) == -1)
+      {
+         perror("Ошибка:");
+         return 1;
+      }
+      write(handle, msg, strlen(msg));
+      printf("Указатель файла находится на %ld байте\n", tell(handle));
+      close(handle); return 0;
+   }
+</pre>
+<p><b><i>rewind</i></b> устанавливает указатель в начало потока. <br>Эквивалентно fseek(stream, 0L, 
+SEEK_SET), за исключением того, что rewind обнуляет признаки конца файла и ошибки, а 
+fseek только признак конца файла. 
+<p><b>Синтаксис</b> int rewind(FILE *stream);
+<br><b>Прототип</b> в stdio.h
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

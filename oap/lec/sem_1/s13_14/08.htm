@@ -1,0 +1,128 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | СР 13_14</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=a>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Изменение режима доступа к файлу</p>
+<b><i>_chmod</i></b> - изменяет режим доступа файла;
+<br><b><i>&nbsp  chmod</i></b> - изменяет режим доступа файла.
+<pre>
+<b>Синтаксис</b>	#include&lt;dos.h&gt;
+		int _chmod(char * filename, int func[,int attrib]);
+		int chmod(char * filename, int func[,int attrib]);
+<b>Прототип</b> в io.h
+</pre>
+<p>Функция chmod назначает способ доступа к файлу *filename соответственно маске, 
+содержащейся в аргументе permiss. 
+<br>Аргумент filename представляет собой адресный указатель символьной строки, именующей файл. 
+<p>Аргумент permiss может содержать одну или обе символические константы S_IWRITE и S_IREAD (константы определяются в 
+файле sys\stat.h).<p>
+<table align=center width=98% border=0 cellpadding=2>
+<tr><td>S_IWRITE</td><td> - </td><td>разрешение на запись                   </td></tr>
+<tr><td>S_IREAD</td><td> - </td><td>разрешение на чтение                    </td></tr>
+<tr><td>S_IREAD | S_IWRITE</td><td> - </td><td>разрешение на чтение и запись</td></tr>
+</table>
+<p>Функция _chmod может либо вызывать, либо устанавливать атрибуты файла системы MS-
+DOS. 
+<br>Если аргумент func = 0, функция возвращает текущие атрибуты системы MS-DOS 
+заданного файла. 
+<br>Если аргумент func = 1, атрибут устанавливается по значению 
+переменной attrib. 
+<p>Аргумент attrib может быть одной из следующих символических 
+констант (определенных в файле dos.h):<p>
+<table align=center width=98% border=0 cellpadding=2>
+<tr><td>FA_RDONLY</td><td> - </td><td>атрибут "только чтение"</td></tr>
+<tr><td>FA_HIDDEN</td><td> - </td><td>скрытый файл          </td></tr>
+<tr><td>FA_SYSTEM</td><td> - </td><td>системный файл        </td></tr>
+</table>
+<p>При успешном завершении смены режима доступа файла функция chmod возвращает 
+значение 0, в любом другом случае функция возвращает значение -1. 
+<p>При успешном завершении функция _chmod возвращает значение, соответствующее слову - атрибуту 
+доступа, иначе функция возвращает значение равное -1. 
+<p>В случае ошибки, переменная errno получает одно из следующих значений: 
+<ul>
+<li>ENOENT - траектория доступа (PATH) или имя файла не найдены,
+<li>EACCES - отказ доступа.
+</ul>
+<pre>
+	#include&lt;sys\stat.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;io.h&gt;
+	void make_read_only(char *filename);
+	int main(void)
+	{
+		make_read_only("TEST.$$$");
+		make_read_only("MYFILE.FIL");
+		return 0;
+	}
+	void make_read_only(char *filename)
+	{
+		int stat;
+		stat = chmod(filename, S_IREAD);
+		if (stat)
+			printf("Не могу сделать %s только для чтения\n", 
+				filename);
+		else
+			printf("%s имеет атрибут только для чтения\n", 
+				filename);
+	}
+</pre>
+
+<p>
+
+</td>
+</tr>
+
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=a>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

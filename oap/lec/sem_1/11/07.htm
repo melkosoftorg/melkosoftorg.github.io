@@ -1,0 +1,125 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОАП | Лекция № 14</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td>&nbsp&nbsp<a href="#end" class=p>Конец страницы</a>&nbsp&nbsp</td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Примеры определений функций</p>
+<b><center>Функция get_parms</center></b>
+<p>Функция get_parms не возвращает никакого значения, так как ее тип определен как void, 
+поскольку эта функция служит лишь для чтения двух значений и сохранения их в 
+некотором месте. 
+<br>Мы передаем в get_parms два параметра, являющихся адресами, по 
+которым должны быть размещены считанные функцией значения. Оба параметра не 
+являются данными типа float, но являются указателями на переменные типа float, 
+работаем непосредственно с адресами памяти, по которым размещены переменные типа 
+float.
+<p>Когда мы вызываем get_parms из main, параметрами функции являются &a и &b (адреса), 
+а не текущие значения a и b. Вся информация, используемая при обращении к функции 
+scanf, находится непосредственно внутри функции get_parms, и перед параметрами p1 и p2 
+не стоят знаки операций адресации, потому, что p1 и p2 уже сами по себе адреса; они 
+являются адресами переменных a и b.
+<pre>		void get_parms(float *p1, float *p2)
+		{
+			printf("Введите два числа: ");
+			scanf("%f %f", p1, p2);
+		}
+</pre>
+
+<p><b><center>Функция get_ratio</center></b>
+<p>Функция get_ratio получает аргументы a и b в качестве значений переменных divident и 
+divisor - формальных параметров.
+Функция get_ratio возвращает результат (типа float) обработки двух значений типа float, 
+передаваемых ей (divident и divisor). Возвращенный функцией результат зависит от того, 
+равно значение переменной divisor нулю или нет. Если значение divisor равно нулю, 
+get_ratio возвращает константу INFINITY. Если нет - действительное значение частного 
+двух чисел. Обратите внимание на вид оператора return.
+<pre>
+	float get_ratio(float divident, float divisor)
+	{
+		if (divisor == 0.0)
+			return (INFINITY);
+		else
+			return(divident / divisor);
+	}
+</pre>
+
+<p><b><center>Функция put_ratio</center></b>
+<p>Функция put_ratio не возвращает значение, так как ее тип объявлен как void. 
+<br>Она имеет ровно один параметр - ratio, который используется для того, чтобы определить, какое 
+именно сообщение следует выводить на экран дисплея. 
+<br>Если ratio равно INFINITY, 
+значит, значение частного двух чисел считается неопределенным, в противном случае 
+значение ratio выводится на экран дисплея как результат работы программы.
+<pre>	void put_ratio(float ratio)
+	{               	
+		if (ratio == INFINITY)
+			printf("Внимание! Деление на ноль!\n\n");
+		else
+			printf("Результат деления двух чисел: %f\n\n", ratio);
+	}
+</pre>
+
+
+<p>
+
+</td>
+</tr>
+
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td>&nbsp&nbsp<a href="#start" class=p>Начало страницы</a>&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<FONT color="#FFFF66" size=1><i>Copyright</i> &copy; <a class=p href="http://prep.scc/~blp">
+Болгак Л. П.</a> <i>2003</i></font>
+</td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | СР 13_14</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Запись данных в файл и считывание их из файла</p>
+<b><i>_read</i></b> - считывает данные из файла.
+<br><b><i>&nbsp  read</i></b> - считывает данные из файла.
+<pre>
+<b>Синтаксис</b>	int _read(int handle, void *buf, int nbyte);
+		int read(int handle, void *buf, int nbyte);
+<b>Прототип</b> в io.h
+</pre>
+<p>Функции read и _read делают попытку считать nbyte байтов из файла, соответствующего 
+параметру handle, в буфер, адресуемый параметром buf. <br>Функция _read является 
+непосредственным вызовом операции чтения MS-DOS. 
+<p>В файле, открытом в текстовом 
+режиме, функция read удаляет символы "возврат каретки" и выдает "конец файла" (EOF), 
+как только прочитан символ stre-z. <br>Функцией _read такие действия не производятся.
+<br>Параметр handle - это тот же самый параметр, что получают на выходе функции creat, 
+open, dup, dup2 или fcntl.
+<p>Данные функции начинают чтение дисковых файлов с адреса, полученного с помощью 
+текущего указателя файла. Когда чтение завершено, данные функции увеличивают 
+указатель файла на количество считанных байтов.
+<p>При работе функций с устройствами, байты данных считываются непосредственно с 
+устройства. <p>При успешном завершении возвращается положительное целое число, 
+являющееся числом байтов, помещенных в буфер; причем, если файл открывается в 
+текстовом режиме, функция read не включает символы "возврата каретки" и символы Ctrl-
+z в число считанных байтов. <br>По концу файла (EOF), обе функции возвращают нуль. 
+<p>При ошибке обе функции возвращают значение -1, и глобальная переменная errno получает 
+одно из следующих значений:
+<ul>
+<li>EACCES - Отказ доступа.
+<li>EBADF - Неверный номер файла.
+</ul>
+<p><b><i>_write</i></b> - записывает данные в файл.
+<br><b><i>&nbsp  write</i></b> - записывает данные в файл.
+<pre>
+<b>Синтаксис</b>	int _write(int handle, void *buf, int nbyte);
+		int write(int handle, void *buf, int nbyte);
+<b>Прототип</b> в io.h
+</pre>
+<p>Обе функции write и _write записывают буфер, содержащий данные, в файл или на 
+устройство, соответствующее номеру handle. 
+<br>handle - это логический номер, полученный в операциях creat, open, dup, dup2, fcntl. 
+<p>Данные функции делают попытку записи nbyte байтов из буфера, адресуемого параметром 
+buf, в файл, соответствующий номеру handle. За исключением ситуации, при которой 
+функция write записывает данные в текстовый файл, количество байтов, записанное в 
+файл, будет не больше, чем требуемое количество.
+<p>В текстовых файлах, если функция write встречает символ подачи строки (LF), она 
+выводит пару CR_LF. Функция _write не выполняет такой трансляции, поскольку все 
+обрабатываемые ею файла - бинарные. <br>Если количество байтов, записанное реально, 
+меньше, чем требуется, будет сгенерирована ошибка, вероятно, переполнение диска. 
+<p>Для дисковых или дискетных файлов, запись всегда начинается с точки, адресуемой 
+текущим указателем файла (смотрите функцию lseek). <br>Для устройств (например: принтер, 
+консоль) данные непосредственно посылаются на устройство. <br>Для файлов, открытых с 
+опцией O_APPEND, указатель файла при записи устанавливается на конец файла (EOF) - 
+для функции write, но не _write. 
+<p>Обе функции возвращают число реально записанных байтов. <br>При записи в текстовый 
+файл знаки CR не подсчитываются.
+<p>В случае ошибки каждая функция возвращает -1, и глобальная переменная errno получает 
+одно из следующих значений:
+<ul>
+<li>EACCES - Отказ доступа;
+<li>EBADF - Неверный номер файла.
+</ul>
+<pre>
+	#include&lt;sys\stat.h&gt;
+	#include&lt;string.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;stdlib.h&gt;
+	#include&lt;fcntl.h&gt;
+	#include&lt;io.h&gt;
+	int main(void)
+	{
+		FILE *temp_file;
+		int handle;
+		char ch, msg[] = "Тестовый пример";
+		// создать временный уникальный файл в двоичном режиме
+		if((temp_file = tmpfile()) == NULL)
+		{	// perror - печатает системные сообщения об ошибках
+			perror("Открытие файла:");
+			exit(1);
+		}
+		// Получить дескриптор файла
+		handle = fileno(temp_file); 
+		printf("Дескриптор %d\n", handle);
+		// Записать в файл данные
+		write(handle, msg, strlen(msg));
+		// Переместить указатель в начало файла
+		lseek(handle, 0L, SEEK_SET);
+		// считывать данные до появления конца файла
+		do
+		{
+			read(handle, &ch, 1); printf("%c", ch);
+		} while (!eof(handle));
+		// Закрыть временный файл
+		fclose(temp_file); return 0;
+	}
+		<b><i>Возможный результат работы программы:</i></b>
+				Дескриптор 8 
+				Тестовый пример
+</pre>
+<p>В следующей программе демонстрируются возможности использования функций fread() и fwrite() для блочного ввода-вывода одномерного массива.
+<pre>
+	#include&lt;conio.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;stdlib.h&gt;
+	int main(void)
+	{
+		FILE *t;
+		#define SIZE 20
+		int i, ar1[SIZE], ar2[SIZE];
+		char msg[] = "direct.dat";
+		clrscr();
+		// Инициализация массива ar1[]
+		for(i = 0; i < SIZE; i++)
+			ar1[i] = 2 * i;
+		// Открытие файла в двоичном режиме для записи
+		if((t = fopen(msg, "wb")) == NULL)
+		{	// perror - печатает системные сообщения об ошибках
+			perror("Открытие файла:");
+			exit(1);
+		}
+		// Записать в файл данные массива ar1[]
+		if(fwrite(ar1, sizeof(int), SIZE, t) != SIZE)
+		{	fprintf(stderr, "Error ...");
+			exit(1);
+		}
+		fclose(t);
+		// Открытие того же файла в двоичном режиме для чтения
+		if((t = fopen(msg, "rb")) == NULL)
+		{	// perror - печатает системные сообщения об ошибках
+			perror("Открытие файла:");
+			exit(1);
+		}
+		// Считать данные в массив ar2[]
+		if(fread(ar2, sizeof(int), SIZE, t) != SIZE)
+		{	fprintf(stderr, "Error ...");
+			exit(1);
+		}
+		fclose(t);
+		// Вывести оба массива
+		for(i = 0; i < SIZE; i++)
+			printf("%d\t%d\n", ar1[i], ar2[i]);
+		getch(); return 0;
+	}
+
+</pre>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

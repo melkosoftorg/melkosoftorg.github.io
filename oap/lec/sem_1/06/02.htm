@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 06</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Другие стандартные функции математической библиотеки</p>
+<p><table border=1 align=center cellpadding=10>
+<tr><td><b><center>Функция </center></b>
+</td><td><b><center>Действие</center></b>
+</td></tr>
+<tr><td>hypot(x,y)
+</td><td>вычисляет гипотенузу c прямоугольного треугольника с катетами x и y.
+Так как  &nbsp;&nbsp; c<sup>2</sup>&nbsp;=&nbsp;x<sup>2</sup>&nbsp;+&nbsp;y<sup>2</sup>, то c&nbsp;=&nbsp;sqrt(x&nbsp;*&nbsp;x&nbsp;+&nbsp;y&nbsp;*&nbsp;y).
+</td></tr>
+<tr><td>exp(x)
+</td><td>экспоненциальная функция, e<sup>x</sup>&nbsp;&nbsp;&nbsp; exp(1)&nbsp;=&nbsp;2.718282.
+</td></tr>
+<tr><td>log(x)
+</td><td>Натуральный логарифм, ln(x), x > 0.
+<br>Логарифм по любому основанию можно выразить через натуральные логарифмы <IMG src="i09_02.gif" align=middle>
+</td></tr>
+<tr><td>log10(x)
+</td><td>десятичный логарифм, lg(x), x > 0
+</td></tr>
+<tr><td>pow(x, y)
+</td><td>вычисляет x<sup>y</sup>. Ошибка области, если x = 0 и y &#8804; 0 или x < 0, y - не целое. &nbsp;&nbsp; 2.34<sup>1.5</sup> запишется pow(2.34,&nbsp;1.5)&nbsp;=&nbsp;3.579512.
+<br>Эта функция необходима для вычисления выражения вида <IMG src="i09_04.gif" align=middle> - pow(x,&nbsp;n&nbsp;/&nbsp;m)
+</td></tr>
+<tr><td>pow10(p)
+</td><td>вычисляет 10<sup>p</sup>. Результат вычисляется в виде double. <br>Все аргументы считаются допустимыми. p типа int - целое число.
+</td></tr>
+<tr><td>sqrt(x)
+</td><td><IMG src="i09_01.gif" align=middle> - корень квадратный из x, x &#8805; 0
+</td></tr>
+<tr><td>ceil(x)
+</td><td>находит наименьшее целое в виде double, не меньшее x <br>ceil(6.25) = 7.00, ceil(-6.25) = -6.00
+</td></tr>
+<tr><td>floor(x)
+</td><td>находит наибольшее целое в виде double не превышающее значение x. <br>floor(6.25) = 6.00, floor(-6.25) = -7.00
+</td></tr>
+<tr><td>fabs(x)
+</td><td>абсолютное значение (модуль) числа с плавающей точкой <br>fabs(-6.25) = 6.25
+</td></tr>
+<tr><td>ldexp(x,n)
+</td><td>вычисляет значение двойной точности x&#8729;2<sup>n</sup>, n - целое число. <br>ldexp(6.25,3.00) = 6.25 · 2<sup>3.00</sup> = 50.00, <br>ldexp(-6.25,-4.00) = -6.25 · 2<sup>-4.00</sup> = -0.39
+</td></tr>
+<tr><td>frexp(x, int *exp)
+</td><td>разбивает число двойной точности x на мантиссу m и порядок n. 
+<br>Мантисса принимает значение большее или равное 0.5 и меньшее 1.<br>Целое n такое, что x = m &#8729; 2<sup>n</sup>. f = frexp(x, &z); <br>frexp(6.25)=0.78 · 2<sup>3</sup>, f = 0.78, z = 3
+</td></tr>
+<tr><td>modf(x, double *ip)
+</td><td>разделяет число с плавающей точкой на целую и дробную часть. 
+<br>Целая часть запоминается в область памяти *ip. <br>Дробная часть выдается как результат. f=modf(x, &y); <br>f = modf(6.25, 6.00), y = 6.00  f = 0.25, 
+</td></tr>
+<tr><td>fmod(x,y)
+</td><td>вычисляет x по модулю y - остаток от деления x на y в виде числа с плавающей точкой. Знак результата совпадает со знаком x.
+<br>fmod(6.25, 3.00) = 0.25, fmod(-6.25, 4.00) = -2.25
+</td></tr>
+</table>
+<p>
+
+</td>
+</tr>
+
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

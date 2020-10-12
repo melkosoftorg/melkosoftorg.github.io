@@ -1,0 +1,109 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 46</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Локальные классы</p>
+Класс может быть объявлен внутри блока, например, внутри определения функции. 
+Такой класс называется локальным. <br>Локализация класса предполагает недоступность его 
+компонентов вне области определения класса (вне тела функции или блока, в котором он 
+описан или определен).
+<p>Локальный класс не может иметь статических данных, так как компоненты локального 
+класса не могут быть определены вне текста класса.
+<p>Внутри локального класса разрешено использовать из объемлющей его области только 
+имена типов, статические (static) переменные, внешние (extern) переменные, внешние 
+функции и элементы перечислений, запрещено - переменные автоматической памяти. 
+Компонентные функции локальных классов могут быть только встроенными (inline).
+<p>Определить класс "квадрат", стороны которых параллельны осям прямоугольной 
+декартовой системы координат. Исходными данными для каждого конкретного квадрата 
+(объекта класса "квадрат") выберем координаты центра и размер стороны. Внутри класса 
+"квадрат" определим локальный класс "отрезок". Исходными данными для каждого 
+отрезка будут координаты его концов. Четыре отрезка составят квадрат.
+<pre>
+	#include&lt;graphics.h>
+	#include&lt;conio.h>
+	#include&lt;stdio.h>
+	#include&lt;stdlib.h>
+	#include "..\\h\\init.h"
+	#include "point.cpp"			// Внешний класс "точка"
+	class square			// Глобальный класс "квадрат"
+	{	class segment		// Локальный класс "отрезок"
+		{	point pn, pk;	// Точки начала и конца отрезка
+				
+			public:	// Конструктор отрезка
+				segment(point pin = point(0,0), point pik = point(0,0))
+				{	pn<b>.</b>givex() = pin<b>.</b>givex(); pn<b>.</b>givey() = pin<b>.</b>givey();
+					pk<b>.</b>givex() = pik<b>.</b>givex(); pk<b>.</b>givey() = pik<b>.</b>givey();
+				}
+				// Доступ к граничным точкам отрезка:
+				point& beg(void) { return pn; }
+				point& end(void) { return pk; }
+				void showSeg()		// Изобразить отрезок на экране
+				{ line (pn<b>.</b>givex(), pn<b>.</b>givey(), pk<b>.</b>givex(), pk<b>.</b>givey()); }
+		};	// Конец определения класса segment
+		segment ab, bc, cd, da;			// Отрезки - стороны квадрата
+		public:
+			square (point ci = point(0, 0), int di = 0)	// Конструктор квадрата
+			{	// Вершины квадрата - локальные объекты конструктора:
+				point a, b, c, d;
+				a<b>.</b>givex() = ci<b>.</b>givex() - di / 2; a<b>.</b>givey() = ci<b>.</b>givey() - di / 2;
+				b<b>.</b>givex() = ci<b>.</b>givex() + di / 2; b<b>.</b>givey() = ci<b>.</b>givey() - di / 2;
+				c<b>.</b>givex() = ci<b>.</b>givex() + di / 2; c<b>.</b>givey() = ci<b>.</b>givey() + di / 2;
+				d<b>.</b>givex() = ci<b>.</b>givex() - di / 2; d<b>.</b>givey() = ci<b>.</b>givey() + di / 2;
+				// Граничные точки отрезков:
+				ab<b>.</b>beg() = a; ab<b>.</b>end() = b; bc<b>.</b>beg() = b; bc<b>.</b>end() = c;
+				cd<b>.</b>beg() = c; cd<b>.</b>end() = d; da<b>.</b>beg() = d; da<b>.</b>end() = a;
+			}
+			void showSquare(void)		// Изобразить квадрат
+			{	ab<b>.</b>showSeg(); bc<b>.</b>showSeg();
+				cd<b>.</b>showSeg(); da<b>.</b>showSeg();
+			}
+	};	// Конец определения класса "квадрат'
+	void main()
+	{	init();
+		point p1( 80, 120), p2(250, 240);
+		square A(p1, 30), B(p2, 140);
+		A<b>.</b>showSquare(); getch(); B<b>.</b>showSquare(); getch();
+		closegraph() ;
+	}
+</pre>
+Класс "квадрат" (square) включает в качестве данных четыре стороны - отрезки ab, be, cd, 
+da, каждый из которых есть объект локального класса segment.
+<p>Конструктор класса square() по заданным центру квадрата и размеру стороны определяет 
+значения точек-вершин, а уже по ним формирует отрезки - стороны квадрата.
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 31</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=a>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Построение диаграмм и гистограмм</p>
+Рассмотрим использование числовых массивов для построения круговых диаграмм и столбиковых гистограмм.
+<p>Пусть нами уже был сформирован двумерный массив ss[SS][CC], мы выбрали из него необходимые значения и сохранили в одномерном массиве sum[SS].
+<br>Эти значения: 679, 1149, 1027, 1399, 1133.
+<p><b><i>Гистограмма</i></b> - графическое представление экспериментальных данных, при котором на оси абсцисс отмечаются (обычно через равные промежутки) точки, соответствующие 
+значениям измеряемой величины &nbsp; x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>k+1</sub> &nbsp; и на интервалах &nbsp; [x<sub>1</sub>, x<sub>2</sub>), [x<sub>2</sub>, x<sub>3</sub>), &nbsp; ..., &nbsp; [x<sub>k</sub>, x<sub>k+1</sub>] &nbsp; параллельно оси ординат строятся прямоугольники с 
+площадями, пропорциональными числу наблюдений, в которых измеряемая величина попадала в соответствующий интервал.
+<p><b><i>Диаграмма</i></b> - графическое изображение, наглядно показывающее соотношение между 
+различными значениями величин.
+<p>При построении графика, как обычно, необходимо вначале вычислить масштабы m<sub>x</sub> и m<sub>y</sub>, 
+задать отступы от края экрана, вычислить координаты начала координат для построения осей и только после этого приступить к построению собственно графика. 
+<p>Для построения графических изображений нам потребуется вычислить долю каждого из значений в их общей сумме и высоту прямоугольника при построении гистограммы поставить в зависимость от полученного результата. Сделать это можно следующим образом:
+<pre>
+                // накопить сумму значений массива sum[SS]
+                int s = 0;
+                for(i = 0; i < SS; i++)
+                {
+                        s += sum[i];
+                }
+                // построение гистограммы
+                float hn = y0, dh, hk;
+                for(i = 0; i < SS; i++)
+                {
+                        // определить высоту прямоугольника dh 
+                        dh = (float) sum[i] / s * my; 
+                        // и координату вершины hk
+                        hk = hn - dh;
+                        // построить и закрасить прямоугольники
+                        setfillstyle(1, i + 1); bar3d(2 * ox + i * mx, hn, 2 * ox + (i + 1) * mx, hk, 1, 2);
+                }
+</pre>
+<p>В рассматриваемом примере сумма значений равна 5387 и каждое из значений составляет соответственно 13%, 21%, 19%, 26%, 21% от их общей суммы.
+<p>Построение круговой диаграммы сводится к рисованию и закрашиванию секторов круга, угол которых зависит от доли данного значения в общей сумме.
+<pre>
+                float un = 0, du, uk;
+                for(i = 0; i < SS; i++)
+                {
+                        du = (float) sum[i] / s * 360; uk = un + du;
+                        gotoxy(40, 12+i); printf("%5d %5d %5.f%%\n", sum[i], s, (float) sum[i] / s * 100);
+                        setfillstyle(9, i + 1); pieslice(xe / 2, ye / 2, un, uk, 40);
+                        un = uk;
+                }
+</pre>
+<p>Для рассматриваемого примера изображение гистограммы и диаграммы может иметь следующий вид:
+<p><center><table border=0>
+<tr><td><b><center>Гистограмма</center></b>
+</td><td width=30%>&nbsp;
+</td><td><b><center>Диаграмма</center></b>
+</td></tr>
+<tr><td><img src="l33_01.gif">
+</td><td >&nbsp;
+</td><td><img src="l33_02.gif">
+</td></tr>
+</table></center>
+<p> &nbsp; </p>
+</td></tr>
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=a>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

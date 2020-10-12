@@ -1,0 +1,285 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Экзамен II Тест 3</title>
+<LINK href="test/lec.css" type=text/css rel=stylesheet>
+</head>
+<body>
+<table cellpadding=0 cellspacing=0>
+<tr id=top><td colspan=5>
+<center><a id=top href="plan_1.htm" class=p>&nbsp;Семестр 1</a>&nbsp;&nbsp;
+
+<a id=top href="plan_2.htm" class=p>Семестр 2</a></center>
+</td></tr>
+<tr><td class=bok></td><td class=bok1></td>
+<td>
+<p id=head><b>Структуры, объединения, битовые поля</b></p>
+<p id=head2>Сформулировать определения</p>
+<ol>
+<p><li>Структура
+<p><li>Декларация структуры <pre>	struct {...} x, y, z;</pre>
+<p><li>Декларация struct pin *str; сообщает, что str
+<p><li>Доступ к члену структуры осуществляется посредством конструкции вида
+<p><li>Определение указателя на структуру имеет вид 
+<p><li>Обращение к элементу структуры через указатель
+<p><li>Обращение к элементу структуры через уточненное имя
+<p><li>Обращение к элементу структуры через ссылку
+<p><li>Оператор доступа к члену структуры <b>.</b> (точка)
+<p><li>Операция стрелка ->
+<p><li>Элементы структуры
+<p><li>Элементы объединения
+<p><li>Объединение
+<p><li>Обращение к элементу объединения через указатель
+<p><li>Обращение к элементу объединения через ссылку
+<p><li>Обращение к элементу объединения через уточненное имя
+<p><li>Декларация<pre>		union pin *str;</pre>сообщает, что str
+<p><li>Битовые поля
+<p><li>Назначение битовых полей
+<p><li>Обращение к битовому полю через уточненное имя
+<p><li>Обращение к битовому полю через указатель
+</ol>
+<p id=head2>В описании</p>
+<p><center><table class=tabl border=0 cellpadding=5 cellspacing=0>
+<tr valign="top">
+<td width=50%>
+<pre>	struct pin
+	{
+		int x, y;
+		char ch, str;
+	};
+	struct - это
+	pin - это
+	int x, y; char ch, str; - это
+</pre>
+</td><td width=50%>
+<pre>	union pin
+	{
+		int x, y;
+		char ch, str;
+	};
+	union - это
+	pin - это
+	char ch, str; - это
+</pre>
+</td></tr>
+</table></center>
+<p id=head2>Что означает описание</p>
+<ol>
+<p><li>
+<pre>	struct pin
+	{
+		int x, y;
+		char ch, str;
+	} str;
+</pre>
+<p><li>
+<pre>	struct
+	{
+		char r[5];
+		int sw;
+	} r[3];
+</pre>
+<p><li>
+<pre>	struct
+	{
+		char r[5];
+		int sw;
+	} sw[4];
+</pre>
+<p><li>
+<pre>	struct
+	{
+		char r[5];
+		int sw;
+	} r;
+</pre>
+
+<p><li>
+<pre>	union pin
+	{
+		int x, y;
+		char ch, str;
+	} str;
+</pre>
+<p><li>
+<pre>	union
+	{
+		char r[5];
+		int sw;
+	} sw;
+</pre>
+<p><li>
+<pre>	union
+	{
+		char r[5];
+		int sw;
+	} sw[3];
+</pre>
+<p><li>
+<pre>	union
+	{
+		char r[5];
+		int sw;
+	} *sw;
+</pre>
+<p><li>
+<pre>	union
+	{
+		int sw; 
+		char r[2]; 
+	} sw = { 34 };
+</pre>
+<p><li>
+<pre>	union
+	{
+		char r[3];
+		int sw;
+	} sw = { 'a', 'b', 'c' };
+</pre>
+<p><li>
+<pre>	struct
+	{
+		int sw : 10; 
+		int r : 14; 
+	} sw; 
+</pre>
+<p><li>
+<pre>	struct
+	{
+		int sw : 10; 
+		char r : 14; 
+	} *sw; 
+</pre>
+<p><li>
+<pre>	struct
+	{
+		int sw : 10; 
+		char r : 14; 
+	} sw[3]; 
+</pre>
+<p><li>
+<pre>	struct
+	{
+		int sw; 
+		long r; 
+	} sw; 
+</pre>
+<p><li>
+<pre>	struct
+	{
+		int sw; 
+		long r; 
+	} *sw; 
+</pre>
+<p><li>
+<pre>	struct
+	{
+		int sw; 
+		char r; 
+	} sw[3]; 
+</pre>
+<p><li>
+<pre>	struct pin
+	{ 
+		int x; 
+		char ch; 
+	} sw;
+</pre>
+<p><li>
+<pre>	struct pin
+	{ 
+		int x; 
+		char ch; 
+	} *sw; 
+</pre>
+<p><li>
+<pre>	struct pin
+	{ 
+		int x; 
+		char ch; 
+	} sw[5]; 
+</pre>
+<p><li>
+<pre>	struct pin
+	{ 
+		int x : 12; 
+		char ch : 6; 
+	} sw; 
+</pre>
+<p><li>
+<pre>	struct pin
+	{ 
+		int x : 12; 
+		char ch : 6; 
+	} *sw; 
+</pre>
+<p><li>
+<pre>	struct pin
+	{ 
+		int x : 12; 
+		char ch : 6; 
+	} sw[5]; 
+</pre>
+</ol>
+<p id=head2>Какие операторы из приведенных ниже</p>
+<ol>
+<p><li>
+<pre>
+	 1: struct customer
+	 2: {	char fio[20];
+	 3: 	char it[25];
+	 4: };
+	 5: struct sale
+	 6: {	struct customer ber;
+	 7: 	char tit[20];
+	 8: 	float at;
+	 9: } mysale =	{
+	10: 				{ "Александр Блок", "Годы жизни 1880 - 1921" },
+	11: 				"Гамаюн, птица вещая",
+	12: 				167.87
+	13: 			};
+</pre>
+<ol type="a">
+<p><li>определяют структуру customer ?
+<p><li>определяют структуру sale ?
+<p><li>инициализируют поле mysale.ber.fio и каким значением ?
+<p><li>инициализируют поле mysale.ber.it и каким значением ?
+<p><li>инициализируют поле mysale.tit и каким значением ?
+<p><li>инициализируют поле mysale.at и каким значением ?
+</ol>
+<p>&nbsp</p>
+<p><li>
+<pre>
+	1: struct sale
+	2: {	char cust[20];
+	3: 	char it[20];
+	4: 	float at;
+	5: } mysale =	{
+	6: 				"Александр Блок",
+	7: 				"Гамаюн, птица вещая",
+	8: 				167.87
+	9: 			};
+</pre>
+<ol type="a">
+<p><li>определяют структуру?
+<p><li>объявляют экземпляр структуры?
+<p><li>инициализируют значением поле mysale.cust структуры и какое это значение?
+<p><li>инициализируют значением поле mysale.it структуры и какое это значение?
+<p><li>инициализируют значением поле mysale.at структуры и какое это значение?
+</ol>
+</ol>
+<p id=head2>Укажите выделененый объем памяти в байтах для</p>
+<ol>
+<li><pre>	struct point <br>	{<br>		int x, y;<br>	};</pre>
+<li><pre>	struct point <br>	{<br>		int x, y;<br>	} pt1;</pre>
+<li><pre>	struct point <br>	{<br>		int x, y;<br>	} pt[2];</pre>
+<li><pre>	struct point <br>	{<br>		int x, y;<br>	} pt1, pt[2];</pre>
+</ol>
+<p>&nbsp</p>
+</td><td class=bok1></td><td class=bok></td></tr>
+<tr id=top><td colspan=5><center>
+<a id=top href="plan_1.htm" class=p>&nbsp;Семестр 1</a>&nbsp;&nbsp;
+<a id=top href="plan_2.htm" class=p>Семестр 2</a></center>
+</td></tr>
+</body>
+</html>

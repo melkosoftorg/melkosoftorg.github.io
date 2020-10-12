@@ -1,0 +1,151 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 16</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=a>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Координаты экрана</p>
+<b><i>moverel</i></b> - передвигает текущую позицию на заданное расстояние в направлениях x и y на 
+dx и dy точек растра соответственно.
+<br><b><i>moveto</i></b> устанавливает текущую позицию в позицию окна (x, y).
+<pre>
+<b>Синтаксис</b>	void far moverel(int dx, int dy);
+		void far moveto(int x, int y);
+</pre>
+<p><b><i>getmaxx</i></b> возвращает максимальную координату экрана по x для текущих графических 
+драйвера и режима.
+<br><b><i>getmaxy</i></b> возвращает максимальную координату экрана по y для текущих графических 
+драйвера и режима.
+<pre>
+<b>Синтаксис</b>	int far getmaxx(void);
+		int far getmaxy(void);
+
+	printf("Разрешение экрана равно %d x %d\n", getmaxx() + 1, getmaxy() + 1);
+</pre>
+<br><b><i>getx</i></b> возвращает координату текущей позиции x
+<br><b><i>gety</i></b> возвращает координату текущей позиции y
+<pre>
+<b>Синтаксис</b>	int far getx(void);
+		int far gety(void);
+</pre>
+<pre>
+Например,	int oldx = getx(); int oldy = gety();	// сохранить текущую позицию
+		circle(100, 100, 2);			// нарисовать шарик в (100,100)
+		moveto(99, 100); linerel(2, 0);
+		moveto(oldx, oldy);		// вернуться на старую позицию
+</pre>
+<p align=center class=dbi><br>Битовый образ прямоугольной области экрана</p>
+<b><i>getimage</i></b> сохраняет "битовый образ прямоугольной области экрана " в заданной области 
+памяти.
+<p><b><i>imagesize</i></b> возвращает число байт, необходимых для сохранения прямоугольной области 
+экрана, чтобы getimage мог сохранить заданный прямоугольник. <br>Возвращаемый размер 
+образа включает пространство для хранения ширины и высоты прямоугольника.
+<p><b><i>putimage</i></b> выводит на экран сохраненный битовый образ.
+<pre>
+<b>Синтаксис</b>	void far getimage(int left, int top, int right, int bottom, void far *bitmap);
+		unsigned far imagesize(int left, int top, int right, int bottom);
+		void far putimage(int left, int top, void far *bitmap, int op);
+</pre>
+Функции используются для копирования образа с экрана в память и последующим 
+возвратом его на экран.
+<p>left, top, right, bottom описывают экранный прямоугольник. <br>bitmap указывает на область 
+памяти, в которой будет сохранен битовый образ. <br>Первые два слова этой области 
+используются для хранения ширины и высоты прямоугольника; оставшиеся слова хранят 
+сам образ.
+<p>putimage выводит ранее сохраненный с помощью getimage образ обратно на экран, причем 
+верхний левый угол образа устанавливается в (left, top). bitmap указывает на область 
+памяти, в которой был сохранен образ. <br>Параметр op функции putimage задает 
+"комбинирующий" оператор, который управляет вычислением цвета каждой получаемой 
+на экране точки растра; вычисления эти производятся на основании "значения" уже 
+имеющейся на экране точки и соответствующей точки растра в памяти. <p>Перечисление 
+putimage_ops, описанное в GRAPHICS.H, задает имена этих операторов: 
+<p><table align=center border=1 cellpadding=5>
+<tr><td><b><center>Имя</center></b>
+</td><td><b><center>Значение</center></b>
+</td><td><b><center>Описание</center></b>
+</td></tr>
+<tr><td>  COPY_PUT
+</td><td> <center>0</center>
+</td><td> копирует на экран образ-источник
+</td></tr>
+<tr><td>  XOR_PUT
+</td><td> <center>1</center>
+</td><td> логическое исключающее ИЛИ
+</td></tr>
+<tr><td>  OR_PUT
+</td><td> <center>2</center>
+</td><td> логическое ИЛИ
+</td></tr>
+<tr><td>  AND_PUT</center>
+</td><td> <center>3
+</td><td> логическое И
+</td></tr>
+<tr><td>  NOT_PUT
+</td><td> <center>4</center>
+</td><td> копирование инверсного значения
+</td></tr></table>
+<p>Если в режиме XOR_PUT изображение вывести на экран в то же место, где уже было то 
+же самое изображение, то изображение исчезнет с экрана. <p>Если требуемый для 
+выбранного образа размер памяти превышает 64 К, то imagesize возвращает OxFFFF (-1). 
+getimage и putimage ничего не возвращают.
+<p>С помощью <b><i>getpixel</i></b> (возвращающей цвет заданной точки растра, расположенной в (x, y)) 
+и <b><i>putpixel</i></b> (вычерчивающей заданную точку растра (пиксель) заданным в pixelcolor 
+цветом) можно манипулировать цветом отдельных точек растра.
+<pre>
+<b>Синтаксис</b>	int far getpixel(int x, int y);
+		void far putpixel(int x, int y, int pixelcolor);
+
+</pre>
+
+
+</td>
+</tr>
+
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=a>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 06</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Макроподстановки
+<br># define макроопределение (имя) строка замещения</p>
+<p>Используются для простейшей замены, могут появиться в любом месте исходного файла, а задаваемые ими 
+определение имеет силу от места появления до конца файла. 
+<p>Макроопределение не должно содержать внутри себя 
+пробелы; во всех местах программы, где встречается лексема <b><i>имя</i></b>, вместо нее будет помещен замещающий текст. 
+<p>Имена в #define задаются по тем же правилам, что и имена обычных переменных, принято их писать заглавными 
+буквами.
+<pre>
+		#define PI 3.14159
+		#define WPR printf("Радиус = %f площадь = %f\n", rk, sk)
+		#define FWT "Вычисляем площади \n"
+</pre>
+<p>В программе можно использовать:
+<pre>
+		float sk, rk = 2.5;
+		printf(FWT);
+		sk = PI * rk * rk;
+		WPR;
+</pre>
+<p>Получим результат:
+<pre>
+		Вычисляем площади
+		Радиус = 2.500000 площадь = 19.634937	
+</pre>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

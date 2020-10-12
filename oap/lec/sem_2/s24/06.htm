@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | СР 24</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Преобразование целого значения <br>в строку символов</p>
+<p><b><i>itoa</i></b> преобразует целое значение в строку символов, может возвращать 
+до 17 байт, возвращает адресный указатель на строку string, завершения по 
+ошибке не существует.
+<p><b><i>ltoa</i></b> преобразует длинное целое значение в строку символов, может 
+возвращать до 33 байт, возвращает адресный указатель на строку string, 
+завершения по ошибке не существует.
+<p><b><i>ultoa</i></b> преобразует длинное целое без знака в строку, может возвращать 
+до 33 байт, возвращает адресный указатель на строку string,	завершения по 
+ошибке не существует.
+<pre>
+<b>Синтаксис</b>	char *itoa (int value, char *string, int radix);
+		char *ltoa (long value, char *string, int radix);
+		char *ultoa(unsigned long value, char *string, int radix);
+<b>Прототип в</b>	stdlib.h
+</pre>
+Данные функции конвертируют значения value в строку с нулевым окончанием 
+и записывают результат в параметр string.
+<p>Для функции itoa значение value - целое,
+<br>для функции ltoa значение value - длинное целое,
+<br>для функции ultoa значение value - длинное целое без знака.
+<p>Параметр radix определяет базу, которая будет использована при 
+конвертировании значения value; она должна лежать между 2 и 36 
+(включительно).
+<br>Для функций itoa и ltoa, если значение value отрицательно, и значение radix 10, 
+первый символ строки string - знак минус ( - ). 
+<br>Для функции ultoa иначе. Кроме того, функция ultoa не производит проверки на переполнение.
+<p><table align=center width=90% border=1 cellpadding=5 cellspacing=10>
+<tr><td class=rule>
+<b>Примечание:</b> пространство, выделяемое для параметра string должно 
+быть достаточным, чтобы записать полученную в результате работы 
+функции строку, включая нулевое окончание <b>\0</b>.
+</td></tr>
+</table>
+<pre>
+	#include&lt;stdlib.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;conio.h&gt;
+	void main()
+	{
+		int num = 12345; long val = 123456789;
+		unsigned long lnum = 3123456789;
+		char str[25]; clrscr();
+		puts("itoa");
+		itoa(num, str, 10);
+		printf(" Целое:  %d\n Строка: %s\n", num, str);
+		puts("ultoa");
+		ultoa(lnum, str, 10);
+		printf(" Целое:  %lu\n Cтрока: %s\n", lnum, str);
+		puts("ltoa");
+		ltoa(val, str, 10);
+		printf(" Целое:  %lu\n Cтрока: %s\n", val, str);
+		getch();
+	}
+	<b><i>Результаты</i></b>	itoa
+			 Целое:  12345
+			 Строка: 12345
+			ultoa
+			 Целое:  3123456789
+			 Cтрока: 3123456789
+			ltoa
+			 Целое:  123456789
+			 Cтрока: 123456789
+</pre>
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

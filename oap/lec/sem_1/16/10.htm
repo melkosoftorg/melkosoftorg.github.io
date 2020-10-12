@@ -1,0 +1,182 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 16</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=a>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Графическое окно, графическая страница</p>
+<b><i>getviewsettings</i></b> возвращает информацию о текущем графическом окне.
+<p><b><i>setviewport</i></b> устанавливает для графического вывода текущее графическое окно.
+<pre>
+<b>Синтаксис</b>	void far getviewsettings(struct viewporttype far *viewport);
+		void far setviewport(struct viewporttype(int left, int top, int right, int bottom, int clipflag);
+</pre>
+<p>Углы графического окна задаются в абсолютных координатах экрана с помощью 
+параметров (left, top) и (right, bottom). Текущая позиция передвигается в координату окна (0, 0).
+<p>Параметр clipflag определяет, нужно ли очищать текущее окно. Если при вызове 
+setviewport этот параметр не равен 0, то весь экран в границах создаваемого окна будет 
+очищен.
+<p>В программе показано построение окна с абсолютными координатами экрана (250, 50, 600, 350).
+<br>Собственные координаты окна (0, 0, 350, 300). Поэтому при построении изображения в нем надо учитывать допустимые размеры.
+<br>Последовательность команд: построить окно, затем изображение в нем.
+<p>В программе для задания значений координат и цвета использована функция random(int num) - генератор случайных чисел в диапазоне от 0 до num-1.
+<br>Например:
+<ul type="disc">
+<li>x = random(100); может сгенерировать случайное число от 0 до 99;
+<li>y = 3 + random(12); позволяет получить значения от 3 до 14.
+</ul>
+<p>Чтобы при каждом запуске программы генерировался разный набор значений необходимо в начале программы поместить вызов функции randomize();
+<pre>
+	#include&lt;graphics.h&gt;
+	#include&lt;stdlib.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;math.h&gt;
+	#include&lt;conio.h&gt;
+	#include&lt;dos.h&gt;
+	#include"..\\h\\init.h"
+	void main()
+	{
+		init(); setbkcolor(1); randomize();
+		int num, color, x, y, x1, y1, dx, dy, x2, y2, r; float i;
+		// построения на экране линий и рамки для планируемого окна
+		setlinestyle(0, 1, 3);
+		x1 = 10; dy = 10;
+		// В цикле - горизонтальные линии случайной длины и цвета по всей высоте экрана
+		for(y1 = dy; y1 <= getmaxy() - dy; y1 += dy)
+		{
+			color = 2 + random(14); setcolor(color);
+			x2 = x1 + random(100);
+			line(x1, y1, x2, y1);
+			delay(50);
+		}
+		x1 = 250; y1 = 50; dx = 350; dy = 300;
+		setfillstyle(1, 4); bar(x1 - 4, y1 - 4, x1 + dx + 4, y1 + dy + 4);
+		getch();
+		// создать графическое окно и рисовать в нем круги
+		setviewport(x1, y1, x1 + dx, y1 + dy, 1); clearviewport();
+		setlinestyle(0, 1, 3);
+		x = dx / 2; y = dy / 2; r = 50;
+		for(i = 0; i <= 2 * M_PI; i += M_PI / 15)
+		{
+			color = 2 + random(14); setcolor(color);
+			circle(x + 3 * r / 2 * cos(i), y + 3 * r / 2 * sin(i), r);
+		}
+		getch();
+		// новое изображение в графическом окне: точки, дуги, линии
+		clearviewport();
+		x = 5; y = 100; x1 = 50; y1 = 280; r = 15;
+		for(num = 0; num < 500; num++)
+		{
+			putpixel(random(dx), random(dy / 4), 2 + random(14));
+			if(num % 35 == 0 && num != 0)
+			{
+				setlinestyle(0, 1, 3); setcolor(2 + random(14));
+				arc(x += 1.5*r, y, random(360), random(360), r);
+				setcolor(2 + random(14));
+				ellipse(x, 1.5 * y, random(360), random(360), random(30), random(30));
+				setcolor(2 + random(14)); setlinestyle(0, 1, 1);
+				setfillstyle(1 + random(11), 2 + random(14));
+				pieslice(x, 2 * y, random(360), random(360), random(30));
+			}
+			setlinestyle(0, 1, 1); setcolor(GREEN);
+			if(num % 2 == 0)
+			{
+				line(x1, y1, x1++, y1 - random(15));
+			}
+			delay(10);
+		}
+		getch();
+		// можно строить новое изображение в графическом окне
+		clearviewport();
+		settextstyle(installuserfont("goth.chr"), 0, 4);
+		setcolor(LIGHTGRAY);
+		outtextxy(62, 42, "Можно строить"); outtextxy(37, 142, "новое изображение");
+		setcolor(YELLOW);
+		outtextxy(60, 40, "Можно строить"); outtextxy(35, 140, "новое изображение");
+		getch(); closegraph();
+	}
+</pre>
+<p><table align=center width=90% border=1 cellpadding=5 cellspacing=10>
+<tr><td class=rule>
+<b>Замечание:</b> initgraph и setgraphmode устанавливают графическое окно на весь экран.
+Если в setviewport переданы некорректные параметры, то graphresult вернет -1, а текущие 
+параметры окна останутся неизменными.
+</td></tr> 
+</table>
+<p><b><i>setactivepage</i></b> устанавливает активную для графического вывода страницу. Весь 
+последующий графический вывод будет направлен на графическую страницу pagenum.
+<p><b><i>setvisualpage</i></b> делает видимой графическую страницу с заданным номером pagenum.
+<pre>
+<b>Синтаксис</b>	void far setactivepage(int pagenum);
+		void far setvisualpage(int pagenum);
+</pre>
+Активная графическая страница может быть (а может и не быть) одной из страниц, 
+которые вы видите на экране; это зависит от того, сколько графических страниц 
+допускается в вашей системе. <br>Графические адаптеры только типов VGA, EGA и Hercules 
+поддерживают множество страниц. 
+<p>Используя множество страниц, программа может 
+направлять свой графический вывод на страницу "вне экрана", а затем быстро 
+высвечивать этот невидимый образ, с помощью изменения видимой страницы, обращаясь 
+для этого к функции setvisualpage. 
+<br>Данный метод особенно полезен для осуществления мультипликации.
+<pre>
+	cleardevice();
+	setvisualpage (0);	// сделать страницу 0 видимой
+	setactivepage(1);	// использовать для вывода страницу 1
+	bar(50,50,150,150);	// нарисовать в странице 1 полосу
+	setvisualpage(1);	// высветить страницу 1 (с полосой)
+
+</pre>
+<p>
+
+</td>
+</tr>
+
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=a>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

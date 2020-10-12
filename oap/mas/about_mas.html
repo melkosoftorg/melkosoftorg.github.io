@@ -1,0 +1,230 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<script type="text/javascript"> function displ(ddd) { if (document.getElementById(ddd).style.display == 'none') {document.getElementById(ddd).style.display = 'block'} else {document.getElementById(ddd).style.display = 'none'} } </script> 
+<title>| Проектное задание по дисциплине "Основы алгоритмизации и программирования" | Массивы | О массивах |</title>
+</head>
+<body bgcolor="#ADD8E6">
+<center>
+    <table align="center" valign="middle" bgcolor="#ADD8E6" border="0" width="80%" bordercolor="#ADD8E6" cellpadding="10%" cellspacing="3%">
+    <tbody>
+	<tr align="left" valign="bottom">
+		<td width="20%">
+		<font size="+3"><font color="1B88A9"><i><b>
+		Проектное задание
+		<br>на тему:
+		<br><a href="mas.html">Массивы</a>
+		</b></i></font></font>
+		</td>
+		<td align="right">
+		<img src="about_mas.jpg">
+		</td>
+    </tr>
+	<tr>
+		<td valign="bottom">
+		<img src="g1_1.jpg">
+		</td>
+		<td rowspan="2" bgcolor="white" valign="top">
+		<left>
+		<i><font size="+3"><font color="Blue">О</font> массивах</font></i></a>
+		<br><font>
+		<br>&emsp;&emsp;&emsp;Всё, что известно человечеству о массивах (ну или почти всё).</font>
+		<br>
+		<br>
+		<font size="+1">
+		&emsp;&emsp;&emsp;<a href="javascript: displ('var')"><i><font color="Blue"><b>Т</b></font>еоретический материал</i></a>
+		<div id="var" style="display: none;">		
+		<br>&emsp;&emsp;&emsp;<u><font size="+2"><font color="Blue">О</font>бщее описание</font></u></a>
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;<i><font color="Blue"><b>М</b></font>ассив</i> — 
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;упорядоченный набор данных, для хранения данных одного типа, идентифицируемых 
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;с помощью одного или нескольких <i>индексов</i>. В простейшем случае массив имеет
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;постоянную длину и хранит единицы данных одного и того же типа.
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;Количество используемых индексов массива может быть различным. Массивы с одним индексом
+		<br>&emsp;&emsp;&emsp;называют <i>одномерными</i>, с двумя — <i>двумерными</i> и т. д. Одномерный массив нестрого
+		<br>&emsp;&emsp;&emsp;соответствует вектору в математике, двумерный — матрице.
+		<br>&emsp;&emsp;&emsp;Чаще всего применяются массивы с одним или двумя индексами, 
+		<br>&emsp;&emsp;&emsp;реже — с тремя, ещё большее количество индексов встречается крайне редко.
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;<a href="javascript: displ('primer_1')">Пример статического массива на Паскале</a>
+		<div id="primer_1" style="display: none;">
+  		<br>&emsp;&emsp;&emsp;wordArray  : array [Word] of Integer;    { Статический, размер = High(Word) + 1 }
+  		<br>&emsp;&emsp;&emsp;multiArray : array [Byte, 1..5] of Char; { Статический массив, 2 измерения }
+  		<br>&emsp;&emsp;&emsp;rangeArray : array [5..20] of String;    { Статический массив, размер = 16 }
+		</div> 
+		<br>&emsp;&emsp;&emsp;<a href="javascript: displ('primer_2')">Пример статического массива на С/С++</a>
+		<div id="primer_2" style="display: none;">
+  		<br>&emsp;&emsp;&emsp;int Array[10];         // Статический, размер 10, базовый тип данных - целое число (int)
+  		<br>&emsp;&emsp;&emsp;double Array[12][15];  // Статический массив, 2 измерения, базовый тип данных - число
+        <br>&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;                 // с дробной частью (double)
+		</div> 
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;Поддержка индексных массивов (свой синтаксис объявления, функции для работы с элементами 
+		<br>&emsp;&emsp;&emsp;и т. д.) есть в большинстве высокоуровневых языков программирования. Максимально 
+		<br>&emsp;&emsp;&emsp;допустимая размерность массива, типы и диапазоны значений индексов, ограничения 
+		<br>&emsp;&emsp;&emsp;на типы элементов определяются языком программирования и/или конкретным 
+		<br>&emsp;&emsp;&emsp;транслятором.
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;В языках программирования, допускающих объявления программистом собственных типов, как 
+		<br>&emsp;&emsp;&emsp;правило, существует возможность создания типа «массив». В определении такого типа 
+		<br>&emsp;&emsp;&emsp;может указываться размер, тип элемента, диапазон значений и типы индексов. 
+		<br>&emsp;&emsp;&emsp;В дальнейшем возможно определение переменных созданного типа. 
+		<br>&emsp;&emsp;&emsp;Все такие переменные-массивы имеют одну структуру. Некоторые языки поддерживают для 
+		<br>&emsp;&emsp;&emsp;переменных-массивов операции присваивания (когда одной операцией всем элементам 
+		<br>&emsp;&emsp;&emsp;массива присваиваются значения соответствующих элементов другого массива).
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;<a href="javascript: displ('primer_3')">Объявление типа «массив» в Паскале</a>
+		<div id="primer_3" style="display: none;">
+  		<br>&emsp;&emsp;&emsp;type
+    	<br>&emsp;&emsp;&emsp;TArrayType = array [0..9] of Integer; (* Объявления типа "массив" *)
+  		<br>&emsp;&emsp;&emsp;var
+    	<br>&emsp;&emsp;&emsp;arr1, arr2, arr3: TArrayType; (* Объявление трёх переменных-массивов одного типа *)
+		</div>
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;<u><font size="+2"><font color="Blue">С</font>пецифические типы массивов</font></u></a>
+		<br>&emsp;&emsp;&emsp;&emsp;<u><font size="+2"><font color="Blue">Д</font>инамические массивы</font></u></a>
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;Динамическим называется массив, размер которого может меняться во время исполнения 
+		<br>&emsp;&emsp;&emsp;программы. 
+		<br>&emsp;&emsp;&emsp;Для изменения размера динамического массива язык программирования, поддерживающий 
+		<br>&emsp;&emsp;&emsp;такие массивы, должен предоставлять встроенную функцию или оператор. 
+		<br>&emsp;&emsp;&emsp;Динамические массивы дают возможность более гибкой работы с данными, так как позволяют
+		<br>&emsp;&emsp;&emsp;не прогнозировать хранимые объёмы данных, а регулировать размер массива в соответствии 
+		<br>&emsp;&emsp;&emsp;с реально необходимыми объёмами.
+		<br>&emsp;&emsp;&emsp;Обычные, не динамические массивы называют ещё статическими.
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;<a href="javascript: displ('primer_4')">Пример динамического массива на Delphi</a>
+		<div id="primer_4" style="display: none;">
+  		<br>&emsp;&emsp;&emsp;byteArray  : Array of Byte;           // Одномерный массив
+  		<br>&emsp;&emsp;&emsp;multiArray : Array of Array of string;  // Многомерный массив
+		</div>
+		<br>&emsp;&emsp;&emsp;<a href="javascript: displ('primer_5')">Пример динамического массива на Си</a>
+		<div id="primer_5" style="display: none;">
+  		<br>&emsp;&emsp;&emsp;float *array1; // Одномерный массив 
+  		<br>&emsp;&emsp;&emsp;int **array2; // Двумерный массив
+  		<br>&emsp;&emsp;&emsp;array1 = (float*) malloc(10 * sizeof(float)); // выделение 10 блоков по sizeof(float) байт каждый 
+  		<br>&emsp;&emsp;&emsp;array2 = (int**) malloc(16 * sizeof(int*));   // выделение 16 блоков по sizeof(int*) байт каждый. 
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp;   //Сюда будут записаны указатели 
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp;   //на одномерные массивы-строки
+  		<br>&emsp;&emsp;&emsp;for(i = 0; i < 16; i++)
+       	<br>&emsp;&emsp;&emsp;array2[i] = (int*) malloc(8 * sizeof(int)); // выделение 8 блоков по sizeof(int) байт каждый. 
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;  //Это одномерные массивы - строки матрицы.
+		</div>
+		<br>&emsp;&emsp;&emsp;<a href="javascript: displ('primer_6')">Пример динамического массива на С++</a>
+		<div id="primer_6" style="display: none;">
+  		<br>&emsp;&emsp;&emsp;float *array1; // Одномерный массив 
+  		<br>&emsp;&emsp;&emsp;int **array2; // Многомерный массив
+  		<br>&emsp;&emsp;&emsp;array1 = new float[10]; // выделение 10 блоков размером типа float
+  		<br>&emsp;&emsp;&emsp;array2 = new int*[16];   // выделение 16 блоков размером типа указателя на int
+  		<br>&emsp;&emsp;&emsp;for(int i = 0; i < 16; i++)
+       	<br>&emsp;&emsp;&emsp;array2[i] = new int[8];
+		</div>
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;<u><font size="+2"><font color="Blue">Г</font>етерогенные массивы</font></u></a>
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;Гетерогенным называется массив, в разные элементы которого могут быть 
+		<br>&emsp;&emsp;&emsp;непосредственно записаны значения, относящиеся к различным типам данных. 
+		<br>&emsp;&emsp;&emsp;Массив, хранящий указатели на значения различных типов, не является 
+		<br>&emsp;&emsp;&emsp;гетерогенным, так как собственно хранящиеся в массиве данные 
+		<br>&emsp;&emsp;&emsp;относятся к единственному типу — типу «указатель». 
+		<br>&emsp;&emsp;&emsp;Гетерогенные массивы удобны как универсальная структура для хранения наборов 
+		<br>&emsp;&emsp;&emsp;данных произвольных типов. 
+		<br>&emsp;&emsp;&emsp;Отсутствие их поддержки в языке программирования приводит к необходимости 
+		<br>&emsp;&emsp;&emsp;реализации более сложных схем хранения данных. 
+		<br>&emsp;&emsp;&emsp;С другой стороны, реализация гетерогенности требует усложнения механизма 
+		<br>&emsp;&emsp;&emsp;поддержки массивов в трансляторе языка. Гетерогенный массив как встроенный 
+		<br>&emsp;&emsp;&emsp;тип данных присутствует в языке PHP.
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;<u><font size="+2"><font color="Blue">М</font>ассивы массивов</font></u></a>
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;Многомерные массивы, как правило, реализованные как одномерные массивы, 
+		<br>&emsp;&emsp;&emsp;каждый элемент которых является ссылкой на другой одномерный массив.
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;<u><font size="+2"><font color="Blue">Р</font>еализация</font></u></a>
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;Стандартным способом реализации статических массивов с одним типом элементов
+		<br>&emsp;&emsp;&emsp;является следующий:
+		<br>&emsp;&emsp;&emsp;
+   		<br>&emsp;&emsp;&emsp;<b>1.</b>&emsp;Под массив выделяется непрерывный блок памяти объёмом S*m1*m2*m3…mn, 
+		<br>&emsp;&emsp;&emsp;&emsp;где <i>S</i> — размер одного элемента, а <i>m1…mn</i> — размеры диапазонов индексов 
+		<br>&emsp;&emsp;&emsp;&emsp;(то есть количество значений, которые может принимать соответствующий индекс).
+		<br>&emsp;&emsp;&emsp;&emsp;
+   		<br>&emsp;&emsp;&emsp;<b>2.</b>&emsp;При обращении к элементу массива <i>A[i1, i2, i3, … in]</i> адрес соответствующего
+		<br>&emsp;&emsp;&emsp;&emsp;элемента вычисляется как 
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>B+S*(i<sub>1p</sub>*m<sub>1</sub>+i<sub>2p</sub>*m<sub>2</sub>+…+i<sub>(n-1)p</sub>*m<sub>n-1</sub>+i<sub>np</sub>)</i>,
+		<br>&emsp;&emsp;&emsp;&emsp;где <i>B</i> — база (адрес начала блока памяти массива), <i>i<sub>kp</sub></i> - значение k-го индекса, 
+		<br>&emsp;&emsp;&emsp;&emsp;приведённое к целому с нулевым начальным смещением.
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;Таким образом, адрес элемента с заданным набором индексов вычисляется так,
+		<br>&emsp;&emsp;&emsp;что время доступа ко всем элементам массива одинаково.
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;Первый элемент массива, в зависимости от языка программирования, может иметь 
+		<br>&emsp;&emsp;&emsp;различный индекс. 
+		<br>&emsp;&emsp;&emsp;Различают три основных разновидности массивов:
+		<br>&emsp;&emsp;&emsp;&emsp;&rArr;&emsp;с отсчетом от нуля (zero-based),
+		<br>&emsp;&emsp;&emsp;&emsp;&rArr;&emsp;с отсчетом от единицы (one-based) и 
+		<br>&emsp;&emsp;&emsp;&emsp;&rArr;&emsp;с отсчетом от специфического значения заданного программистом (n-based). 
+		<br>&emsp;&emsp;&emsp;Отсчет индекса элемента массивов с нуля более характерен для низкоуровневых 
+		<br>&emsp;&emsp;&emsp;ЯП, однако этот метод был популяризирован в языках более высокого уровня языком 
+		<br>&emsp;&emsp;&emsp;программирования С.
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;Более сложные типы массивов — динамические и гетерогенные — реализуются сложнее.
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;<u><font size="+2"><font color="Blue">Д</font>остоинства</font></u></a>
+		<br>&emsp;&emsp;&emsp;
+    	<br>&emsp;&emsp;&emsp;&rArr;&emsp;легкость вычисления адреса элемента по его индексу (поскольку элементы массива
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp;располагаются один за другим)
+    	<br>&emsp;&emsp;&emsp;&rArr;&emsp;одинаковое время доступа ко всем элементам
+    	<br>&emsp;&emsp;&emsp;&rArr;&emsp;малый размер элементов: они состоят только из информационного поля
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;<u><font size="+2"><font color="Blue">Н</font>едостатки</font></u></a>
+		<br>&emsp;&emsp;&emsp;
+    	<br>&emsp;&emsp;&emsp;&rArr;&emsp;для статического массива — отсутствие динамики, невозможность удаления или 
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp;добавления элемента без сдвига 
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp;других
+    	<br>&emsp;&emsp;&emsp;&rArr;&emsp;для динамического и/или гетерогенного массива — более низкое (по сравнению
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp;с обычным статическим) 
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp;быстродействие и дополнительные накладные расходы на поддержку динамических 
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp;свойств и/или гетерогенности.
+    	<br>&emsp;&emsp;&emsp;&rArr;&emsp;при работе с массивом в стиле C (с указателями) и при отсутствии 
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp;дополнительных средств 
+		<br>&emsp;&emsp;&emsp;&emsp;&emsp;контроля — угроза выхода за границы массива и повреждения данных
+		<br>&emsp;&emsp;&emsp;
+		<br>&emsp;&emsp;&emsp;
+		<a href="javascript: displ('var')">Закрыть теоретический материал</a>
+		</div>
+ 		<br>
+		<br>&emsp;&emsp;&emsp;<a href="javascript: displ('vid')"><i><font color="Blue"><b>В</b></font>идео</i></a>
+		<div id="vid" style="display: none;">		
+		<div align="justify">
+
+		<p>&emsp;&emsp;&emsp;&emsp;&emsp;Смотрите, учитесь...
+		<p>&emsp;&emsp;&emsp;&emsp;&emsp;<a href="les_mas_1.flv">Массивы -  Урок 1</a>
+		<p>&emsp;&emsp;&emsp;&emsp;&emsp;<a href="les_mas_2.flv">Массивы -  Урок 2</a>
+		<p>&emsp;&emsp;&emsp;&emsp;&emsp;<a href="les_mas_3.flv">Массивы -  Урок 3</a>
+		<p>&emsp;&emsp;&emsp;&emsp;&emsp;<a href="les_mas_4.mp4">Массивы -  Урок 4</a>
+</p></div>
+		<br>&emsp;&emsp;&emsp;<a href="javascript: displ('vid')">Спрятать видео</a>
+		</div>
+		<br></font>
+		</left>
+<center>
+<br>
+<font color="#ADD8E6">
+<a href="ogl.html"><font color="Blue">О</font>главление</a>
+<a href="about_mas.html"><font color="Blue">М</font>ассивы</a>
+<a href="example.html"><font color="Blue">П</font>римеры программ</a>
+<a href="test.html"><font color="Blue">Т</font>ест</a>
+<a href="spring.html"><font color="Blue">И</font>сточники</a>
+<a href="student.html"><font color="Blue">С</font>оздатель</a>
+</font>
+</center>
+	</tr>
+    </tbody>
+	</table>
+</center>
+    <br>
+    <br>
+</body>
+</html>

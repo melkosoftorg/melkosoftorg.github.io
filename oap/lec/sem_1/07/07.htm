@@ -1,0 +1,134 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 07</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Установить цвет символов и фона</p>
+<b><i>textcolor</i></b> - устанавливает новый цвет символов в текстовом режиме.
+<p><b><i>textbackground</i></b> - устанавливает цвет фона.
+<pre>
+<b>Синтаксис</b>	void textbackground(int color);
+			void textcolor(int color);
+<b>Прототип</b> в	conio.h
+</pre>
+Все символы (и их фон), печатаемые на консоли с помощью функций прямого вывода, 
+будут иметь цвет, заданный в color. 
+<br>Эти функции не влияют на символы, отображаемые в 
+данный момент времени на экране; их влияние распространяется только на высвечивание 
+символов с помощью функций прямого вывода (например, cprintf), причем 
+осуществляемое после обращения к этим функциям.
+color представляет собой целое в диапазоне от 0 до 7 для textbackground,
+от 0 до 15 для textcolor.
+<p>Можно задавать цвет, используя символические константы, описанные в conio.h
+<p>Рисунок иллюстрирует, как можно задать размеры текстового окна и его цвет, установить цвет символов и вывести текст в определенной позиции окна.
+<br>Окно зеленого цвета textbackground(2); занимает весь экран window(1, 1, 80, 25);. На нем красными буквами textcolor(4); в позиции (40, 20) выводится текст Привет!
+<br>Затем строится окно голубого цвета, координаты вершин и размеры которого указаны на рисунке.
+<br>Программный код показан на рисунке в окне соответствующего цвета.
+<p><i>Для построения окна определенного цвета необходимо:</i> задать координаты верхнего левого и нижнего правого углов окна, задать цвет фона, этим цветом вычистить окно.
+<p align=center><img src="l13_01.gif" alt="Окно. Цвет символов и фона">
+<p>Например, чтобы создать иллюзию окна с тенью достаточно построить два окна разного цвета, сдвинув их относительно друг друга влево и вверх на 1 или 2 позиции.
+<br>Для построения окон необходимо задать:
+<ul type="disc">
+<li>координаты диагональных вершин прямоугольной области окна (x1, y1) и (x2, y2),
+<li>цвет тени z1,
+<li>цвет верхнего окна z2.
+</ul>
+<p>Следующий фрагмент программы иллюстрирует построение на светло-сером фоне красного и зеленого окон.
+<pre>
+	// задать текстовый режим цветной, 80 колонок и 25 строк 
+	textmode(3);
+	// светло-серое текстовое окно во весь экран
+	window(1, 1, 80, 25); textattr(15 + (7 << 4)); clrscr();
+	// переменные для построения окон с тенью
+	int x1, y1, x2, y2, z1, z2;
+
+	// окно красного цвета z2 = 4 тень черная z1 = 0
+	x1 = 5; y1 = 5; x2 = 45; y2 = 15, z1 = 0, z2 = 4;
+	// построение тени цветом z1
+	window(x1, y1, x2, y2); textbackground(z1); clrscr();
+	// построение окна для вывода значений цветом z2
+	window(x1 - 2, y1 - 1, x2 - 2, y2 - 1); textbackground(z2); clrscr();
+
+	// окно зеленого цвета z2 = 2 тень черная z1 = 0
+	x1 = 40; y1 = 12; x2 = 75; y2 = 22, z1 = 0, z2 = 2;
+	window(x1, y1, x2, y2); textbackground(z1); clrscr();
+	window(x1 - 2, y1 - 1, x2 - 2, y2 - 1); textbackground(z2); clrscr();
+</pre>
+<p align=center><img src="l13_02.gif" alt="Окно. Цвет символов и фона">
+<p><b><i>textattr</i></b> - дает возможность за один вызов установить цвета символов и фона. Функция не 
+влияет на какие-либо cимволы, отображаемые в данный момент на экране; ее влияние 
+распространяется лишь на функции, осуществляющие прямой вывод на консоль 
+(например, cprintf) после обращения к этой функции.
+<pre>
+<b>Синтаксис</b> void textattr(int newattr);
+<b>Прототип</b> в conio.h
+</pre>
+<b><center>Информация о цвете кодируется в параметре newattr:</center></b><p>
+<table border=1 align=center cellpadding=5>
+<tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td></tr> 
+<tr><td>B</td><td>b</td><td>b</td><td>b</td><td>f</td><td>f</td><td>f</td><td>f</td></tr>
+</table>
+<pre>
+			ffff - 4-битный цвет текста (от 0 до 15),
+			bbb - 3-битный цвет фона (от 0 до 7),
+			B - бит, определяющий блинкирование (мигание).
+</pre>
+<p>Если бит блинкирования установить, то символ будет мерцать. Этот эффект может быть 
+достигнут добавлением к атрибуту константы BLINK.
+<p>Если для задания с помощью функции textattr текстовых атрибутов используются 
+символические константы цветов, описанные в conio.h, то для задания цвета фона 
+необходимо помнить об ограничениях:
+<ul>
+<li>можно использовать в качестве цвета фона только один из первых восьми цветов,
+<li>для установки корректной позиции битов цвета фона надо сдвинуть выбранный цвет 
+влево на 4 бита.
+<ul>
+<pre>
+	// установить мерцающие желтые Символы и голубой фон
+	textattr(YELLOW + (BLUE << 4) + BLINK);
+	cputs("Hello, world");
+</pre>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

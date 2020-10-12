@@ -1,0 +1,87 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 45</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Определение производного класса</p>
+В определении и описании производного класса приводится список базовых классов, из 
+которых он непосредственно наследует данные и методы. <br>Между именем вводимого 
+(нового) класса и списком базовых классов помещается двоеточие.
+<br>Например, при определении &nbsp; &nbsp; class S <b>:</b> X, Y, Z {...); &nbsp; &nbsp; класс S порожден классами 
+X, Y, Z, откуда он наследует компоненты.<p>Наследование компонента не выполняется, если 
+его имя будет использовано в качестве имени компонента в определении производного 
+класса S. <p>По умолчанию из базовых классов наследуются методы и данные со 
+спецификаторами доступа - public (общедоступные) и protected (защищенные).
+<br>В порожденном классе эти унаследованные компоненты получают статус доступа private, 
+если новый класс определен с помощью ключевого слова class, и статус доступа public, 
+если новый класс определен с помощью ключевого слова struct. <br>Таким образом, при 
+определении класса &nbsp; &nbsp; struct J <b>:</b> X, Z { ... ); &nbsp; &nbsp; любые наследуемые компоненты классов 
+X, Z будут иметь в классе J статус общедоступных (public). <p>Например,
+<br><center><table>
+<tr><td>Базовый класс
+</td><td> &nbsp; &nbsp; &nbsp; 
+</td><td>Производные классы
+</td></tr>
+<tr><td><pre>
+class В
+{	protected: &nbsp; int t;
+	public: &nbsp; char u;
+};</pre>
+</td><td> &nbsp; &nbsp; &nbsp; 
+</td><td valign=top>class E <b>:</b> В { ... };	// t, u наследуются как private
+<br>struct S <b>:</b> В { ... };	// t, u наследуются как public
+</td></tr>
+</table></center>
+<br><b><i>Явно изменить умалчиваемый статус доступа при наследовании</i></b> можно с помощью 
+спецификаторов доступа - private, protected и public. Эти спецификаторы доступа 
+указываются в описании производного класса непосредственно перед нужными именами 
+базовых классов. Если класс B определен так, как показано выше, то можно ввести 
+следующие производные классы:
+<pre>
+	class M <b>:</b> protected В { ... };	// t, u наследуются как protected
+	class P <b>:</b> public В { ... };	// t - protected, u - public
+	class D <b>:</b> private В { ... };	// t, u наследуется как private
+	struct F <b>:</b> private В { ... };	// t, u наследуются как private
+	struct G <b>:</b> public В { ... };	// t - protected, u - public
+</pre>
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../
+plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

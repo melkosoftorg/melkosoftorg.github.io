@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | СР 31_34</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+<td><a href="12.htm" class=p>&nbsp 12 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual><p align=center class=dbi><br>Создание файла произвольного доступа</p>
+<p>Функция-элемент write класса ostream выводит фиксированное число байтов, начиная от заданного места в памяти, в заданный поток. Когда поток связан с файлом, данные пишутся, начиная с позиции в файле, определяемой при помощи указателя позиции файла "put".
+<p>Функция-элемент read класса istream вводит фиксированное число байтов из заданного потока в область памяти, начиная с указанного адреса. Если поток связан с файлом, байты вводятся, начиная с позиции в файле, определенной при помощи указателя позиции файла "get".
+Теперь при записи в файл переменной целого типа number вместо использования оператора
+outFile << number;
+который может напечатать для 4-байтовой целой переменной от 1 до 11 символов (до 10 разрядов плюс знак, каждый из которых требует 1 байта памяти), можно использовать оператор
+outFile.write((char *) &number, sizeof(number));
+который всегда записывает 4 байта (на компьютере с 4-байтовыми целыми).
+<p>Функция write ожидает первый аргумент типа char * и поэтому мы использовали приведение к типу (char *). Второй аргумент функции write является целым типа size_t и определяет число байтов, которые должны быть записаны. Функция read класса istream может быть использована для последующего чтения 4 байтов обратно в переменную целого типа number.
+<p>Программа обработки файла произвольного доступа в редких случаях записывает единственное поле в файл. Обычно программы записывают за раз по одному объекту типа struct или class.
+<p>Рассмотрим постановку следующей задачи:
+<br>Создайте программу по обработке счетов по кредитам, способную хранить до 100 записей фиксированной длины, для компании, которая может иметь до 100 клиентов.
+<br>Каждая запись должна состоять из номера счета, который будет использован в качестве ключа записи, фамилии и имени клиента и его баланса.
+<br>Программа должна быть способна обновлять счет, вставлять новый счет, уничтожать счет и выводить список всех записей по счетам в форматированный текстовый файл для их последующей печати.
+<p>Следующая программа демонстрирует открытие файла произвольного доступа, описание формата записи с помощью struct и запись данных на диск.
+<br>Она задает начальные значения всем 100 записям файла "credit.dat" в виде незаполненных записей типа struct, используя функцию write.
+<br>Каждая незаполненная запись типа struct содержит номер счета 0, нулевую строку (представляемую при помощи пустых кавычек) в качестве фамилии и имени и 0.0 в качестве баланса.
+<br>В файл первоначально записано столько незаполненных записей, сколько счетов предполагается хранить, для того, чтобы в дальнейшем программа могла определять, содержит ли любая запись данные, или она является незаполненной.
+<pre><b>
+	// Последовательность создания файла произвольного доступа
+	#include &lt;iostream.h>
+	#include &lt;fstream.h>
+	#include &lt;stdlib.h>
+	struct clientData
+	{
+		int acctNum;
+		char lastName[15];
+		char firstName[10];
+		float balance;
+	};
+	main ()
+	{
+		ofstream outCredit("credit.dat", ios :: out);
+		if (! outCredit)
+		{
+			cerr << "Файл не может быть открыт." << endl;
+			exit (1);
+		}
+		clientData blankClient = { 0.0, "", "", 0.0 };
+		for (int i = 1; i <= 100; i++)
+			outCredit.write((char *) &blankClient, sizeof(blankClient));
+		return 0;
+	}
+</b></pre>
+<p>Оператор &nbsp;&nbsp;&nbsp;<b>outCredit.write((char *) &blankClient, sizeof(blankClient));</b>
+<br>вызывает структуру &nbsp;blankClient&nbsp; размером &nbsp;sizeof(blankClient),&nbsp; чтобы осуществить запись в файл &nbsp;credit.dat,&nbsp; связанный с объектом &nbsp;outCredit&nbsp; класса &nbsp;ofstream.
+<br>Оператор sizeof возвращает размер в байтах объекта, заключенного в скобки.
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+<td><a href="12.htm" class=p>&nbsp 12 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>
