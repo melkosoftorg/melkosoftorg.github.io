@@ -1,0 +1,132 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 12</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Ссылки и ссылочные параметры</p>
+Имеются <b><i>два способа обращения к функциям:</i></b>
+<ul>
+<li>вызов по значению, 
+<li>вызов по ссылке.
+</ul>
+Когда аргумент передается вызовом <b>по значению</b>, создается копия аргумента и она передается 
+вызываемой функции. Изменения копии не влияют на значение оригинала в операторе вызова.
+<br>Один из недостатков вызова по значению: если передается большой элемент данных, 
+создание копии этих данных может привести к значительным потерям времени выполнения.
+<p>В случае вызова по ссылке оператор вызова дает вызываемой функции возможность
+прямого доступа к передаваемым данным, а также возможность изменения этих данных. 
+<br>Вызов <b>по ссылке</b> дает экономию во времени, поскольку не требует копирования 
+больших объемов данных, но может ослабить защищенность, поскольку вызываемая 
+функция может испортить передаваемые в нее данные.
+<p><b><i>Ссылочный параметр</i></b> - это псевдоним соответствующего аргумента.
+<p>Чтобы показать, что параметр функции передан по ссылке, после типа параметра в 
+прототипе функции ставится символ амперсанда <b>&</b>, такое же обозначение используется 
+в списке типов параметров в заголовке функции. 
+<p>Например, объявление <b>int &count</b> в заголовке функции может читаться как 
+"count является ссылкой на int".
+<br>В вызове функции достаточно указать имя переменной и она будет передана по ссылке. 
+Тогда упоминание в теле вызываемой функции переменной по имени ее параметра в действительности 
+является обращением к исходной переменной в вызывающей функции и эта исходная переменная может быть 
+изменена непосредственно вызываемой функцией.
+<p>В приведенной ниже программе в fun1() показан вызов по значению, в fun2() - по ссылке.
+<pre>
+	#include&lt;conio.h&gt;
+	#include&lt;iostream.h&gt;
+	int fun1(int a)
+	{ 
+		return a *= a; 
+	}
+
+	int fun2(int &b)
+	{ 
+		return b *= b; 
+	}
+
+	void main()
+	{	clrscr();
+		int x =2, z = 4;
+		cout << "x = " << x << " До fun1" << endl;
+		cout << "Значение, возвращаемое fun1: " << fun1(x) << endl;
+		cout << "x = " << x << " После fun1" << endl << endl;
+
+		cout << "z = " << z << " До fun2" << endl;
+		cout << "Значение, возвращаемое fun2: " << fun2(z) << endl;
+		cout << "z = " << z << " После fun2" << endl << endl;
+		getch();
+	}
+		<b><i>Результаты:</i></b>	x = 2 До fun1
+				Значение, возвращаемое fun1: 4
+				x = 2 После fun1
+
+				z = 4 До fun2
+				Значение, возвращаемое fun2: 16
+				z = 16 После fun2
+</pre>
+Ссылочные переменные должны получать начальные условия в их объявлениях, то есть 
+правильным будет записать: <b>int x = 3, &y = x;</b>
+<pre>
+	#include&lt;conio.h&gt;
+	#include&lt;iostream.h&gt;
+	void main()
+	{	clrscr();
+		int x = -9, &y = x;
+		cout << "x = " << x << "   y = " << y << endl;
+		y = 15;
+		cout << "x = " << x << "   y = " << y << endl;
+		getch();
+	}
+		<b><i>Результаты:</i></b>	x = -9   y = -9
+				x = 15   y = 15
+
+</pre>
+<p><table align=center width=90% border=1 cellpadding=5 cellspacing=10>
+<tr><td class=rule>
+<b>Замечание.</b> Чтобы обеспечить ясность программы и ее производительность, многие 
+программисты на C++ предпочитают, чтобы
+<ul>
+<li>аргументы, которые могут изменяться, передавались бы функциям с помощью указателей,
+<li>аргументы, не предназначенные для изменения, передавались бы вызовом по значению,
+<li>большие не изменяемые аргументы передавались бы функциям путем использования константных ссылок.
+</ul>
+</td></tr>
+</table>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

@@ -1,0 +1,73 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 26</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Бит, байт, адрес</p>
+<b><i>RAM - Random Access Memory - память произвольного доступа.</i></b>
+<p><b><i>1 бит</i></b> - информация типа 0 или 1 (ложь или истина).
+<p>Восемь бит группируются в <b><i>один байт</i></b>.
+<p>Большим группам бит, как правило, присваивается имя:
+<ul>
+<li>обычно два байта составляют слово, 
+<li>четыре байта составляют длинное слово, 
+<li>для IBM PC шестнадцать байт составляют параграф. 
+</ul>
+<p>Каждый байт в памяти компьютера имеет собственный уникальный адрес
+<ul>
+<li>если данный байт имеет адрес N, 
+<li>то предыдущий байт имеет адрес N - 1, 
+<li>следующий байт - N + 1.
+</ul>
+<p>Когда компьютер работает, часть памяти используется операционной системой.
+При выполнении программы ее код (последовательность инструкций на машинном языке)
+и данные (информация, используемая программой) также занимает часть памяти.
+<p>При объявлении переменной в программе компилятор выделяет для хранения этой переменной участок памяти с уникальным адресом.
+Компилятор ассоциирует этот адрес с именем переменной. Всякий раз, когда в программе используется имя переменной, автоматически происходит обращение по адресу к соответствующему месту в памяти.
+<p>Адрес переменной - это просто число, с которым можно обращаться как с обычным числовым значением.
+Зная адрес переменной, можно завести вторую переменную и поместить в нее адрес первой.
+<p>Пусть объявлена и инициализирована переменная: &nbsp; int ram = 122;
+<br>Компилятор выделил для нее ячейку памяти с адресом начального байта &nbsp; 1004 &nbsp; и ассоциировал имя &nbsp;ram&nbsp; с этим адресом.
+<p>Объявим переменную &nbsp; p_ram &nbsp; для хранения адреса переменной  &nbsp; ram. &nbsp;
+Вначале она не инициализирована. Для нее выделяется память, но никакое значение туда не помещается.
+<br>Поместим адрес переменной &nbsp; ram &nbsp; в &nbsp; p_ram. &nbsp; Поскольку переменная &nbsp; p_ram &nbsp; теперь содержит адрес переменной &nbsp; ram, &nbsp; она указывает на &nbsp; ram, &nbsp; то есть является указателем на &nbsp; ram.
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

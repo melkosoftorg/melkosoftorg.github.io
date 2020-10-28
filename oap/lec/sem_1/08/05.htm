@@ -1,0 +1,73 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 08</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Спецификации преобразования</p>
+<p align=center><img src="flag01.gif" alt="Список типов преобразования" ismap></p>
+<p align=center><img src="flag02.gif" alt="Список типов преобразования" ismap></p>
+<p align=center><img src="flag03.gif" alt="Символы - флажки" ismap></p>
+<p align=center><img src="flag04.gif" alt="Спецификация ширины" ismap></p>
+<p align=center><img src="flag05.gif" alt="Спецификация точности" ismap></p>
+
+<p align=center class=dbi>Модификаторы входного размера<br>(F, N, h, l)</p>
+<ol>
+<li>Дают размер последующего входного аргумента:
+<ul>
+<li type="disc">F - дальний указатель, 
+<li type="disc">N - ближний указатель, 
+<li type="disc">h - короткое целое, 
+<li type="disc">l - длинное целое. 
+</ul>
+<p><li>Влияют на то, каким образом функции ...printf интерпретируют тип данных 
+соответствующего входного аргумента arg:
+<ul>
+<li type="disc">F и N применяются только к тем входным аргументам arg, которые представляют собой указатели (%p, %s и %n).
+<li type="disc">F и N интерпретируют входной аргумент arg. Обычно, для преобразований %p, %s,
+%n аргумент arg - это указатель стандартного размера для соответствующей
+модели памяти. F означает: "интерпретировать arg, как дальний указатель". N
+означает: "интерпретировать arg, как ближний указатель".
+<li type="disc">h и l применяются к числовым аргументам (целые и с плавающей точкой),
+отвергают стандартный размер числовых данных входных аргументов: l
+применяется к целым типам данных (d, i, o, u, x, X) и типам данных с плавающей
+точкой (e, E, f, g и G), h применяется только к целым данным.
+<li type="disc">h и l - модификаторы не оказывают никакого влияния на типы символов (c, s) или указателей(p, n).
+</ul></ol>
+<p>Каждая функция семейства ...printf возвращает количество выводимых байтов.
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

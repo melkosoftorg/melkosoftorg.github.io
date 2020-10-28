@@ -1,0 +1,140 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 22</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Бесконечный цикл</p>
+
+<p><b><i>Бесконечный цикл</i></b> - это цикл, выполнение которого никогда не закончится естественным образом по его условию.
+<br>Например, в следующей программе проверяемое в цикле условие - это просто константа 1, которая всегда соответствует логическому значению True (истина).
+Программа никак не сможет сделать ее равной 0, то есть False (ложь). А поскольку единица никогда не изменится, то и цикл никогда не закончится.
+Поэтому единственно возможный выход из такого цикла - использование оператора break.
+<pre>
+		#include&lt;conio.h&gt;
+		#include&lt;iostream.h&gt;
+		void main()
+		{
+			clrscr();
+			int x = -4;
+			while(1)
+			{
+				cout << x++ << ' ';
+				if(x > 5)
+					break;
+			} getch();
+		}
+		Результаты:	-4 -3 -2 -1 0 1 2 3 4 5
+</pre>
+<p>Бесконечные циклы могут принадлежать и другим известным видам циклов: for, do...while.
+<p><center>
+<table width="60%">
+<tr><td width="50%">
+<pre>
+for( ; ; )
+{
+	// операторы
+}
+</pre>
+</td><td width="50%">
+<pre>
+do
+{
+	// операторы
+} while(1);
+</pre>
+</td></tr>
+</table></center>
+<p>В следующей программе показано, как можно использовать цикл for при построении движущегося изображения, создать бесконечный цикл, прерываемый командой break при нажатии на любую клавишу.
+<pre>
+	#include&lt;graphics.h>
+	#include&lt;stdlib.h>
+	#include&lt;stdio.h>
+	#include&lt;math.h>
+	#include&lt;conio.h>
+	#include&lt;dos.h>
+	#include"..\\h\\init.h"
+	void main()
+	{
+		init(); randomize();
+		int color, x, y, x1, y1, dy, r, h, w;
+		float i;
+		x1 = 250; y1 = 30; w = 350; h = 410;
+		setbkcolor(0); cleardevice();
+		setfillstyle(1, 11); bar(x1 - 8, y1 - 8, x1 + w + 8, y1 + h + 8);
+		setfillstyle(1, 9); bar(x1 - 4, y1 - 4, x1 + w + 4, y1 + h + 4);
+		// создать графическое окно и рисовать в нем салют
+		setviewport(x1, y1, x1 + w, y1 + h, 1); clearviewport();
+		x = w / 2;  dy = h / 50;
+		setcolor(7); setfillstyle(1, 7); r = 1;
+		// снаряд летит вверх
+		for(y = h - dy; y > 2 * h / 3; y -= dy)
+		{
+			setcolor(7); setfillstyle(1, 7); fillellipse(x, y, r, r);
+			delay(90);
+			setcolor(0); setfillstyle(1, 0); fillellipse(x, y, r, r);
+			if(y % 3 == 0)
+				r++;
+		}
+		setcolor(2); setfillstyle(1, 2); fillellipse(x, y, r, r);
+		delay(70);
+		setcolor(0); setfillstyle(1, 0); fillellipse(x, y, r, r);
+		r = 1;
+		// бесконечный цикл - салют
+		for(;;)
+		{
+			color = 1 + random(15); setcolor(color);
+			i = random(280) * .011; setfillstyle(1, color);
+			x1 = x + random(w / 3) * cos(i); y1 = y - random(h / 2) * sin(i);
+			r = 1 + random(2); fillellipse(x1, y1, r, r);
+			delay(70);
+			setcolor(0); setfillstyle(1, 0); fillellipse(x1, y1, r, r);
+			for(i = 0; i <= 2 * M_PI; i += M_PI_4 / 5)
+			{
+				putpixel(x1 + random(30) * cos(i), y1 + random(20) * sin(i), color);
+				delay(1);
+			}
+			delay(50);
+			// выйти из цикла на нажатие любой клавиши
+			if(kbhit())
+				break;
+		}
+		getch(); closegraph();
+	}
+</pre>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

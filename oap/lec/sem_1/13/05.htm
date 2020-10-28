@@ -1,0 +1,160 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 13</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Статические переменные</p>
+Слово "статические" означает, что переменные остаются в работе. Они имеют такую 
+же область действия, как автоматические переменные, но не исчезают, когда 
+содержащая их функция закончит свою работу. Компилятор хранит их значения от 
+одного вызова функции до другого.
+<p>Во многих случаях целесообразно  ограничить  использование глобальных данных
+  рамками  одного  модуля,  то  есть запретить функциям другого модуля доступ к ним.
+ Это можно сделать используя для глобальных данных <b>спецификатор static</b>.  Например, после описания
+<pre>
+       static int Count;
+</pre>
+к глобальной переменной Count будут иметь доступ только функции того модуля,
+  в котором собственно была выделена память под переменную Count.
+<p>Локальную переменную функции или блока тоже можно  сделать статической, 
+ используя ключевое слово<i> static</i>. В следующем примере используется локальная статическая переменная функции 
+ для того, чтобы отличить первый вызов функции от последующих:
+<pre>
+       #include &lt;stdio.h>
+       void fun(void)
+       {
+        	  static int first = 1;
+       	 	  if( first )
+        	  {
+       		      printf("Это первый вызов функции.\n");
+       		      first = 0;
+       		  }
+       		  else
+          	  printf("Это не первый вызов функции.\n");
+       }
+
+       void main(void)
+       {
+      	 	   fun();  fun();  fun();
+       }
+</pre>
+Статическая переменная  first функции fun() создается и инициализируется при запуске программы,
+ до выполнения функции main(). Поэтому,  при  первом вызове функции fun() значение first равно 1, 
+ при последующих вызовах fun() переменная first будет сохранять свое значение, измененное функцией fun() на 0. 
+<p>Подобным же образом можно организовать подсчет числа обращений к функции.
+<pre>
+       #include &lt;stdio.h>
+       #include &lt;conio.h>
+       int c = 1;
+       void fun(void)
+       {
+		  static int first = 1;
+		  if( first )
+		  {  
+		      printf("Это первый вызов функции.\n");
+		      first = 0;
+		  }
+		  else
+		  {
+			c++; printf("Это не первый вызов функции.\n");
+		  }
+       }
+
+       void main(void)
+       {
+		   fun(); printf("c = %d\n",c);
+		   fun(); printf("c = %d\n",c);
+		   fun(); printf("c = %d\n",c);
+		   fun(); printf("c = %d\n",c);
+		   getch();
+       }
+
+Результат:
+
+Это первый вызов функции.
+c = 1
+Это не первый вызов функции.
+c = 2
+Это не первый вызов функции.
+c = 3
+Это не первый вызов функции.
+c = 4
+</pre>
+<p>Или можно переписать программу следующим образом:
+<pre>
+       #include &lt;stdio.h>
+       #include &lt;conio.h>
+
+       void fun(void)
+       {
+		  static int first = 1;
+		  static int c = 0;
+		  if( first )
+		  {   c++;
+		      printf("Это %d-й вызов функции.\n", c);
+		      first = 0;
+		  }
+		  else
+		  {
+			c++; printf("Это %d-й вызов функции.\n", c);
+		  }
+       }
+
+       void main(void)
+       {           
+		   fun();
+		   fun();
+		   fun();
+		   fun();
+		   getch();
+       }
+
+</pre>
+<p>Если в предыдущем примере убрать ключевое слово static 
+ из описания  переменной first,  то функция fun() при каждом вызове будет вести себя как и при первом. 
+ Это происходит потому,  что переменная first стала автоматической,  создается и инициализируется 
+при каждом вызове функции fun().
+
+
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

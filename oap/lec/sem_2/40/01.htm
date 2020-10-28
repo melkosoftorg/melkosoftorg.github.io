@@ -1,0 +1,60 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 40</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Назначение битовых полей</p>
+Внутри структур и объединений могут в качестве их элементов использоваться битовые 
+поля, которые не имеют адресов, то есть для них не определена операция &, нет 
+указателей и ссылок на битовые поля, они не могут объединяться в массивы.
+<p><b><i>Назначение битовых полей</i></b> - обеспечить удобный доступ к отдельным битам данных.
+<p>С помощью битовых полей можно формировать объекты с длиной внутреннего 
+представления не кратной байту. Это позволяет плотно "упаковывать" информацию и тем 
+самым экономить память.
+<p>Предположим, вы пишете программу для введения базы данных клиентов поликлиники.
+Многие из полей такой базы содержат данные типа ответов <i>да</i> или <i>нет</i> на заданные вопросы.
+Например, о тех или иных прививках, перенесенных инфекционных заболеваниях.
+Каждый такой ответ можно хранить в однобитовом поле, где единица соответствует <i>да</i>, а ноль - <i>нет</i>.
+<p>Что касается стандартных типов данных языка C, то самый короткий из них, который можно использовать в структуре, это тип char длиной в 1&nbsp;байт&nbsp;=&nbsp;8&nbsp;бит.
+То есть, в каждой такой переменной семь из восьми битов будут пропадать зря.
+А вот применение битовых полей позволит поместить в одну переменную типа char восемь ответов <i>да&nbsp;-&nbsp;нет</i>.
+<p>&nbsp </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

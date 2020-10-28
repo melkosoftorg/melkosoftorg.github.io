@@ -1,0 +1,61 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОАП | Лекция № 34</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Тематический план</a>&nbsp&nbsp</td>
+<td>&nbsp&nbsp<a href="#end" class=p>Конец страницы</a>&nbsp&nbsp</td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Пункты для конспекта (лекция 34)</p>
+<p><ol>
+	<li> Символьная строка - это последовательность, состоящая из одного или более символов. 
+	<li>Строка с нулевым конечным символом представляет собой массив элементов типа char. 
+	<li>В C/C++ строки могут иметь любую длину.
+	<li>Последний элемент строки-массива содержит значение 0 ( \0 - "нуль-символ" ) и таким образом обозначает конец строки.
+	<li>При использовании строковых констант, нуль в конце строки добавляется компилятором автоматически
+	<li>Конструкция ... 
+	<pre>	while (s[n] != 0) n++;	</pre>
+	<li>Конструкция ...
+	<pre>	while (s[n++] != 0);	</pre>
+	<li>Если описать строку как массив типа char, то память для этой строки резервируется автоматически. 
+	<li>Если описать строку как указатель на тип данных char, то память не резервируется: необходимо либо выделить ее, 
+используя функцию malloc или ей подобную, или присвоить ей адрес существующей строки. 	
+        <li>Строка "к" не то же самое, что символ 'к'...
+	<li>Каждая символьная строка является символьным массивом, но не каждый символьный массив является символьной строкой
+ — отличительным признаком является нулевой байт в конце символьной строки.
+	<li>Вывод строки:
+	<pre>	char s[ ] = "Понедельник"; cout << s << endl;</pre>
+	<li>Ввод строки:
+	<pre>	char  sd[80];
+	cin >> sd;</pre>
+	Операция cin >> для символьных массивов работает только до пробела. 
+	<li>Размер массива и длина строки символов, которая в этом массиве хранится — это разные вещи.
+<pre>	char s[10]=”Привет!”
+	cout << sizeof(s)		// выведет 10 
+	cout << strlen(s) << endl;	// выведет 7 </pre>
+</ol>    
+<p>  
+
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Тематический план</a>&nbsp&nbsp</td>
+<td>&nbsp&nbsp<a href="#start" class=p>Начало страницы</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<FONT color="#FFFF66" size=1><i>Copyright</i> &copy; <a class=p href="http://prep.scc/~ems">
+Строганова Е. М.</a> <i>2012</i></font></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

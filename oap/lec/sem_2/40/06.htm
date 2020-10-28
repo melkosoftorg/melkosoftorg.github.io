@@ -1,0 +1,123 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 40</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Остатки от деления двух чисел - в один байт</p>
+В представленной ниже программе остатки от деления на 16 в десятичной и двоичной 
+системах счисления:
+<pre>		34 % 16 = 2<sub>10</sub> = 0010<sub>2</sub>,
+		25 % 16 = 9<sub>10</sub> = 1001<sub>2</sub>
+</pre>
+упакованы в один байт, то есть, получено двоичное число 10010010<sub>2</sub>, десятичное 
+представление которого будет: 
+<pre>
+		10010010<sub>2</sub> = 1·2<sup>7</sup> + 1·2<sup>4</sup>  + 1·2<sup>1</sup> = 128 + 16 + 2 = 146<sub>10</sub>.
+
+	#include&lt;iostream.h&gt;
+	#include&lt;conio.h&gt;
+	// Функция упаковывает в один байт остатки от деления на 16
+	// двух целых чисел - параметров
+	unsigned char cod(int a, int b)
+	{
+		union
+		{	unsigned char z;
+			struct
+			{	unsigned int x : 4;	// Младшие биты
+				unsigned int y : 4;	// Старшие биты
+			} hh;
+		} un;
+		un.hh.x = a % 16; un.hh.y = b % 16; return un.z;
+	}
+
+	// Функция изображает двоичное представление байта - параметра
+	void binar (unsigned char ch)
+	{
+		union
+		{	unsigned char ss;
+			struct
+			{	unsigned a0 : 1;
+				unsigned a1 : 1;
+				unsigned a2 : 1;
+				unsigned a3 : 1;
+				unsigned a4 : 1;
+				unsigned a5 : 1;
+				unsigned a6 : 1;
+				unsigned a7 : 1;
+			} byte;
+		} cod;
+		cod.ss = ch;	// Занести значение параметра в объединение
+		// Выводим биты внутреннего кода значения параметра
+		cout << "\nНомера битов: 7 6 5 4 3 2 1 0";
+		cout << "\nЗначения битов:";
+		cout << "\t" << cod.byte.a7 << " " << cod.byte.a6;
+		cout << " " << cod.byte.a5 << " " << cod.byte.a4;
+		cout << " " << cod.byte.a3 << " " << cod.byte.a2;
+		cout << " " << cod.byte.a1 << " " << cod.byte.a0;
+		cout << "\n";
+	}
+
+	void main()
+	{
+		int k, m, n; clrscr();
+		cout << "\nm = "; cin >> m;
+		cout << "n = "; cin >> n;
+		k = cod(m, n); cout << "cod = " << k; binar (k); 
+		getch();
+	}
+
+	<b><i>Результаты</i></b>	m = 34
+			n = 25
+			cod = 146
+			Номера битов:	7 6 5 4 3 2 1 0
+			Значения битов:	1 0 0 1 0 0 1 0
+
+</pre>
+В функциях cod() и binar() использованы объединения, включающие структуры с 
+битовыми полями.
+<p>В функции cod() запись данных выполняется в битовые поля структуры hh, входящей в 
+объединение un, а результат выбирается из того же объединения un, но как числовое 
+значение байта.
+<p>В функции binar() обратное преобразование - в нее как значение параметра передается 
+байт, содержимое которого побитово "расшифровывается" за счет обращения к 
+отдельным полям структуры byte, входящей в объединение cod.
+<p>&nbsp </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

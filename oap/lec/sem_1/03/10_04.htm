@@ -1,0 +1,77 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 03</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp;</td></tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Options - меню параметров
+<br>Вызов: Alt + O</p>
+<p>&nbsp;</p><a name="04"></a>
+<p><b><center>Команда Make... (Избирательная рекомпиляция)</center></b></p>
+<p>Команда Options\Make... (Параметры\Избирательная рекомпиляция) отображает блок 
+диалога, который позволяет задать условия, в которых будет осуществляться управление 
+проектом.
+<p><b><i>Break Make On (Прервать избирательную рекомпиляцию на)</i></b>
+<blockquote>
+( ) Warnings (Предупреждающих сообщениях)
+<br>(<b>&#8729;</b>) Errors (Ошибках)
+<br>( ) Fatal errors (Неисправимых ошибках)
+<br>( ) All sources processed ()
+</blockquote>
+<p>Селективные кнопки Break Make On (Прервать избирательную рекомпиляцию на) 
+используются для задания того условия, которое будет приводить к прекращению 
+процесса создания проекта. По умолчанию работа прекращается после компиляции файла, 
+в котором содержатся ошибки.
+<p><b><i>After Compiling ()</i></b>
+<blockquote>
+( ) Stop
+<br>(<b>&#8729;</b>) Run linker
+<br>( ) Run librarian
+</blockquote>
+<p>
+<p><b><i>Generate Import Library ()</i></b>
+<blockquote>
+( ) No
+<br>(<b>&#8729;</b>) Use DLL file exports
+<br>( ) Use DEF file exports
+</blockquote>
+<p>
+<p><b><i>[X] Check auto-dependencies (Проверка последовательностей зависимости)</i></b>
+<p>Если маркирована Check auto-dependencies (Проверка последовательностей зависимости), 
+менеджер проектов автоматически проверяет зависимости для каждого объектного файла 
+на диске, которому соответствует исходный файл с расширением имени .CPP в списке 
+проекта.
+<br>Менеджер проекта открывает объектный файл и ищет информацию о файлах, 
+включенных в исходный код. Эта информация всегда заносится в объектный файл при 
+компиляции исходного модуля как интегрированной версией компилятора Borland C++, 
+так и компилятором командной строки.
+<br>Затем проводится сверка времени и даты создания 
+каждого файла, который был использован для построения объектного файла, с 
+информацией о дате и времени, которая хранится в объектном файле. Если даты 
+различны, осуществляется рекомпиляция исходного файла с расширением имени .CPP. 
+<br>Этот процесс носит название автоматической проверки зависимостей. Если триггерная 
+кнопка не маркирована, никакой проверки файлов не делается.
+
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp;</td></tr>
+</table>
+<a name=#end></a>
+</body>
+</html>
+
+
+

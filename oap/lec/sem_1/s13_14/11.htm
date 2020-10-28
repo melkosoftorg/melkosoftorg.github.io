@@ -1,0 +1,237 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | СР 13_14</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=a>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Информация о диске и файле</p>
+<b><i> getdfree</i></b> - получает информацию о наличии свободной памяти на диске.
+<br><b>Синтаксис</b> void getdfree(int drive, struct dfree *dfreep);
+<br><b>Прототип</b> в dos.h
+<p>getdfree рассматривает устройство, задаваемое параметром drive (0 = по умолчанию, 1 = A, 
+и так далее), делает анализ и заполняет структуру dfree с адресным указателем dfreep 
+характеристиками соответствующего диска. <br>Структура dfree описывается следующим 
+образом:
+<pre>
+	struct dfree 
+	{
+		unsigned df_avail;	// свободные кластеры
+		unsigned df_total;	// общее количество кластеров
+		unsigned df_bsec;	// байтов на сектор
+		unsigned df_sclus;	// секторов на кластер
+	};
+</pre>
+<p>Функция getdfree не возвращает никакого значения. В случае ошибки параметру df_sclus в 
+структуре dfree присваивается значение -1.
+<pre>
+   #include&lt;stdio.h&gt;
+   #include&lt;stdlib.h&gt;
+   #include&lt;dir.h&gt;
+   #include&lt;dos.h&gt;
+   int main(void)
+   {
+      struct dfree free; long avail; int drive; drive = getdisk();
+      getdfree(drive + 1, &free);
+      if (free.df_sclus == 0xFFFF)
+      { 
+      	printf("Ошибка getdfree()\n"); exit(1); 
+      }
+      avail = (long)free.df_avail * (long)free.df_bsec * (long)free.df_sclus;
+      printf("На диске %c имеется %ld свободных байт\n", 'A' + drive, avail);
+      return 0;
+   }
+</pre>
+<p><b><i> getfat</i></b> - получает информацию из таблицы размещения файлов.
+<br><b>Синтаксис</b> void getfat(int drive, struct fatinfo *fatblkp);
+<br><b>Прототип</b> в dos.h
+<p>Функция getfat возвращает информацию из таблицы размещения файлов согласно 
+спецификации устройства, заданной в параметре drive(0 = по умолчанию, 1 = A:; 2 = B:; и 
+так далее). <br>Указатель fatblkp является адресом структуры fatinfo, которая заполняется 
+информацией из таблицы.
+<pre>
+   #include&lt;stdio.h&gt;
+   #include&lt;dos.h&gt;
+   #include&lt;conio.h&gt;
+   int main(void)
+   {
+      struct fatinfo diskinfo; int flag = 0;
+      printf("Вставьте дискету в дисковод A\n");
+      getfat(1, &diskinfo);	// получение информации о дисководе
+      printf("\nДисковод A: ");
+      switch((unsigned char) diskinfo.fi_fatid)
+      {
+         case 0xFD: printf("360 K одинарной плотности\n"); break;
+         case 0xF9: printf("5 1/4'' - 1.2 MВ или 3 1/2'' - 720 К\n"); break;
+         case 0xF0: printf("3 1/2 - 1.44 MB\n"); break;
+         default      : printf("Неформатирован\n"); flag = 1;
+      }
+      if (!flag)
+      {
+         printf(" Секторов на кластер %5d\n", diskinfo.fi_sclus);
+         printf(" Количество кластеров %5d\n", diskinfo.fi_nclus);
+         printf(" Байт на сектор %5d\n", diskinfo.fi_bysec);
+      } return 0;
+   }
+</pre>
+<p><b><i> getfatd</i></b> получает информацию из таблицы размещения файлов 
+(FAT), выполняет ту же самую функцию, что и getfat, за исключением того, что 
+всегда используется значение устройства по умолчанию - 0.
+<br><b>Синтаксис</b> void getfatd(struct fatinfo * fatblkp);
+<br><b>Прототип</b> в dos.h
+<p>Структура fatinfo, заполняемая функциями getfat и getfatd, описывается следующим 
+образом:
+<pre>
+	struct fatinfo 
+	{
+		char fi_sclus;	// секторов на кластер
+		char fi_fatid;	// байт идентификации таблицы FAT 
+		// (таблицы размещения файлов)
+		int fi_nclus;	// количество кластеров
+		int fi_busec;	// количество байтов в секторе
+	};
+</pre>
+<p><b><i> rename</i></b> переименовывает файл.
+<br><b>Синтаксис</b> int rename(char *oldname, char *newname);
+<br><b>Прототип</b> в stdio.h
+<p>Функция rename изменяет имя файла с oldname на newname. Если спецификация 
+дисковода включена в имя newname, та же самая спецификация в oldname. Директории в 
+маршруте (path) не обязательно должны быть теми же самыми, поэтому функцию rename 
+можно использовать для пересылки файла из одной директории в другую. Применять 
+шаблоны не разрешается. 
+<p>При успешном переименовании файла функция rename 
+возвращает 0. В случае ошибки, возвращается -1, а глобальная переменная errno получает 
+одно из следующих значений:
+<ul>
+<li>ENDENT - Маршрут или имя файла не найдены; 
+<li>EACCES - Отказ доступа;
+</ul>
+<pre>
+	#include&lt;stdio.h&gt;
+	int main(void)
+	{
+		char oldname[80], newname[80]; 
+		// Запросить имя переименовываемого файла и новое имя
+		printf("Имя переименовываемого файла: ");
+		gets(oldname); printf("Новое имя: "); gets(newname);
+		if (rename(oldname, newname) == 0)
+			printf("Файл переименован с %s в %s.\n", 
+				oldname, newname);
+		else
+			perror("rename");
+		return 0;
+	}
+</pre>
+<p><b><i> setftime</i></b> устанавливает дату и время создания файла.
+<br><b>Синтаксис</b> int setftime(int handle, struct ftime *ftimep);
+<br><b>Прототип</b> в io.h
+<p>Устанавливает время и дату файла, связанного с открытым дескриптором handle, в 
+соответствии с содержимым структуры ftime, определенной следующим образом:
+<pre>
+	struct ftime 
+	{
+		unsigned ft_tsec : 5;		// по 2 с
+		unsigned ft_min : 6;		// минуты
+		unsigned ft_hour : 5;		// часы
+		unsigned ft_day : 5;		// день
+		unsigned ft_month: 4;	// месяц
+		unsigned ft_year : 7;		// год - 1980
+	};
+</pre>
+<p>При успешном завершении возвращает 0. Если произошла ошибка, возвращает -1 и 
+глобальной переменной errno присваивается одно из значений:
+<ul>
+<li>EINVFNC - неверный номер функции,
+<li>ENABE - неверный номер файла.
+</ul>
+<p><b><i> unlink</i></b> удаляет файл.
+<br><b>Синтаксис</b> int unlink(char *filename);
+<br><b>Прототип</b> в dos.h
+<p>Функция unlink удаляет файл с именем *filename. 
+<br>В имени *filename могут присутствовать 
+спецификация дисковода, маршрут, собственно имя файла. <br>Знаки шаблона (*, ?) не 
+разрешены. 
+<p>С помощью вызова данной функции не могут быть удалены файлы с режимом 
+доступа только чтение. Чтобы удалить такие файлы сначала следует вызвать функцию 
+chmod (или _chmod) для изменения атрибута доступа. 
+<p>При успешном завершении 
+возвращается значение 0. В случае ошибки возвращается -1, и глобальная переменная 
+errno получает одно из следующих значений:
+<ul>
+<li>ENOENT - маршрут или имя файла не найдены;
+<li>EACCES - отказ доступа.
+</ul>
+<pre>
+	#include&lt;stdio.h&gt;
+	#include&lt;io.h&gt;
+	int main(void)
+	{
+		FILE *fp = fopen("junk.jnk", "w"); int status;
+		fprintf(fp, "junk"); status = access("junk.jnk", 0);
+		if (status == 0)
+			printf("Файл существует\n");
+		else
+			printf("Файл не существует\n");
+		fclose(fp);
+		/*	unlink("junk.jnk");
+			status = access("junk.jnk",0);
+			if (status == 0) 
+				printf("Файл существует\n");
+			else 
+				printf("Файл не существует\n");
+		*/
+		return 0;
+	}
+</pre>
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=a>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

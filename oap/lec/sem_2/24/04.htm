@@ -1,0 +1,341 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 24</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Примеры программного кода</p>
+<p><table width="90%">
+<tr valign="top"><td colspan=2 rowspan=1>
+<ol title="Вложенные циклы - цикл в цикле">
+<li>Вложенные циклы for.
+<br>Управляющая переменная внешнего цикла j, принимает значения 1, 2, 3; выход из цикла при j = 4.
+<br>Управляющая переменная внутреннего цикла i, принимает значения 2, 5, 8; выход из цикла при i = 11. Внутренний цикл - пустой, его телом является ;. 
+</ol>
+</td></tr>
+<tr valign="top"><td width="45%">
+<pre>
+	int i, j;<font color="Darkgreen">
+	for (j = 1; j < 4; j++)
+	{</font><font color="Darkblue">
+		for(i = 2; i < 10; i += 3);</font><font color="Darkgreen">
+		printf("%d ", i * j);
+	}</font>
+
+
+	Получим ответ: 11 22 33
+</pre>
+</td><td>
+<table width="80%" border=1 id=shapka>
+<tr valign="top" align="center"><td width="10%">j
+ </td><td width="10%">i
+ </td><td width="40%">Условие
+ </td><td width="40%">Вывод
+</td></tr>
+<tr valign="top"><td align="center" colspan=1 rowspan=4>1
+ </td><td align="center">2
+ </td><td>&nbsp;
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">5
+ </td><td>5 < 10 (да)
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">8
+ </td><td>8 < 10 (да)
+ </td><td>&nbsp;
+ </td></tr>
+<tr valign="top"><td align="center">11
+ </td><td>11 < 10 (нет)
+ </td><td>11 * 1 = 11
+</td></tr>
+<tr valign="top"><td align="center" colspan=1 rowspan=5>2
+ </td><td align="center">&nbsp;
+ </td><td>2 < 4 (да)
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">2
+ </td><td align="center">&nbsp;
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">5
+ </td><td>5 < 10 (да)
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">8
+ </td><td>8 < 10 (да)
+ </td><td>&nbsp;
+ </td></tr>
+<tr valign="top"><td align="center">11
+ </td><td>11 < 10 (нет)
+ </td><td>11 * 2 = 22
+</td></tr>
+<tr valign="top"><td align="center" colspan=1 rowspan=5>3
+ </td><td align="center">&nbsp;
+ </td><td>3 < 4 (да)
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">2
+ </td><td align="center">&nbsp;
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">5
+ </td><td>5 < 10 (да)
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">8
+ </td><td>8 < 10 (да)
+ </td><td>&nbsp;
+ </td></tr>
+<tr valign="top"><td align="center">11
+ </td><td>11 < 10 (нет)
+ </td><td>11 * 3 = 33
+</td></tr>
+<tr valign="top"><td align="center">4
+ </td><td>&nbsp;
+ </td><td>4 < 4 (нет)
+ </td><td>&nbsp;
+</td></tr>
+</table>
+</td></tr>
+<tr valign="top"><td colspan=2 rowspan=1>
+<ol title="Вложенные циклы - цикл в цикле" start="2">
+<br><li>Вложенные циклы do ... while.
+<br>Управляющая переменная внешнего цикла i, принимает значения 7, 10; выход из цикла при i = 13.
+<br>Управляющая переменная внутреннего цикла j, принимает значения 2, 3; выход из цикла при j = 4.
+</ol>
+</td></tr>
+<tr valign="top"><td>
+<pre>
+	int i = 7, j;<font color="Darkgreen">
+	do
+	{	j = 2;</font><font color="Darkblue">
+		do
+		{	j++;
+			printf("%d ", j);
+		} while(j < 4);</font><font color="Darkgreen">
+		i += 3; printf("%d ", i);
+	} while(i < 12);</font>
+
+
+	Получим ответ: 3 4 10 3 4 13
+</pre>
+ </td><td>
+<table width="80%" border=1 id=shapka>
+<tr valign="top" align="center"><td width="10%">i
+ </td><td width="10%">j
+ </td><td width="40%">Условие
+ </td><td width="40%">Вывод
+</td></tr>
+<tr valign="top" bgcolor="#F0FFFF"><td align="center">7
+ </td><td align="center">&nbsp;
+ </td><td>&nbsp;
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center">2
+ </td><td>&nbsp;
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center" bgcolor="#EEEDFE">3
+ </td><td bgcolor="#EEEDFE">&nbsp;
+ </td><td bgcolor="#EEEDFE">3
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center" bgcolor="#EEEDFE">&nbsp;
+ </td><td bgcolor="#EEEDFE">3 < 4 (да)
+ </td><td bgcolor="#EEEDFE">&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center" bgcolor="#EEEDFE">4
+ </td><td bgcolor="#EEEDFE">&nbsp;
+ </td><td bgcolor="#EEEDFE">4
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center" bgcolor="#EEEDFE">&nbsp;
+ </td><td bgcolor="#EEEDFE">4 < 4 (нет)
+ </td><td bgcolor="#EEEDFE">&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">10
+ </td><td align="center">&nbsp;
+ </td><td>&nbsp;
+ </td><td>10
+</td></tr>
+<tr valign="top" bgcolor="#F0FFFF"><td align="center">&nbsp;
+ </td><td align="center">&nbsp;
+ </td><td>10 < 12 (да)
+ </td><td>Конец внешнего цикла
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center">2
+ </td><td>&nbsp;
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center" bgcolor="#EEEDFE">3
+ </td><td bgcolor="#EEEDFE">&nbsp;
+ </td><td bgcolor="#EEEDFE">3
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center" bgcolor="#EEEDFE">&nbsp;
+ </td><td bgcolor="#EEEDFE">3 < 4 (да)
+ </td><td bgcolor="#EEEDFE">&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center" bgcolor="#EEEDFE">4
+ </td><td bgcolor="#EEEDFE">&nbsp;
+ </td><td bgcolor="#EEEDFE">4
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center" bgcolor="#EEEDFE">&nbsp;
+ </td><td bgcolor="#EEEDFE">4 < 4 (нет)
+ </td><td bgcolor="#EEEDFE">&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">13
+ </td><td align="center">&nbsp;
+ </td><td>&nbsp;
+ </td><td>13
+</td></tr>
+<tr valign="top" bgcolor="#F0FFFF"><td align="center">&nbsp;
+ </td><td align="center">&nbsp;
+ </td><td>13 < 12 (нет)
+ </td><td>Конец внешнего цикла
+</td></tr>
+</table>
+<tr valign="top"><td colspan=2 rowspan=1>
+<ol title="Вложенные циклы - цикл в цикле" start="3">
+<br><li>Вложенные циклы for и while.
+<br>Управляющая переменная j внешнего цикла for принимает значения 1, 2; выход из цикла при j = 3.
+<br>Управляющая переменная i внутреннего цикла while, принимает значения 8, 9, 17, 18; выход из цикла при i = 26.
+</ol>
+</td></tr>
+<tr valign="top"><td>
+<pre>
+	int i, j;<font color="Darkgreen">
+	for(j = 1; j < 3; j++)
+	{
+		i = 0;</font><font color="Darkblue">
+		while((i += 8) <= 20)
+			printf("%d ", j * i++);</font><font color="Darkgreen">
+	}</font>
+
+	Получим ответ: 8 17 16 34
+</pre>
+ </td><td>
+<table width="80%" border=1 id=shapka>
+<tr valign="top" align="center"><td width="10%">j
+ </td><td width="10%">i
+ </td><td width="40%">Условие
+ </td><td width="40%">Вывод
+</td></tr>
+<tr valign="top"><td align="center">1
+ </td><td align="center">&nbsp;
+ </td><td>&nbsp;
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center">0
+ </td><td>&nbsp;
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center">8
+ </td><td>8 <= 20 (да)
+ </td><td>1 * 8 = 8
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center">9
+ </td><td>&nbsp;
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center">17
+ </td><td>17 <= 20 (да)
+ </td><td>1 * 17 = 17
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center">18
+ </td><td>&nbsp;
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center">26
+ </td><td>26 <= 20 (нет)
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">2
+ </td><td align="center">&nbsp;
+ </td><td>2 < 3 (да)
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center">0
+ </td><td>&nbsp;
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center">8
+ </td><td>8 <= 20 (да)
+ </td><td>2 * 8 = 16
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center">9
+ </td><td>&nbsp;
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center">17
+ </td><td>17 <= 20 (да)
+ </td><td>2 * 17 = 34
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center">18
+ </td><td>&nbsp;
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">&nbsp;
+ </td><td align="center">26
+ </td><td>26 <= 20 (нет)
+ </td><td>&nbsp;
+</td></tr>
+<tr valign="top"><td align="center">3
+ </td><td align="center">&nbsp;
+ </td><td>3 < 3 (нет)
+ </td><td>&nbsp;
+</td></tr>
+</table>
+</td></tr>
+</table>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

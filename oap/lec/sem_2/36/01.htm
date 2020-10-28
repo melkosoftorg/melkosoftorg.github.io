@@ -1,0 +1,80 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 36</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Определение массива структур</p>
+<p>Как правило, программе недостаточно всего одного экземпляра данных структурного типа.
+<p>Рассмотрим на примере инвентаризации библиотеки.
+<br>Пусть, например, книга может быть охарактеризована следующими данными (полями): название книги, фамилия автора, цена.
+<br>Но в библиотеке хранится множество книг. Для каждой книги, имеющейся в библиотеке, необходимо указать название, фамилию автора, цену. 
+<br>Каждую книгу можно описать структурной переменной типа book, 
+<pre>
+			struct book
+			{
+				unsigned char tit[T];
+				unsigned char aut[A];
+				float val;
+			};
+</pre>
+<p>Дальше как? Для каждой книги создавать свой экземпляр структурированного типа ?
+<pre>
+	#include&lt;conio.h>
+	#include&lt;iostream.h>
+	void main()
+	{
+		const int T = 60, A = 30;
+		// создание шаблона типа структур
+		struct book
+		{
+			unsigned char tit[T];
+			unsigned char aut[A];
+			float val;
+		};
+		struct book lib1 = {"Искусство программирования для ЭВМ", "Д. Кнут", 125.78};
+		cout << lib1.tit << ' ' << lib1.aut << " - " << lib1.val << endl;
+
+		struct book lib2 = {"ПЛ/1 для программистов", "Р.Скотт, Н.Сондак", 9000};
+		cout << lib2.tit << ' ' << lib2.aut << " - " << lib2.val << endl;
+		getch();
+	}
+</pre>
+<p>Можно, но не рационально. Для обработки нескольких книг потребуется массив структур.
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

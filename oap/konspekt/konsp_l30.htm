@@ -1,0 +1,91 @@
+﻿<html>
+<head>
+<title>ОП | Для конспекта | Лекция № 30</title>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta http-equiv="Content-Language" content="ru">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../css/style.css" title="style">
+</head>
+<body bgcolor="#ffffff" text="000066">
+<p><center><table width="100%">
+<tr bgcolor="#f3f3f3" class="author"><td align=center valign=top>Для конспекта
+</td></tr>
+<tr><td>
+<p>&nbsp;</p>
+<h2>Многомерные массивы</h2>
+<ol>
+<p><li>В многомерном массиве используется сразу несколько индексов: двумерный массив имеет два индекса, трехмерный - три, четырехмерный - четыре, и так далее.
+<p><li>Количество измерений массива в языке C не ограничено, но имеется ограничение на общий размер массива.
+<p><li>Многомерный массив в соответствии с синтаксисом языка есть массив массивов, то есть массив, элементами которого служат массивы.
+<p><li>Определение многомерного массива:
+<pre>	тип имя_массива[K1][K2]...[Kn]
+</pre>
+<p><li>Имя массива должно быть уникальным. Его нельзя использовать для другого массива, переменной, константы, функции и так далее.
+<p><li>Трехмерный массив вещественных чисел:
+<pre>
+	#define S 2
+	#define K 3
+	#define L 2
+	float con[S][K][L];
+</pre>
+<ul type="disc">
+<p><li>имя - con,
+<p><li>размерность - 3 - трехмерный,
+<p><li>размер - количество элементов - равен S&nbsp;&#8729;&nbsp;K&nbsp;&#8729;&nbsp;L&nbsp;=&nbsp;2&nbsp;&#8729;&nbsp;3&nbsp;&#8729;&nbsp;2&nbsp;=&nbsp;12,
+<p><li>объем памяти равен sizeof(con)&nbsp;=&nbsp;12&nbsp;&#8729;&nbsp;4&nbsp;=&nbsp;48 байт.
+</ul>
+<p><li>Имя многомерного массива, как и одномерного, является указателем на первый элемент массива.
+<p><li>Для n-мерного массива: 
+<ul type="disc">
+<p><li>Имя массива с n парами квадратных скобок после него и с индексами в скобках имеет значение соответствующего элемента массива. 
+<p><li>Имя массива, после которого стоит меньше чем n пар скобок, представляет собой указатель на элемент массива.
+</ul>
+
+<p><li>Для целочисленного массива x с количеством строк S = 2, количеством столбцов K = 4
+<pre>	const int S = 2, K = 4;
+	// определен и инициализирован списком двумерный целочисленный массив
+	int x[S][K] = {	{ 6436,  7975, 24729, 21687}, 
+				{22008, 31997, 24949, 20980}
+			 };
+</pre>
+<p><table border=1 cellpadding=0 cellspacing=0 align=center width="50%">
+<tr align=center>
+  <td rowspan=2 colspan=2 width="20%"><i>Индекс <br>строки</i></td>
+  <td colspan=4><i>Индекс столбца <br>j</i></td></tr>
+<tr align=center bgcolor="#DEDEDE">
+  <td width="20%"><i>0</i></td><td width="20%"><i>1</i></td><td width="20%"><i>2</i></td><td width="20%"><i>3</i></td></tr>
+<tr align=center>
+  <td rowspan=4><i>i</i></td>
+  <td rowspan=2 bgcolor="#DEDEDE"><i>0</i></td>
+  <td  bgcolor="#EEEDFE"><b>6436</b></td>
+  <td bgcolor="#EEEDFE"><b>7975</b></td>
+  <td bgcolor="#EEEDFE"><b>24729</b></td>
+  <td bgcolor="#EEEDFE"><b>21687</b></td></tr>
+<tr bgcolor="#DEDEDE" align=center>
+  <td><small>Адрес:&nbsp;&nbsp; 4076</small></td>
+  <td><small>Адрес:&nbsp;&nbsp; 4078</small></td>
+  <td><small>Адрес:&nbsp;&nbsp; 4080</small></td>
+  <td><small>Адрес:&nbsp;&nbsp; 4082</small></td></tr>
+<tr align=center>
+  <td rowspan=2 bgcolor="#DEDEDE"><i>1</i></td>
+  <td bgcolor="#EEEDFE"><b>22008</b></td>
+  <td bgcolor="#EEEDFE"><b>31997</b></td>
+  <td bgcolor="#EEEDFE"><b>24949</b></td>
+  <td bgcolor="#EEEDFE"><b>20980</b></td></tr>
+<tr bgcolor="#DEDEDE" align=center>
+  <td><small>Адрес:&nbsp;&nbsp; 4084</small></td>
+  <td><small>Адрес:&nbsp;&nbsp; 4086</small></td>
+  <td><small>Адрес:&nbsp;&nbsp; 4088</small></td>
+  <td><small>Адрес:&nbsp;&nbsp; 4090</small></td></tr>
+</table>
+<p><li>Квадратные скобки [ ] используются для записи каждого индекса.
+<br>Элемент x[0][2], расположенный на пересечении 0 строки и 2 столбца, равен 24729;
+<br>элемент x[1][3], расположенный на пересечении 1 строки и 3 столбца, равен 20980.
+<p><li>Адрес массива x равен адресу массива x[0], и оба эти адреса равны адресу первого элемента массива x[0][0], то есть 4076.
+</ol>
+<p>&nbsp;</p>
+</td></tr>
+<tr bgcolor="#f3f3f3"><td align=center valign=top class="author">&copy;&nbsp;Ставропольский колледж связи, 2012
+</td></tr><tr><td>
+</table></center></p>
+</body>
+</html> 

@@ -1,0 +1,115 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 37</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Запись структуры в файл</p>
+Рассмотрим пример работы с массивом структур, содержащим сведения о людях.
+<br>Вначале запишем всю информацию в файл, а затем вычитаем из файла, посчитаем средний рост всех, количество женщин и количество мужчин в списке, сформируем два новых массива структур, сгруппировав по признаку пола и
+уже в этих массивах осуществим поиск минимального и максимального роста.  
+<p>В приведенной ниже программе создается файл proba.dat, в который <a href="../../sem_1/s13_14/07.htm">записывается</a> массив структур, содержащий данные о десяти пациентах (база данных с полями: фамилия, имя, отчество, пол, рост, возраст):
+<ul><li>tit[MAXT] - фамилия, имя, отчество, <li>aut[MAXA] - пол,<li>val - рост,<li>god - возраст.</ul>
+<pre>
+	#include&lt;stdio.h&gt;
+	#include&lt;iostream.h&gt;
+	#include&lt;string.h&gt;
+	#include&lt;stdlib.h&gt;
+	#include&lt;dir.h&gt;
+	#include&lt;conio.h&gt;
+	#define MAXT  40		// длина текста Ф.И.О.
+	#define MAXA  5		// длина текста пол
+	// создание шаблона типа  book
+	struct book
+	{
+		unsigned char tit[MAXT];
+		unsigned char aut[MAXA];
+		int val, god;
+	};
+	// Функция: записать массив структур в файл
+	int fil_struct(struct book New[], char *str)
+	{
+		FILE  *fp;
+		int num;
+		if ((fp = fopen(str, "w")) == NULL)		// Открыть файл для записи
+		{	puts("Невозможно открыть файл");
+			exit(1);
+		}
+		num = 0;
+		while(strlen(New[num].tit) > 0)
+		{
+			fwrite(&New[num], sizeof(New[num]), 1, fp);
+			num++;
+		}
+		fclose(fp);
+		return num;
+	}
+	// Функция: вывести массив структур на экран
+	void print_struct(struct book New[], int col)
+	{
+		int num;
+		for(num = 0; num < col; num++)
+		{	cout << New[num].tit << "    ";
+			cout << New[num].aut << "    ";
+			cout << New[num].val << "    ";
+			cout << New[num].god << "    ";
+			cout << "\n";
+		}
+	}
+	void main()
+	{
+		// массив структур
+		#define MAXB  11		// длина списка
+		struct book lib[MAXB] =
+			{	"Иванов Петр Сергеевич   ", "муж.", 186, 51,
+				"Иванова Наталья Петровна", "жен.", 167, 21,
+				"Петрова Нина Ивановна   ", "жен.", 159, 18,
+				"Сидоров Петр Петрович   ", "муж.", 196, 22,
+				"Мягков Андрей Матвеевич ", "муж.", 177, 44,
+				"Савченко Виктор Петрович", "муж.", 174, 57,
+				"Смирнова Алла Николаевна", "жен.", 164, 45,
+				"Стаценко Ольга Олеговна ", "жен.", 167, 35,
+				"Волков Игорь Павлович   ", "муж.", 179, 27,
+				"Тихонов Алексей Львович ", "муж.", 184, 61
+			};
+		char  *name = "proba.dat";
+		int i, col; clrscr();
+		col = fil_struct(lib, name);
+		printf("%s\n\n", searchpath(name));		// Маршрут доступа к файлу
+		print_struct(lib, col);
+		getch();
+	}
+</pre>
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

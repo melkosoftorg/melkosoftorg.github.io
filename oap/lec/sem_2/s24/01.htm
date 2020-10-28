@@ -1,0 +1,120 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | СР 24 </title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Преобразование строки символов с адресным указателем <br>в число</p>
+<b><i>atof</i></b> преобразует строку символов в число с плавающей точкой, 
+конвертирует символьную строку, адресный указатель которой находится в 
+параметре s, в число с двойной точностью (тип double). 
+<p><b><i>Распознает конструкции:</i></b>
+<ul>
+<li>необязательную строку меток табуляции и пробелов,
+<li>необязательный знак,
+<li>далее строку цифр и необязательную десятичную точку,
+<li>далее необязательные символы e или E, за которыми следует необязательное целое со знаком.
+</ul>
+<b>Синтаксис</b> double atof(char * s);
+<br><b>Прототип</b> в math.h, stdlib.h
+
+<p><b><i>atoi</i></b> преобразует строку символов в целое число, конвертирует 
+символьную строку, адресным указателем которой является параметр s в целое 
+число (тип int). 
+<p><b><i>atol</i></b> преобразует строку символов в длинное целое число (тип long), 
+конвертирует символьную строку, указателем которой является параметр s, в 
+длинное целое число.
+<p><b><i>Распознают:</i></b>
+<ul>  
+<li>необязательную строку меток табуляции и пробелов,
+<li>необязательный знак,
+<li>далее строку цифр.
+</ul>
+<pre>
+<b>Синтаксис</b>	int atoi(char * s);
+		long atol(char * s);
+<b>Прототип в</b>	stdlib.h 
+</pre>
+<p>Во всех трех описанных функциях первый встретившийся нераспознаваемый 
+знак прекращает преобразование. Условий для переполнения ни в одной из этих 
+функций не возникает. <br>Функции возвращают преобразованное значение 
+входной символьной строки. <br>Если строка не может быть преобразована в число 
+соответствующего типа (типа double для функции atof, типа int для функции 
+atoi, типа long для функции atol), возвращаемое значение равно 0.
+<pre>
+	#include&lt;stdlib.h&gt;
+	#include&lt;string.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;conio.h&gt;
+	void main()
+	{
+		int n, k, f, k1, k2; float n1, f1, n2, f2;
+		char *str = "2345", *str1 = "12345.678";
+		char *str2 = "1111194"; clrscr();
+		puts("atoi");
+		k = strlen(str); n = atoi(str); f = k*n;
+		printf("строка %s длиной = %d, целое = %d\n", str, k, n);
+		printf("f = %d * %d = %d\n", k, n, f);
+		puts("atof");
+		k1 = strlen(str1); n1 = atof(str1); 
+		f1 = k1 * n1;
+		printf("строка %s длиной = %d, число = %.3f\n", str1, k1, n1);
+		printf("f1 = %d*%.3f = %.3f\n",k1,n1,f1);
+		puts("atol");
+		k2 = strlen(str2); n2 = atol(str2); 
+		f2 = k2 * n2;
+		printf("строка %s длиной = %d, число = %lf\n", str2, k2, n2);
+		printf("f2 = %d * %lf = %.2lf\n", k2, n2, f2);
+		getch();
+	}
+	<b><i>Результаты</i></b>	atoi
+			строка 2345 длиной = 4, целое = 2345
+			f = 4 * 2345 = 9380
+	
+			atof
+			строка 12345.678 длиной = 9, число = 12345.678
+			f1 = 9 * 12345.678 = 111111.102
+
+			atol
+			строка 1111194 длиной = 7, число = 1111194.000000
+			f2 = 7 * 1111194.000000 = 7778358.00
+
+</pre>
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

@@ -1,0 +1,97 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 05</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Математическое выражение и его результат</p>
+<p><b><i>Выражение представляет собой объединение операций и операндов.</i></b>
+<br>Тип выражения определяется типами входящих в него величин, а также выполняемыми операциями. В языке C++ тип величины задают заранее, до того как переменная будет использована.
+<p><b><i>Операнд</i></b> - это то, над чем выполняется операция.
+<p><b><i>Оператор</i></b> является законченной инструкцией для компьютера. 
+<br>В языке C указанием на наличие оператора служит символ "точка с запятой", стоящий в конце него.
+<p><b><i>Результат выражения определяется типами обоих операндов.</i></b>
+
+<p>При выполнении операций производится автоматическое <b>преобразование типов</b>, чтобы привести операнды выражений к общему типу или чтобы расширить короткие величины до размера целых величин, используемых в машинных командах. Выполнение преобразования зависит от специфики операций и от типа операнда или операндов. 
+
+<p><center><b>Oбщие арифметические преобразования</b> </center>
+<ol>
+<li>Операнды типа float преобразуются к типу double. 
+
+<li>Если один операнд long double, то второй преобразуется к этому же типу. 
+
+<li>Если один операнд double, то второй также преобразуется к типу double. 
+
+<li>Любые операнды типа char и short преобразуются к типу int. 
+
+<li>Любые операнды unsigned char или unsigned short преобразуются к типу unsigned int. 
+
+<li>Если один операнд типа unsigned long, то второй преобразуется к типу unsigned long. 
+
+<li>Если один операнд типа long, то второй преобразуется к типу long. 
+
+<li>Если один операнд типа unsigned int, то второй операнд преобразуется к этому же типу. 
+</ol>
+<p><i>Таким образом, можно отметить, что при вычислении выражений операнды преобразуются к типу того операнда, который имеет наибольший размер. </i>
+
+
+
+<p>В некоторых случаях правила преобразования типов не позволяют получить верный результат, например:
+<pre>
+                   int a, b;
+                   float c;
+                   a = 7; b = 14;
+                   c = a/b;       /* результат 0 */
+</pre>
+<p>Для получения правильного результата можно поступить так
+<pre>
+                   c = a;  c = c/b;
+</pre>
+<p>А можно применить <b>операцию преобразования типа</b>.
+Для нашего примера применение операции преобразования типа будет выглядеть так:
+<pre>
+                  c = (float)a / (float)b;
+</pre>
+<p>Операция преобразования  типа  имеет приоритет более высокий, чем арифметическая операция.
+
+<p>Используя арифметические выражения, следует учитывать приведенные правила и не попадать в "ловушки" преобразования типов, так как некоторые из них приводят к потерям информации, а другие изменяют интерпретацию битового (внутреннего) представления данных.
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

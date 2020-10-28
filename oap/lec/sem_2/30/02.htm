@@ -1,0 +1,180 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 30</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Синтаксис определения двумерного массива</p>
+<p><b><i>Двумерный массив, часто называемый матрицей, является структурированным типом данных, который создается путем вложения одномерных массивов.</i></b>
+<p>Объявление двумерного массива r определяет количество строк S, количество столбцов K и тип данных float элементов массива:
+<pre>
+		const int S = 3, K = 5;
+		float r[S][K];
+</pre>
+<p>Квадратные скобки <b>[ ]</b> используются для записи каждого индекса. 
+<p>Многомерные массивы хранятся в памяти слева направо по правилу "строки - столбцы". 
+<p>Это означает, что последний индекс изменяется быстрее. В массиве <i>arr[3][2]</i> элементы 
+<i>arr</i> хранятся в памяти в следующем порядке:
+<pre>
+		arr[0][0]		arr[0][1]
+		arr[1][0]		arr[1][1]
+		arr[2][0]		arr[2][1]
+</pre>
+<p>То есть данный массив можно представить как таблицу, состоящую из трех строк с индексами 0, 1, 2 и двух столбцов с индексами 0, 1.
+<br>Первым индексом принято указывать индекс строки, вторым - индекс столбца.
+<p>Тот же принцип сохраняется для массивов трех-, четырех- и большей размерности.
+<p>Поскольку многомерный массив есть массив массивов, то массив <i>arr</i> можно представить в виде массива из трех элементов, каждый из которых сам является массивом из двух значений.
+<p>Имя многомерного массива, как и одномерного, является указателем на первый элемент массива.
+<br>Значит первым элементом массива <i>arr</i> будет <i>arr[0]</i>, который в свою очередь представляет собой массив из двух значений типа <i>int</i>. Всего <i>arr</i> содержит три таких массива - по количеству строк.
+<br>Раз <i>arr[0]</i> представляет из себя массив, то его имя также является указателем и указывает на первый элемент этого массива, то есть на <i>arr[0][0]</i>.
+<p>Для n-мерного массива:
+<ul>
+<li type="disc">Имя массива с <i>n</i> парами квадратных скобок после него и с индексами в скобках имеет значение соответствующего элемента массива.
+<li type="disc">Имя массива, после которого стоит меньше чем <i>n</i> пар скобок, представляет собой указатель на элемент массива.
+</ul>
+<p>Таким образом, <i>arr</i> и <i>arr[0]</i> являются указателями, а <i>arr[0][0]</i> - элементом массива <i>arr[3][2]</i>.
+<p>В качестве примера рассмотрим программу, содержащую двумерный массив <i>int x[2][4]</i> и выводящую на экран значения связанных с ним указателей, то есть адреса,
+и размеры объектов в байтах, на которые указывают эти указатели.
+<br>Массив содержит <i>восемь</i> элементов типа <i>int</i>. Необходимый объем памяти
+<ul>
+<li type="disc">для одного элемента - 2 байта,
+<li type="disc">для строки из четырех элементов - 8 байт,
+<li type="disc">для массива из восьми элементов - 16 байт.
+</ul>
+<pre>
+	#include&lt;stdio.h>
+	#include&lt;stdlib.h>
+	#include&lt;conio.h>
+	void main(void)
+	{
+		const int S = 2, K = 4;
+		int x[S][K], i, j;
+		clrscr(); randomize();
+		for(i = 0; i < S; i++, printf("\n"))
+			for(j = 0; j < K; j++)
+				printf("%8d", (x[i][j] = rand()));
+
+		gotoxy(3, 4); printf("Адрес:");
+		gotoxy(5, 5); printf("x = %u", x);
+		gotoxy(5, 6); printf("x[0] = %u", x[0]);
+		gotoxy(5, 7); printf("x[0][0] = %u", &x[0][0]);
+
+		gotoxy(23, 4); printf("Байт:");
+		gotoxy(25, 5); printf("x = %u", sizeof(x));
+		gotoxy(25, 6); printf("x[0] = %u", sizeof(x[0]));
+		gotoxy(25, 7); printf("x[0][0] = %u", sizeof(x[0][0]));
+
+		// Способы вывода значения x[0][0]
+		gotoxy(43, 4); printf("Значения:");
+		gotoxy(45, 5); printf("**x = %u", **x);
+		gotoxy(45, 6); printf("*x[0] = %u", *x[0]);
+		gotoxy(45, 7); printf("x[0][0] = %u", x[0][0]);
+		getch();
+	}
+	<i>Возможные результаты:</i>
+			  6436     7975   24729   21687
+			22008   31997   24949   20980
+
+			Адрес:              Байт:	Значения:
+			    x = 4076	x = 16	     **x = 6436
+			    x[0] = 4076	x[0] = 8	     *x[0] = 6436
+			    x[0][0] = 4076	x[0][0] = 2    x[0][0] = 6436
+</pre>
+<p>Адрес массива <i>x</i> равен адресу массива <i>x[0]</i>, и оба эти адреса равны адресу первого элемента массива <i>x[0][0]</i>.
+Разные объемы памяти, полученные при выполнении программы, доказывают, что указатели указывают на разные объекты.
+<br>Двойной знак ссылки по указателю <b>**</b> используется при объявлении указателей на указатели.
+<p><table border=1 cellpadding=0 cellspacing=0 align=center width="50%">
+<tr align=center>
+  <td rowspan=2 colspan=2 width="20%"><i>Индекс <br>строки</i></td>
+  <td colspan=4><i>Индекс столбца <br>j</i></td></tr>
+<tr align=center bgcolor="#DEDEDE">
+  <td width="20%"><i>0</i></td><td width="20%"><i>1</i></td><td width="20%"><i>2</i></td><td width="20%"><i>3</i></td></tr>
+<tr align=center>
+  <td rowspan=4><i>i</i></td>
+  <td rowspan=2 bgcolor="#DEDEDE"><i>0</i></td>
+  <td  bgcolor="#EEEDFE"><b>6436</b></td>
+  <td bgcolor="#EEEDFE"><b>7975</b></td>
+  <td bgcolor="#EEEDFE"><b>24729</b></td>
+  <td bgcolor="#EEEDFE"><b>21687</b></td></tr>
+<tr bgcolor="#DEDEDE" align=center>
+  <td><small>Адрес:&nbsp;&nbsp; 4076</small></td>
+  <td><small>Адрес:&nbsp;&nbsp; 4078</small></td>
+  <td><small>Адрес:&nbsp;&nbsp; 4080</small></td>
+  <td><small>Адрес:&nbsp;&nbsp; 4082</small></td></tr>
+<tr align=center>
+  <td rowspan=2 bgcolor="#DEDEDE"><i>1</i></td>
+  <td bgcolor="#EEEDFE"><b>22008</b></td>
+  <td bgcolor="#EEEDFE"><b>31997</b></td>
+  <td bgcolor="#EEEDFE"><b>24949</b></td>
+  <td bgcolor="#EEEDFE"><b>20980</b></td></tr>
+<tr bgcolor="#DEDEDE" align=center>
+  <td><small>Адрес:&nbsp;&nbsp; 4084</small></td>
+  <td><small>Адрес:&nbsp;&nbsp; 4086</small></td>
+  <td><small>Адрес:&nbsp;&nbsp; 4088</small></td>
+  <td><small>Адрес:&nbsp;&nbsp; 4090</small></td></tr>
+</table>
+<p>Компилятор C всегда знает размеры объектов, на которые указывают указатели. В адресной арифметике эти размеры учитываются.
+При инкременировании указателя его значение увеличивается ровно на столько, чтобы он указывал на следующий объект того же типа и размера.
+То есть указатель получает приращение в виде размера объекта, на который он указывает.
+Это утверждение подтверждают результаты исполнения следующего фрагмента программы, добавленного в предыдущую программу.
+<pre>
+		gotoxy(3, 14); printf("Адрес:");
+		gotoxy(5, 15); printf("x = %u", x);
+		gotoxy(5, 16); printf("(x + 1) = %u", (x + 1));
+		gotoxy(5, 17); printf("x[1] = %u", &x[1]);
+
+		gotoxy(23, 14); printf("Значения:");
+		gotoxy(25, 15); printf("x = %u", **x);
+		gotoxy(25, 16); printf("(x + 1) = %u", **(x + 1));
+		gotoxy(25, 17); printf("x[1] = %u", **(&x[1]));
+
+	<i>Возможные результаты:</i>
+			  Адрес:              Значения:
+			    x = 4076               x = 6436
+			    (x + 1) = 4084      (x + 1) = 22008
+			    x[1] = 4084           x[1] = 22008
+</pre>
+<p>То же самое относится к массивам с тремя и более измерениями. Например, трехмерный массив представляет собой массив элементов, каждый из которых сам является двумерным массивом, а его элементы - это одномерные массивы.
+<p>Работая с многомерными массивами, надо помнить следующее:
+<ul>
+<li ytpe="disc">Массив <i>n-й</i> размерности состоит из элементов, являющихся массивами <i>(n - 1)-й</i> размерности.
+<li ytpe="disc">Когда <i>n</i> доходит до единицы, элементы соответствующего массива становятся переменными того типа, с которым объявлен массив.
+</ul>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

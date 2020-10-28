@@ -1,0 +1,143 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0048)http://cm.bell-labs.com/cm/cs/cbook/2ediffs.html -->
+<HTML><HEAD><TITLE>Errata for The C Programming Language, Second Edition</TITLE>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META content="MSHTML 5.00.3103.1000" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff>
+<H2>Errata for <I>The C Programming Language, Second Edition</I> </H2>
+<P>This lists all known errors in <I>The C Programming Language, Second 
+Edition</I>, by Brian Kernighan and Dennis Ritchie (Prentice-Hall, 1988). <BR>
+<P>
+<H4>Changes between first and second printing:</H4>
+<P>The first printing of the book was made before the Standard was finalized; 
+these copies say "Based on Draft-Proposed ANSI C" on the front cover. All 
+subsequent printings are identified by a large red ``ANSI C'' on the right 
+center of the cover. Fortunately, the changes are minor; some repair our bugs, a 
+few account for last-minute changes in the draft standard. These changes were 
+made so early that they probably do not apply to you. 
+<P>Two or three sentences in the Preface and Introduction are updated to 
+describe the state of the Standard. 
+<P><TT>atof</TT> is in <TT>stdlib.h</TT>, not <TT>math.h</TT>; this changes 
+pages 71, 76, 82, 121. 
+<P>On page 86, error corrected: missing automatic initializers are zero too. 
+<P>On page 168: changed 1 to 1.0 to avoid potential overflow. 
+<P>Minor typos are corrected on pages 87, 89, 164, 165, 168, 180. 
+<P>The inconspicuous references to <TT>noalias</TT> on pages 192 and 211 are 
+removed. 
+<P>The following paragraph is added to the end of section A6.6 (page 199): 
+<P>``A pointer may be converted to another pointer whose type is the same except 
+for the addition or removal of qualifiers (A4.4, A8.2) of the object type to 
+which the pointer refers. If qualifiers are added, the new pointer is equivalent 
+to the old except for restrictions implied by the new qualifiers. If qualifiers 
+are removed, operations on the underlying object remain subject to the 
+qualifiers in its actual declaration.'' 
+<P>On page 199, beginning of section A6.8, ``Any pointer may be converted to 
+type <TT>void *</TT>...'' is changed to ``Any pointer <EM>to an object</EM> may 
+be converted to type <TT>void *</TT>...''. 
+<P>On page 204, A7.4.4, ``The operand of the unary + operator must have 
+arithmetic or pointer type...'' should read ``must have arithmetic type...''. 
+<P>On page 206, A7.9, about relational operators: ``Pointers to objects of the 
+same type may be compared...'' is changed to ``Pointers to object of the same 
+type <EM>(ignoring any qualifiers)</EM> may be compared...''. 
+<P>The indented material on page 209, ``According to the restrictions... 
+relaxing it.'' is removed. [This is related to the paragraph added above. The 
+wording of the penultimate draft made it useless to take an <TT>(int *)</TT> 
+pointer, cast it to <TT>(const int *)</TT>, then cast it back to <TT>(int 
+*)</TT>.] 
+<P>On page 219 middle, initialization of structures, add ``Unnamed bit-field 
+members are ignored, and are not initialized.'' 
+<P>Appendix B changes: 
+<P>p 242: Add ``<TT>fflush(NULL)</TT> flushes all output streams.'' to 
+<TT>fflush</TT> description. 
+<P>p 243: Change to ``it must be called before reading, writing <EM>or any other 
+operation</EM>'' in <TT>setvbuf</TT> description. 
+<P>p 249: Add ``Comparison functions treat arguments as <TT>unsigned char</TT> 
+arrays.'' to <TT>string.h</TT> description. 
+<P>p 255: Change range of <TT>tm_sec</TT> to (0,61) for leap seconds. 
+<P>p 255: Change <TT>CLK_TCK</TT> to <TT>CLOCKS_PER_SEC</TT>. 
+<P>p 257: Drop U and L suffixes from <TT>limits.h</TT> constants. 
+<TT>tm_sec</TT> range is (0,61) here too. 
+<P>Appendix C change: 
+<P>p 261: Change ``External declarations without any specifiers...'' to 
+``External <EM>data</EM> declarations without any specifiers...''. 
+<P>The index has been reprinted to fix a couple of typos and account for motion 
+within Appendix A; one page of the table of contents is changed. 
+<P>A later printing in October, 1989, made minor changes on page 131 to add 
+&amp; to the last example, on page 208 to change ``equal'' to ``unequal'' in the 
+description of logical OR, and on page 254 to clarify that only volatile 
+automatics are saved with <TT>longjmp</TT>. <BR>
+<H4>Errors not corrected in any printing:</H4>
+<P>The following errors have not yet been fixed in any printing. 
+<P>41: The loop at the bottom of the page is functionally equivalent to the one 
+on page 29, but not identical in form, as is implied by the text. 
+<P>44: <TT>1U</TT> is an <TT>unsigned int</TT>, not an <TT>int</TT>. 
+<P>49: In the discussion of shift operators, `which must be positive' should be 
+`which must be non-negative'. 
+<P>53: Note under the table should say &amp; as well as + - * has higher 
+precedence as a unary operator. 
+<P>102: NULL is standardly defined in &lt;stddef.h&gt;, although it is likely to 
+appear in &lt;stdio.h&gt; as well. 
+<P>111: Indent is too large, and a bit of program text is cut off. 
+<P>114: quote missing in <TT>"Jan,</TT> near top of page. 
+<P>119-121: The qsort discussion needs recasting in several ways. First, qsort 
+is a standard routine in ANSI/ISO C, so the rendition here should be given a 
+different name, especially because the arguments to standard qsort are a bit 
+different: the standard accepts a base pointer and a count, while this example 
+uses a base pointer and two offsets. 
+<P>Also, the comparison-routine argument is not treated well. The call shown on 
+p 119, with an argument <PRE>  (int (*)(void*,void*))(numeric? numcmp : strcmp)
+</PRE>is not only complicated, but only barely passes muster. Both numcmp and 
+strcmp take char * arguments, but this expression casts pointers to these 
+functions to a function pointer that takes void * arguments. The standard does 
+say that void * and char * have the same representation, so the example will 
+almost certainly work in practice, and is at least defensible under the 
+standard. There are too many lessons in these pages. 
+<P>142: The remark about casting the return value of malloc ("the proper method 
+is to declare ... then explicitly coerce") needs to be rewritten. The example is 
+correct and works, but the advice is debatable in the context of the 1988-1989 
+ANSI/ISO standards. It's not necessary (given that coercion of void * to 
+ALMOSTANYTYPE * is automatic), and possibly harmful if malloc, or a proxy for 
+it, fails to be declared as returning void *. The explicit cast can cover up an 
+unintended error. On the other hand, pre-ANSI, the cast was necessary, and it is 
+in C++ also. 
+<P>143: <TT>strdup</TT> is not indexed. 
+<P>164, 165: (text and code) <TT>fputs</TT> returns EOF on error, non-negative 
+for OK. 
+<P>167: [the return value of malloc or calloc] "must be cast into the 
+appropriate type" is incorrect as stated. See the remarks just above for p. 142. 
+
+<P>193: If an integer constant is suffixed with <TT>UL</TT>, it is <TT>unsigned 
+long</TT>. 
+<P>195: To the list at the start of section A4, "Identifiers, or names, refer to 
+a variety of things...", add labels as well. 
+<P>200 (Section A7.1): The actual list of operators that prevent the conversion 
+of arrays into pointers is just <TT>&amp;</TT> and <TT>sizeof</TT>, not the 
+various assignment operators. In practice this is not important, because arrays 
+(converted or not) cannot be assigned to for other reasons. 
+<P>229, 239: Syntax: the argument list is optional in macro definitions with 
+parentheses. 
+<P>231: Extra right parenthesis in nested call to <TT>cat</TT> macro. 
+<P>232: The result of the defined operator is not replaced literally by 
+<TT>0L</TT> or <TT>1L</TT>, nor are undefined names literally by <TT>0L</TT>, 
+but just by plain <TT>0</TT> or <TT>1</TT>. However, the constant expression is 
+nevertheless evaluated as if these and other constants appearing have long or 
+unsigned long type. 
+<P>244: In table B-1, the argument corresponding to x, X is unsigned int. 
+<P>245: The <TT>scanf</TT> functions do not ignore white space in formats. 
+<P>245: <TT>vprintf</TT>, <TT>vfprintf</TT>, <TT>vsprintf</TT> return 
+<TT>int</TT>. 
+<P>246: First argument of <TT>sscanf</TT> should have type <TT>const char 
+*</TT>. 
+<P>249: In the description of <TT>strncpy</TT>, <TT>t</TT> should be 
+<TT>ct</TT>. 
+<P>210: In section 8.1, it is said that a register object cannot have the &amp; 
+operator applied `explicitly or implicitly,' which is true, but needs an 
+amplifying clause to show that the implicit &amp; comes from mention of an array 
+name, so declaring an array as a register is fruitless. 
+<P>There is no mention of the <TT>offsetof</TT> macro. 
+<P>Index: <TT>stddef.h</TT> is listed but not described in the text. 
+<TT>char</TT>, <TT>double</TT>, <TT>long</TT>, <TT>short</TT> are on page 9, not 
+page 10. <TT>sizeof</TT> is on 242, not 247. ``byte'' is not indexed. 
+<P><FONT size=-1><EM>Updated Feb 16 2001 </EM>
+<P><A href="http://www.lucent.com/copyright.html">Copyright © 1998</A> <B>Lucent 
+Technologies.</B> All rights reserved.</FONT> </P></BODY></HTML>

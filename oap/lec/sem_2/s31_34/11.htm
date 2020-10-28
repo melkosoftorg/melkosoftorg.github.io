@@ -1,0 +1,197 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | СР 31_34</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=a>&nbsp 11 &nbsp</a></td>
+<td><a href="12.htm" class=p>&nbsp 12 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual><p align=center class=dbi><br>Обработка потоков строк</p>
+<p>В дополнение к стандартному потоку ввода-вывода и файловому потоку ввода-вывода в C++ имеется возможность для ввода из символьных массивов в память и вывода в символьный массив из памяти. Эта возможность часто называется форматированным вводом-выводом в память или обработкой потоков строк.
+<br>Ввод символьного массива поддерживается при помощи класса istrstream.
+<br>Вывод в символьный массив поддерживается с помощью класса ostrstream.
+<br>Класс istrstream наследует функциональные возможности класса istream.
+<br>Класс ostrstream наследует функциональные возможности класса ostream.
+<p>Программы, которые используют форматированный ввод-вывод в память, должны включать заголовочные файлы strstream.h и iostream.h.
+<br>Одним из применений этих методов является проверка достоверности данных. Программа может читать строку целиком из входного потока в массив символов. Затем может подключаться процедура, проверяющая достоверность данных, корректирующая (или восстанавливающая) их, если это необходимо. А затем программа может обрабатывать вводимые из символьного массива данные, зная, что все они соответствующим образом отформатированы.
+<p>Вывод в символьный массив является прекрасным способом использования мощных возможностей форматирования потоков в C++. Данные могут быть подготовлены в символьном массиве, имитирующем формат экранного редактора. Такой массив может быть записан в файл на диск для сохранения изображения экрана.
+<p>Объект ostrstream может использоваться двумя способами.
+<ul><li>Первый способ использует динамически размещаемый символьный массив вывода, который пересылается в объект ostrstream. Как только вывод завершен, объект может быть "заморожен" функцией-элементом str, чтобы в дальнейшем для вывода не надо было делать пересылок в этот объект.
+<br>Функция-элемент str возвращает указатель типа char * на начало объекта массива в памяти. Этому указателю можно присвоить значение переменной типа char * и ссылаться на него как на любой символьный массив в C++.
+<br>Следующая программа создает объект outputString класса ostream и использует операцию поместить в поток для вывода набора строк и численных значений в объект.
+<br>Манипулятор потока ends помещает нулевой символ ('\0') в конце вывода данных в outputString.
+<br>Затем программа замораживает содержимое потока outputString функцией-элементом str и присваивает переменной указателю result указатель на начало массива в памяти. Далее массив выводит в виде строки.
+<br>Программа проверяет состояние потока outputString перед тем, как поместить в него информацию. После того, как функция-элемент str вызвана, предпринимается следующая попытка поместить в поток.
+<p><li>Второй способ использования объекта класса ostrstream - передача ему трех аргументов для конструктора класса ostrstream: символьного массива его длины и режима открытия потока (ios::out или ios::app).
+<br>Если задан режим ios::app, то символьный массив воспринимается как строка, заканчивающаяся нулевым символом, и информация помещается, начиная с позиции этого нулевого символа.
+</ul>
+<pre>
+	// Использование динамически размещаемого объекта класса ostrstream
+	#include&lt;iostream.h>
+	#include&lt;strstream.h>
+	main()
+	{
+		ostrstream outputString;
+		char	*s1 = "Вывод нескольких типов данных ",
+			*s2 = "в объект класса ostrstream:",
+			*s3 = "\n double: ",
+			*s4 = "\n int: ",
+			*s5 = "\nадрес int: ",
+			*result;
+		double d = 123.4567; int i = 22;
+		cout << "Состояние потока outputString" 
+			<< " перед помещением в него данных: "
+			<< outputString.rdstate() << endl;
+		outputString << s1 << s2 << s3 << d << s4 << i << s5 << &i << ends;
+		result = outputString.str();
+		outputString << "проверка помещения в поток после вызова str";
+		cout << endl << "Состояние outputString после вызова str"
+			<< endl << "и следующей попытки помещения данных в поток: "
+			<< outputString.rdstate() << endl << endl
+			<< "Динамически созданная строка содержит: " << endl << endl 
+			<< result << endl;
+		return 0;
+	}
+
+	<i>Результаты</i>
+		Состояние потока outputString перед помещением в него данных: 0
+
+		Состояние outputString после вызова str
+		и следующей попытки помещения данных в поток: 4
+
+		Динамически созданная строка содержит:
+
+		Вывод нескольких типов данных в объект класса ostrstream:
+		 double: 123.4567
+		 int: 22
+		 адрес int: 0x8f9e0fde
+</pre>
+<pre>
+	// Демонстрация объекта класса ostrstream,
+	// использующего заранее определенный массив
+	#include&lt;iostream.h>
+	#include&lt;strstream.h>
+	main ()
+	{
+		const int size = 15;
+		char buffer [size];
+		ostrstream outputString (buffer, size, ios :: out);
+		cout << "Состояние потока outputString перед помещением в него данных: "
+			<< outputString. rdstate () << endl;
+		outputString << "Проверка " << 123 << ends;
+		cout << "Содержимое буфера: " << endl << buffer;
+		outputString << "попытка вставить после конца массива";
+		cout << endl << endl << "Состояние outputString после попытки"
+			<< endl << "вставки после конца строки: "
+			<< outputString. rdstate () << endl;
+		return 0;
+	}
+
+	<i>Результаты</i>	
+		Состояние потока outputString перед помещением в него данных: 0
+		Содержимое буфера:
+		Проверка 123
+
+		Состояние outputString после попытки
+		вставки после конца строки: 4
+</pre>
+<br>Объявление &nbsp;&nbsp;&nbsp;ostrstream&nbsp;outputString(buffer,&nbsp;size,&nbsp;ios&nbsp;::&nbsp;out);&nbsp;&nbsp; создает объект ostrstream, который будет использовать символьный массив buffer с количеством элементов size для хранения вывода, направляемого в поток outputString.
+<br>Поскольку размер массива известен заранее, поток outputString может осуществить свой собственный поиск ошибок.
+<br>Если предпринимается попытка вывести данные в поток outputString, причем данные должны храниться за концом массива buffer, тогда будет установлен failbit и операция вывода не выполнится.
+<br>Программа выводит строку, целое и завершающий, нулевой символ в buffer, а затем выводит содержимое buffer.
+<br>Программа проверяет состояние потока outputString перед помещением в него информации и вслед за попыткой поместить информацию после конца массива buffer.
+<p>Объект istrstream вводит данные из символьного массива в памяти в переменные программы. Данные хранятся в объекте istrstream как символы; ввод из объекта istrstream работает аналогично вводу из любого файла или из стандартного входного потока. Завершающий нулевой символ интерпретируется этим объектом как eof.
+<p>Объявление &nbsp;&nbsp;&nbsp;istrstream&nbsp;inputBuffer(input,&nbsp;size);&nbsp;&nbsp; создает объект inputBuffer класса istrstream.
+<br>Два аргумента задают массив (input), из которого данные считываются, и число элементов в массиве (size).
+<br>Входной массив содержит следующие данные:
+<pre>				Введите тест 123 4.7 А</pre>
+<p>которые при считывании в программу в качестве входных данных состоят из двух строк ("Введите" и "тест"), целого значения (123), значения с плавающей точкой (4.7) и символа ('А'). Эти данные вводятся в переменные string1, string2, i, d и с соответственно операцией извлечь из потока, а затем выводятся в cout.
+<br>Программа проверяет состояние потока inputBuffer перед попыткой извлечения или после нее, пока не остается данных во входном массиве input.
+<pre>
+	// Демонстрация ввода из объекта класса istrstream.
+	#include&lt;iostream.h>
+	#include&lt;strstream.h>
+	main ()
+	{
+		const int size = 80;
+		char input [size] = "Введите тест 123 4.7 A";
+		istrstream inputBuffer(input, size);
+		cout << "Состояние inputBuffer перед операцией извлечения: "
+			<< inputBuffer.rdstate() << endl << endl;
+		char string1 [size], string2 [size];
+		int i;
+		double d;
+		char c;
+		inputBuffer >> string1 >> string2 >> i >> d >> c;
+		cout << "Извлекаются следующие данные " << endl
+			<< "из объекта класса istrstream:" << endl
+			<< " Строка: " << string1 << endl
+			<< " Строка: " << string2 << endl
+			<< " Integer: " << i << endl
+			<< " Double: " << d << endl
+			<< " Char: " << c << endl << endl;
+		// Попытка чтения из пустого потока
+		long l; inputBuffer >> l;
+		cout << " Состояние inputBuffer после извлечения из пустого потока: "
+			<< inputBuffer.rdstate() << endl;
+		return 0;
+	}
+	
+	<i>Результаты</i>	
+		Состояние inputBuffer перед операцией извлечения: 0
+
+		Извлекаются следующие данные
+		из объекта класса istrstream:
+		 Строка: Введите
+		 Строка: тест
+		 Integer: 123
+		 Double: 4.7
+		 Char: A
+
+		Состояние inputBuffer после извлечения из пустого потока: 2
+</pre>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=a>&nbsp 11 &nbsp</a></td>
+<td><a href="12.htm" class=p>&nbsp 12 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

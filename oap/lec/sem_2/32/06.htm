@@ -1,0 +1,171 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 32</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Упорядочить список по алфавиту</p>
+<p>Рассмотрим программу, в которой используется алгоритм быстрой сортировки "средний из трех".
+<br>С клавиатуры вводятся фамилии, при вводе можно использовать различные регистры букв, начинать строку с пробела или табуляции, внутри слова допускать пробелы.
+<br>Можно предложить следующий способ замены строки пробелов, например, единственным пробелом
+<pre>
+	#include&lt;stdio.h>
+	#include&lt;conio.h>
+	#define NB  'a'
+	void main()
+	{	int c, l, i = 0; l = NB; char str[80]; clrscr();
+		while( (c = getchar()) != '\n')
+		{	// ASCII-код текущего символа
+			if(c != ' ' || l != ' ')
+			{
+				putchar(c); str[i] = c; i++;
+			}
+			l = c;	// ASCII-код предыдущего символа
+		}
+		printf("\n%s", str);
+	}
+</pre>
+<p>Но в программе это сделано иначе.
+<br>В окно вывода будут выведены фамилии, упорядоченные по алфавиту, не содержащие пробелов, первый символ - заглавная буква, остальные - маленькие.
+<br>В программе представлен и вариант перевода всех символов в верхний регистр.
+<br>В программе использованы <a href="../33/index.htm">функции работы со строками</a> символов.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;ctype.h>
+	#include&lt;stdio.h>
+	#include&lt;stdlib.h>
+	#include&lt;string.h>
+	#define  HALT  ""      // нулевая строка для прекращения ввода
+	int sort_fun(const void *a, const void *b)
+	{
+		return(strcmp((char *)a, (char *)b));   // преобразование типов (char *)
+	}
+	void main()
+	{
+		const int i = 20, j = 20;
+		static unsigned char name[i][j], *p[i], ch;
+		int ct = 0;                    // счетчик вводимых строк
+		int k, num, nn, kol;
+		window(1, 1, 80, 25); textbackground(7);  textcolor(1); clrscr();
+		gotoxy(50, 10); puts("Для прекращения ввода");
+		gotoxy(58, 11); puts("нажми");
+		gotoxy(50, 12); puts("Enter в начале строки");
+		window(14, 3, 69, 5); textbackground(0);  clrscr();
+		window(13, 2, 68, 4); textbackground(1);  textcolor(14); clrscr();
+		gotoxy(14, 2); puts("Сортировка  массивов  символов");
+		window(6, 8, 38, 22); textbackground(0);  clrscr();
+		window(5, 7, 37, 21); textbackground(1);  textcolor(14); clrscr();
+		gotoxy(11, 2); puts("Введи фамилии");
+		gotoxy(7,4+ct); gets(name[ct]);
+		while( (name[ct] != NULL) && strcmp(name[ct], HALT) != 0 && ct++ < i)
+		{
+			gotoxy(7, 4 + ct); gets(name[ct]);
+		}
+		/*
+		// Вариант 1 - переводит в верхний регистр все символы
+		// перевод в верхний регистр букв английского алфавита
+		for (k = 0; k < ct; k++)
+		{
+			gotoxy(7, 4 + k); strupr(name[k]);
+		}
+		// перевод в верхний регистр букв русского алфавита, удаление пробелов
+		for(k = 0; k < ct; k++)
+		{	int len = strlen(name[k]);
+			hh:   kol = 0;
+			for(num = 0; num < len; num++)
+			{
+				if (isspace(name[k][num]))
+				{	kol++;
+					for(nn = num; nn < len; nn++)
+					{
+						name[k][nn] = name[k][nn + 1];
+					}
+					name[k][len--] = 32;
+				}
+				if(kol > 0) goto hh;
+				if(name[k][num] >= 160 && name[k][num] <= 175)
+					name[k][num] -= 32;
+				if(name[k][num] >= 224 && name[k][num] <= 239)
+					name[k][num] -= 80;
+			}
+		}
+		*/
+		// Вариант 2 - переводит в верхний регистр первый символ, остальные в нижний
+		for(k = 0; k < ct; k++)
+		{	// удаление пробелов
+			int len = strlen(name[k]);
+			hh:   kol = 0;
+			for(num = 0; num < len; num++)
+			{
+				if (isspace(name[k][num]))
+				{	kol++;
+					for(nn = num; nn < len; nn++)
+					{
+						name[k][nn] = name[k][nn+1];
+					}
+					name[k][len--] = 32;
+				}
+				if(kol > 0) goto hh;
+				// перевод всех символов в нижний регистр
+				if(name[k][num] >= 128 && name[k][num] <= 143 || name[k][num] >=  65 && name[k][num] <=  90)
+					name[k][num] += 32;
+				if(name[k][num] >= 144 && name[k][num] <= 159)
+					name[k][num] += 80;
+			}
+			// перевод первого символа в верхний регистр
+			if(name[k][0] >= 160 && name[k][0] <= 175 || name[k][0] >=  97 && name[k][0] <= 122)
+				name[k][0] -= 32;
+			if(name[k][0] >= 224 && name[k][0] <= 239)
+				name[k][0] -= 80;
+		}
+		qsort((void *) &name, ct, sizeof(name[0]), sort_fun);
+		window(44, 8, 75, 22); textbackground(0); clrscr();
+		window(43, 7, 74, 21); textbackground(1); textcolor(14); clrscr();
+		gotoxy(8, 2); puts("Упорядоченный список");
+		for (k = 0; k < ct; k++)
+		{	gotoxy(7, 4 + k);
+			puts(name[k]);
+		}
+		_setcursortype(_NOCURSOR); getch();
+	}
+</pre>
+<p>Результаты работы программы могут выглядеть следующим образом
+<p><center><img src="l34_01.gif"></center>
+<p> &nbsp;
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

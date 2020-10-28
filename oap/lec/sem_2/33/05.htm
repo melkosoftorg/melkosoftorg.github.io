@@ -1,0 +1,172 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 33</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Сравнение</p>
+<b><i>strcmp</i></b> сравнивает строки str1 и str2, начиная с первого символа в 
+каждой строке и продолжая сравнение последующих символов до тех пор, пока 
+не встретятся несовпадающие символы или строки не кончатся.
+<BR><b><i>stricmp</i></b> сравнивает строки str1 и str2 без различий регистров.
+<pre>
+<b>Синтаксис</b>	int strcmp(char *str1, char *str2);
+		int stricmp(char *str1, char *str2);
+<b>Прототип в</b> 	string.h
+
+	#include&lt;string.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;conio.h&gt;
+	main()
+	{	char *buf1 = "babc", *buf2 = "babc", *buf3 = "BaBc";
+		int ptr; clrscr();
+		puts("strcmp");
+		ptr = strcmp(buf2, buf1);
+		if(ptr == 0)
+			printf(" buf2: %s == buf1: %s\n", buf2, buf1);
+		else 
+			printf(" buf2: %s != buf1: %s\n",buf2, buf1);
+		ptr = strcmp(buf2, buf3);
+		if (ptr == 0) 
+			printf(" buf2: %s == buf3: %s\n",buf2, buf3);
+		else 
+			printf(" buf2: %s != buf3: %s\n",buf2, buf3);
+		puts("stricmp");
+		ptr = stricmp(buf2, buf1);
+		if(ptr == 0) 
+			printf(" buf2: %s == buf1: %s\n",buf2, buf1);
+		else 
+			printf(" buf2: %s != buf1: %s\n",buf2, buf1);
+		ptr = stricmp(buf2, buf3);
+		if (ptr == 0) 
+			printf(" buf2: %s == buf3: %s\n",buf2, buf3);
+		else 
+			printf(" buf2: %s != buf3: %s\n",buf2, buf3);
+		getch(); return 0;
+	}
+
+	<b><i>Результат</i></b>	strcmp
+			 buf2: babc == buf1: babc
+			 buf2: babc != buf3: BaBc
+
+			stricmp
+			 buf2: babc == buf1: babc
+			 buf2: babc == buf3: BaBc
+
+</pre>
+<b><i>strncmp</i></b> сравнивает часть одной строки с частью другой, просматривает 
+maxlen символов.
+<br><b><i>strnicmp</i></b> сравнивает часть одной строки с другой без различий регистров на 
+максимальной длине maxlen байт.
+<br><b><i>strncmpi</i></b> сравнивает часть строки str1 с частью строки str2 без различий 
+регистра на максимальной длине n байт.
+<pre>
+<b>Синтаксис</b>	int strncmp(char *stp1, char *stp2, int maxlen);
+		int strnicmp(char *str1, char *str2, unsigned maxlen);
+		int strncmpi(char *str1, char *str2, size_t n);
+<b>Прототип в</b>	string.h
+</pre>
+Функции strcmp, stricmp, strncmp, strnicmp, strncmpi возвращают значение:
+<ul>
+<LI>< 0,	если str1 меньше, чем str2,
+<LI>== 0,	если str1 то же самое, что str2,
+<LI>> 0,	если str1 больше, чем str2.
+</ul>
+<pre>
+	#include&lt;string.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;conio.h&gt;
+	main()
+	{	char *buf1 = "babec", *buf2 = "Babhc",*buf3 = "Babec";
+		int ptr; clrscr();
+		puts("strncmp(buf2, buf1, 3)");
+		ptr = strncmp(buf2, buf1, 3);
+		if(ptr > 0) 
+			printf(" buf2: %s > buf1: %s\n",buf2, buf1);
+		if(ptr < 0) 
+			printf(" buf2: %s < buf1: %s\n",buf2, buf1);
+		if(ptr == 0)
+			printf(" buf2: %s == buf1: %s\n",buf2, buf1);
+		puts("strncmp(buf2, buf3, 3)");
+		ptr = strncmp(buf2, buf3, 3);
+		if(ptr > 0) 
+			printf(" buf2: %s > buf3: %s\n",buf2, buf3);
+		if(ptr < 0) 
+			printf(" buf2: %s < buf3: %s\n",buf2, buf3);
+		if(ptr == 0) 
+			printf(" buf2: %s == buf3: %s\n",buf2, buf3);
+		puts("strncmp(buf1, buf3, 3)");
+		ptr = strncmp(buf1, buf3, 3);
+		if(ptr > 0) 
+			printf(" buf1: %s > buf3: %s\n",buf1, buf3);
+		if(ptr < 0) 
+			printf(" buf1: %s < buf3: %s\n",buf1, buf3);
+		if(ptr == 0)
+			printf(" buf1: %s == buf3: %s\n",buf1, buf3);
+		puts("strnicmp(buf2, buf1, 3)");
+		ptr = strnicmp(buf2, buf1, 3);
+		if(ptr > 0) 
+			printf(" buf2: %s > buf1: %s\n",buf2, buf1);
+		if(ptr < 0) 
+			printf(" buf2: %s < buf1: %s\n",buf2, buf1);
+		if(ptr == 0)
+			printf(" buf2: %s == buf1: %s\n",buf2, buf1);
+		puts("strncmpi(buf2, buf1, 3)");
+		ptr = strncmpi(buf2, buf1, 3);
+		if(ptr > 0) 
+			printf(" buf2: %s > buf1: %s\n",buf2, buf1);
+		if(ptr < 0) 
+			printf(" buf2: %s < buf1: %s\n",buf2, buf1);
+		if(ptr == 0)
+			printf(" buf2: %s == buf1: %s\n",buf2, buf1);
+		getch(); return 0;
+	}
+
+	<b><i>Результат</i></b>	strncmp(buf2, buf1, 3)
+			 buf2: Babhc < buf1: babec
+			strncmp(buf2, buf3, 3)
+			 buf2: Babhc == buf3: Babec
+			strncmp(buf1, buf3, 3)
+			 buf1: babec > buf3: Babec
+			strnicmp(buf2, buf1, 3)
+			 buf2: Babhc == buf1: babec
+			strncmpi(buf2, buf1, 3)
+			 buf2: Babhc == buf1: babec
+
+</pre><p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

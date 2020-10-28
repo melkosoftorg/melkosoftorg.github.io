@@ -1,0 +1,125 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 14</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=a>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Форматированный ввод и вывод</p>
+<b><i>fscanf</i></b> - выполняет форматированный ввод символов, строк, чисел из потока.
+<br><b>Синтаксис</b> int fscanf(FILE *str, char *format [ , adress, ... ] );
+<br><b>Прототип</b> в stdio.h
+<p>fscanf сканирует посимвольно набор вводимых полей, считывая их из потока. 
+<BR>Затем каждое поле из потока форматируется в соответствии со спецификацией формата, 
+передаваемой в виде указателя на строку format, и запоминается в аргументах, 
+передаваемых после параметра format. 
+<P>Количество аргументов должно совпадать с количеством спецификаций формата. Описание спецификаций формата приведено в 
+описании функции scanf. 
+<P>fscanf завершает сканирование отдельного поля при появлении 
+пробела, являющегося разделителем, или при вводе поля, для которого указана ширина. 
+<br>Возвращает количество успешно прочитанных, преобразованных и запомненных полей. 
+<br>Возвращаемое значение не включает в себя прочитанные поля, которые не были 
+сохранены. 
+<br>Если fscanf делает попытку чтения в конце файла, то возвращается EOF. 
+<br>Если не было записано ни одного поля, возвращается значение 0.
+<p><b><i>fprintf</i></b> посылает форматированный вывод в поток, получает набор аргументов, по одному 
+для каждой спецификации формата, и выводит данные в поток. 
+<p>Количество аргументов 
+должно совпадать с числом спецификаций. Описание спецификаций формата приведено в 
+функции printf.
+<p><b>Синтаксис</b> int fprintf(FILE *str, char *format [,argument,...]);
+<br><b>Прототип</b> в stdio.h
+<p>Функция возвращает число выведенных байт. 
+<br>При появлении ошибки возвращает EOF.
+<p>Приведенные ниже программы записывает в файл данные разных типов.
+<pre>
+	#include&lt;stdio.h&gt;
+	#include&lt;conio.h&gt;
+	void main()
+	{
+		FILE *str;
+		int i = 100; float f = 1.239; char c = 'g'; clrscr();
+		// открыть файл для изменения 
+		str = fopen("dum.fil", "w+");	
+		fprintf(str, "%10d %5c %7.2f", i, c, f);	// вывести в файл данные 
+		fclose(str);			// закрыть файл 
+		getch();
+	}
+</pre>
+Например, чтобы вычислить значение функции, 
+результаты вывести на экран и записать в файл, можно предложить следующую 
+программу:
+<pre>
+	#include&lt;conio.h&gt;
+	#include&lt;dir.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;math.h&gt;
+	#define WW gotoxy(20, 4+i); printf("y(%5.2f) = %7.3f", x, y)
+	int main()
+	{       int i; float a, b, x, y;
+		char  *ch="fil_blp.dat";
+		FILE *f; clrscr();
+		if ((f = fopen(ch, "a+")) == NULL)
+		{
+			fprintf(stderr, "Ошибка! Не удается открыть файл...\n");
+			return 1;
+		}
+		for (i = 1; i < 6; i++) // повторить вычисления 5 раз
+		{     
+			gotoxy(10, 2); printf("x = "); clreol(); scanf("%f", &x);
+			a = sin(x) + sin(M_PI*x*x) + exp(cos(x)) + x*x + log(x*x);
+			b = sqrt(sin(M_PI*x*x) + log(x*x));
+			y = a / b; WW;
+			fprintf (f, "x%d = %5.2f, y%d = %7.3f\n", i, x, i, y);
+		}
+		gotoxy(25,11); puts("Информация в файле");
+		gotoxy(10,13); printf("%s", searchpath(ch));
+		fclose (f); getch();
+	}
+</pre>
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=a>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

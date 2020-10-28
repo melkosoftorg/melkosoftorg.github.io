@@ -1,0 +1,219 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 47</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Библиотечные файлы</p>
+<p>Сама по себе библиотека не является частью языка C++, однако заложенный в ней 
+набор деклараций функций, а также определений типов и макросов составляет 
+системную среду, поддерживающую стандарт C++.
+<p>Перечислим некоторые из файлов, в которых декларируются функции, типы и макросы 
+и рассмотрим назначение и возможности некоторых из них:
+<p><center><table width="90%" border=0 cellpadding=7>
+<tr><td><b>alloc.h</b></td><td>Выделение и освобождение памяти
+</td><td><b>assert.h</b></td><td>Диагностика программ
+</td></tr>
+<tr><td><b><a href="incl_02.htm">bios.h</a></b></td><td>Работа с BIOS
+</td><td><b><a href="#03">conio.h</a></b></td><td>Работа с терминалом в текстовом режиме
+</td></tr>
+<tr><td><b><a href="#04">ctype.h</a></b></td><td>Преобразование и проверка символов
+</td><td><b>dir.h</b></td><td>Работа с директориями
+</td></tr>
+<tr><td><b><a href="incl_03.htm">dos.h</a></b></td><td>Работа с DOS
+</td><td><b>errno.h</b></td><td>Проверка ошибок
+</td></tr>
+<tr><td><b>graphics.h</b></td><td>Графическая библиотека
+</td><td><b>fcntl.h</b></td><td>Поддержка средствам ввода - вывода
+</td></tr>
+<tr><td><b>float.h</b></td><td>Данные с плавающей точкой
+</td><td><b>limits.h</b></td><td>Размеры целочисленных данных
+</td></tr>
+<tr><td><b>locale.h</b></td><td>Поддержка интернациональной среды
+</td><td><b>math.h</b></td><td>Математические функции
+</td></tr>
+<tr><td><b>process.h</b></td><td>Управление процессами
+</td><td><b>mem.h</b></td><td>Работа с памятью
+</td></tr>
+<tr><td><b>setjmp.h</b></td><td>Возможности нелокальных переходов
+</td><td><b>signal.h</b></td><td>Обработка сигналов
+</td></tr>
+<tr><td><b>stddef.h</b></td><td>Разное
+</td><td><b><a href="#01">stdio.h</a></b></td><td>Функции ввода - вывода
+</td></tr>
+<tr><td><b><a href="#02">stdlib.h</a></b></td><td>Утилиты общего назначения
+</td><td><b>string.h</b></td><td>Работа со строками
+</td></tr>
+<tr><td><b>time.h</b></td><td>Функции дат и времени
+</td><td><b>iostream.h</b></td><td>Потоковый ввод - вывод
+</td></tr>
+</table></center>
+<p>Доступ к головному файлу осуществляется при помощи строки препроцессора 
+<p><b><center>#include <головной_файл></center></b></p>
+<p>Головные файлы можно включать в любом порядке и сколько угодно раз.
+<br>Строка #include не должна быть внутри внешней декларации или определения и 
+должна встретиться раньше, чем что-нибудь будет востребовано из включаемого головного файла.
+<br>Головной файл может и не быть исходным файлом.
+<p>Для использования в библиотеке зарезервированы внешние идентификаторы, начинающиеся 
+со знака подчеркивания, а также все другие идентификаторы, начинающиеся с двух знаков 
+подчеркивания или с подчеркивания и заглавной буквы.
+<p> &nbsp; </p><a name="01"></a>
+<p><b><center>stdio.h</center></b>
+<p>Определенные в stdio.h функции ввода-вывода, а также типы и макросы составляют приблизительно треть библиотеки.
+<p><center><table border=1 width="90%" cellpadding=5>
+<tr><td><b><center>Имя</center></b></td><td><b><center>Назначение</center></b></td></tr>
+<tr><td>BUFSIZ</td><td>Задание размера буфера для setbuf</td></tr>
+<tr><td>clearerr</td><td>Очистка (сброс) флажков ошибок и конца файла</td></tr>
+<tr><td>EOF</td><td>Индикация конца файла</td></tr>
+<tr><td>fclose</td><td>Закрытие файла</td></tr>
+<tr><td>feof</td><td>Проверка достижения конца файла</td></tr>
+<tr><td>ferror</td><td>Проверка наличия ошибки при работе с файлом</td></tr>
+<tr><td>fflush</td><td>Принудительная запись (сброс) в файл</td></tr>
+<tr><td>fgetc</td><td>Чтение символа из файла</td></tr>
+<tr><td>fgetpos</td><td>Получение информации о позиции в файле</td></tr>
+<tr><td>fgets</td><td>Чтение строки символов из файла</td></tr>
+<tr><td>FILE</td><td>Тип блока с контекстом информации о файле</td></tr>
+<tr><td>FILENAME_MAX</td><td>Задание максимальной длины имени файла</td></tr>
+<tr><td>FOPEN_MAX</td><td>Задание максимального числа открытых файлов</td></tr>
+<tr><td>fopen</td><td>Открытие файла</td></tr>
+<tr><td>fpos_t</td><td>Тип позиции в файле</td></tr>
+<tr><td>fprintf</td><td>Форматированная запись файла</td></tr>
+<tr><td>fputc</td><td>Запись символа в файл</td></tr>
+<tr><td>fputs</td><td>Запись строки символов в файл</td></tr>
+<tr><td>fread</td><td>Бинарное чтение файла</td></tr>
+<tr><td>freopen</td><td>Повторное использование FILE-указателя</td></tr>
+<tr><td>fscanf</td><td>Форматированное чтение из файла</td></tr>
+<tr><td>fseek</td><td>Установка произвольной позиции в файле</td></tr>
+<tr><td>fsetpos</td><td>Установка произвольной позиции в файле</td></tr>
+<tr><td>ftell</td><td>Получение информации о позиции в файле</td></tr>
+<tr><td>fwrite</td><td>Бинарная запись в файл</td></tr>
+<tr><td>getc</td><td>Чтение символа из файла</td></tr>
+<tr><td>getchar</td><td>Чтение символа из stdin</td></tr>
+<tr><td>gets</td><td>Чтение строки символов из stdin</td></tr>
+<tr><td>_IOFBF</td><td>Тип буферизации для setvbuf</td></tr>
+<tr><td>_IOLBF</td><td>Тип буферизации для setvbuf</td></tr>
+<tr><td>_IONBF</td><td>Тип буферизации для setvbuf</td></tr>
+<tr><td>L_tmpnam</td><td>Задание максимальной длины имени временного файла</td></tr>
+<tr><td>NULL</td><td>null - указатель в форме константы</td></tr>
+<tr><td>perror</td><td>Форматирование сообщения об ошибке</td></tr>
+<tr><td>printf</td><td>Форматированная запись в stdout</td></tr>
+<tr><td>putc</td><td>Запись символа в файл</td></tr>
+<tr><td>putchar</td><td>Запись символа в stdout</td></tr>
+<tr><td>puts</td><td>Запись строки символов в stdout</td></tr>
+<tr><td>remove</td><td>Удаление или уничтожение файла</td></tr>
+<tr><td>rename</td><td>Переименование файла</td></tr>
+<tr><td>rewind</td><td>Позиционирование файла в начало</td></tr>
+<tr><td>scanf</td><td>Форматированное чтение из stdin</td></tr>
+<tr><td>SEEK_CUR</td><td>Параметр позиционирования в файле для fseek</td></tr>
+<tr><td>SEEK_END</td><td>Параметр позиционирования в файле для fseek</td></tr>
+<tr><td>SEEK_SET</td><td>Параметр позиционирования в файле для fseek</td></tr>
+<tr><td>setbuf</td><td>Установка характеристик буфера файла</td></tr>
+<tr><td>setvbuf</td><td>Установка характеристик буфера файла</td></tr>
+<tr><td>size_t</td><td>Тип значения</td></tr>
+<tr><td>sprintf</td><td>Форматированная запись в строку символов</td></tr>
+<tr><td>sscanf</td><td>Форматированное чтение из строки символов</td></tr>
+<tr><td>stderr</td><td>Указатель на объект типа FILE для стандартного приемника ошибок</td></tr>
+<tr><td>stdin</td><td>Указатель на объект типа FILE для стандартного устройства ввода</td></tr>
+<tr><td>stdout</td><td>Указатель на объект типа FILE для стандартного устройства вывода</td></tr>
+<tr><td>TMP_MAX</td><td>Задание максимального числа уникальных временных файлов</td></tr>
+<tr><td>tmpfile</td><td>Открытие временного бинарного файла</td></tr>
+<tr><td>tmpnam</td><td>Создание уникального имени файла</td></tr>
+<tr><td>ungetc</td><td>Посылка символа обратно в stdin</td></tr>
+<tr><td>vfprintf</td><td>Форматированная запись в файл</td></tr>
+<tr><td>vprintf</td><td>Форматированная запись в stdout</td></tr>
+<tr><td>vsprintf</td><td>Форматированное чтение из stdin</td></tr>
+</table></center>
+<p> &nbsp; </p><a name="02"></a>
+<p><b><center>stdlib.h</center></b>
+<p><center><table width="90%" border=1 cellpadding=5>
+<tr><td><b><center>Имя</center></b></td><td><b><center>Назначение</center></b></td></tr>
+<tr><td>abort</td><td>Аномальное завершение работы программы</td></tr>
+<tr><td>abs</td><td>Вычисление абсолютного значения</td></tr>
+<tr><td>atexit</td><td>Регистрация функции</td></tr>
+<tr><td>atof</td><td>Преобразование строки символов в число с плавающей точкой</td></tr>
+<tr><td>atoi</td><td>Преобразование строки символов в целое число</td></tr>
+<tr><td>atol</td><td>Преобразование строки символов в целое число</td></tr>
+<tr><td>bsearch</td><td>Выполнение бинарного поиска</td></tr>
+<tr><td>calloc</td><td>Выделение и инициализация памяти</td></tr>
+<tr><td>div</td><td>Выполнение деления</td></tr>
+<tr><td>div_t</td><td>Тип результата деления div</td></tr>
+<tr><td>exit</td><td>Нормальное завершение работы программы</td></tr>
+<tr><td>EXIT_FAILURE</td><td>Уровень ошибки (failure value) для exit</td></tr>
+<tr><td>EXIT_SUCCESS</td><td>Уровень успеха (success value) для exit</td></tr>
+<tr><td>free</td><td>Освобождение выделенной памяти</td></tr>
+<tr><td>getenv</td><td>Получение переменной среды</td></tr>
+<tr><td>labs</td><td>Вычисление абсолютного значения</td></tr>
+<tr><td>wctomb</td><td>Преобразование символа расширенной формы</td></tr>
+<tr><td>ldiv</td><td>Выполнение деления</td></tr>
+<tr><td>ldiv_t</td><td>Тип результата деления ldiv</td></tr>
+<tr><td>malloc</td><td>Выделение памяти</td></tr>
+<tr><td>MB_CUR_MAX</td><td>Задание максимального размера многобайтового символа</td></tr>
+<tr><td>mblen</td><td>Вычисление длины многобайтового символа</td></tr>
+<tr><td>mbstowcs</td><td>Преобразование многобайтовой строки символов</td></tr>
+<tr><td>mbtowc</td><td>Преобразование многобайтового символа</td></tr>
+<tr><td>NULL</td><td>null - указатель в форме константы</td></tr>
+<tr><td>qsorf</td><td>Выполнение быстрой сортировки</td></tr>
+<tr><td>rand</td><td>Генерирование случайного числа</td></tr>
+<tr><td>RAND_MAX</td><td>Задание максимального значения</td></tr>
+<tr><td>realloc</td><td>Расширение или сжатие выделенной памяти</td></tr>
+<tr><td>size_t</td><td>Тип значения</td></tr>
+<tr><td>srand</td><td>Установка "зародыша" последовательности случайных чисел</td></tr>
+<tr><td>strtod</td><td>Преобразование строки символов в число с плавающей точкой</td></tr>
+<tr><td>strtol</td><td>Преобразование строки символов в целое число</td></tr>
+<tr><td>strtoul</td><td>Преобразование строки символов в целое число</td></tr>
+<tr><td>system</td><td>Передача управления системе</td></tr>
+<tr><td>wchar_t</td><td>Тип символа расширенного формата</td></tr>
+<tr><td>wcstombs</td><td>Преобразование строки символов расширенного формата</td></tr>
+<tr><td>wctomb</td><td>Преобразование символа расширенной формы</td></tr>
+</table></center>
+<p> &nbsp; </p><a name="03"></a>
+<p><b><center>conio.h</center></b>
+<p>Нестандартный объект-заголовок содержит средства поддержки выполнения
+разнообразных нестандартных операций ввода/вывода.
+В набор этих средств входят такие функции, как cgets, cprintf, 
+cputs, cscanf, getch, getche, inp, kbhit, outp,
+функции манипуляции с текстом, управления режимом, атрибутом и окном.
+<p> &nbsp; </p><a name="04"></a>
+<p><b><center>ctype.h</center></b>
+<p>Содержит различные функции преобразования и тестирования символов.<br>Функции семейства is* возвращают нулевое или ненулевое значение в зависимости от "истинности" или "ложности" выполняемой операции.
+<br>Функции семейства to* возвращают значение своего символьного аргумента.
+<p>Все функции требуют наличие одного аргумента типа int, который должен либо быть представим в формате unsigned char, либо быть макросом EOF.<br>Если аргумент имеет значение, отличающееся от перечисленных, поведение функции не определено.
+<p><center><table width="90%" border=1 cellpadding=5>
+<tr><td><b><center>Имя</center></b></td><td><b><center>Назначение</center></b></td></tr>
+<tr><td>isalnum</td><td>Проверка: является ли символ алфавитно-цифровым (alphanumeric)</td></tr>
+<tr><td>isalpha</td><td>Проверка: является ли символ текстовым (alphabetic)</td></tr>
+<tr><td>iscntrl</td><td>Проверка: является ли символ управляющим</td></tr>
+<tr><td>isdigit</td><td>Проверка: является ли символ цифрой</td></tr>
+<tr><td>isgraph</td><td>Проверка: является ли символ графическим</td></tr>
+<tr><td>islower</td><td>Проверка: является ли символ строчной буквой (нижнего регистра)</td></tr>
+<tr><td>isprint</td><td>Проверка: является ли символ печатаемым</td></tr>
+<tr><td>ispunct</td><td>Проверка: является ли символ знаком пунктуации</td></tr>
+<tr><td>isspace</td><td>Проверка: является ли символ пробелом</td></tr>
+<tr><td>isupper</td><td>Проверка: является ли символ прописной буквой (верхнего регистра</td></tr>
+<tr><td>isxdigit</td><td>Проверка: является ли символ шестнадцатиричной цифрой</td></tr>
+<tr><td>tolower</td><td>Формирование строчного варианта буквы</td></tr>
+<tr><td>toupper</td><td>Формирование прописного варианта буквы</td></tr>
+</table></center><p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

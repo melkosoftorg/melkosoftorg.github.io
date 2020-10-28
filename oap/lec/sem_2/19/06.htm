@@ -1,0 +1,99 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 19</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+</td></tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual><p align=center class=dbi><br>Примеры программного кода</p>
+<p><table width="90%">
+<tr valign="top"><td width="50%">
+<ol title="Команда ветвления">
+<li>Составное условие ИЛИ: истина - True, если хотя бы одно из условий истинно.
+<br>То есть, если хотя бы на одно из условий мы получает ответ да, будет выполнена ветвь да.
+<pre>
+	int x = 2, y = 3, i;
+	if(x >= 2 || y < 3)
+		i = x * y;
+	else
+		i = x + y;
+	printf("i = %d", i);
+</pre>
+<p>Проверим условия: 2&nbsp;>=&nbsp;2&nbsp;(да),&nbsp;3&nbsp;<&nbsp;3&nbsp;(нет).
+<br>Выполняется команда i&nbsp;=&nbsp;x&nbsp;*&nbsp;y;&nbsp;(i&nbsp;=&nbsp;2&nbsp;*&nbsp;3&nbsp;=&nbsp;6).
+<br>Получим ответ: i&nbsp;=&nbsp;6.
+<p><li>В примере проверяется условие: если остаток от деления двух целых чисел равен нулю, то знак вещественного числа меняется на противоположный и оно выводится с тремя десятичными знаками, в противном случае число не изменяется и выводится с двумя десятичными знаками.
+<pre>
+	int x = 7, y = 5; float m = -2.34567;
+	if(x % y == 0)
+	{
+		m = -m; printf("%2.3f", m);
+	}
+	else
+		printf("%2.2f", m);
+</pre>
+<p>Проверим условие: 7&nbsp;%&nbsp;5&nbsp;==&nbsp;0 (нет,&nbsp;2&nbsp;!=&nbsp;0)
+<br>Получим ответ: -2.35
+</ol>
+</td><td>
+<ol start="3" title="Команда ветвления">
+<li>Составное условие И: истина - True, если каждое из условий истинно.
+<br>То есть, на каждое из условий должен быть получен ответ да, чтобы была выполнена ветвь да.
+<pre>
+	int x = 2, y = 3, i;
+	if(x == 2 && y == 3)
+		i = x * y / 2;
+	i += x / 2 + y;
+	printf("i = %d", i);
+</pre>
+<p>Проверим условия: 2&nbsp;==&nbsp;2&nbsp;(да), 3&nbsp;==&nbsp;3&nbsp;(да).
+<br>Выполняется команда i&nbsp;=&nbsp;x&nbsp;*&nbsp;y&nbsp;/&nbsp;2; (i&nbsp;=&nbsp;2&nbsp;*&nbsp;3&nbsp;/&nbsp;2&nbsp;=&nbsp;3).
+<br>После этого управление передается следующей команде.
+<br>То есть, имея значение i&nbsp;=&nbsp;3, выполняем i&nbsp;+=&nbsp;x&nbsp;/&nbsp;2&nbsp;+&nbsp;y; (i&nbsp;=&nbsp;<i>3&nbsp;+</i>&nbsp;2&nbsp;/&nbsp;2&nbsp;+&nbsp;3&nbsp;=&nbsp;7).
+<br>Получим ответ: i&nbsp;=&nbsp;7.
+<p><li>Составное условие И. В данном примере при проверке условий получаем: 2&nbsp;>&nbsp;2&nbsp;(нет), 3&nbsp;==&nbsp;3&nbsp;(да).
+<br>Выполняется команда: i&nbsp;=&nbsp;x&nbsp;/&nbsp;2&nbsp;+&nbsp;y; (i&nbsp;=&nbsp;2&nbsp;/&nbsp;2&nbsp;+&nbsp;3&nbsp;=&nbsp;4).
+<pre>
+	int x = 2, y = 3, i;
+	if(x > 2 && y == 3)
+		i = x * y + 1;
+	i = x / 2 + y;
+	printf("i = %d", i);
+</pre>
+<p>Получим ответ: i&nbsp;=&nbsp;4.
+</ol>
+</td></tr>
+</table>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+</td></tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

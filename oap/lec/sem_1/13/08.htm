@@ -1,0 +1,104 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 13</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=a>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Какой класс памяти применять?</p>
+Ответ на вопрос почти всегда один - "автоматический". 
+<p>Одно из золотых правил защитного программирования: "Необходимо знать только то, что нужно".
+<p>Организуйте работу каждой функции автономно, насколько это возможно, и 
+используйте глобальные переменные только тогда, когда это действительно 
+необходимо.
+<p><b><i>Резюме: Классы памяти.</i></b>
+<ol>
+<li>Ключевые слова: auto, extern, static, register. 
+<p><li>Общие замечания:
+<p>Класс памяти 
+<ul>
+<li>определяет область действия переменной и продолжительность ее существования в памяти,
+<li>устанавливается при описании переменной с соответствующим ключевым словом.
+</ul>
+<p>Переменные, определенные вне функции, являются внешними и имеют глобальную область действия.
+<p>Переменные, определенные внутри функции, являются автоматическими и локальными, если только не используются другие ключевые слова. 
+<p>Внешние переменные, определенные раньше функции, доступны ей, даже если не описаны внутри нее.
+<p><li>Свойства: 
+<p><table align=center border=1 cellpadding=5>
+<tr><td>  <b><i><center> Класс памяти</center></i></b>
+</td><td> <b><i><center>Ключевое слово</center></i></b>
+</td><td> <b><i><center>Время жизни</center></i></b>
+</td><td> <b><i><center>Область действия</center></i></b>
+</td><td> <b><i><center>Описываются</center></i></b>
+</td></tr>
+<tr><td>  Автоматический
+</td><td> auto 
+</td><td> временно
+</td><td> локальная
+</td><td> внутри функции 
+</td></tr>
+<tr><td>  Регистровый 
+</td><td> register 
+</td><td> временно 
+</td><td> локальная 
+</td><td> внутри функции 
+</td></tr>
+<tr><td>  Статический 
+</td><td> static 
+</td><td> постоянно 
+</td><td> локальная 
+</td><td> внутри функции 
+</td></tr>
+<tr><td>  Внешний 
+</td><td> extern 
+</td><td> постоянно 
+</td><td> глобальная (все файлы)
+</td><td> вне функции 
+</td></tr>
+<tr><td>  Внешний статический 
+</td><td> static             
+</td><td> постоянно          
+</td><td> глобальная (1 файл)
+</td><td> вне функции        
+</td></tr>
+</table>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=a>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

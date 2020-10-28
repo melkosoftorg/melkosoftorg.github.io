@@ -1,0 +1,142 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>Обзорная лекция | ООП</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Локальные классы</p>
+<p><b>Локальный класс</b> - это класс объявленный внутри блока, например, внутри определения функции.
+<p>Локализация класса предполагает недоступность его компонентов вне области определения класса (вне тела функции или блока, в котором он описан или определен).
+<p>Локальный класс не может иметь статических данных, так как компоненты локального класса не могут быть определены вне текста класса. 
+<p>Внутри локального класса
+<ul type="disc">
+<li>разрешено использовать из объемлющей его области только имена типов, статические (static) переменные, внешние (extern) переменные, внешние функции и элементы перечислений,
+<li>запрещено использовать переменные автоматической памяти.
+</ul>
+<p>Компонентные функции локальных классов могут быть только встроенными - inline.
+
+<p>Иногда возникает необходимость объявления одного класса внутри другого. Такой 
+класс называется вложенным. Вложенный класс расположен в области доступа класса, 
+внутри которого он объявлен. Соответственно, объекты этого класса могут 
+использоваться как компоненты внешнего класса. Компонентные функции и статические 
+компоненты вложенного класса могут быть описаны вне глобального класса.
+<p>При описании класса Group (Группа) класс Stud (Студент) вложен в класс Group.
+<pre>
+	#include&lt;string.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;stdlib.h&gt;
+	#include&lt;conio.h&gt;
+	class Group
+	{	class Stud
+		{	private:
+				char * Famyli, *Name;
+				float old;
+			public: 
+				char * getFam()
+				{	return Famyli;
+				}
+				char * getName()
+				{	return Name; 
+				}
+				float getold()
+				{	return old;
+				}
+				void setstudent()
+				{	char s[30];
+					puts("Ввести фамилию "); gets(s);
+					Famyli = new char [strlen(s) + 1]; 
+					strcpy(Famyli, s);
+					puts("Ввести имя "); gets(s);
+					Name = new char [strlen(s) + 1];
+					strcpy(Name, s);
+					puts("Ввести float балл "); gets(s); old = atof(s);
+				}
+				void printst()
+				{
+					printf("%15s %10s %6.2f\n", getFam(), getName(), getold());
+				}
+		};
+		private:
+			int size;
+			Stud *Masgroup;
+		public:
+			void Group :: setgroup(int asize)
+			{	size = asize;
+				Masgroup = new Stud[size];
+				for(int i = 0; i < size; i++)
+					Masgroup[i].setstudent();
+			}
+			void printGr()
+			{	puts("Информация о группе");
+				for(int i = 0; i < size; i++)
+					Masgroup[i].printst();
+			}
+	};
+	void main()
+	{	clrscr();
+		Group AK; 
+		int n;
+		puts("Ввести n <= 30 "); scanf("%d", &n);
+		AK.setgroup(n);
+		AK.printGr();
+		getch();
+	}
+</pre>
+
+
+
+<p align=center class=dbi><br>Некоторые выводы об объектно-ориентированном программировании</p>
+В процессе программирования в объектно-ориентированном стиле можно выделить 
+следующие этапы:<ol>
+<li>Определение основных понятий предметной области и соответствующих им классов, 
+имеющих определенные свойства (возможные состояния и действия). Обоснование 
+вариантов создания объектов.
+<p><li>Определение или формулирование прннципов взаимодействия классов и взаимодействия объектов в рамках программной системы.
+<p><li>Установление иерархии взаимосвязи свойств родственных классов.
+<p><li>Реализация иерархии классов с помощью механизмов инкапсуляции, наследования и 
+полиморфизма.
+<p><li>Для каждого класса реализация полного набора методов для управления свойствами 
+объектов.</ol>
+В результате будет создана объектно-ориентированная среда, или библиотека классов, 
+позволяющая решать задачи моделирования в определенной предметной области.
+<p>Первые три этапа являются объектно-ориентированным анализом предметной области.
+
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

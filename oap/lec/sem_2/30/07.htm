@@ -1,0 +1,138 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 30</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Функция: вывести двумерный массив в виде матрицы</p>
+<p>В функцию должны быть переданы: целочисленный массив и количество строк.
+<pre>
+	void ww(int lss[][CC], int s1)
+	{
+		int i, j;
+		for(i = 0; i < s1; i++)
+		{
+			k++;
+			for(j = 0; j < CC; j++) 
+			{
+				gotoxy((j + 1) * 4, k); 
+				printf("%d ", lss[i][j]);
+			}
+			printf("\n");
+		} k++;
+	}
+</pre>
+<p>Рассмотрим, каким образом можно осуществить передачу указателя на многомерный массив в функцию.
+<p>У нас имеется двумерный массив <i>int x[S][K];</i>
+<br>Объявим переменную-указатель, которая может указывать на элементы массива <i>x</i>, то есть на массивы из <i>K</i> целых значений: <i>int (*ptr)&nbsp;[K];</i>
+<br>Сделаем так, чтобы <i>ptr</i>  указывал на первый элемент массива <i>x</i>:&nbsp; <i>ptr = x;</i>
+<p><table  align=center width=90% border=1 cellpadding=0 cellspacing=5>
+<tr><td class=rule>
+<b>Внимание:</b> круглые скобки в объявлении указателя на массив обязательны.
+<br>Квадратные скобки <i>[ ]</i> имеют более высокий приоритет, чем операция ссылки <b>*</b>.
+Поэтому оператор <i>int *ptr[K];</i> объявляет массив из <i>K</i> указателей на значения типа <i>int</i>, а не указатель на массив.
+</td></tr>
+</table>
+<p>В программе многомерный массив передается в функцию двумя способами - функции <i>print_1( )</i> и <i>print_2( )</i>.
+<pre>
+	#include&lt;stdio.h>
+	#include&lt;stdlib.h>
+	#include&lt;conio.h>
+	const int S = 3, K = 4;
+	// вывод элементов массива из K целых чисел
+	void print_1(int (*ptr)[K])
+	{	int *p, i;
+		p = (int *) ptr;
+		for(i = 0; i < K; i++)
+			printf("%5d", *p++);
+	}
+	// вывод элементов n массивов по K чисел в каждом
+	void print_2(int (*ptr)[K], int n)
+	{	int *p, i;
+		// p указывает на переменную типа int.
+		// необходимо приведение типа для присвоения
+		// указателю p адреса из ptr.
+		p = (int *) ptr;
+		for(i = 0; i < (K * n); i++)
+			printf("%4d", *p++);
+	}
+	void main(void)
+	{
+		int i, j, x[S][K], (*ptr)[K];
+		// Установить ptr - указатель на массив из K чисел типа int
+		// на первый элемент массива x
+		ptr = x;
+		clrscr(); randomize();
+		printf("\nСформирован массив:\n");
+		for(i = 0; i < S; i++, printf("\n"))
+			for(j = 0; j < K; j++)
+				printf("%5d", (x[i][j] = rand() % 31));
+
+		// При каждом проходе цикла ptr указывает на очередной элемент
+		// массива x, то есть на очередной K-элементный массив целых чисел
+		printf("\nprint_1()\n");
+		for(i = 0; i < S; i++, printf("\n"))
+		{	print_1(ptr++);
+			getch();
+		}
+		printf("\nprint_2()\n");
+		print_2(x, S);
+		getch();
+	}
+	<i>Возможные результаты:</i>
+			Сформирован массив:
+			   23   25   10   16
+			     0   21     3   10
+			   10     7   21     7
+
+			print_1()
+			   23   25   10   16
+			     0   21     3   10
+			   10     7   21     7
+
+			print_2()
+			  23  25  10  16   0  21   3  10  10   7  21   7
+</pre>
+<p>Преобразование типов в команде присваивания <i>p = (int *) ptr;</i> необходимо, поскольку <i>p</i> и <i>ptr</i> являются указателями на разные типы данных:
+<ul>
+<li type="disc"><i>p</i>  - указывает на <i>int</i>,
+<li type="disc"><i>ptr</i>  - указывает на массив из <i>K</i> чисел типа <i>int</i>.
+</ul>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

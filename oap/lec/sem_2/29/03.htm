@@ -1,0 +1,124 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 29</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Находим максимальное и минимальное значения функции</p>
+<p>Для того, чтобы вычислить размеры графика необходимо знать значения 
+<br> &nbsp &nbsp  &nbsp  &nbsp  &nbsp <b>x<sub>min</sub></b>,	&nbsp &nbsp <b>y<sub>min</sub></b>, &nbsp &nbsp <b>x<sub>max</sub></b>, &nbsp &nbsp <b>y<sub>max</sub></b>.
+<p>Минимальное и максимальное значения <b><i>аргумента</i></b> <b>x</b> соответствуют концам отрезка
+<b>[-1, 3]</b>.
+<p>Минимальное и максимальное значения <b><i>функции</i></b>, а также соответствующие им значения аргументов вычислим по программе
+<p>
+<!--center><img src="l31_04.gif"></center-->
+<pre>
+	float ymax, ymin, x1, x2;
+	int i;
+	ymax = ymin = y[0];
+	x1 = x2 = x[0];
+	for(i = 1; i < num; i++)
+	{
+		if(y[i] > ymax)
+		{
+			ymax = y[i]; x1 = x[i];
+		}
+		if(y[i] < ymin)
+		{
+			ymin = y[i]; x2 = x[i];
+		}
+	}
+</pre>
+<p>Итак:
+<ul type="disc">
+<li>сформированы массивы значений аргументов <b>x</b> и функций <b>y</b>;
+<li>найдены максимальное и минимальное значения функции и соответствующие им значения аргументов.
+</ul>
+<p>Необходимо создать функции для вывода значений:
+<ul type="disc">
+<li>на экран:
+<pre> 
+	// вывод на экран
+	void print_mas(float a, float b, float ymin, float x2, float ymax, float x1)
+	{
+	        gotoxy(20, 5); cout << "На отрезке [" << a << ", " << b << "]";
+	        gotoxy(20, 7); cout << "Ymin(" << x2 << ") = " << ymin;
+	        gotoxy(20, 9); cout << "Ymax(" << x1 << ") = " << ymax << endl;
+	}
+</pre> 
+<li>в файл:
+<pre> 
+	// записать в файл
+	int fil_mas(float y[], float x[], int size, float a, float b, float ymin, float x2, float ymax, float x1)
+	{
+		int i; FILE *f; char  *ch = "..\\fil_dat\\pr21_iii.dat";
+		if ((f = fopen(ch, "wt")) == NULL)
+		{
+			fprintf(stderr, "Ошибка! Не удается открыть файл...\n");
+			return 1;
+		}
+		fprintf (f, "%f %f\n", a, b);
+		fprintf (f, "%f %f\n", x2, ymin);
+		fprintf (f, "%f %f\n", x1, ymax);
+		fprintf (f, "%d\n", size);
+		for(i=0;  i < size; i++)
+		{
+			fprintf (f, "%f %f\n", x[i], y[i]);
+		}
+		fclose (f); return 0;
+	}
+</pre> 
+</ul>
+<p>Осуществить вызов этих функций с соответствующими фактическими значениями аргументов
+<pre> 
+	print_mas(a, b, ymin, x2, ymax, x1);
+	fil_mas(y, x, num, a, b, ymin, x2, ymax, x1);
+</pre> 
+<p>В результате получим на экране: 
+<pre> 
+	Вычисление значений функции y = x * x * sin(M_PI * x)
+		На отрезке [-1, 3]
+		Ymin(1.619999) = -2.440105
+		Ymax(2.579998) = 6.447278
+</pre> 
+<p>В файл помимо указанных значений будут выведены массивы аргументов и функций, а также количество элементов массивов.
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</table>
+<a name=#end></a>
+</body>
+</html>

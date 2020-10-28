@@ -1,0 +1,81 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Вопросы теста 12 </title>
+<link rel=stylesheet type=text/css href=lec.css>
+</head>
+<body>
+<table cellpadding=0 cellspacing=0>
+<tr id=top><td colspan=5>
+<center>
+<a id=top href=../plan_2.htm>Календарно-тематический план &nbsp &nbsp </a>
+</center>
+</td></tr>
+<tr>
+<td class=bok></td>
+<td class=bok1></td>
+<td>
+<p id=head>Вопросы тестирования по теме:
+<br>Организация множественного выбора.</p>
+<p id=head1>Сформулировать определения</p>
+<ol>
+<li>Переключатель switch  ...
+<li>enum ...
+</ol>
+
+<p id=head1>В записи оператора множественного выбора</p>
+<pre>	switch (a)<br>	{ 	<br>		case n1: команды; break;<br>		case n2: команды; break;<br>		default: команды;<br>	}</pre>
+<ol>
+<li>a - это...
+<li>n1 - это...
+<li>default - это... 
+<li>break - это...
+<li>switch - это...
+</ol>
+<p id=head1>Что будет выведено на экран после исполнения фрагмента программы</p>
+<ol>
+
+<li><pre>int i = 2;<br>switch (i)<br>{<br>	case 1: i += 2;<br>	case 2: i *= 3;<br>	case 0: i /= 2; break;<br>	case 4: i -= 5;<br>	default:      ;<br>}<br>	printf("i = %d", i);</pre>
+<li><pre>int i, x = 2, y = 5; i = y % x;<br>switch(i)<br>{	case 1:	printf("Один \n");<br>	case 2:	printf("Два \n");	break;<br>	case 3:	printf("Три \n");	break;<br>}</pre>
+<li><pre>int i, x = 3, y = 5; i = y/x;<br>switch (i)<br>{<br>	case 1: i += 1;<br>	case 2: i *= 2; break;<br>	case 0: i /= 2; break;<br>	case 3: i -= 1;<br>	default:      ;<br>}<br>	printf("i = %d", i); </pre>
+<li><pre>int i, x = 2, y = 2; i = pow(x,y);<br>switch (i)<br>{<br>	case 2: i++; break;<br>	case 1: i *= 2; break;<br>	case 4: i--; i *= 2; break;<br>	case 3: i -= 3; break;<br>	default:      ;<br>}<br>	printf("i = %d",i);</pre>
+<li><pre>int i, x = 2, y = 5; i = y % x;<br>switch(i)<br>{<br>	case 1:printf("Красный\n");<br>	case 2:printf("Желтый\n");<br>		break;<br>	case 3:printf("Зеленый\n");<br>		break;<br>}</pre>
+<li><pre>int i, x = 2, y = 5;   i = y % x;<br>switch(i)<br>{	case 1:printf("Однажды в студеную зимнюю пору\n");<br>	case 2:printf("Сижу за решеткой в темнице сырой,\n");<br>	case 3:printf("Гляжу, поднимается медленно в гору,\n");<br>	case 4:printf("Вскормленный в неволе орел молодой.\n");<br>		break;<br>}</pre>
+<li><pre>int i, x = 4, y = 1;   i = sqrt(x) + y;<br>switch(i)<br>{<br>	case 1:printf("Однажды в студеную зимнюю пору\n");<br>		break;<br>	case 2:printf("Сижу за решеткой в темнице сырой,\n");<br>		break;<br>	case 3:printf("Гляжу, поднимается медленно в гору,\n");<br>	case 4:printf("Вскормленный в неволе орел молодой\n");<br>		break;<br>}</pre>
+<li><pre>int i; i = floor(M_PI);<br>switch(i)<br>{	case 1:printf("Один \n");	break;<br>	case 2:printf("Два \n");	break;<br>	case 3:printf("Три \n");<br>	default: printf("Zero \n");<br>}</pre>
+<li><pre>int i; i = ceil(M_PI);<br>switch(i)<br>{<br>	case 1:printf("Один \n");	break;<br>	case 2:printf("Два \n");	<br>	case 3:printf("Три \n");<br>	default: printf("Zero \n");<br>}</pre>
+</ol>
+
+<p id=head1>Какое значение примет m ?</p>
+<ol>
+<li><pre>
+float x = 2.78, y = 4.62, m;
+switch (x > y)
+{
+	case 1: m = x; break;
+	case 0: m = y; break;
+}
+cout << "m = " << m;
+</pre>
+<li><pre>
+float x = 2.78, y = -4.62, m;
+switch (x > y)
+{
+	case 1: m = x; break;
+	case 0: m = y; break;
+}
+cout << "m = " << m;
+</pre>
+</ol>
+<p>&nbsp</p>
+</td>
+<td class=bok1></td>
+<td class=bok></td>
+</tr>
+<tr id=top><td colspan=5>
+<center>
+<a id=top href=../plan_2.htm>Календарно-тематический план &nbsp &nbsp </a>
+</center>
+</td></tr>
+</body>
+</html>

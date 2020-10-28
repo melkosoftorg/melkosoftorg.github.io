@@ -1,0 +1,64 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 20</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+</td></tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual><p align=center class=dbi><br>Примеры программного кода</p>
+<p><table width="90%">
+<tr valign="top"><td width="50%">
+<p>Условный оператор ?: с составным условием И.
+<br>Если все условия истинны, выполняется команда после вопросительного знака, в противном случае - после двоеточия.
+<pre>
+	int x = 3, y = -3, i;
+	i = (x <= 3 && y > 0) ? x * y : x + y;
+	printf("i = %d", i);
+</pre>
+<p>Проверим условия: 3&nbsp;<=&nbsp;3&nbsp;(да),&nbsp;-3&nbsp;>&nbsp;0&nbsp;(нет).
+<br>Выполняется команда i&nbsp;=&nbsp;x&nbsp;+&nbsp;y;&nbsp;(i&nbsp;=&nbsp;3&nbsp;+&nbsp;(-3)&nbsp;=&nbsp;0).
+<br>Получим ответ: i&nbsp;=&nbsp;0.
+</td><td>
+<p>Условный оператор ?:
+<br>Строковой переменной будет присвоено значение больше, если условие истинно, в противном случае будет присвоено значение меньше.
+<pre>
+	char *str; float k = 1.3786; 
+	int x = ceil(k), y = floor(k);
+	str = (x > y) ? " больше " : " меньше ";
+	printf("%d%s%d", x, str, y);
+</pre>
+<p>Вычислим значения переменных:
+<br>x&nbsp;=&nbsp;ceil(k)&nbsp;(x&nbsp;=&nbsp;ceil(1.3786)&nbsp;=&nbsp;2)
+<br>y&nbsp;=&nbsp;floor(k)&nbsp;(y&nbsp;=&nbsp;floor(1.3786)&nbsp;=&nbsp;1)
+<br>Проверим условие: 2&nbsp;>&nbsp;1&nbsp;(да).
+<br>Получим ответ: 2&nbsp;больше&nbsp;1.
+</td></tr>
+</table>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+</td></tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

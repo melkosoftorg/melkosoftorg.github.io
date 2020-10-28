@@ -1,0 +1,546 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 50</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Примеры программных примитивов</p>
+<center><table border="5" width="80%" cellpadding=5>
+<tr><td width="20%" align="center"><a href="#01">Пример 1</a></td><td>Ввод с клавиатуры в окно ввода</td></tr>
+<tr><td align="center"><a href="#02">Пример 2</a></td><td>Использование цикла for для вычисления функции</td></tr>
+<tr><td align="center"><a href="#03">Пример 3</a></td><td>Использование цикла while для вычисления функции</td></tr>
+<tr><td align="center"><a href="#04">Пример 4</a></td><td>Использование цикла do ... while для вычисления функции</td></tr>
+<tr><td align="center"><a href="#05">Пример 5</a></td><td>Вложенные циклы</td></tr>
+<tr><td align="center"><a href="#06">Пример 6</a></td><td>Оператор условного перехода if ... else</td></tr>
+<tr><td align="center"><a href="#07">Пример 7</a></td><td>Условный оператор ? :</td></tr>
+<tr><td align="center"><a href="#08">Пример 8</a></td><td>Функция: возвести число типа float в степень типа int</td></tr>
+<tr><td align="center"><a href="#09">Пример 9</a></td><td>Одномерный массив для подсчета рейтинга</td></tr>
+<tr><td align="center"><a href="#10">Пример 10</a></td><td>Квадратная матрица и ее особенности</td></tr>
+<tr><td align="center"><a href="#11">Пример 11</a></td><td>Запись данных в файл и чтение из файла</td></tr>
+<tr><td align="center"><a href="#12">Пример 12</a></td><td>Использование графических операторов</td></tr>
+</table></center>
+<p>&nbsp; </p>
+<a name="01"></a>
+<p><b><center>Ввод с клавиатуры в окно ввода</center></b>
+<p>Организовать ввод положительных чисел с клавиатуры в окно ввода, снабженное тенью, 
+размером (5, 5, 73, 22) в две колонки и 5 строк. Окончанием ввода считать ввод с 
+клавиатуры отрицательного числа или заполнение окна ввода.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;iostream.h>
+	main()
+	{
+		window(1, 1, 80, 25); textbackground(11); clrscr();
+		window(7, 6, 75, 23); textbackground(0); clrscr();
+		window(5, 5, 73, 22); textcolor(7); textbackground(1); clrscr();
+		int x, i = 6, j = 20;
+		do
+		{
+			gotoxy(j, i); cout << "x = "; cin >> x;
+			i++;
+			if(i % 11 == 0)
+			{
+				j += 25; i = 6;
+			}
+		} while( x >= 0 && j < 70); 
+		getch();
+	}
+</pre>
+<p>&nbsp; </p>
+<a name="02"></a>
+<p><b><center>Использование цикла for для вычисления функции</center></b>
+<p>Используя цикл for, вычислить значение функции   
+<img src="l51_01.gif" valign="middle">
+<br>при значениях аргумента x, изменяющегося от 1,2 до 3,8 с шагом 0,4.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;math.h>
+	#include&lt;iomanip.h>
+	#include&lt;iostream.h>
+	void main()
+	{
+		float x, y; clrscr();
+		cout.precision(8); 
+		{
+			y = sqrt(cos(x) + 2 * sqrt(sin(x) + sqrt(exp(x))));
+			cout << setw(4) << "x = " << setw(10) << x << "y = " << y << endl;
+		}
+		getch();
+	}
+</pre>
+<p>Машинное представление чисел отличается от их истинных значений (смотри значения x).
+<pre>
+	<b><i>Результаты:</i></b>
+			x = 1.20000005	y = 1.9187206
+			x = 1.60000002	y = 1.88746428
+			x = 2			y = 1.84203529
+			x = 2.4000001		y = 1.80565655
+			x = 2.80000019	y = 1.80231321
+			x = 3.20000029	y = 1.85107541
+			x = 3.60000038	y = 1.95936644
+</pre>
+<p>&nbsp; </p>
+<a name="03"></a>
+<p><b><center>Использование цикла while для вычисления функции</center></b>
+<p>Вычислить значение функции <img src="l51_02.gif" valign="middle">
+при значениях аргумента x, изменяющегося от 1,7 до 2 с шагом 0,1.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;math.h>
+	#include&lt;iostream.h>
+	main()
+	{
+		float y, x = 1.7, h = .1; clrscr();
+		while(x <= 2)
+		{
+			y = pow(sin(x) + cos(x), log(x));
+			cout << "x = " << x << "\ty = " << y << endl;
+			x += h;
+		}
+		getch(); return 0;
+	}
+
+	<b><i>Результаты:</i></b>
+			x = 1.7		y = 0.924693
+			x = 1.8		y = 0.842206
+			x = 1.9		y = 0.738067
+			x = 2		y = 0.612618
+</pre>
+<p>&nbsp; </p>
+<a name="04"></a>
+<p><b><center>Использование цикла do ... while для вычисления функции</center></b>
+<p>Вычислить значение функции <img src="l51_03.gif" valign="middle">
+при значениях аргумента x, изменяющегося от 1 до 2,5 с шагом 0,5.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;math.h>
+	#include&lt;iomanip.h>
+	#include&lt;iostream.h>
+	main()
+	{
+		float a, y, x = 1, h = .5; clrscr();
+		do
+		{
+			y = pow(pow(10, x) + exp(x), 1 / x);
+			cout << "x = " << setw(3) << x << "\ty = " << y << endl;
+			x += h;
+		} while(x <= 2.5);
+		getch(); return 0;
+	}
+
+	<b><i>Результаты:</i></b>
+			x = 1		y = 12.718282
+			x = 1.5		y = 10.923805
+			x = 2		y = 10.362869
+			x = 2.5		y = 10.152352
+</pre>
+<p>&nbsp; </p>
+<a name="05"></a>
+<p><b><center>Вложенные циклы</center></b>
+<p>Вычислить значение функции <img src="l51_04.gif" valign="middle"> при значениях аргументов, 
+изменяющихся x от 0 до 1 с шагом 0,35, y от 0 до с шагом 0,7, значение a = -3.1.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;math.h>
+	#include&lt;iomanip.h>
+	#include&lt;iostream.h>
+	main()
+	{
+		float y, x, z, a=-3.1; clrscr();
+		cout << setw(2) << "x" << setw(7) << "y" << setw(10) << "z" << endl << endl;
+		for(x = 0; x <= 1; x += .35)
+		{
+			for(y = 0; y <= M_PI_2; y += .7)
+			{
+				z = a * exp(2 * x * y) * cos(M_PI_2 + y);
+				cout << setw(4) << x << setw(6) << y << setw(14) << z << endl;
+			}
+			cout << endl;
+		}
+		getch(); return 0;
+	}
+
+	<b><i>Результаты:</i></b>
+			   x     y       z
+
+			  0     0   -1.89814e-16
+			  0   0.7   1.997075
+			  0   1.4   3.054894
+
+			0.35    0   -1.89814e-16
+			0.35  0.7   3.259857
+			0.35  1.4   8.139631
+			
+			0.7    0   -1.89814e-16
+			0.7  0.7   5.321118
+			0.7  1.4   21.687691
+</pre>
+<p>&nbsp; </p>
+<a name="06"></a>
+<p><b><center>Оператор условного перехода if ... else</center></b>
+<p>Используя оператор условного перехода if ... else, вычислить для значений x, 
+изменяющихся от 0,9 до 3,1 с шагом 0,3, значение функции <br><center><img src="l51_05.gif" valign="middle"></center> 
+где <img src="l51_06.gif" valign="middle">
+<br>Указать номер формулы, по которой производилось вычисление.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;math.h>
+	#include&lt;iostream.h>
+	#include&lt;iomanip.h>
+	main()
+	{
+		float y, x, z; int num; clrscr();
+		for(x = .9; x <= 3.1; x += .3)
+		{
+			y = 2 * sin(M_PI_2 * x) + cos(sqrt(x));
+			if(y < 0)
+			{
+				num = 1;
+				z = exp(y) + exp(-y);
+			}
+			else
+				if(y >= 0 && y < 2)
+				{
+					num = 2;
+					z = y * y + sqrt(y);
+				}
+				else
+				{
+					num = 3;
+					z = y + log(y);
+				}
+			cout << setw(3) << "x = " << setw(3) << x;
+			cout << setw(3) << "y = " << setw(9) << y; 
+			cout << setw(3) << "z" << num << " = " << z << endl;
+		}
+		getch(); return 0;
+	}
+
+	<b><i>Результаты:</i></b>
+			x = 0.9	y = 2.55813	z3 = 3.497407	
+			x = 1.2	y = 2.359764	z3 = 3.218325
+			x = 1.5	y = 1.7534	z2 = 4.398571
+			x = 1.8	y = 0.84519	z2 = 1.633688
+			x = 2.1	y = -0.19151	z1 = 2.036788
+			x = 2.4	y = -1.153969	z1 = 3.486135
+			x = 2.7	y = -1.854321	z1 = 6.543918
+			x = 3	y = -2.160557	z1 = 8.791226
+</pre>
+<p>&nbsp; </p>
+<a name="07"></a>
+<p><b><center>Условный оператор ? :</center></b>
+<p>Заполнить одномерный целочисленный массив mas[10] случайными числами от 1 до 40. 
+<br>Строковой переменной присвоить значение "больше".
+<br>Сравнить каждый элемент массива со значением p = 20, используя условный оператор <b>? :</b>.
+<br>Для каждого элемента массива выдать ответ вида: 12 не больше 20, 35 больше 20.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;iomanip.h>
+	#include&lt;stdlib.h>
+	#include&lt;iostream.h>
+	main()
+	{
+		int const kol = 10;
+		int i, p = 20, mas[kol];
+		char *str = "больше ", *s;
+		randomize(); clrscr();
+		for(i = 0; i < kol; i++)
+		{
+			mas[i] = 1 + rand() % 40;
+			cout << setw(3) << mas[i];
+		}
+		cout << endl;
+		for(i = 0; i < kol; i++)
+		{
+			s = (mas[i] > p) ? " " : " не ";
+			cout << setw(4) << mas[i] << setw(4) << s << str << p << endl;
+		}
+		getch(); return 0;
+	}
+	<b><i>Результаты:</i></b>
+			18 7 35 24 12 24 6 19 29 7
+
+			18 не больше 20
+			 7 не больше 20
+			35     больше 20
+			24     больше 20
+			12 не больше 20
+			24     больше 20
+			 6 не больше 20
+			19 не больше 20
+			29      больше 20
+			 7 не больше 20
+</pre>
+<p>&nbsp; </p>
+<a name="08"></a>
+<p><b><center>Функция: возвести число типа float в степень типа int</center></b>
+<p>Написать и протестировать программу, в которой вводится число типа float, степень типа 
+int, а затем вызывается функция для расчета и отображения результата возведения числа в 
+заданную степень.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;iostream.h>
+	float power(float base, int n)		// определение функции
+	{
+		int i, k; float p = 1.;
+		if(n == 0)
+			return (p);
+		else
+			if(n > 0)
+				k = n;
+			else
+				k = -n;
+		for(i = 1; i <= k; ++i)
+			p = p * base;
+		if(n > 0)
+			return (p);
+		return (1 / p);
+	}
+	main()
+	{
+		int x; float c, a; clrscr();
+		cout << "Основание (float) "; cin >> a;
+		cout << "Степень(int)"; cin >> x;
+		c = power(a, x);
+		cout << a << " в степени " << x << " = " << c << endl;
+		getch(); return 0;
+	}
+
+	<b><i>Результаты:</i></b>
+			Основание (float) 2
+			Степень (int) 3
+			2 в степени 3 = 8
+
+			Основание (float) 4.9
+			Степень (int) 6
+			4.9 в степени 6 = 13841.287109
+</pre>
+<p>&nbsp; </p>
+<a name="09"></a>
+<p><b><center>Одномерный массив для подсчета рейтинга</center></b>
+<p>Десять студентов попросили оценить качество питания в столовой по пятибалльной 
+системе. Поместить 10 ответов в массив и определить количество появления каждого 
+результата.
+<pre>
+	#include&lt;iostream.h>
+	#include&lt;iomanip.h>
+	#include&lt;conio.h>
+	#include&lt;stdlib.h>
+	main()
+	{
+		clrscr();
+		const int kolrez = 10, kol = 6;
+		int rez[kolrez], ww[kol] = {0};
+		for (int i = 0; i < kolrez; i++)
+		{
+			rez[i] = 1 + rand() % (kol - 1);
+			++ww[rez[i]];
+			cout << rez[i] << ' ';
+		}
+		cout << endl << endl;
+		cout << "Рейтинг " << setw(7) << "Частота" << endl;
+		for (i = 1; i < kol; i++)
+			cout << setw(4) << i << setw(8) << ww[i] << endl;
+		getch(); return 0;
+	}
+	<b><i>Результаты:</i></b>
+			2 1 3 1 2 3 1 1 4 2
+
+			Рейтинг Частота
+			       1          4
+			       2          3
+			       3          2
+			       4          1
+			       5          0
+</pre>
+<p>&nbsp; </p>
+<a name="10"></a>
+<p><b><center>Квадратная матрица и ее особенности</center></b>
+<p>Для квадратной матрицы размером [7 x 7] вывести номера столбцов, содержащих только 
+отрицательные элементы и значения этих элементов. Найти минимальный элемент 
+главной диагонали.<br>Главная диагональ характеризуется равенством i = j для всех i, j = 
+0 ... 6.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;iomanip.h>
+	#include&lt;iostream.h>
+	main()
+	{	int i, j, k = 0, nm, ss[7], min; clrscr();
+		int mas[7][7] = {	{-1, -2, 0, 5, -2, 0, 2 },
+						{ 2, -3, 1, 1, -2, 5, 8 },
+						{-1, -2, -3, -4, -2, -4, -8 },
+						{ 2, -4, 1, -1, -2, 0, 2 },
+						{ 0, -1, -2, 4, -2, 5, 0 },
+						{-1, -2, -3, -4, -2, -6, -2 },
+						{ 2, -3, 1, 1, -2, 7, 8 }
+					};
+		for(i = 0; i < 7; i++)
+			for(j = 0; j < 7; j++)
+			{
+				gotoxy(1 + j * 5, 1 + i); cout << setw(3) << mas[i][j];
+			}
+		// массив элементов главной диагонали
+		for(i = 0; i < 7; i++)
+		{
+			ss[k] = mas[i][i];
+			gotoxy(37 + k * 5, 1 + i); cout << mas[i][i];
+			k++;
+		}
+                // минимальный элемент главной диагонали
+		min = ss[0];
+		for(i = 1; i < k; i++)
+		{
+			if (ss[i] < min)
+				min = ss[i];
+		}
+		gotoxy(40, i); cout << "min = " << min;
+                // столбцы отрицательных элементов
+		for(j = 0; j < 7; j++)
+		{
+			nm = 0;
+			for(i = 0; i < 7; i++)
+				if (mas[i][j] < 0)
+					nm++;
+			if(nm == 7)
+			{	for(i = 0; i < 7; i++)
+				{
+					gotoxy(1 + j * 5, 12 + i); cout << setw(3) << mas[i][j];
+				}
+				gotoxy(1 + j * 5, 10); cout << setw(3) << j;
+			}
+		}
+		getch(); return 0;
+	}
+</pre>
+<p>&nbsp; </p>
+<a name="11"></a>
+<p><b><center>Запись данных в файл и чтение из файла</center></b>
+<p>Написать программу для создания файла CLIENT.DAT и записи в него введенной с 
+клавиатуры информации: номер счета, фамилия клиента, баланс.
+<pre>
+	#include&lt;stdio.h>
+	#include&lt;conio.h>
+	main()
+	{
+		int num; clrscr();
+		char name[30];
+		float bal;
+		FILE *cl;
+		// создание файла client.dat
+		if( (cl = fopen("client.dat", "a")) == NULL)
+			printf("Файл не может быть открыт");
+		else	{
+				printf("Введите счет, имя, баланс. Для окончания ввода Ctrl+z\n\n");
+				printf("? "); scanf("%d%s%f", &num, name, &bal);
+				while(!feof(stdin))
+				{
+					fprintf(cl, "%d %s %.2f\n", num, name, bal);
+					printf("? "); scanf("%d%s%f", &num, name, &bal);
+				}
+				fclose(cl);
+			}
+		// чтение файла client.dat и вывод на экран
+		if( (cl = fopen("client.dat", "r")) == NULL)
+			printf("Файл не может быть открыт");
+		else	{
+				printf("\n%-10s%-15s%s\n", "Счет", "Имя", "Баланс");
+				fscanf(cl, "%d%s%f", &num, name, &bal);
+				while(!feof(cl))
+				{
+					printf("%-10d%-15s%7.2f\n", num, name, bal);
+					fscanf(cl, "%d%s%f", &num, name, &bal);
+				}
+				fclose(cl);
+			}
+		getch(); return 0;
+	}
+</pre>
+<p>&nbsp; </p>
+<a name="12"></a>
+<p><b><center>Использование графических операторов</center></b>
+<p>Изобразить на экране окружность, движущуюся с постоянной скоростью параллельно 
+вертикальной оси снизу вверх.
+<br>Изобразить на экране окружность, меняющую свой цвет при нажатии клавиши пробел, и, 
+меняющую свой радиус при нажатии клавиши Tab.
+<pre>
+	#include&lt;graphics.h>
+	#include&lt;iostream.h>
+	#include&lt;conio.h>
+	#include&lt;stdio.h>
+	#include&lt;stdlib.h>
+	#include&lt;dos.h>
+	#include&lt;bios.h>
+	#include"..\\h\\init.h"
+	main()
+	{
+		init();
+		union
+		{	char hh[2];
+			int ii;
+		} cc;
+		unsigned char scn, asc;			// Скэн - коды и ASCII - коды
+		int color, xmax = getmaxx(), x = xmax / 2, y, ymax = getmaxy(), r = 50, r1;
+		// Окружность движет снизу вверх
+		for(y = ymax - r; y >= r; y -= r/50)
+		{
+			setcolor(getmaxcolor());  circle(x, y, r); delay(20);
+			setcolor(0); circle(x, y, r);
+		}
+		gotoxy (20, 2); cout << "Выход из программы - Esc";
+		gotoxy (20, 3); cout << "Разноцветная окружность - пробел";
+		gotoxy (20, 4); cout << "Меняющая радиус окружность - Tab";
+		y = ymax / 2;
+		// Повторять пока не нажата клавиша Esc
+		do
+		{
+			r1 = rand() % 15 + 1;
+			while (bioskey(1) == 0)			// До появления кода
+				;
+			cc.ii = bioskey(0);
+			asc = cc.hh[0]; scn = cc.hh[1];
+			if(asc == 32 || scn == 57)		// Если пробел
+			{
+				for(color = 0; color < 16; color++)
+				{
+					setcolor(color); circle(x, y, 105);
+					delay(100);
+				}
+			}
+			setcolor(0); circle(x, y, 105);
+			if(asc == 9 || scn == 15)		// Если Tab
+			{
+				for(r = 10; r < 150; r++)
+				{
+					setcolor(r1); circle(x, y, r); delay(50);
+					setcolor(0); circle(x, y, r);
+				}
+			}
+		} while(asc != 27 || scn != 1);
+		closegraph(); return 0;
+	}
+</pre>
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

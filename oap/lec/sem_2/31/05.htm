@@ -1,0 +1,92 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 31</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Работа с элементами столбца</p>
+Если необходимо работать с элементами столбца:
+<ul>
+<li>Определить номера столбцов, в которых значения всех элементов положительные
+(отрицательные).
+<li>Найти максимальный (минимальный) элемент каждого столбца и его индексы.
+<li>Вычислить сумму (произведение) элементов каждого столбца.
+<li>Определить количество положительных, отрицательных, нулевых элементов каждого столбца.
+</ul>
+внешний цикл должен быть по индексу столбца: вошли в столбец и проанализировали 
+каждый элементы каждой строки этого столбца (номер строки изменяется от 0 до N - 1). Только 
+после этого перешли к следующему столбцу и опять прошли по всем элементам теперь этого столбца, и так далее 
+по всем столбцам матрицы.
+<p>Например, для массива mas[3][4] найдем в каждом столбце сумму отрицательных элементов.
+<p>Мы должны войти в столбец (внешний цикл), задать начальное значение sum = 0, 
+пройти по всем строкам столбца (внутренний цикл), в теле внутреннего цикла 
+накопить сумму значений, вывести каждое отрицательное число столбца, затем в теле внешнего цикла вывести 
+их сумму.
+<pre>
+        for(j = 0; j < 4; j++)
+        {
+                sum = 0;
+                for(i = 0; i < 3; i++)
+                        if (mas[i][j] < 0) 
+                        {
+                                sum += mas[i][j];
+                                gotoxy(1 + 7 * j, 8 + i); printf("%d", mas[i][j]);
+                        }
+                gotoxy(40, 8 + i); 
+                printf("В %d столбце сумма отрицательных элементов - %d ", i, sum);
+        }
+ 
+</pre>
+
+<p>
+
+</td>
+</tr>
+
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

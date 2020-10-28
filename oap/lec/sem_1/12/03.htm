@@ -1,0 +1,218 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 12</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Перегрузка функций</p>
+Как правило, разным функциям нужно давать разные имена. Но в некоторых случаях,
+ когда ряд функций выполняют однотипную работу над объектами разных типов,
+ гораздо удобнее иметь для всех функций одно единственное имя.
+<p>C++ позволяет определить несколько функций с одним и тем же именем, но с
+ разными наборами параметров. 
+<br>Эта особенность называется <b>перегрузкой функций</b>.
+
+ <p>Перегрузка функций - это одно из проявлений принципа <i>полиморфизма</i>, присущего
+ объектно-ориентированным языкам. Если зайдем в справочник Help интегрированной
+ среды Borland и попытаемся выяснить, какая функция вычисляет абсолютное
+ значение своего аргумента. Оказывается, таких функций очень много -
+ в зависимости от типа аргумента они по-разному называются:
+<pre>
+	int abs (int x); 
+	long labs(long x);
+	double  fabs (double x);
+	long double  fabsl(long double x);
+</pre>
+<p>Такое количество разных функций, выполняющих по сути одну и ту же работу,
+ не слишком удобно для программиста, который постоянно должен помнить, какую
+ именно функцию можно использовать с тем или иным аргументом. Таким образом,
+ <i>перегрузку функций удобно применять там, где ряд функций выполняет однотипную
+ работу над аргументами различных типов</i>.
+<p><i>Основное правило перегрузки</i> заключается в том, что перегруженными считаются
+ функции с различными списками параметров. Ни тип возвращаемого значения,
+ ни спецификация исключения не принимаются компилятором в расчет при
+ определении перегруженных функций. Это означает, что такие, например,
+ определения функций
+<pre>
+	void print(char t) ( ... }
+	int print(char t) { ... }
+</pre>
+<p>Borland C++ категорически  отказывается  транслировать  и  "обкладывает"
+ данные определения аж двумя сообщениями об ошибках, а также советует "разуть
+ глаза" и взглянуть на определение функции print (see declaration of 'print'). 
+
+<p>Таким образом, функции воспринимаются компилятором только в том случае, если
+ у них различные списки параметров - либо по количеству, либо по типам.
+<p>При вызове перегруженной функции компилятор C++ определяет соответсвующую 
+функцию путем анализа количества, типов и порядка следования аргументов в вызове. 
+ 
+<P>Реализуем перегруженный вариант функции, вычисляющей абсолютное значение своего
+ аргумента:
+<pre>
+	int abs(int x);
+	long abs(long x) { return labs(x); }
+	double abs(double x) { return fabs(x); )
+	long double abs(long double x) { return fabsl(x); }
+</pre>
+<p>Таким образом, все функции имеют одно и то же имя, программисту не надо помнить
+ лишней информации, а компилятор правильно разберется, какую функцию вызывать
+ в зависимости от аргумента.
+
+
+<p>Рассмотрим программму расчета площади прямоугольника с использованием перегрузки функций.
+Функция rect_area() перегружена двумя способами:
+<ul><li>функции передаются два параметра (длина и ширина прямоугольника),
+<li>функции передается один параметр для квадрата.
+</ul>
+<pre>
+	#include&lt;iostream.h>
+	#include&lt;conio.h>
+	// Возвращает площадь неравностороннего прямоугольника
+	double rect_area(double length, double width)
+	{
+	    return length * width;
+	}
+	// Возвращает площадь квадрата
+	double rect_area(double length)
+	{
+	    return length * length;
+	}
+	int main()
+	{
+	    double a = 10.0, b = 5.8; clrscr();
+	    cout << "площадь прямоугольника " << a << " x " << b << " равна: ";
+	    cout << rect_area(a, b) << '\n';
+	    cout << "площадь квадрата " << a << " x " << a << " равна: ";
+	    cout << rect_area(a) << '\n';
+	    getch(); return 0;
+	}
+	
+	<i>Результаты:</i>	площадь прямоугольника 10 x 5.8 равна: 58
+			площадь квадрата 10 x 10 равна: 100
+</pre>
+<p>Например, в программе часто приходится печатать значения вида int, 
+float, double, char, поэтому удобно для ввода иметь функции с именем Input(), для вывода 
+иметь функции с именем Print(), как показано в примере:
+<pre>
+	
+	// <i>Функция для ввода целых чисел</i>
+	int input ()
+	{       int a;
+		printf("int x = "); scanf("%d", &a);
+		return a;
+	}
+	// <i>Функция для ввода вещественных чисел</i>
+	float input(char *s)
+	{	float b;
+		printf("%s x = ", s); scanf("%f", &b);
+		return b;
+	}
+	
+
+	// <i>Функции print для организации вывода значений</i>
+	// вывод чисел типа int
+	int print(char *str, int rez)
+	{      	gotoxy(20, 1);
+		cout << str << " y = " << rez << endl;
+		return 0;
+	}
+	// вывод чисел типа float
+	float print(float rez)
+	{      	gotoxy(20, 2);
+		cout << "float y = " << rez << endl;
+		return 0;
+	}
+	// вывод строковых переменных
+	char print(char *str)
+	{
+		cout << str << endl;
+		return 0;
+	}
+
+
+	#include&lt;conio.h>
+	#include&lt;iostream.h>
+	#include&lt;iomanip.h>
+	#include"../h/wind.h"
+	#include"../h/input.h"
+	#include"../h/print.h"
+	void main()
+	{
+		window(1, 1, 80, 25);	// открыть текстовое окно
+		textattr(14 + (7 << 4));	// установить цвет cимволов и фона
+		clrscr();			// очистить текстовое окно
+		char *s;
+		s = new char[80];		// динамическое выделение памяти
+		Wind(5, 5, 75, 20, 8, 1);	// построение окна с тенью
+		
+		// <i>Обращение к перегруженным функциям</i>
+		
+		// Целые числа
+		int a, b;  s = "int";
+		gotoxy(3,1); a = input();
+		b = a * a;
+		print(s, b);
+		
+		// Вещественные числа
+		float x, y; s = "float";
+		gotoxy(3,2); x = input(s);
+		y = x * x;
+		print(y);
+		
+		// Строки
+		s = "Строка текста"; gotoxy(3,4); print(s);
+		getch();
+		gotoxy(12,6);print("Строка текста");
+		getch();
+	}
+</pre>
+Для построения окна стенью использовалась функция <b>Wind</b>, которая объявлена в файле <b>wind.h</b>
+<pre>
+	void Wind(int x1, int y1, int x2, int y2, int z1, int z2)
+	{
+		window(x1, y1, x2, y2); textbackground(z1); clrscr();
+		window(x1 - 2, y1 - 1, x2 - 2, y2 - 1); textbackground(z2); clrscr();
+	}
+</pre>
+<p>Перегруженные функции не могут различаться только по типу возвращаемого значения, 
+то есть нельзя иметь одновременно функции int Input(int x) и float Input(int x).
+
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

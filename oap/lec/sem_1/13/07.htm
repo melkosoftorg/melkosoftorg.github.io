@@ -1,0 +1,72 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 13</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Регистровые переменные</p>
+<p>Обычно переменные хранятся в памяти машины. Центральный процессор (central processing unit - CPU) компьютера
+содержит несколько ячеек - регистров - для хранения данных. Фактические операции над данными, такие как сложение или умножение,
+выполняются именно в регистрах. Для работы с данными процессор перемещает их из памяти в регистры,
+выполняет над ними операции, а затем перемещает их назад в память. Перемещение данных
+из памяти в регистры и назад занимает некоторое время. Если бы какую-нибудь переменную можно было все время держать в регистре,
+операции с ней существенно ускорились бы.
+<p>Ключевое слово <b>register</b> в объявлении автоматической переменной как раз и просит компилятор поместить эту переменную в регистр.
+<p>Регистровые переменные запоминаются в регистрах центрального процессора, где 
+доступ к ним и работа с ними выполняются гораздо быстрее, чем в памяти. В 
+остальном регистровые переменные аналогичны автоматическим переменным. 
+<pre>
+		main()
+		{
+			register int qck;
+			. . .
+		}
+</pre>
+<p>Описание переменной как регистровой является скорее просьбой, чем обычным делом. 
+Компилятор должен сравнить требования с количеством доступных регистров.
+<br>Если требование невозможно удовлетворить, регистровая переменная становится простой 
+автоматической переменной.
+<p>Ключевое слово <b>register</b> может употребляться только с простыми числовыми переменными, но не массивами или структурами.
+<br>Его также нельзя совмещать с объявлением переменной как статической или внешней.
+Нельзя определить указатель на регистровую переменную.
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

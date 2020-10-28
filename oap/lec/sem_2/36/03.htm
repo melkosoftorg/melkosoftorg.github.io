@@ -1,0 +1,68 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 36</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Определение элементов массива структур</p>
+<p>При определении элементов массива структур применяются те же правила, что и для 
+отдельных структур: сопровождаем имя структуры операцией получения элемента и именем элемента
+<ul>
+<p><li>lib[0].val - val - первый элемент массива,
+<p><li>lib[4].tit - tit - пятый элемент массива,
+<p><li>lib[2].tit[4] - пятый элемент элемента tit (то есть tit[4] ) структуры типа book, описанный 
+третьей структурой (то есть lib[2] )
+</ul>
+<p>После объявления массива структур можно использовать его для разнообразных задач обработки данных.
+<br>Например, для присвоения данных из одного элемента массива другому:
+<pre>
+			lib[2] = lib[4];
+</pre>
+<p>Этот оператор присваивает всем полям структуры lib[2] значения соответствующих полей структуры lib[4].
+<p>Следующий оператор позволяет перемещать данные между отдельными полями структур, копируя, например, строку lib[5].tit в строку lib[1].tit
+<pre>
+			strcpy(lib[1].tit, lib[5].tit);
+</pre>
+<p>При желании можно даже обмениваться данными между отдельными элементами массивов, являющихся полями структур.
+Следующий оператор копирует четвертый символ названия книги из записи lib[5] в третью позицию названия в записи lib[1].
+<pre>
+			lib[1].tit[2] = lib[5].tit[3];
+</pre>
+<p>&nbsp;</p>
+</td>
+</tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

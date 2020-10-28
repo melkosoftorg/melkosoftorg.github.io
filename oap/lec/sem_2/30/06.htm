@@ -1,0 +1,72 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 30</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Функция: инициализировать двумерный массив</p>
+Мы рассматривали <a href="../28/01.htm">функции инициализации одномерного массива</a> случайными числами.
+<p>Для инициализации массива vector можно написать в main setrand(vector, VS) Массиву 
+vector будут присвоены случайные числа, являющиеся результатом работы датчика 
+случайных чисел.
+<p>Чтобы модифицировать setrand для работы с двумерным массивом, надо изменить 
+программу:
+<pre>
+	void setrand(int matrix[][CS], int rsize)
+	{
+		int i,j;
+		for (i = 0; i < rsize; i++)
+		{
+			for (j = 0; j < CS; j++)
+				matrix[i][j] = rand();
+		}
+	}
+</pre>
+<p>CS - глобальная константа, определяющая второе измерение массива, то есть, 
+любой массив, передаваемый setrand, получит второе измерение массива, 
+равное CS.
+<p><b><i>Можно сделать иначе.</i></b> Пусть имеется массив matrix[15][7], который надо передать в setrand. 
+<p>Используем следующее описание:  setrand(int list[], int size)
+<p>Обращение к функции будет иметь вид:  setrand(matrix, 15 * 7);
+<p>Массив matrix будет рассматриваться функцией setrand как одномерный массив, 
+содержащий 105 элементов (15 строк * 7 столбцов), с которым будут произведены 
+необходимые действия.
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

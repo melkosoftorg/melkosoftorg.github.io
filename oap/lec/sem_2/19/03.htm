@@ -1,0 +1,103 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 19</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+
+<p align=center class=dbi><br>Оператор goto<br><br>goto метка</p>
+<p><b>Оператор goto</b> – оператор безусловного перехода, осуществляет переход
+ по метке. 
+<p>Как только в программе встречается оператор goto, сразу же выполняется 
+переход (прыжок) к месту программы, обозначенному в этом операторе.
+Переход называется безусловным, потому что не зависит ни от каких условий и 
+всегда выполняется при достижении оператора goto.
+
+<p><i>Именем метки</i> может выступать любой идентификатор, не использующийся
+ для объявления переменных, констант, типов или функций. Метка указывается
+ на новой строке с завершающим двоеточием. После оператора goto указывается
+ имя метки с завершающей точкой с запятой.
+<br>Все метки должны быть уникальны и не могут повторяться.
+<pre>
+	#include&lt;conio.h>
+	#include&lt;stdio.h>
+	void main()
+	{	 	int n; 
+		start:	clrscr();
+			puts("Введи число от 0 до 10"); scanf("%d", &n);
+			if (n < 0 || n > 10)
+				goto start;
+			if (n == 0)
+				goto num0;
+			else if (n == 1)
+				goto num1;
+			else
+				goto num2;
+		num0:	puts("Число 0\n"); goto end;
+		num1:	puts("Число 1\n"); goto end;
+		num2:	puts("Число > 1\n");
+
+		end:		getch();
+	}
+</pre>
+
+
+<p><b>Пример:</b> Вычислить сумму первых N членов ряда 1/N.
+<pre>
+	#include&lt;stdio.h>
+	void main()
+	{
+ 		  int N;
+		  float S = 0.0;
+		  printf(“Введите N:”); scanf(“%d”, &N);
+	LABEL:
+		  S += 1.0/N--;
+		  if(N > 0) goto LABEL;
+		  printf(“S = %.2f\n”, S);
+	}
+</pre>
+
+
+<p>Наиболее разумное решение при программировании - обойтись без использования оператора goto.
+<p>Иногда в литературе структурное программирование называют 
+программированием без goto. Действительно, при таком подходе нет места безусловному 
+переходу. Неоправданное использование в программах оператора goto лишает ее 
+структурности, а значит, всех связанных с этим положительных свойств: прозрачности и 
+надежности алгоритма.
+<p><b><u>Замечание</u>:</b> хотя оператор goto присутствует во многих современных языках программирования высокого уровня, но он считается устаревшим оператором и его использование не рекомендуется.
+
+<p>&nbsp;</p>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr><td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</td></tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

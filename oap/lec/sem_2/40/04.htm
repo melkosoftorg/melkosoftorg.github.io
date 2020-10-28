@@ -1,0 +1,64 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 40</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Размещение битовых полей в памяти ЭВМ</p>
+<p>В памяти ЭВМ поля могут размещаться как справа налево, так и слева направо, что зависит от реализации.
+<br>Кроме того, реализация определяет, как размещаются в памяти битовые поля, длина которых не 
+кратна длине слова и длине байта.<p>
+<left><img src="l42_01.gif"></left>
+<br>При определении битового поля разрешается не указывать его имя, тогда в структуру 
+вводятся неиспользуемые биты, формирующие промежуток между значимыми полями.
+<pre>Например:		struct 
+			{ 
+				int a <b>:</b> 10;
+				int &nbsp &nbsp<b>:</b> &nbsp 6;
+				int b <b>:</b> 14;
+			} yy;
+</pre>
+<p>Для структуры с безымянным полем размещение в памяти битовых полей может иметь вид:
+<p>
+<left><img src="l42_02.gif"></left>
+<br>В структуре <b><i>yy</b></i> между полем <b><i>int a:10</b></i> и полем <b><i>int b:14</b></i> размещаются 6 бит не доступных для 
+использования. Их назначение - выравнивание полей по плану программиста.
+<p>&nbsp</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

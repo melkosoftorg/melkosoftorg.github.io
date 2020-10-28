@@ -1,0 +1,81 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 07</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Стереть, вставить, перенести текст</p>
+<b><i>delline</i></b> - стирает строку, в которой находится курсор, и поднимает все строки, 
+находящиеся ниже курсора, на одну строку вверх. Функционирует в текущем активном 
+текстовом окне.
+<pre>
+<b>Синтаксис</b> void delline(void);
+<b>Прототип</b> в conio.h
+</pre>
+<b><i>insline</i></b> - вставляет пустую строку в позицию курсора текстового окна, используя при этом 
+текущий цвет фона. Все строки под пустой строкой сдвигаются на одну строку вниз, 
+последняя строка экрана пропадает.
+<pre>
+<b>Синтаксис</b> void insline(void);
+<b>Прототип</b> в conio.h
+</pre>
+<b><i>movetext</i></b> - переносит содержимое прямоугольника экрана, заданного с помощью left, top, 
+right, bottom, в новый прямоугольник такого же размера. 
+<br>Верхний левый угол этого нового прямоугольника задается парой (newleft, newtop). 
+<br>Все координаты соответствуют абсолютным координатам экрана. 
+<br>В случае успеха movetext возвращает 1; при ошибке 
+(например, если вы задали координаты вне диапазона текущего режима экрана) movetext 
+возвращает 0.
+<pre>
+<b>Синтаксис</b> int movetext(int left, int top, int right, int bottom, int newleft, int newtop);
+<b>Прототип</b> в conio.h
+
+/* Копирование содержимого прямоугольника с верхним левым и нижним правым углами, 
+   заданными соответствующими парами точек (5, 15) и (20, 25), в новый прямоугольник с 
+   левым верхним углом, заданным парой (10,10).
+*/
+movetext (5, 15, 20, 25, 10, 10);
+</pre>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

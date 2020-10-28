@@ -1,0 +1,85 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 27</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Понятие массива и его определение</p>
+<p>Переменные, с которыми мы имели дело до сих пор, хранили только одно значение 
+(текущее значение) в каждый момент времени.
+<p><b><i><center>Массив - индексированный набор данных определенного типа.</center></i></b>
+<ol><li>Все элементы массива имеют один и тот же тип и расположены в памяти подряд. 
+<li>Каждый элемент или значение в массиве является отдельной переменной и с ней можно обращаться как с обычной переменной, но так как они собраны в массив, их можно трактовать как общность.
+</ol>
+<p><b><i>Определение одномерного массива:</i></b>
+<pre>
+			<b>тип имя_массива [константное выражение];</b>
+</pre>
+<ul>
+<li>тип - тип данных элементов массива,
+<li>константное выражение определяет размер массива - количество элементов массива (N).
+</ul>
+<b><i>При определении массива может выполняться его инициализация</i></b>, то есть элементам 
+массива задаются конкретные значения. 
+<br>Например: int tin[6] = {10, 28, 35, 2, 78, 9};
+<br>Первый элемент массива - tin[0], &nbsp &nbsp &nbsp последний элемент массива - tin[6-1].
+<p><b><i>Общий объем памяти в байтах</i></b> определяется выражением <b><i>N*(sizeof(тип))</i></b>.
+<p>Если значений меньше, чем элементов в массиве, оставшиеся элементы автоматически 
+получат нулевые значения. 
+<pre>Например,	инициализация массива          int a[10] = {5, -3, 9, 2}; 
+		равноценна инициализации   int a[10] = {5, -3, 9, 2, 0, 0, 0, 0, 0, 0}; 
+</pre><p>Нулевые значения всем 
+элементам массива можно присвоить с помощью объявления int b[10] = {0};
+<p>Несколько описаний массивов
+<pre>
+	int temp[36];			// внешний массив из 36 целых чисел
+	main()
+	{
+		float rain[45];		// автоматический массив из 45 чисел типа float
+		static char code[12];	// статический массив из 12 символов
+		extern temp[];		// внешний массив, размер указан выше
+	}
+</pre>
+<p>В языке C указатели и массивы тесно связаны. Имя массива без квадратных скобок является указателем на первый элемент массива.
+<br>Это имя к тому же является постоянным указателем (адресной константой): его нельзя изменить и оно остается фиксированным все время выполнения программы.
+<p>Пусть объявлен массив &nbsp;&nbsp;<i>int data[10];</i>
+<br>Тогда <i>data</i> - адрес первого элемента массива, который можно получить иначе: <i>&data[0]</i>.
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

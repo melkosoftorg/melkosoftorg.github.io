@@ -1,0 +1,157 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 12</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Передача списка параметров. Возвращаемые значения</p>
+Следующая программа наглядно показывает, что список аргументов функции может содержать любое необходимое количество аргументов, 
+относящихся к любым типам. Функция <b>area()</b> подсчитывает площадь помещений. Значения длины, ширины и номера этажа
+ вводятся с клавиатуры в функции main(), а затем передаются функции area() при ее вызове: 
+<pre>
+	area(length, width, fnum);
+</pre>
+<pre>
+//Передача нескольких параметров. 
+
+void main()
+{
+	float length, width;
+	int fnum;
+	printf("Введите номер этажа: ");
+	scanf("%d", &fnum);
+	printf("Введите длину этажа: ");
+	scanf("%f", &length);
+	printf("Введите ширину этажа: ");
+	scanf("%f", &width);
+	area(length, width, fnum);
+}
+void area(float size, float wide, int num)
+{
+	float area;
+	area = size * wide;
+	printf("Площадь %d этажа равна %f.2f", num, area);
+}
+</pre>
+<p>Здесь три аргумента были получены в том же порядке, в каком переданы.
+ Значение переменной length присвоено переменной size, содержимое переменной width передано wide,
+ а значение fnum — переменной num. Типы аргументов соответствуют друг другу: два вещественных значения
+ получили две переменные типа float, а переменная типа int получила целое число. 
+
+<p>Функции area() необходимо каким-то образом хранить результаты вычислений.
+ С этой целью внутри тела функции area() нами определена вещественная переменная с именем area.
+<p>Рассмотрим еще один пример. В этой программе вводятся значения двух переменных: стоимость единицы продукции (cost)
+ и процент скидки (discount). Затем переменные cost и discount передаются функции <b>price()</b> через формальные
+ аргументы amount и mrkdown. 
+<pre>
+void main()
+{
+	float cost, discount;
+	printf("Введите стоимость единицы товара: ");
+	scanf("%f", &cost);
+	printf("Введите процент скидки (в виде десятичной дроби): ");
+	scanf("%f", &discount);
+	price(cost, discount);
+}
+void price(float amount, float mrkdown)
+{
+	float reduced, net;
+	reduced = amount * mrkdown;
+	net = amount - reduced;
+	printf("Стоимость с учетом скидки составляет %.2f долларов", net);
+}
+</pre>
+<p>Функция price() умножает цену товара на процент скидки, вычитает полученную сумму
+ из цены и выводит на дисплей величину стоимости с учетом скидки. 
+<p>В результате выполнения программы на экране монитора появляются следующие сообщения: 
+<pre>
+	Введите стоимость единицы товара: 100
+	Ведите величину скидки (в виде десятичной дроби): 0.05
+	Стоимость с учетом скидки составляет 95 долларов
+</pre>
+
+<p>Функция может как получать, так и <b>возвращать значения</b>
+Для того чтобы возвратить значение переменной, необходимо указать компилятору <b>тип возвращаемого значения</b>. 
+Это осуществляется определением типа перед именем функции:
+<pre>
+ 	int square(int num);	 //функция возвращает целочисленное значение и получит целый аргумент в переменную num
+</pre>
+<pre>
+void main()
+{
+	int number, value;
+	printf("Введите целое число: ");
+	scanf("%d", &value);
+	number = square(value)
+	printf("Квадрат числа равен %d", number);
+}
+int square(int num)
+{
+	return(num * num)	
+}
+</pre>
+<p>В этом примере return() является только инструкцией функции. Строка <b>return(num * num);</b>
+возвращает значение выражения num * num, записывая его в переменную number, которой присвоен вызов функции square() в main(). 
+
+<p>Программу вычисления стоимости с учетом скидки (рассмотрена выше) можно записать следующим образом:
+<pre>
+void main()
+{
+	float sto, skid, rez;
+	cout << "Введите стоимость единицы товара: ";
+	cin >> sto;
+	cout << "Введите процент скидки (в виде десятичной дроби): ";
+	cin >> skid;
+	rez = price(sto, skid);
+	cout << "Стоимость с учетом скидки составляет " << rez << " долларов" << endl;
+}
+float price(float cena, float proc)
+{
+	float reduced, net;
+	reduced = cena * proc;
+	net = cena - reduced;
+	return net;
+}
+</pre>
+
+<p>&nbsp;</p>
+
+
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

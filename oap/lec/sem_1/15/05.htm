@@ -1,0 +1,162 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 15</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Управление графической системой</p>
+<b><i>getgraphmode</i></b> возвращает текущий графический режим, установленный с помощью 
+initgraph или setgraphmode.
+<p><b><i>setgraphmode</i></b> переводит систему в графический режим и очищает экран, устанавливает 
+графический режим, отличный от установленного по умолчанию функцией initgraph, 
+сбрасывает все графические переменные в их значения по умолчанию (текущая позиция, 
+палитра, цвет, окно и другие).
+<pre>
+<b>Синтаксис</b>	void far getgraphmode(void);
+		void far setgraphmode(int mode);
+</pre>
+Параметр mode должен быть корректным режимом для текущего графического адаптера. 
+<br>Можно использовать setgraphmode в совокупности с restorecrtmode для переключения 
+между графическим и текстовым режимами. <br>Перечисление graphics_mode, описанное в 
+GRAPHICS.H, задает имена предопределенных графических режимов. <br>Если в 
+setgraphmode передать некорректный для текущего графического адаптера режим, то 
+graphresult вернет -10.
+<pre>
+	int cmode = getgraphmode();	// сохранить текущий режим
+	restorecrtmode();		// перейти в текстовый режим
+	printf("Нажмите любую клавишу для возврата в графику..."); getch();
+	setgraphmode(cmode);	// возврат в графику
+</pre>
+<p><b><i>getmoderange</i></b> возвращает диапазон режимов для заданного графического драйвера. 
+<br>Минимальное допустимое значение возвращается в *lomode, а максимальное допустимое 
+значение возвращается в *himode. 
+<p><b>Синтаксис</b> void far getmoderange(int graphdriver, int far *lomode, int far *himode);
+<p>Если graphdriver соответствует некорректному графическому драйверу, то и *lomode и 
+himode устанавливаются в -1
+<pre>
+		int lo, hi; getmoderange(CGA, &lo, &hi);
+		printf("Адаптер CGA поддерживает режимы от %d до %d", lo, hi);
+</pre>
+<p><b><i>graphdefaults</i></b> сбрасывает все графические параметры в их значение по умолчанию и 
+устанавливает: графическое окно на полный экран, текущую позицию в (0, 0), значения по 
+умолчанию для палитры, цвета фона и цвета вычерчивания, стиль и шаблон заполнения, 
+принятые по умолчанию, принятый по умолчанию текстовый шрифт и выравнивание.
+<p><b>Синтаксис</b> void graphdefaults(void);
+<p><b><i>_graphgetmem</i></b> распределяет пользовательскую графическую память.
+<br><b><i>_graphfreemem</i></b> перераспределяет пользовательскую графическую память.
+<pre>
+<b>Синтаксис</b>	void far _graphgetmem(unsigned size);
+		void far _graphfreemem(void far *ptr, unsigned size);
+</pre>
+Графическая библиотека вызывает _graphgetmem для получения памяти для внутренних 
+буферов, графических драйверов и наборов символов. <br>С помощью написания собственной 
+версии функции _graphgetmem, можно изменить управление распределением памяти для 
+графической библиотеки. <br>Версия данной функции, принятая по умолчанию, просто 
+вызывает malloc. <p>Графическая библиотека вызывает функцию _graphfreemem для 
+освобождения памяти, ранее распределенной с помощью graphgetmem. <br>С помощью 
+разработки собственной функции _graphfreemem, можно изменить управление 
+распределением памяти для графической библиотеки. <br>Версия данной функции, принятая 
+по умолчанию, просто вызывает free.
+<p><b><i>registerbgidriver</i></b> регистрирует скомпонованный код графического драйвера. Вызов 
+registerbgidriver информирует графическую систему о наличии скомпонованного 
+драйвера.
+<p><b><i>registerbgifont</i></b> регистрирует скомпонованный код шрифта. Вызов registerbgifont 
+фиксирует наличие скомпонованного шрифтового файла.
+<pre>
+<b>Cинтаксис</b>	int registerbgidriver(void (*driver)(void));
+		int registerbgifont(void (*font)(void));
+</pre>
+Функции проверяют скомпонованный код, определяя драйвер или шрифт; если этот код 
+является корректным, они регистрируют его в своих внутренних таблицах. <br>Используя при 
+вызове registerbgifont или registerbgidriver имя компонуемого файла, вы сообщаете и 
+компилятору (и компановщику) о необходимости компановки файла с этим именем. <br>Если 
+заданный драйвер или шрифт некорректен, то обе функции возвращают отрицательный 
+код графической ошибки. <br>В противном случае registerbgidriver возвращает внутренний 
+номер драйвера, а registerbgifont - номер зарегистрированного шрифта.
+<pre>
+		// регистрация драйвера EGA/VGA
+		if (registerbgidriver(EGAVGA_driver) < 0) 
+			exit(1);
+		// регистрация готического шрифта
+		if (registerbgifont(gothic_font) != GOTIC_FONT) 
+			exit(1);
+</pre>
+
+<p><table align=center width=90% border=1 cellpadding=5 cellspacing=10>
+<tr><td class=rule>
+<b>Замечание:</b> 
+использование registerbgidriver является углубленным методом 
+программирования и, поэтому, не рекомендуется для начинающих программистов.
+</td></tr> 
+</table>
+<p><b><i>restorecrtmode</i></b> - возвращает экран в режим, в котором он находился до вызова initgraph.
+<p><b>Синтаксис</b> void far restorecrtmode(void);
+<p>Функция может быть использована в соединении с функцией setgraphmode для 
+переключения между графическим и текстовым режимом.
+<p><b><i>setgraphbufsize</i></b> изменяет размер внутреннего графического буфера
+<p><b>Синтаксис</b> unsigned far setgraphbufsize(unsigned bufsize);
+<p>Некоторые графические функции (например, floadfill) используют буфер памяти, который 
+выделяется при вызове initgraph, а освобождается при вызове closegraph. По умолчанию 
+размер этого буфера, выделяемого функцией _graphgetmem, равен 4096 байт. 
+<br>Пользователь может захотеть сделать этот буфер меньше (для сохранения объема памяти) 
+или больше (если, например, вызов floadfill приводит к ошибке -7: выход за пределы 
+памяти). <br>setgraphbufsize сообщает функции initgraph, сколько памяти она может запросить 
+под графический буфер при обращении к _graphgetmem. <br>setgraphbufsize возвращает 
+предыдущий размер внутреннего буфера
+<pre>
+	int cbsize = setgraphbufsize(1000);	// получить текущий размер
+	setgraphbufsize(cbsize);		// восстановить размер
+	printf("Текущий графический драйвер = %d байт.", cbsize);
+
+</pre>
+
+<p>
+
+</td>
+</tr>
+
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

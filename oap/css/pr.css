@@ -1,0 +1,82 @@
+﻿BODY {
+	BACKGROUND: #cc9999; COLOR: #000; FONT-FAMILY: Bookman Old Style, serif; FONT-SIZE: 14pt; MARGIN: 0px; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px; TEXT-ALIGN: center;
+}
+Главная таблица----- #table {
+	FONT-SIZE: 13pt
+}
+TD.rule {
+	BACKGROUND: #ffe7e3; COLOR: #990000; PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px
+}
+TD.usual {
+	BACKGROUND: #ffe7e3; COLOR: #330000; PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px; TEXT-ALIGN: justify
+}
+
+Заголовок со страницами----- TABLE.pages {
+	FONT-SIZE: 10pt; PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; PADDING-TOP: 5px; spacing: 0
+}
+TD.a {
+	BACKGROUND: #000; COLOR: #c3ffe2; FONT-SIZE: 8pt
+}
+A.p:link {
+	BACKGROUND: #660033; COLOR: #ffe7e3; FONT-SIZE: 10pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.p:visited {
+	BACKGROUND: #660033; COLOR: #ffe7e3; FONT-SIZE: 10pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.p:hover {
+	BACKGROUND: #ffe7e3; COLOR: #660033; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+
+
+A.a:link {
+	BACKGROUND: #ffe7e3; COLOR: #660033; FONT-SIZE: 10pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.a:visited {
+	BACKGROUND: #ffe7e3; COLOR: #000; FONT-SIZE: 10pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.a:hover {
+	BACKGROUND: #990000; COLOR: #ffe7e3; FONT-SIZE: 10pt; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+
+P.wbih {
+	COLOR: #50a; FONT-SIZE: 14pt; FONT-WEIGHT: bold
+}
+P.wbi {
+	COLOR: #61c; FONT-SIZE: 14pt; FONT-STYLE: italic; FONT-WEIGHT: bold
+}
+P.wbh {
+	COLOR: #94f; FONT-SIZE: 14pt; FONT-WEIGHT: bold
+}
+P.wih {
+	COLOR: #94f; FONT-SIZE: 14pt; FONT-STYLE: italic
+}
+P.wb {
+	COLOR: #94f; FONT-SIZE: 14pt; FONT-WEIGHT: bold
+}
+P.wi {
+	COLOR: #94f; FONT-SIZE: 14pt; FONT-STYLE: italic
+}
+P.dbih {
+	COLOR: #000; FONT-SIZE: 13pt; FONT-STYLE: italic; FONT-WEIGHT: bold
+}
+P.dbi {
+	COLOR: #660033; FONT-SIZE: 13pt; FONT-STYLE: italic; FONT-WEIGHT: bold
+}
+P.dbh {
+	COLOR: #003c1f; FONT-SIZE: 14pt; FONT-WEIGHT: bold
+}
+P.dih {
+	COLOR: #003c1f; FONT-SIZE: 14pt; FONT-STYLE: italic
+}
+P.db {
+	COLOR: #003c1f; FONT-SIZE: 14pt; FONT-WEIGHT: bold
+}
+P.di {
+	COLOR: #003c1f; FONT-SIZE: 14pt; FONT-STYLE: italic
+}
+P.theme {
+	COLOR: #990000; FONT-SIZE: 15pt; FONT-STYLE: italic; FONT-WEIGHT: bold
+}
+PRE {
+	FONT-FAMILY: Arial, serif; FONT-SIZE: 11pt; FONT-WEIGHT: bold
+}

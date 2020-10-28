@@ -1,0 +1,144 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | СР 29_30</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Пример простого связанного списка</p>
+<p>В программе демонстрируются основные приемы работы со связанными списками.
+<p>Программа предназначена только для иллюстративных целей, поскольку не принимает никаких данных от пользователя и вообще не делает ничего полезного, кроме демонстрации нескольких операций со связанным списком.
+<p>Программа выполняет следующее:
+<ol>
+<li>Объявляет структуру и указатели, необходимые для организации списка.
+<li>Добавляет первый элемент в список.
+<li>Добавляет элемент в конец списка.
+<li>Добавляет элемент в середину списка.
+<li>Выводит данные списка на экран.
+</ol>
+<pre>
+	// Демонстрация основных приемов работы со связанным списком
+	#include &lt;stdlib.h&gt;
+	#include &lt;conio.h&gt;
+	#include &lt;stdio.h&gt;
+	#include &lt;string.h&gt;
+	// Структура элемента данных списка
+	struct data
+	{	char name [20];
+		struct data *Next;
+	};
+	// Определение структурного типа PERSON
+	typedef struct data PERSON;
+	// Определение типа указателя LINK на структуру PERSON 
+	typedef PERSON *LINK;
+	int main( void )
+	{	clrscr();
+		// Указатели на первый, новый, текущий элементы
+		// и их инициализация значением NULL
+		LINK Head = NULL;
+		LINK New = NULL;
+		LINK Current = NULL;
+
+		// Добавление первого элемента в список. Не предполагается,
+		// что список пустой, хотя в этой простой программе это всегда так
+		New = (LINK) malloc(sizeof (PERSON));
+
+		// Указатель Next в новой структуре устанавливается равным адресу, который
+		// содержится в начальном указателе, даже если в списке уже были данные.
+		// Новый первый элемент будет указывать на элемент, который был первым раньше 
+		New -> Next = Head;
+
+		// начальному указателю присваивается адрес новой записи
+		Head = New;
+
+		// в эту запись помещаются данные
+		strcpy(New -> name, "Abigail");
+	
+		// Добавление элемента в конец списка. Предполагается, что
+		// в списке есть хотя бы один элемент
+
+		/* Добавление элемента в конец списка несколько более трудоемко,
+		чем добавление в начало списка. Необходимо в цикле перебрать
+		весь список, начиная с первого элемента, пока не найдется
+		последний элемент (его можно обнаружить по тому, что указатель
+		Next равен NULL). Найдя последний элемент, необходимо выделить
+		память для новой структуры данных, установить указатель Next в
+		последнем элементе на новый элемент, а указатель Next в новом
+		элементе сделать равным NULL, потому что именно этот элемент
+		теперь стал последним. */
+
+		Current = Head;
+		while (Current -> Next != NULL)
+		{
+			Current = Current -> Next;
+		}
+
+		// преобразование указателя, возвращаемого из malloc(), к типу LINK
+		New = (LINK) malloc(sizeof (PERSON));
+		Current -> Next = New;
+		New -> Next = NULL;
+		strcpy(New -> name, "Carolyn");
+	
+		// Добавление элемента в середину списками, во вторую позицию списка
+		// Распределения памяти для новой структуры данных
+		New = (LINK) malloc(sizeof (PERSON));
+
+		// Указатель Next нового элемента устанавливается равным адресу элемента,
+		// который раньше был вторым, а теперь стал третьим в списке
+		New -> Next = Head -> Next;
+
+		// Указатель Next первого элемента становится равным адресу нового элемента
+		Head -> Next = New;
+		strcpy(New -> name, "Beatrice");
+
+		// Вывод всех пунктов списка по порядку
+		// Взять начальный указатель и двигаться от него по списку до последнего
+		// элемента, который распознается по указателю на следующий элемент,
+		// равному NULL.
+		Current = Head;
+		while(Current != NULL)
+		{
+			printf("\n%s", Current -> name);
+			Current = Current -> Next;
+		} printf("\n");
+		getch(); return 0;
+	}
+
+	<i>Результаты:</i>	Abigail
+			Beatrice
+			Carolyn
+<pre>
+<p>&nbsp;
+<p>&nbsp;
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

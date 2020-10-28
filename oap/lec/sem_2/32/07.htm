@@ -1,0 +1,90 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 32</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Построчная запись данных в файл <br>и чтение из файла</p>
+<p>Программа демонстрирует возможности построчной записи данных в файл и чтение из файла и определение позиции указателя текущей позиции файла.
+<pre>
+	#include&lt;stdio.h&gt;
+	#include&lt;conio.h&gt;
+	#include&lt;stdlib.h&gt;
+	#include&lt;dir.h&gt;
+	#include&lt;string.h&gt;
+	void main()
+	{
+		FILE *fp;
+		char *name = "mim.txt";
+		char str[55][80], buf[55][80];
+		int j = 0; clrscr();
+		puts("Ввести данные в файл");
+		if ((fp = fopen(name, "w")) == NULL)		// Открыть файл для записи
+		{ 
+			puts("Невозможно открыть файл"); exit(1); 
+		}
+		printf("%s\n\n", searchpath(name));		// Маршрут доступа к файлу
+		printf("1) Положение указателя текущей позиции файла = %d\n", ftell(fp));
+		while(strlen(gets(str[j])) > 0)
+		{
+			fputs(str[j], fp); fputc('\n', fp);
+			j++;
+		}
+		printf("2) Положение указателя текущей позиции файла = %d\n", ftell(fp));
+		fclose(fp);				// Закрыть поток
+		fp = fopen(name, "r");			// Открыть файл для чтения
+		if (fp == NULL)
+		{ 
+			puts("Невозможно открыть файл"); exit(1); 
+		}
+		printf("3) Положение указателя текущей позиции файла = %d\n", ftell(fp));
+		j = 0;
+		fseek(fp, 0, SEEK_SET);			// Перейти в начало файла
+		printf("4) Положение указателя текущей позиции файла = %d\n", ftell(fp));
+		while(fgets(buf[j], strlen(str[j]) + 1, fp))
+		{ 
+			printf("%s",buf[j]); j++; 
+		}
+		printf("str[%d][%d] = %c\n", 3, 5, str[3][5]); 
+		printf("str[%d] = %s\n", 3, str[3]);
+		printf("5) Положение указателя текущей позиции файла = %d\n", ftell(fp));
+		fclose(fp); getch();
+	}
+</pre>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

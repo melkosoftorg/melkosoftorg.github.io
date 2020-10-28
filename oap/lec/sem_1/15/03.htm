@@ -1,0 +1,282 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 15</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Запуск графической системы</p>
+Для запуска графической системы, вначале необходимо вызвать функцию <i><b>initgraph</i></b>, 
+которая инициализирует графическую систему, загружая с диска графический драйвер и 
+переводя систему в графический режим, сбрасывает все графические параметры в их 
+значения по умолчанию (текущая позиция, палитра, цвет, графическое окно и так далее.) и 
+устанавливает graphresult в 0.
+<p><b><i>detectgraph</i></b> - определяет графические драйверы графических адаптеров системы, 
+выбирает режим работы, обеспечивающий максимальное разрешение для этого адаптера, 
+контактируя при этом непосредственно с аппаратурой ЭВМ. <br>Главной причиной 
+непосредственного вызова detectgraph является изменение режима, который detectgraph 
+рекомендует для initgraph.
+<p><b><i>closegraph</i></b> - запрещает графическую систему, освобождает всю память, выделенную для 
+графической системы, и возвращает экран в режим, в котором тот был перед вызовом 
+initgraph. 
+<p>Освобождение памяти из-под элементов графической системы (таких как 
+драйверы, шрифты и внутренние буфера) осуществляется через вызовы <b><i>_graphfreemem</i></b>.
+<pre>
+<b>Синтаксис:</b>	void far initgraph(int far *graphdriver, int far *graphmode, char far *pathtodriver);
+		void far detectgraph(int far *graphdriver,int far *graphmode);
+		void far closegraph(void);
+</pre>
+При запуске графической системе можно указать initgraph() конкретный графический 
+драйвер и режим, либо потребовать автоматического в процессе работы определения 
+видеоадаптера и подбора соответствующего драйвера. 
+<p><b><i>Если требуете у initgraph 
+самоопределения</i></b>, то для определения графического драйвера и режима она обращается к 
+detectgraph. <br>После определения, какой драйвер должен использоваться, initgraph 
+проверяет, зарегистрирован ли этот драйвер. Если да, то initgraph использует 
+зарегистрированный драйвер непосредственно из памяти; в противном случает initgraph 
+выделяет, обращаясь к _graphgetmem, требуемый объем памяти, а затем загружает с диска 
+соответствующий файл *.bgi. 
+<p><b><i>Если графическое оборудование не поддается 
+определению</i></b>, то параметр *graphdriver устанавливается в -2, и graphresult также вернет -2.
+<br>pathtodriver задает маршрут к каталогу, в котором initgraph будет искать графические 
+драйверы. initgraph вначале просматривает каталог, заданный в pathtodriver, затем, если он 
+пуст, - текущий каталог. <br>Если pathtodriver равен NULL, то драйверные файлы *.bgi 
+должны быть в текущем каталоге. <br>Этот же маршрут задает каталог, в котором функция 
+settextstyle будет искать файлы со шрифтами *.chr.
+<br>*graphdriver представляет собой целое, задающее используемый графический драйвер. 
+<p>Можно задавать его значение, используя <b><i>константы из перечисления graphics_drivers</i></b>
+<p>
+<center><table border>
+<tr><td>  <center><b>graphics_drivers  </b></center> 
+</td><td> <center><b>Численное значение</b></center>
+</td></tr>           
+<tr><td>  DETECT
+</td><td> 0 - требование авто определения
+</td></tr>
+<tr><td>  CGA
+</td><td> 1 - цветной графический адаптер
+</td></tr>
+<tr><td>  MCGA
+</td><td> 2 - многоцветный графический адаптер
+</td></tr>
+<tr><td>  EGA
+</td><td> 3 - улучшенный графический адаптер
+</td></tr>
+<tr><td>  EGA64
+</td><td> 4
+</td></tr>
+<tr><td>  EGAMONO
+</td><td> 5
+</td></tr>
+<tr><td>  RESERVED
+</td><td> 6
+</td></tr>
+<tr><td>  HERCMONO
+</td><td> 7 - графический адаптер Hercules
+</td></tr>
+<tr><td>  ATT400
+</td><td> 8 - 400-строчный графический адаптер фирмы AT&T
+</td></tr>
+<tr><td>  VGA
+</td><td> 9 - видеографический адаптер
+</td></tr>
+<tr><td>  PC3270
+</td><td> 10 - графический адаптер 3270 PC
+</td></tr>
+</table></center>
+<p>*graphmode представляет собой целое, задающее графический режим инициализации 
+(кроме случая, когда *graphdriver = DETECT, так как в этом случае *graphmode 
+присваивается значение максимального разрешения, допустимого для распознанного 
+драйвера).
+<p>Можно задавать значение для *graphmode, используя <b><i>константы graphics_modes</i></b><p>
+<center><table border=1>
+<tr><td>  <center><b>Графический драйвер</b></center> 
+</td><td> <center><b>Имя <br>режима         </b></center> 
+</td><td> <center><b>Номер режима       </b></center> 
+</td><td> <center><b>Колонок x строк    </b></center> 
+</td><td> <center><b>Количество цветов  </b></center> 
+</td><td> <center><b>Количество страниц </b></center> 
+</td><td> <center><b>Режим BIOS         </b></center> 
+</td></tr>                              
+<tr><td>  CGA
+</td><td> CGAC0 <br>CGAC1 <br>CGAC2 <br>CGAC3 <br>CGAHI</center>
+</td><td> <center>0 <br>1 <br>2 <br>3 <br>4</center>
+</td><td> <center>320 x 200 <br>320 x 200 <br>320 x 200 <br>320 x 200 <br>640 x 200</center>
+</td><td> <center>C0 <br>C1 <br>C2 <br>C3 <br>2</center>
+</td><td> <center>1 <br>1 <br>1 <br>1 <br>1</center>
+</td><td> <center>04H <br>04H <br>04H <br>04H <br>06H</center>
+</td></tr>
+<tr><td>  MCGA
+</td><td> MCGAC0 <br>MCGAC1 <br>MCGAC2 <br>MCGAC3 <br>MCGAMED <br>MCGAMHI
+</td><td> <center>0 <br>1 <br>2 <br>3 <br>4 <br>5</center>
+</td><td> <center>320 x 200 <br>320 x 200 <br>320 x 200 <br>320 x 200 <br>640 x 200 <br>640 x 200</center>
+</td><td> <center>C0 <br>C1 <br>C2 <br>C3 <br>2 <br>2</center>
+</td><td> <center>1 <br>1 <br>1 <br>1 <br>1 <br>1</center>
+</td><td> <center>04H <br>04H <br>04H <br>04H <br>06H <br>11H</center>
+</td></tr>
+<tr><td>  EGA
+</td><td> EGALO <br>EGAHI
+</td><td> <center>0 <br>1</center>
+</td><td> <center>640 x 200 <br>640 x 350</center>
+</td><td> <center>16 <br>16</center>
+</td><td> <center>4 <br>2</center>
+</td><td> <center>0eH <br>10H</center>
+</td></tr>
+<tr><td>  EGA64 
+</td><td> EGA64LO <br>EGA64HI
+</td><td> <center>0 <br>1</center>
+</td><td> <center>640 x 200 <br>640 x 350</center>
+</td><td> <center>16 <br>4</center>
+</td><td> <center>1 <br>1</center>
+</td><td> <center>0eH <br>10H</center>
+</td></tr>
+<tr><td>  EGAMONO
+</td><td> EGAMONOHI <br>EGAMONOHI
+</td><td> <center>0 <br>0</center>
+</td><td> <center>640 x 350 <br>640 x 350</center>
+</td><td> <center>2 <br>2</center>
+</td><td> <center>1* <br>4**</center>
+</td><td> <center>0fH </center>
+</td></tr>
+<tr><td>  HERC 
+</td><td> HERCMONOHI
+</td><td> <center>0</center>
+</td><td> <center>720 x 348</center>
+</td><td> <center>2</center>
+</td><td> <center>2</center>
+</td><td> <center>&nbsp
+</td></tr>
+<tr><td>  ATT400 
+</td><td> ATT400C0 <br>ATT400C1 <br>ATT400C2 <br>ATT400C3 <br>ATT400CMED <br>ATT400HI 
+</td><td> <center>0 <br>1 <br>2 <br>3 <br>4 <br>5</center>
+</td><td> <center>320 x 200 <br>320 x 200 <br>320 x 200 <br>320 x 200 <br>640 x 200 <br>640 x 400</center>
+</td><td> <center>C0 <br>C1 <br>C2 <br>C3 <br>2 <br>2</center>
+</td><td> <center>1 <br>1 <br>1 <br>1 <br>1 <br>1</center>
+</td><td> <center>04H <br>04H <br>04H <br>04H <br>06H <br>40H</center>
+</td></tr>
+<tr><td>  VGA 
+</td><td> VGALO <br>VGAMED <br>VGAHI 
+</td><td> <center>0 <br>1 <br>2</center>
+</td><td> <center>640 x 200 <br>640 x 350 <br>640 x 480</center>
+</td><td> <center>16 <br>16 <br>16</center>
+</td><td> <center>2 <br>2 <br>1</center>
+</td><td> <center>0eH <br>10H <br>12H</center>
+</td></tr>
+<tr><td>  PC3270 
+</td><td> PC3270HI 
+</td><td> <center>0</center>
+</td><td> <center>720 x 350</center>
+</td><td> <center>2</center>
+</td><td> <center>1</center>
+</td><td> <center>30H</center>
+</td></tr>
+</table></center>
+
+<p><table align=center width=90% border=1 cellpadding=5 cellspacing=10>
+<tr><td class=rule>
+<b>Пояснения:</b> 
+<br> &nbsp * &nbsp  64 K на плате EGAMONO
+<br>** 256 K на плате EGAMONO
+</td></tr>
+</table>
+<p><b><i>Перечень палитр</i></b>. C0, C1, C2, C3 соответствует четырем предопределенным 
+четырехцветным палитрам, доступным на системах CGA и совместимых с ними. В 
+каждой из этих палитр можно выбирать цвета фона (нулевой элемент), но остальные цвета 
+зафиксированы.
+<p><center><table border>
+<tr>
+<td rowspan=2><b>Номер палитры</b>
+<th colspan=3 rowspan=1><b>Цвет, соответствующий значению точки растра</b></th>
+</tr>
+<tr><th>1</th>
+    <th>2</th>
+    <th>3</th>
+</tr>   
+<tr><td>  <center>0</center>
+</td><td> ярко зеленый
+</td><td> ярко красный
+</td><td> желтый
+</td></tr>   
+<tr><td>  <center>1</center>
+</td><td> светло циановый
+</td><td> светло малиновый
+</td><td> белый
+</td></tr>
+<tr><td>  <center>2</center>
+</td><td> зеленый
+</td><td> красный
+</td><td> коричневый
+</td></tr>
+<tr><td>  <center>3</center>
+</td><td> циановый
+</td><td> малиновый
+</td><td> светло серый
+</td></tr>
+</table></center>
+<p>После вызова initgraph *graphdriver и *graphmode имеют значения текущего графического 
+драйвера и текущего графического режима соответственно. initgraph всегда устанавливает 
+внутренний код ошибки; причем в случае отсутствия ошибки данный код устанавливается 
+в 0. 
+<p>В случае ошибки *graphdriver устанавливается в -2, -3, -4 или -5, а graphresult 
+возвращает такое же значение, означающее:
+<blockquote>
+-2 &nbsp;-&nbsp; не могу определить графическую плату.
+<br>-3 &nbsp;-&nbsp; не могу найти файл-драйвер.
+<br>-4 &nbsp;-&nbsp; некорректный драйвер.
+<br>-5 &nbsp;-&nbsp; для драйвера не хватает памяти.
+</blockquote>
+Графический драйвер может поддерживать несколько различных графических режимов.
+<p>Для прекращения использования графики необходимо вызвать функцию <b>closegraph</b>, 
+которая "выгрузит" из памяти драйвер и восстановит первоначальный видеорежим.
+<p>Обычно *.bgi - драйвер не является частью кода программы, а загружается как 
+программный оверлей во время выполнения функции initgraph(), где в кавычках указан 
+"путь к *.bgi файлам".
+<pre>
+	int graphdriver = DETECT, graphmode;	// требование авто определения
+	initgraph(&graphdriver, &graphmode, "");	// инициализация графики
+</pre>
+<p>Если в initgraph() указана пустая строка "", значит *.bgi находится в текущем каталоге.
+<p> &nbsp </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

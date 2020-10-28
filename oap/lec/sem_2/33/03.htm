@@ -1,0 +1,79 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 33</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Слияние</p>
+<b><i>strcat</i></b> добавляет одну строку к другой, возвращает указатель на 
+соединенные строки. <br>Длина результирующей строки: strlen(dest) + strlen(src).
+<p><b><i>strncat</i></b> добавляет часть одной строки к другой, копирует maxlen 
+символов строки src в конец dest и добавляет нулевой символ. <br>Длина 
+результирующей строки: strlen(dest) + maxlen.
+<pre>
+<b>Синтаксис</b>	char *strcat(char *dest, char *src);
+		char *strncat(char *dest, char *src, int maxlen);
+<b>Прототип в</b> 	string.h
+</pre>
+<pre>
+	#include&lt;stdio.h&gt;
+	#include&lt;string.h&gt;
+	#include&lt;conio.h&gt;
+	main()
+	{	char dest[25], *str = " Borland"; clrscr();
+		strcpy(dest,"International");
+		printf("str: %s dest: %s\n", str, dest);
+		strncat(dest, str, 3);
+		printf("str: %s dest: %s\n", str, dest);
+		getch(); return 0;
+	}
+
+	<b><i>Результат</i></b>	str:  Borland dest: International
+			str:  Borland dest: International Bo
+</pre>
+<p>Следующий фрагмент программы показывает, как можно в слове корова заменить все буквы о на буквы а,
+добавить в конце й, чтобы получилось слово каравай.
+<pre>
+		char ch, wd[10] = "корова"; int kol = strlen(wd);
+		for(i = 0; i < kol; i++)
+		{	ch = wd[i];
+			if(ch == 'о')  wd[i] = 'a';
+		} strcat(wd, "й"); cout << wd;
+</pre>
+<p>&nbsp;
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

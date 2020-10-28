@@ -1,0 +1,192 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Вопросы теста 11 </title>
+<link rel=stylesheet type=text/css href=lec.css>
+</head>
+<body>
+<table cellpadding=0 cellspacing=0>
+<tr id=top><td colspan=5>
+<center>
+<a id=top href=../plan_2.htm>Календарно-тематический план &nbsp &nbsp </a>
+</center>
+</td></tr>
+<tr>
+<td class=bok></td>
+<td class=bok1></td>
+<td>
+<p id=head>Вопросы тестирования по теме:<br>Организация условных переходов.</p>
+<p id=head1>Сформулировать определения</p>
+<ol>
+<li>Разветвляющийся процесс - ...
+<li>Ветвь - ... 
+<li>Оператор И - ...
+<li>Оператор ИЛИ - ...
+<li>Оператор goto m - ...
+<li>Значение условия, используемого в ветвлении ...
+<li>Какое значение получается в результате вычисления данного выражения: 12>5 && !(12&lt;9) || 5<4
+<li>Что определяет данное выражение x = (y > x) ? y : x
+<li>Укажите правильную запись условного оператора:
+<ul>
+	<li>x = (e1 > e2) ? e1 : e2;
+	<li>x = (e1 > e2) ? e1 > e2;
+	<li>x = (e1 > e2) & e1 : e2;
+	<li>if (e1 > e2) x = e1; else x = e2;
+	<li>if (e1 > e2) ? e1 else e2;
+</ul>
+
+<li>Какие значения e и f выведутся в результате выполнения данного фрагмента
+ программы? <pre>	int a = 42; <br>	int b = 2; <br>	int c = 99; <br>	int d = 0; <br>	int e = (b == 0) ? 0 : (a / b); <br>	int f = (d == 0) ? 0 : (c / d); <br>	printf("e = %d ", e); <br>	printf("f = %d", f);</pre>
+
+</ol>
+<p id=head1>Какие из выражений могут быть использованы в качестве условий</p>
+<ol>
+<li>x > 12
+<li>z == -2 && y <= 7 
+<li>c = a
+<li>w != q
+<li>b == 'd'
+<li>n = 10
+<li>c >= -2 || c == -9
+<li>d < x * x
+</ol>
+
+<p id=head1>Что будет выведено на экран после исполнения фрагмента программы ?</p>
+<ol>
+<li><pre>
+	int x = 2, y = 3, i;
+	if(x >= 2 || y < 3)
+		i = x * y;
+	else
+		i = x + y;
+	printf("i = %d", i);
+</pre>
+<li><pre>
+	int x = 2, y = 3, i;
+	if(x == 2 && y == 3)
+		i = x * y / 2;
+	i += x / 2 + y;
+	printf("i = %d", i);
+</pre>
+<li><pre>
+	int x = 2, y = 3, i;
+	if(x > 2 && y == 3)
+		i = x * y + 1;
+	i = x / 2 + y;
+	printf("i = %d", i);
+</pre>
+<li><pre>
+	int x = 3, y = -3, i;
+	if(x != 2 && y != 3)
+		i = y / x;
+	else
+		i = y * x;
+	printf("i = %d", i);
+</pre>
+<li><pre>
+	int x = 7, y = 5; float m = -2.34567;
+	if(x > y)
+	{
+		printf("%2.4f", m);
+	}
+	else
+		printf("%2.1f", m);
+</pre>
+<li><pre>
+	int x = 7, y = 5; float m = -2.34567;
+	if(x / y > 1)
+	{
+		printf("%2.4f", m);
+	}
+	else
+		printf("%2.1f", m);
+</pre>
+<li><pre>
+	int x = 7, y = 5; float m = -2.34567;
+	if(x % y == 2)
+	{
+		m = -m; printf("%2.3f", m);
+	}
+	else
+		printf("%2.2f", m);
+</pre>
+<li><pre>
+	int x = 7, y = 5; float m = -2.34567;
+	if(x % y == 0)
+	{
+		m = -m; printf("%2.3f", m);
+	}
+	else
+		printf("%2.2f", m);
+</pre>
+</ol>
+
+<p id=head1>Что будет выведено на экран после исполнения фрагмента программы ?</p>
+<ol>
+<li><pre>
+	char *str; float k = 1.3786; 
+	int x = ceil(k), y = floor(k);
+	str = (x > y) ? " больше " : " меньше ";
+	printf("%d%s%d", x, str, y);
+</pre>
+<li><pre>
+	char *str; float k = 1.3786; 
+	int x = floor(k), y = ceil(k);
+	str = (x > y) ? " больше " : " меньше ";
+	printf("%d%s%d", x, str, y);
+</pre>
+<li><pre>
+	char *str; float k = 1.3786; 
+	int x = floor(k), y = ceil(k);
+	int z = x / y;
+	str = (x > z) ? " " : " не ";
+	printf("%d%sбольше %d", x, str, z);
+</pre>
+<li><pre>
+	char *str; float k = 1.3786; 
+	int x = floor(k), y = ceil(k);
+	int z = x % y;
+	str = (x < z) ? " " : " не ";
+	printf("%d%sбольше %d", x, str, z);
+</pre>
+<li><pre>
+	int x = 3, y = -3, i;
+	i = (x <= 3 && y > 0) ? x * y : x + y;
+	printf("i = %d", i);
+</pre>
+<li><pre>
+	int x = 3, y = -3, i;
+	i = (x > y || y != 0) ? ++x : ++y;
+	printf("i = %d", i);
+</pre>
+<li><pre>
+	int x = 3, y = -3, i = 1;
+	i = (x != y && y < 0 && i > 0) ? --y : ++y;
+	printf("i = %d", i);
+</pre>
+<li><pre>
+	int x = 2, y = 3, i;
+	i = (x != 2) ? x * (y - x) : x + y;
+	printf("i = %d", i);
+</pre>
+<li><pre>
+	int x = 3, y = -3, i;
+	i = (x >= y) ? x * y : x + y;
+	printf("i = %d", i);
+</pre>
+</ol>
+
+
+
+<p>&nbsp</p>
+</td>
+<td class=bok1></td>
+<td class=bok></td>
+</tr>
+<tr id=top><td colspan=5>
+<center>
+<a id=top href=../plan_2.htm>Календарно-тематический план &nbsp &nbsp </a>
+</center>
+</td></tr>
+</body>
+</html>

@@ -1,0 +1,124 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОАП | Лекция № 34</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td>&nbsp&nbsp<a href="#end" class=p>Конец страницы</a>&nbsp&nbsp</td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Ввод и вывод массивов символов</p>
+<p>Разберемся с вводом/выводом строк. В программе вывода дня недели массив строк— двумерный, а мы выводим один элемент двумерного массива без всякого цикла:
+<pre>
+	cout << Days [weekDay]   << endl;
+</pre>
+Язык C++ и здесь следует за С, разрешая выводить на экран без использования оператора цикла символьные массивы-строки. Достаточно написать имя массива в операторе вывода, например:
+<pre>
+	char s[ ]   = "Понедельник"; cout << s  << endl;
+</pre>
+Как мы знаем, при инициализации того же массива посимвольно
+<pre>
+	char s[ ]   =  {   ‘П’,  ‘о’,   ‘н’,   ‘е’,   ‘д’,   ‘е’,   ‘л’,   ‘ь’,   ‘н’,   ‘и’,   ‘к’   };
+</pre>
+никакого дополнительного байта не выделяется. В этом легко убедиться, вычислив размер массива с помощью операции sizeof. Следующий оператор выведет на экран число 11 — по количеству элементов-символов:
+<pre>
+	cout << sizeof(s)   << endl;
+</pre>
+Поскольку в конце нет нуля, то с выводом такого массива могут возникнуть проблемы. Нижеприведенная программа
+<pre>
+	#include &ltiostream.h>
+	void main ()
+	{ 
+		char b = ‘a’;
+		char s[ ] = { ‘a’, ‘b’, ‘c’, ‘d’, ‘e’, ‘f’ };
+		cout << sizeof (s) << endl;
+		cout << s << endl;
+	}
+</pre>
+в среде Borland C++ 3.1 выводит на экран следующее:
+<pre>
+	6
+	abodefwa
+</pre>
+Число 6 показывает размер массива s. А ниже — наш массив символов, но с "довеском" <b>wa</b>. Выполнив тот же пример в системе Visual C++ 6, получаем еще более странный "довесок":
+<pre>
+	6
+	abcdef | | а | | | 8_е
+</pre>
+Совершенно очевидно, что к таким странным результатам приводит отсутствие завершающего нуля.
+Необходимо совершенно ясно понимать, что <b>размер массива и длина строки символов, которая в этом массиве хранится — это разные вещи. </b>Для определения количества "значащих" символов строки в массиве используем функцию strlen. Эта функция по своему действию отличается от операции sizeof, что наглядно демонстрирует следующий фрагмент программы:
+<pre>
+	char s[10]=”Привет!”
+	cout << sizeof(s)	// выведет 10 
+	cout << strlen(s) << endl;	 // выведет 7
+</pre>
+Как мы видим, первый оператор cout выводит размер массива, а второй — количество символов в константе-строке.
+<p><b>Ввод символьных массивов-строк</b> также отличается от ввода "обыкновенных" массивов. Так же, как при выводе, можно не использовать цикл, а просто задать в операторе ввода имя массива:
+<pre>
+	cin >> s;
+</pre>
+Массив, естественно, должен быть объявлен с указанием количества элементов
+<pre>
+	char s [80];
+</pre>
+Однако и тут нас ожидают сюрпризы. Выполним следующую программу:
+<pre>
+	#includе <iostream.h>
+	void main()
+	{
+		char  sd[80];
+		cin >> sd;
+		cout << sd << endl;
+	}
+</pre>
+Зададим строку из нескольких слов   "привет от строки" — ввод заканчиваем
+клавишей &ltEnter>. Никаких проблем вроде бы не возникло. Однако оператор  выводa покажет на экране только первое слово "привет". Такая ситуация наблюдается при выполнении программы во всех интегрированных средах.
+Попытка выполнить вывод строки в цикле посимвольно
+<pre>
+	for (int  i = 0;   i  < 80;   ++i)   cout << sd[i];
+</pre>
+показывает, что в массиве действительно находится только слово  "привет". Таким образом, операция >> для символьных массивов работает только до пробела. 
+
+
+
+
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td>&nbsp&nbsp<a href="#start" class=p>Начало страницы</a>&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<FONT color="#FFFF66" size=1><i>Copyright</i> &copy; <a class=p href="http://prep.scc/~ems">
+Строганова Е.М.</a> <i>2006</i></font></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

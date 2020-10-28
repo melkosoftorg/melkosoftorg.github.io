@@ -1,0 +1,113 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 13</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Глобальные переменные</p>
+<b><i>Глобальные переменные</i></b> - переменные известные нескольким функциям, нелокальные 
+переменные.
+<p>Каждая переменная имеет тип и принадлежит к некоторому классу памяти. Определение 
+класса памяти переменной зависит от того, где переменная описана и какое ключевое 
+слово (если оно есть) используется. 
+<p><b><i>Класс памяти позволяет определить:</i></b>
+<ul>
+<li>какие функции имеют доступ к переменной (область действия), 
+<li>как долго переменная находится в памяти.
+</ul>
+<p>Для того чтобы создать внешнюю переменную, ее следует определить перед функцией main()
+<pre>
+//Программа, содержащая внешнюю переменную. 
+int temp;
+main()
+{
+	printf("Введите значение температуры: ");
+	scanf("%d", &temp);
+	convert();
+	freeze();
+	boil();
+}
+convert()
+{
+	float celsius;
+	celsius = (5.0 / 9.0) * (temp - 32);
+	printf("%d градусов по шкале Фаренгейта соответствует %6.2f градусам по шкале Цельсия\n", temp, celsius);
+	return(0);
+}
+freeze()
+{
+	printf("Это составляет %d градусов от точки замерзания воды\n", temp-32);
+	return(0);
+}
+boil()
+{
+	printf("Это составляет %d градусов от точки кипения воды\n", 212-temp);
+	return(0);
+}
+<b><i>Результаты:</i></b>
+			Введите значение температуры: 65
+			65 градусов по шкале Фаренгейта =  18.33 градусам по шкале Цельсия
+			33 градусов до точки замерзания воды
+			147 градусов до точки кипения воды
+
+
+</pre>
+<p>Если в программе одновременно присутствуют внешняя и локальная переменные с одним и тем же именем,
+ функция, в которой определена локальная переменная, будет иметь доступ только к ней
+ и не сможет использовать внешнюю переменную. 
+
+Если глобальная и локальная переменные имеют одинаковое имя, то, чтобы получить их 
+значения, надо по-разному к ним обращаться, например, переменная <b>i</b>
+<pre>
+	#include&lt;iostream.h&gt;
+	int i = 0;			// глобальная переменная
+	void main()
+	{
+		int i = 7;		// локальная переменная
+
+		cout << "Глобальная <b>::i</b> = " << <b>::i</b> << '\t' << "Локальная  <b>i</b> = " << <b>i</b> << endl;
+	}
+	Результаты:
+				Глобальная ::i = 0      Локальная  i = 7
+</pre>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

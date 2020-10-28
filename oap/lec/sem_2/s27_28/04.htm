@@ -1,0 +1,144 @@
+﻿<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>ОП | СР 27_28</title>
+<link rel="stylesheet" type="text/css" href="04_files/lec.css">
+</head>
+<body>
+<a name="#start"></a>
+<table class="pages" align="center" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr colspan="5">
+<td>&nbsp;&nbsp;<a href="http://prep.scc/%7Eblp/uch/op/plan_2.htm" class="p">Календарно-тематический план</a>&nbsp;&nbsp;</td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s27_28/index.htm" class="p">&nbsp; План лекции &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s27_28/01.htm" class="p">&nbsp; 1 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s27_28/02.htm" class="p">&nbsp; 2 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s27_28/03.htm" class="p">&nbsp; 3 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s27_28/04.htm" class="a">&nbsp; 4 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s27_28/05.htm" class="p">&nbsp; 5 &nbsp;</a></td>
+</tr>
+</tbody></table>
+<!-- -------Inside table------- -->
+<table border="0" cellpadding="5" cellspacing="0" width="98%">
+<tbody><tr><td class="usual">
+<p class="dbi" align="center"><br>Пример простого связанного списка</p>
+<p>В программе демонстрируются основные приемы работы со связанными списками.
+</p><p>Программа предназначена только для иллюстративных целей, 
+поскольку не принимает никаких данных от пользователя и вообще не делает
+ ничего полезного, кроме демонстрации нескольких операций со связанным 
+списком.
+</p><p>Программа выполняет следующее:
+</p><ol>
+<li>Объявляет структуру и указатели, необходимые для организации списка.
+</li><li>Добавляет первый элемент в список.
+</li><li>Добавляет элемент в конец списка.
+</li><li>Добавляет элемент в середину списка.
+</li><li>Выводит данные списка на экран.
+</li></ol>
+<pre>	// Демонстрация основных приемов работы со связанным списком
+	#include &lt;stdlib.h&gt;
+	#include &lt;conio.h&gt;
+	#include &lt;stdio.h&gt;
+	#include &lt;string.h&gt;
+	// Структура элемента данных списка
+	struct data
+	{	char name [20];
+		struct data *Next;
+	};
+	// Определение структурного типа PERSON
+	typedef struct data PERSON;
+	// Определение типа указателя LINK на структуру PERSON 
+	typedef PERSON *LINK;
+	int main( void )
+	{	clrscr();
+		// Указатели на первый, новый, текущий элементы
+		// и их инициализация значением NULL
+		LINK Head = NULL;
+		LINK New = NULL;
+		LINK Current = NULL;
+
+		// Добавление первого элемента в список. Не предполагается,
+		// что список пустой, хотя в этой простой программе это всегда так
+		New = (LINK) malloc(sizeof (PERSON));
+
+		// Указатель Next в новой структуре устанавливается равным адресу, который
+		// содержится в начальном указателе, даже если в списке уже были данные.
+		// Новый первый элемент будет указывать на элемент, который был первым раньше 
+		New -&gt; Next = Head;
+
+		// начальному указателю присваивается адрес новой записи
+		Head = New;
+
+		// в эту запись помещаются данные
+		strcpy(New -&gt; name, "Abigail");
+	
+		// Добавление элемента в конец списка. Предполагается, что
+		// в списке есть хотя бы один элемент
+
+		/* Добавление элемента в конец списка несколько более трудоемко,
+		чем добавление в начало списка. Необходимо в цикле перебрать
+		весь список, начиная с первого элемента, пока не найдется
+		последний элемент (его можно обнаружить по тому, что указатель
+		Next равен NULL). Найдя последний элемент, необходимо выделить
+		память для новой структуры данных, установить указатель Next в
+		последнем элементе на новый элемент, а указатель Next в новом
+		элементе сделать равным NULL, потому что именно этот элемент
+		теперь стал последним. */
+
+		Current = Head;
+		while (Current -&gt; Next != NULL)
+		{
+			Current = Current -&gt; Next;
+		}
+
+		// преобразование указателя, возвращаемого из malloc(), к типу LINK
+		New = (LINK) malloc(sizeof (PERSON));
+		Current -&gt; Next = New;
+		New -&gt; Next = NULL;
+		strcpy(New -&gt; name, "Carolyn");
+	
+		// Добавление элемента в середину списками, во вторую позицию списка
+		// Распределения памяти для новой структуры данных
+		New = (LINK) malloc(sizeof (PERSON));
+
+		// Указатель Next нового элемента устанавливается равным адресу элемента,
+		// который раньше был вторым, а теперь стал третьим в списке
+		New -&gt; Next = Head -&gt; Next;
+
+		// Указатель Next первого элемента становится равным адресу нового элемента
+		Head -&gt; Next = New;
+		strcpy(New -&gt; name, "Beatrice");
+
+		// Вывод всех пунктов списка по порядку
+		// Взять начальный указатель и двигаться от него по списку до последнего
+		// элемента, который распознается по указателю на следующий элемент,
+		// равному NULL.
+		Current = Head;
+		while(Current != NULL)
+		{
+			printf("\n%s", Current -&gt; name);
+			Current = Current -&gt; Next;
+		} printf("\n");
+		getch(); return 0;
+	}
+
+	<i>Результаты:</i>	Abigail
+			Beatrice
+			Carolyn
+<pre><p>&nbsp;
+</p><p>&nbsp;
+</p></pre></pre></td></tr>
+</tbody></table>
+<!-- -------End of Inside table------- -->
+<table class="pages" align="center" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr colspan="5">
+<td>&nbsp;&nbsp;<a href="http://prep.scc/%7Eblp/uch/op/plan_2.htm" class="p">Календарно-тематический план</a>&nbsp;&nbsp;</td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s27_28/index.htm" class="p">&nbsp; План лекции &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s27_28/01.htm" class="p">&nbsp; 1 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s27_28/02.htm" class="p">&nbsp; 2 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s27_28/03.htm" class="p">&nbsp; 3 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s27_28/04.htm" class="a">&nbsp; 4 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s27_28/05.htm" class="p">&nbsp; 5 &nbsp;</a></td>
+</tr>
+</tbody></table>
+<a name="#end"></a>
+
+</body></html>

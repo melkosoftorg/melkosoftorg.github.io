@@ -1,0 +1,121 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 30</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Матричное умножение двух двумерных массивов</p>
+Рассмотрим программу, которая определяет два двумерных массива 
+<br>a[3][4] &nbsp &nbsp и &nbsp &nbsp b[4][2], &nbsp &nbsp затем выполняет их матричное умножение:
+<pre>
+	#include&lt;stdio.h&gt;
+	#include&lt;conio.h&gt;
+	main()
+	{
+		int a[3][4] = { { 5,    3, -21, 42}, 
+			       {44, 15,   0,   6}, 
+			       {97,   6,  81,   2} };
+		int b[4][2] = { {22,    7}, 
+			       {97, -53}, 
+			       {45,    0}, 
+			       {72,    1} };
+		int c[3][2], i, j, k; clrscr();
+		printf("Вывод массива a[3][4]\n");
+		for (i = 0; i < 3; i++)
+		{
+			for (j = 0; j < 4; j++)
+				printf("%5d", a[i][j]);
+			printf("\n");
+		} 
+		printf("\nВывод массива b[4][2]\n");
+		for (i = 0; i < 4; i++)
+		{
+			for (j = 0; j < 2; j++)
+				printf("%5d", b[i][j]);
+			printf("\n");
+		}
+		for (i = 0; i < 3; i++) // матричное умножение
+		{
+			for (j = 0; j < 2; j++)
+			{
+				c[i][j] = 0;
+				for (k = 0; k < 4; k++)
+					c[i][j] += a[i][k] * b[k][j];
+			}
+		} 
+		printf("\nВывод массива c[3][2]\n");
+		for (i = 0; i < 3; i++)
+		{
+			for (j = 0; j < 2; j++)
+				printf("%5d", c[i][j]);
+			printf("\n");
+		} getch(); return 0;
+	}
+
+			<i>Результат</i>
+			Вывод массива a[3][4]
+		 	     5     3  -21   42
+			   44   15     0     6
+			   97     6    81     2
+
+			Вывод массива b[4][2]
+			   22     7
+			   97  -53
+			   45     0
+			   72     1
+		
+			Вывод массива c[3][2]
+			 2480   -82
+			 2855 -481
+			 6505  363
+</pre>
+
+<p>
+
+</td>
+</tr>
+
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

@@ -1,0 +1,142 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 23</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual><p align=center class=dbi><br>Вложенные ветвления в цикле while</p>
+<p><b>Рассмотрим алгоритм  Евклида - нахождение наибольшего общего делителя двух чисел a и b.</b>
+<p><b>Суть алгоритма Евклида можно представить следующими этапами:</b>
+<ol>
+<li>Обозревая два числа A и B, переходи к следующему пункту.
+<li>Сравни обозреваемые числа (A = B, A < B, A > B) и переходи к следующему пункту.
+<li>Если A и B равны, то прекрати вычисления: каждое из чисел дает искомый результат.
+<br>Если числа не равны, то переходи к следующему пункту.
+<li>Если первое число меньше второго, то переставь их местами; переходи к следующему пункту.
+<li>Вычитай второе число из первого, обозревай два числа: вычитаемое и остаток; переходи к пункту 2.
+</ol>
+<p>По указаниям этого алгоритма, можно найти наибольший общий делитель для любой пары натуральных чисел.
+<br>Делитель данного числа - число, на которое данное число делится без остатка. 
+<br>Общий делитель нескольких чисел - число, на которое все данные числа делятся без остатка. 
+<br>Наибольший общий делитель - наибольший из общих делителей нескольких чисел. 
+<br>Например, числа 42 и 105 имеют общие делители: 1, 3, 7, 21, наибольший из них - 21. 
+<p><center><table width="95%" align="center" border=0>
+<tr valign="top"><td width="35%">
+<img src="evkl_1.gif" alt="Алгоритм Евклида" ismap>
+</td><td>
+<pre>
+#include&lt;stdio.h>
+#include&lt;conio.h>
+void main(void)
+{
+	int a, b, temp; clrscr();
+	// ввод значений
+	printf("Наибольший общий делитель чисел\n\n");
+	printf("\ta = "); scanf("%d", &a);
+	printf("\tb = "); scanf("%d", &b);
+	while(a != b)
+	{
+		if(a < b)
+		{	// поменять местами a и b
+			temp = a;
+			a = b;
+			b = temp;
+		}
+		a -= b;
+	}
+	printf("\nравен %d", a);
+	getch();
+}
+
+</pre>
+<p><b>Если задать для a и b одинаковые значения, то тело цикла не будет выполнено ни разу.
+<br>Имеем цикл while с вложенной неполной развилкой.</b>
+</td></tr></table></center>
+<p><b>Игра с компьютером "Угадай число"</b>.
+<p>Алгоритм: цикл while с вложенной в цикл полной развилкой с вложенной полной развилкой на ветви нет.
+<p><table width="85%" align="center" border=0>
+<tr valign="top"><td width="60%">
+<pre>
+#include&lt;conio.h>
+#include&lt;stdlib.h>
+#include&lt;iostream.h>
+#define NO  0
+#define YES 1
+void main()
+{
+	clrscr();
+	int x1, x2 = 0, don = NO, num;
+	// Генерируется случайное число от 0 до 32767
+	randomize(); num = rand();
+	// Чтобы понять программу - число выводится на экран
+	cout << num << " - " << endl;
+	cout << " ? " << endl;
+	cout << "0 - " << RAND_MAX << endl;
+	while(don == NO)
+	{
+		cout << " -> "; cin >> x1;
+		x2++;			// количество попыток
+		if(num == x1)
+			don = YES;
+		else if(num < x1)
+			cout << " уменьши " << endl;
+		     else
+			cout << " увеличь " << endl;
+	}
+	cout << num << " за " << x2 << " раз " << endl;
+	getch();
+}
+</pre>
+</td><td>
+<pre>
+Результаты:
+
+23295 -
+ ?
+0 - 32767
+ -> 34
+ увеличь
+ -> 24562
+ уменьши
+ -> 23295
+23295 за 3 раз
+</pre>
+<p><b>Сгенерировано число num = 23295.
+<br>Если ввести значение переменной x1 меньше сгенерированного числа num, будет выведен ответ увеличь.
+<br>Если ввести значение переменной x1 больше сгенерированного числа num, будет выведен ответ уменьши.
+<br>Если угадал, будет выведено 23295 за 3 раз</b>.
+</td></tr>
+</table>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

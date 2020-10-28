@@ -1,0 +1,117 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 06</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr><td class=usual>
+<p align=center class=dbi><br>Стандартные функции в математических выражениях</p>
+<p>При записи алгебраических выражений используют арифметические операции (сложение, умножение, вычитание, деление), функции из библиотеки math.h, круглые скобки.
+<p><table cellSpacing=0 cellPadding=4 border=0 width="80%" align=center>
+<tr align="center" valign=top><td width="32%"><i>Математическая запись</i>
+</td><td><i>Запись на C++</i>
+</td></tr>
+<tr align=left valign=top><td><i>x</i><sup>2</sup> - 7 <i>x</i> + 6
+</td><td>x * x - 7 * x + 6 &nbsp; или &nbsp; pow(x, 2) - 7 * x + 6
+</td></tr>
+<tr align=left valign=top><td><IMG src="image101.gif" align=middle>
+</td><td>(fabs(x) - fabs(y)) / (float)(1 + fabs(x * y))
+</td></tr>
+<tr align=left valign=top><td><IMG src="image102.gif" align=middle>
+</td><td>log(fabs((y - sqrt(fabs(x))) * (x - y / (z + x * x / 4.0))))
+</td></tr>
+<tr align=left valign=top><td><IMG src="i09_02.gif" align=middle>
+</td><td>log(x) / log(a)
+</td></tr>
+<tr align=left valign=top><td><IMG src="i09_04.gif" align=middle>
+</td><td>pow(x, n / m)
+</td></tr>
+<tr align=left valign=top><td><IMG src="i09_15.gif" align=middle>
+</td><td>atn(3 * x - 2 * exp(fabs(x - 1.8)))
+</td></tr>
+<tr align=left valign=top><td><IMG src="i09_16.gif" align=middle>
+</td><td>exp(2 * log(x) + sqrt(x + 2.9) * cos(sin(x*x*x) * sin(x*x*x)))
+</td></tr>
+<tr align=left valign=top><td><IMG src="i09_17.gif" align=middle>
+</td><td>pow(cos(x + 2.8) - tan(x*x) * tan(x*x) * tan(x*x), 1<b>.</b> / 5) 
+</td></tr>
+<tr align=left valign=top><td><IMG src="i09_18.gif" align=middle>
+</td><td>(atn(z) + a) / pow(b, 2<b>.</b> / 3)
+</td></tr>
+<tr align=left valign=top><td><IMG src="i09_19.gif" align=middle>
+</td><td>a * d * e / b / c &nbsp; &nbsp; или &nbsp; &nbsp; a * d * e / (b * c)
+</td></tr>
+</table>
+<p>Для вычисления значения функции   
+<p align="center"><img src="l18_01.gif"></p>
+<p>при значениях аргумента x = 3.74, 3.95, 4.08, 4.2, 4.44 можно предложить программу:
+<p>Поскольку выражение громоздкое, при вычислении разобъем его на логически завершенные блоки - числитель и знаменатель.
+<br>Значения аргумента x введем с клавиатуры.
+<br>Для вывода результатов на экран создадим макроподстановку WW.
+<pre>
+	#include&lt;conio.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;math.h&gt;
+	#define WW printf("y(%5.2f) = %7.3f\n", x, y)
+	void main()
+	{
+		// Объявить переменные
+		int i;
+		float a, b, x, y;
+		// очистить экран
+		clrscr();
+		// повторить вычисления 5 раз
+		for (i = 1; i < 6; i++)
+		{
+			// ввести значения
+			printf("x = "); scanf("%f", &x);
+			// вычислить числитель a, знаменатель b, функцию y
+			a = sin(x) + sin(M_PI * x * x) + exp(cos(x)) + x * x + log(x * x);
+			b = sqrt(sin(M_PI * x * x) + log(x * x));
+			y = a / b; 
+			// вывести результаты на экран
+			WW;
+		}
+		getch();
+	}
+
+	Результаты
+			y(3.74) = 10.210
+			y(3.95) = 12.809
+			y(4.08) = 10.439
+			y(4.20) = 13.800
+			y(4.44) = 14.645
+</pre>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

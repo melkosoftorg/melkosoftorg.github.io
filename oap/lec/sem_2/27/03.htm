@@ -1,0 +1,91 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 27</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Генерация случайных чисел</p>
+В программе использованы различные функции для генерации случайных чисел и показаны возможные результаты.
+<pre>
+	#include&lt;iostream.h&gt;
+	#include&lt;iomanip.h&gt;
+	#include&lt;conio.h&gt;
+	#include&lt;stdlib.h&gt;
+	int main()
+	{
+		const int N = 10;
+		int i, x[N], y[N];
+		clrscr(); randomize();
+		cout << "Случайные числа, диапазон 0 - 99\n" ;
+		for (i = 0; i < N; i++)
+		{
+			x[i] = rand() % 100; y[i] = random(100);
+			gotoxy(8 + i * 3, 2); cout << x[i];
+			gotoxy(8 + i * 3, 3); cout << y[i];
+		}
+		cout << "\nСлучайные числа положительные и отрицательные\n";
+		for (i = 0; i < N; i++)
+		{
+			x[i] = random(40) - random(70);
+			gotoxy(8 + i * 4, 5); cout << x[i];
+		}
+		cout << "\nСлучайные вещественные числа\n";
+		float z[N];
+		cout.precision(2);
+		for (i = 0; i < N; i++)
+		{
+			z[i] = (random(40) - random(70)) * 1.11;
+			gotoxy(8 + i * 7, 7); cout << z[i];
+		}
+		getch(); return 0;
+	}
+
+	<b><i>Результаты:</b></i>
+
+			Случайные числа, диапазон 0 - 99
+				50 71 26 40 55 44 60 35 5 37
+				67 64 63 28 68 22 4 14 89 96
+			Случайные числа положительные и отрицательные
+				-46 12 -14 12 -15 -19 -6 -22 -18 35
+			Случайные вещественные числа
+				-15.54 -29.97 11.1 -29.97 -6.66 -35.52 -45.51 11.1 -46.62 -2.22
+<pre>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

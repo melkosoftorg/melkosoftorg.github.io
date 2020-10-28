@@ -1,0 +1,141 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 26</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Специальные адресные операции <br>& &nbsp и &nbsp *</p>
+<p>C поддерживает две специальные адресные операции:
+<pre>		& - операцию определения адреса (ссылка в языке C++ определена как другое имя уже существующего объекта),
+		* - операцию раскрытия ссылки (операция: разыменования, обращения по адресу, доступа по адресу).
+</pre>
+Операция & возвращает адрес данной переменной. В приведенной ниже программе:
+<pre>	sum является переменной типа int, 
+	&#38;sum является адресом (расположения в памяти) этой переменной. 
+	msg является указателем на тип char, 
+	*msg является символом, на который указывает msg.
+
+	#include&lt;stdio.h&gt;
+	#include&lt;conio.h&gt;
+	main()
+	{
+		int sum; char *msg; clrscr();
+		sum = 5 + 3;
+		msg = "Hello, thore\n";
+		printf(" sum = %d &#38;sum = %p \n", sum, &#38;sum);
+		printf("*msg = %c msg = %p \n", *msg, msg);
+		printf(" msg = %s\n", msg);
+		getch(); return 0;
+	}
+	  Результаты	  sum = 8 &nbsp &nbsp &#38;sum = 8FEF:0FFE
+			*msg = H &nbsp &nbsp msg = 8FA9:0094
+		   	  msg = Hello, thore
+</pre>          	
+<p>В следующей программе:
+<ul><li>адрес переменной ivar присваивается iptr, 
+<li>целое значение 421 присваивается ivar. 
+</ul>
+<p>Адресный оператор & позволяет получить адрес, по которому помещено значение переменной ivar.
+<ul>
+<li>ivar - это целая переменная, содержащая значение типа int.
+<li>iptr - это указатель на целую переменную, следовательно, она содержит адрес значения 
+типа int, iptr - это указатель, так как перед ее описанием стоит звездочка * - косвенный 
+оператор.
+</ul><pre>          	
+	#include&lt;stdio.h&gt;
+	#include&lt;conio.h&gt;
+	main()
+	{
+		int ivar, *iptr;
+		iptr = &ivar; clrscr();
+		ivar = 421;
+		printf("Размещение ivar: %p\n",&ivar);
+		printf("Содержимое ivar: %d\n", ivar);
+		printf("Содержимое iptr: %p\n", iptr);
+		printf("Адресуемое значение: %d\n",*iptr);
+		getch(); return 0;
+	}
+		Результаты
+			Размещение ivar: &nbsp &nbsp 8FF0:0FFE
+			Содержимое ivar: &nbsp &nbsp 421
+			Содержимое iptr: &nbsp &nbsp 8FF0:0FFE
+			Адресуемое значение: &nbsp 421
+</pre>          	
+<p>Изменим программу: &nbsp &nbsp вместо &nbsp &nbsp ivar = 421; &nbsp &nbsp запишем &nbsp &nbsp *iptr = 421;
+<p>В программе также адрес переменной ivar присваивается iptr, но вместо присваивания 
+числа 421 переменной ivar, это значение присваивается по указателю *iptr, потому что 
+выражения *iptr и ivar - это одна и та же ячейка памяти - поэтому оба оператора заносят 
+значение 421 в одну и ту же ячейку памяти.
+<p><table width="90%">
+<tr valign="top"><td width="20%">int val;<br>int *ptr;<br>&nbsp;
+</td><td>Объявим переменную val типа int,<br>объявим указатель ptr на переменную типа int
+</td></tr> 
+<tr valign="top"><td>ptr = &val;<br>&nbsp;
+</td><td>Присвоим адрес переменной val указателю ptr, отчего ptr  становится указателем на val:
+</td></tr> 
+<tr valign="top"><td>val = 12;<br>*ptr = 12;
+</td><td>С помощью операции ссылки по указателю * можно обратиться к значению той переменной, на которую указывает указатель.
+Оба оператора присваивают переменной val значение 12.
+</td></tr> 
+</table>
+<p>Поскольку указатель и сам является числовой переменной, он располагается в памяти компьютера по определенному адресу.
+Поэтому можно создать указатель на указатель - переменную, которая содержит адрес переменной-указателя.
+<p><table width="90%">
+<tr valign="top"><td width="20%">int val = 12;
+</td><td>Инициализированная переменная типа int
+</td></tr> 
+<tr valign="top"><td>int *ptr = &val;
+</td><td>ptr - указатель на val
+</td></tr> 
+<tr valign="top"><td>int **ptr_pt = &ptr;
+</td><td>ptr_pt - указатель на указатель на int<br>&nbsp;
+</td></tr> 
+<tr valign="top"><td>int **ptr_pt = 12;
+</td><td>Присвоить значение 12 переменной val
+</td></tr> 
+<tr valign="top"><td>ptintf("%d", **ptr_pt);
+</td><td>Отобразить значение val на экране
+</td></tr> 
+</table>
+<p>Обращение к значению по указателю на указатель еще называют многократной или вложенной ссылкой по указателю.
+Ограничений на глубину вложенности указателей не существует, но на практике нет смысла использовать больше двух уровней вложенности,
+так как возникающие при этом сложные конструкции слишком подвержены ошибкам.
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

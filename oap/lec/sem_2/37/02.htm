@@ -1,0 +1,83 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 37</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Чтение структуры из файла</p>
+<p>В приведенном ниже фрагменте программы показано, как можно из созданного на предыдущей странице файла proba.dat вычитать и вывести на экран массив структур.
+(Не забудьте вначале подключить необходимые библиотеки).
+<p>Например, функция читать массив структур из файла может иметь вид:
+<pre>
+	int read_struct(struct book New[], char *str)
+	{
+		FILE  *fp;
+		int num = 0;
+		// Открыть файл для чтения
+		if ((fp = fopen(str, "r")) == NULL)
+		{	puts("Невозможно открыть файл");
+			exit(1);
+		}
+		while(fread(&New[num], sizeof(New[num]), 1, fp) == 1)
+			num++;
+		fclose(fp);
+		return num;
+	}
+</pre>
+<br>Объявлено три массива структур типа book:<ul><li>lib[MAXB] - полный список (количество num),<li>frau[MAXB] - список женщин (количество nf),<li>man[MAXB] - список мужчин (количество nm).</ul>
+<pre>
+	#define MAXT  40		// длина текста Ф.И.О.
+	#define MAXA  40		// длина текста пол
+	#define MAXB  15		// длина списка
+	struct book
+	{	// создание шаблона типа  book
+		char tit[MAXT];
+		char aut[MAXA];
+		int val, god;
+	};
+	void main()
+	{
+		struct book lib[MAXB], frau[MAXB], man[MAXB];
+		char *name = "proba.dat";
+		int col;
+		col = read_struct(lib, name);
+		clrscr();
+		print_struct(lib, col);
+		getch();
+	}
+</pre>
+<p>Количество людей в списке накоплено в переменной col. Результаты будут выведены на экран в следующем виде:
+<p><center><img src="l39_01.gif"></center>
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

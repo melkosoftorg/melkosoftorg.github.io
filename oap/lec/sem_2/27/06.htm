@@ -1,0 +1,71 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 27</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Получение адреса элементов массива</p>
+Определим адреса четырех элементов типа int и float. Для хранения значений типа int 
+будет выделено по 2 байта, типа float - по 4 байта.
+<pre>
+	#include&lt;stdio.h&gt;
+	#include&lt;conio.h&gt;
+	int main()
+	{
+		int dates[4], *pti, index;
+		float bills[4], *ptf;
+		// присваивает адрес указателю массива
+		pti = dates;
+		ptf = bills;
+		for(index = 0; index < 4; index++)
+			   printf("указатели + %d: int %6p float %6p\n", index, pti+index, ptf+index);
+		getch(); return 0;
+	}
+
+	<b><i>Результаты:</i></b>
+
+			указатели + 0: &nbsp &nbsp int 0FF8 &nbsp &nbsp float 0FE0
+			указатели + 1: &nbsp &nbsp int 0FFA &nbsp &nbsp float 0FE4
+			указатели + 2: &nbsp &nbsp int 0FFC &nbsp &nbsp float 0FE8
+			указатели + 3: &nbsp &nbsp int 0FFE &nbsp &nbsp float 0FEC
+</pre>
+<p>Обратите внимание, что массивы dates и bills не инициализированы, то есть, значения им не присвоены, но тем не менее необходимый объем памяти выделен.
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

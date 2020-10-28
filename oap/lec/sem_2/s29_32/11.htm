@@ -1,0 +1,246 @@
+﻿<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>ОП | СР 29_32</title>
+<link rel="stylesheet" type="text/css" href="11_files/lec.css">
+</head>
+<body>
+<a name="#start"></a>
+<table class="pages" align="center" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr colspan="5">
+<td>&nbsp;&nbsp;<a href="http://prep.scc/%7Eblp/uch/op/plan_2.htm" class="p">Календарно-тематический план</a>&nbsp;&nbsp;</td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/index.htm" class="p">&nbsp; План лекции &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/01.htm" class="p">&nbsp; 1 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/02.htm" class="p">&nbsp; 2 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/03.htm" class="p">&nbsp; 3 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/04.htm" class="p">&nbsp; 4 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/05.htm" class="p">&nbsp; 5 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/06.htm" class="p">&nbsp; 6 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/07.htm" class="p">&nbsp; 7 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/08.htm" class="p">&nbsp; 8 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/09.htm" class="p">&nbsp; 9 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/10.htm" class="p">&nbsp; 10 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/11.htm" class="a">&nbsp; 11 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/12.htm" class="p">&nbsp; 12 &nbsp;</a></td>
+</tr>
+</tbody></table>
+<!-- -------Inside table------- -->
+<table border="0" cellpadding="5" cellspacing="0" width="98%">
+<tbody><tr><td class="usual"><p class="dbi" align="center"><br>Обработка потоков строк</p>
+<p>В дополнение к стандартному потоку ввода-вывода и файловому потоку 
+ввода-вывода в C++ имеется возможность для ввода из символьных массивов в
+ память и вывода в символьный массив из памяти. Эта возможность часто 
+называется форматированным вводом-выводом в память или обработкой 
+потоков строк.
+<br>Ввод символьного массива поддерживается при помощи класса istrstream.
+<br>Вывод в символьный массив поддерживается с помощью класса ostrstream.
+<br>Класс istrstream наследует функциональные возможности класса istream.
+<br>Класс ostrstream наследует функциональные возможности класса ostream.
+</p><p>Программы, которые используют форматированный ввод-вывод в память, должны включать заголовочные файлы strstream.h и iostream.h.
+<br>Одним из применений этих методов является проверка достоверности 
+данных. Программа может читать строку целиком из входного потока в 
+массив символов. Затем может подключаться процедура, проверяющая 
+достоверность данных, корректирующая (или восстанавливающая) их, если 
+это необходимо. А затем программа может обрабатывать вводимые из 
+символьного массива данные, зная, что все они соответствующим образом 
+отформатированы.
+</p><p>Вывод в символьный массив является прекрасным способом 
+использования мощных возможностей форматирования потоков в C++. Данные 
+могут быть подготовлены в символьном массиве, имитирующем формат 
+экранного редактора. Такой массив может быть записан в файл на диск для 
+сохранения изображения экрана.
+</p><p>Объект ostrstream может использоваться двумя способами.
+</p><ul><li>Первый способ использует динамически размещаемый символьный 
+массив вывода, который пересылается в объект ostrstream. Как только 
+вывод завершен, объект может быть "заморожен" функцией-элементом str, 
+чтобы в дальнейшем для вывода не надо было делать пересылок в этот 
+объект.
+<br>Функция-элемент str возвращает указатель типа char * на начало 
+объекта массива в памяти. Этому указателю можно присвоить значение 
+переменной типа char * и ссылаться на него как на любой символьный 
+массив в C++.
+<br>Следующая программа создает объект outputString класса ostream и 
+использует операцию поместить в поток для вывода набора строк и 
+численных значений в объект.
+<br>Манипулятор потока ends помещает нулевой символ ('\0') в конце вывода данных в outputString.
+<br>Затем программа замораживает содержимое потока outputString 
+функцией-элементом str и присваивает переменной указателю result 
+указатель на начало массива в памяти. Далее массив выводит в виде 
+строки.
+<br>Программа проверяет состояние потока outputString перед тем, как 
+поместить в него информацию. После того, как функция-элемент str 
+вызвана, предпринимается следующая попытка поместить в поток.
+<p></p></li><li>Второй способ использования объекта класса ostrstream - 
+передача ему трех аргументов для конструктора класса ostrstream: 
+символьного массива его длины и режима открытия потока (ios::out или 
+ios::app).
+<br>Если задан режим ios::app, то символьный массив воспринимается как 
+строка, заканчивающаяся нулевым символом, и информация помещается, 
+начиная с позиции этого нулевого символа.
+</li></ul>
+<pre>	// Использование динамически размещаемого объекта класса ostrstream
+	#include&lt;iostream.h&gt;
+	#include&lt;strstream.h&gt;
+	main()
+	{
+		ostrstream outputString;
+		char	*s1 = "Вывод нескольких типов данных ",
+			*s2 = "в объект класса ostrstream:",
+			*s3 = "\n double: ",
+			*s4 = "\n int: ",
+			*s5 = "\nадрес int: ",
+			*result;
+		double d = 123.4567; int i = 22;
+		cout &lt;&lt; "Состояние потока outputString" 
+			&lt;&lt; " перед помещением в него данных: "
+			&lt;&lt; outputString.rdstate() &lt;&lt; endl;
+		outputString &lt;&lt; s1 &lt;&lt; s2 &lt;&lt; s3 &lt;&lt; d &lt;&lt; s4 &lt;&lt; i &lt;&lt; s5 &lt;&lt; &amp;i &lt;&lt; ends;
+		result = outputString.str();
+		outputString &lt;&lt; "проверка помещения в поток после вызова str";
+		cout &lt;&lt; endl &lt;&lt; "Состояние outputString после вызова str"
+			&lt;&lt; endl &lt;&lt; "и следующей попытки помещения данных в поток: "
+			&lt;&lt; outputString.rdstate() &lt;&lt; endl &lt;&lt; endl
+			&lt;&lt; "Динамически созданная строка содержит: " &lt;&lt; endl &lt;&lt; endl 
+			&lt;&lt; result &lt;&lt; endl;
+		return 0;
+	}
+
+	<i>Результаты</i>
+		Состояние потока outputString перед помещением в него данных: 0
+
+		Состояние outputString после вызова str
+		и следующей попытки помещения данных в поток: 4
+
+		Динамически созданная строка содержит:
+
+		Вывод нескольких типов данных в объект класса ostrstream:
+		 double: 123.4567
+		 int: 22
+		 адрес int: 0x8f9e0fde
+</pre>
+<pre>	// Демонстрация объекта класса ostrstream,
+	// использующего заранее определенный массив
+	#include&lt;iostream.h&gt;
+	#include&lt;strstream.h&gt;
+	main ()
+	{
+		const int size = 15;
+		char buffer [size];
+		ostrstream outputString (buffer, size, ios :: out);
+		cout &lt;&lt; "Состояние потока outputString перед помещением в него данных: "
+			&lt;&lt; outputString. rdstate () &lt;&lt; endl;
+		outputString &lt;&lt; "Проверка " &lt;&lt; 123 &lt;&lt; ends;
+		cout &lt;&lt; "Содержимое буфера: " &lt;&lt; endl &lt;&lt; buffer;
+		outputString &lt;&lt; "попытка вставить после конца массива";
+		cout &lt;&lt; endl &lt;&lt; endl &lt;&lt; "Состояние outputString после попытки"
+			&lt;&lt; endl &lt;&lt; "вставки после конца строки: "
+			&lt;&lt; outputString. rdstate () &lt;&lt; endl;
+		return 0;
+	}
+
+	<i>Результаты</i>	
+		Состояние потока outputString перед помещением в него данных: 0
+		Содержимое буфера:
+		Проверка 123
+
+		Состояние outputString после попытки
+		вставки после конца строки: 4
+</pre>
+<br>Объявление 
+&nbsp;&nbsp;&nbsp;ostrstream&nbsp;outputString(buffer,&nbsp;size,&nbsp;ios&nbsp;::&nbsp;out);&nbsp;&nbsp;
+ создает объект ostrstream, который будет использовать символьный массив
+ buffer с количеством элементов size для хранения вывода, направляемого в
+ поток outputString.
+<br>Поскольку размер массива известен заранее, поток outputString может осуществить свой собственный поиск ошибок.
+<br>Если предпринимается попытка вывести данные в поток outputString, 
+причем данные должны храниться за концом массива buffer, тогда будет 
+установлен failbit и операция вывода не выполнится.
+<br>Программа выводит строку, целое и завершающий, нулевой символ в buffer, а затем выводит содержимое buffer.
+<br>Программа проверяет состояние потока outputString перед помещением в
+ него информации и вслед за попыткой поместить информацию после конца 
+массива buffer.
+<p>Объект istrstream вводит данные из символьного массива в памяти в 
+переменные программы. Данные хранятся в объекте istrstream как символы; 
+ввод из объекта istrstream работает аналогично вводу из любого файла или
+ из стандартного входного потока. Завершающий нулевой символ 
+интерпретируется этим объектом как eof.
+</p><p>Объявление 
+&nbsp;&nbsp;&nbsp;istrstream&nbsp;inputBuffer(input,&nbsp;size);&nbsp;&nbsp;
+ создает объект inputBuffer класса istrstream.
+<br>Два аргумента задают массив (input), из которого данные считываются, и число элементов в массиве (size).
+<br>Входной массив содержит следующие данные:
+</p><pre>				Введите тест 123 4.7 А</pre>
+<p>которые при считывании в программу в качестве входных данных состоят 
+из двух строк ("Введите" и "тест"), целого значения (123), значения с 
+плавающей точкой (4.7) и символа ('А'). Эти данные вводятся в переменные
+ string1, string2, i, d и с соответственно операцией извлечь из потока, а
+ затем выводятся в cout.
+<br>Программа проверяет состояние потока inputBuffer перед попыткой 
+извлечения или после нее, пока не остается данных во входном массиве 
+input.
+</p><pre>	// Демонстрация ввода из объекта класса istrstream.
+	#include&lt;iostream.h&gt;
+	#include&lt;strstream.h&gt;
+	main ()
+	{
+		const int size = 80;
+		char input [size] = "Введите тест 123 4.7 A";
+		istrstream inputBuffer(input, size);
+		cout &lt;&lt; "Состояние inputBuffer перед операцией извлечения: "
+			&lt;&lt; inputBuffer.rdstate() &lt;&lt; endl &lt;&lt; endl;
+		char string1 [size], string2 [size];
+		int i;
+		double d;
+		char c;
+		inputBuffer &gt;&gt; string1 &gt;&gt; string2 &gt;&gt; i &gt;&gt; d &gt;&gt; c;
+		cout &lt;&lt; "Извлекаются следующие данные " &lt;&lt; endl
+			&lt;&lt; "из объекта класса istrstream:" &lt;&lt; endl
+			&lt;&lt; " Строка: " &lt;&lt; string1 &lt;&lt; endl
+			&lt;&lt; " Строка: " &lt;&lt; string2 &lt;&lt; endl
+			&lt;&lt; " Integer: " &lt;&lt; i &lt;&lt; endl
+			&lt;&lt; " Double: " &lt;&lt; d &lt;&lt; endl
+			&lt;&lt; " Char: " &lt;&lt; c &lt;&lt; endl &lt;&lt; endl;
+		// Попытка чтения из пустого потока
+		long l; inputBuffer &gt;&gt; l;
+		cout &lt;&lt; " Состояние inputBuffer после извлечения из пустого потока: "
+			&lt;&lt; inputBuffer.rdstate() &lt;&lt; endl;
+		return 0;
+	}
+	
+	<i>Результаты</i>	
+		Состояние inputBuffer перед операцией извлечения: 0
+
+		Извлекаются следующие данные
+		из объекта класса istrstream:
+		 Строка: Введите
+		 Строка: тест
+		 Integer: 123
+		 Double: 4.7
+		 Char: A
+
+		Состояние inputBuffer после извлечения из пустого потока: 2
+</pre>
+<p>&nbsp;</p>
+</td></tr>
+</tbody></table>
+<!-- -------End of Inside table------- -->
+<table class="pages" align="center" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr colspan="5">
+<td>&nbsp;&nbsp;<a href="http://prep.scc/%7Eblp/uch/op/plan_2.htm" class="p">Календарно-тематический план</a>&nbsp;&nbsp;</td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/index.htm" class="p">&nbsp; План лекции &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/01.htm" class="p">&nbsp; 1 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/02.htm" class="p">&nbsp; 2 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/03.htm" class="p">&nbsp; 3 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/04.htm" class="p">&nbsp; 4 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/05.htm" class="p">&nbsp; 5 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/06.htm" class="p">&nbsp; 6 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/07.htm" class="p">&nbsp; 7 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/08.htm" class="p">&nbsp; 8 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/09.htm" class="p">&nbsp; 9 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/10.htm" class="p">&nbsp; 10 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/11.htm" class="a">&nbsp; 11 &nbsp;</a></td>
+<td><a href="http://prep.scc/%7Eblp/uch/op/lec/sem_2/s29_32/12.htm" class="p">&nbsp; 12 &nbsp;</a></td>
+</tr>
+</tbody></table>
+<a name="#end"></a>
+
+</body></html>

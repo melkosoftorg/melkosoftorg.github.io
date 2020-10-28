@@ -1,0 +1,116 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 39</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Доступ к отдельным байтам объединения</p>
+Если включить в объединение символьный массив такой же длины, что и другие элементы 
+объединения, то получим возможность доступа к отдельным байтам внутреннего 
+представления объединения, что может быть использовано в решении задачи, связанной с 
+доступом к буферу клавиатуры.
+<p>В MS DOS принято, что нажатие на любую клавишу клавиатуры ПЭВМ приводит к 
+занесению в буфер клавиатуры (специально зарезервированный участок памяти) целого 
+двухбайтового числа, каждый байт которого имеет самостоятельное смысловое значение:
+<ul>
+<li>байт с младшим адресом - ASCII-код клавиши,
+<li>старший байт - дополнительный код, называемый скэн-кодом клавиши.
+</ul>
+В библиотеке компилятора С++ ( bios.h ) имеется специальная функция 
+<b>int bioskey(int b);</b>
+позволяющая получить доступ к буферу клавиатуры.
+<p>Параметр <b><i>int b</i></b> функции позволяет выбрать режим ее использования. 
+<ul>
+<li>Обращение <b><i>bioskey(1)</i></b> проверяет наличие в буфере хотя бы одного кода. Если буфер пуст (клавиша не 
+нажималась), то функция возвращает нулевое значение, если буфер не пуст - ненулевое 
+значение.
+<li>Обращение <b><i>bioskey(0)</i></b> позволяет прочитать код, занесенный в буфер как целое 
+двухбайтовое число и очистить буфер от этого кода. 
+</ul>
+Выделить из этого целого числа отдельные байты можно с помощью объединения.
+<p>Объединение выделяет скэн и ASCII-коды клавиш, в том числе функциональных (F1 - 
+F10), быстрого перемещения, удаления и вставки, не имеющих ASCII-кода.
+<pre>
+	#include&lt;bios.h&gt;
+	#include&lt;iostream.h&gt;
+	#include&lt;conio.h&gt;
+	void main()
+	{
+		union
+		{
+			char hh[2];
+			int ii;
+		} cc;
+		unsigned char	scn,	// Скэн - коды
+				asc;	// ASCII - коды
+		clrscr();
+		cout << "Выход из программы по Ctrl+z";
+		cout << "\n\nSCAN | ASCII";
+		do	// Цикл до Ctrl+z
+		{
+			cout << "\n";
+			while (bioskey(1) == 0);	// До появления кода
+				cc.ii = bioskey(0);
+			asc = cc.hh[0]; scn = cc.hh[1];
+			cout << setw(2) << int(scn) << setw(4) << "|";
+			cout << setw(3) << int(asc) << setw(2) << asc;
+		} while(asc != 26 || scn != 44);
+	}
+
+	<b><i>Результаты</i></b>	Выход из программы по Ctrl+z
+
+			           SCAN | ASCII
+				4     | 51 3
+				32   |100 d
+				57   | 32
+				59   |  0
+				36   |106 j
+				37   | 75 K
+				21   |141 Н
+				37   |171 л
+				38   |164 д
+				25   |135 З
+				34   |143 П
+				44   | 26
+
+</pre>
+<p><center>Таблица скан-кодов клавиш</center>
+<p><center><img border=0 src="l41_scan.gif" alt="Таблица SCAN кодов клавиш"></center>
+
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

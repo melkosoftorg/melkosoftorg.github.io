@@ -1,0 +1,94 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 39</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Размещение структуры в памяти ЭВМ</p>
+Рассмотрим программу, позволяющую увидеть размещение структуры в памяти ЭВМ.
+<pre>
+	#include&lt;iostream.h&gt;
+	#include&lt;conio.h&gt;
+	void main()
+	{
+		struct
+		{
+			long l;
+			int i1, i2;
+			char c[4];
+		} str = {10, 20, 30, 'a', 'b', 'c', 'd'};
+		clrscr();
+		cout << "Размещение в памяти элементов структуры\n";
+		cout << "\n &str = " << &str<< " sizeof(str) = " << sizeof(str) ;
+		cout << "\n\nlong &str.l = " << &str.l;
+		cout << " sizeof(str.l) = " << sizeof(str.l);
+		cout << "\nint &str.i1 = " << &str.i1;
+		cout << " sizeof(str.i1) = " << sizeof(str.i1);
+		cout << "\nint &str.i2 = " << &str.i2;
+		cout << " sizeof(str.i2) = " << sizeof(str.i2);
+		cout << "\nchar &str.c = " << &str.c;
+		cout << " sizeof(str.c) = " << sizeof(str.c);
+		cout << "\n\nstr.c[0] = " << str.c[0];
+		cout << " sizeof(str.c[0]) = " << sizeof(str.c[0]) << " &str.c[0] = " << &str.c[0];
+		cout << "\n\nstr.c[1] = " << str.c[1];
+		cout << " sizeof(str.c[1]) = " << sizeof(str.c[1]) << " &str.c[1] = " << &str.c[1];
+		cout << "\n\nstr.c[2] = " << str.c[2];
+		cout << " sizeof(str.c[2]) = " << sizeof(str.c[2]) << " &str.c[2] = " << &str.c[2];
+		cout << "\n\nstr.c[3] = " << str.c[3];
+		cout << " sizeof(str.c[3]) = " << sizeof(str.c[3]) << " &str.c[3] = " << &str.c[3];
+		getch();
+	}
+
+	<b><i>После исполнения программы можем получить результат:</i></b>
+		Размещение в памяти элементов структуры
+		&str = 0x8f77ffea sizeof(str) = 12
+		long &str.l = 0x8f77ffea sizeof(str.l) = 4
+		int &str.i1 = 0x8f77ffee sizeof(str.i1) = 2
+		int &str.i2 = 0x8f77fff0 sizeof(str.i2) = 2
+		char &str.c = 0x8f77fff2 sizeof(str.c) = 4
+		str.c[0] = a sizeof(str.c[0]) = 1 &str.c[0] = abcd
+		str.c[1] = b sizeof(str.c[1]) = 1 &str.c[1] = bcd
+		str.c[2] = c sizeof(str.c[2]) = 1 &str.c[2] = cd
+		str.c[3] = d sizeof(str.c[3]) = 1 &str.c[3] = d
+
+</pre>
+<b><i>Вывод:</i></b> все элементы структуры размещаются в памяти подряд и сообща занимают 
+столько места, сколько отведено структуре в целом.
+<p><center><img src="l41_01.gif"></center>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

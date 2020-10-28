@@ -1,0 +1,61 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 38</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Определение указателя на структуру</p>
+Так как имя структурного типа обладает всеми правами имен типов, то разрешено 
+определять указатели на структуры:
+<p><b><center>имя_структурного_типа *имя_указателя_на_структуру;</b></center>
+<p>Указатели на структуры ничем не отличаются от указателей на обычные переменные. Как обычно, 
+определяемый указатель может быть инициализирован. Значением каждого указателя на структуру 
+может быть адрес структуры того же типа, то есть номер байта, начиная с которого структура размещается в памяти. 
+<br>Наиболее корректно в качестве инициализирующего значения применять адрес структурного объекта того же типа, что и тип определяемого указателя.
+<pre>
+		struct part
+		{	double mass;
+			float koord[3];
+		} dot[3], point, *pine;
+		// инициализация указателей
+		struct part *p_d = &dot[1], *pint = &point;
+</pre>
+<br>Значение указателя на структуру может быть определено и с помощью обычного присваивания:
+<p><center>pine = &dot[0];</center>
+<p>Если функции передается большая структура, то, чем копировать ее целиком, 
+эффективнее передать указатель на нее.
+<p>Декларация struct point *pp; сообщает, что pp есть 
+указатель на структуру типа struct point.
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

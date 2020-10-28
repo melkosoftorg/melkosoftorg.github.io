@@ -1,0 +1,98 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 04</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Символьные данные</p>
+Значением символьных данных (char) может быть буква, цифра или другой символ 
+клавиатуры. Для каждого элемента символьных данных программа отводит столько места, 
+сколько необходимо для хранения единичного символа.
+<p>
+<table border=1 align=center>
+<tr><td>  <b><center>Тип              </center></b>
+</td><td> <b><center>Размер (в байтах) </center></b>
+</td><td> <b><center>Диапазон значений</center></b>
+</td></tr>
+<tr><td>  <b>unsigned char</b>
+</td><td> <center>1</center>
+</td><td> <center>0 - 255</center>
+</td></tr>
+<tr><td>  <b>char</b>
+</td><td> <center>1</center>
+</td><td> <center>-128 - 127</center>
+</td></tr>
+</table>
+<pre>
+<b><i>Множество символов языка C включает:</i></b>
+<ul>
+<li>большие и малые буквы латинского алфавита
+	A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+	a b c d e f g h i j k l m n o p q r s t u v w x y z
+<li>десять десятичных арабских цифр 0 1 2 3 4 5 6 7 8 9
+<li>специальные символы клавиатуры
+	! ~ ` # % ^ " ' ; : [ ] { } $ & * - + / < . > , \ | @ ? ( ) _ 
+</ul></pre>
+Значениями переменной типа char могут быть только одиночные символы. 
+<P><b><i>При присваивании значения переменной типа char необходимо значение (символ) 
+заключать в апострофы</i></b>
+<pre>			char olli, beep;
+			olli = 'r';
+			beep = '\007';
+</pre>
+<p>Согласно таблице ASCII-кода код символа <b>r</b> равен 114, код 7 соответствует подаче 
+звукового сигнала - терминал компьютера 
+будет издавать звуковой сигнал. Это ( или \a ) управляющая последовательность.
+<p><b><i>Управляющие последовательности:</i></b>
+<table align="center" width="60%" border=0>
+<tr valign="top"><td width="50%">\n - новая строка</td><td>\' - одиночная кавычка         
+</td></tr>
+<tr valign="top"><td>\t - табуляция горизонтальная</td><td>\0 - null - символ             
+</td></tr>
+<tr valign="top"><td>\v - табуляция вертикальная</td><td>\? - вопросительный знак       
+</td></tr>
+<tr valign="top"><td>\b - шаг назад (забой)</td><td>\\ - наклонная черта влево     
+</td></tr>
+<tr valign="top"><td>\r - возврат каретки</td><td>\a - подача звукового сигнала  
+</td></tr>
+<tr valign="top"><td>\f - подача бланка</td><td>\ddd - восьмеричное число      
+</td></tr>
+<tr valign="top"><td>\" - двойные кавычки</td><td>\xhh - шестнадцатеричное число 
+</td></tr>
+</table>
+<p align="center"><img src="ascii.gif" alt="Таблица ASCII кодов символов" ismap></p>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

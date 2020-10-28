@@ -1,0 +1,195 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 22</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Цикл с предусловием - while</p>
+<p><b>Используется в тех случаях, когда вы не знаете точного количества повторов, и нет необходимости, чтобы цикл обязательно был выполнен.</b>
+<p><center><table width="90%">
+<tr valign="top"><td width="40%">
+<pre>
+выражение 1;
+while (выражение 2)
+{
+	// тело цикла
+	операторы;
+	выражение 3;
+}
+</pre>
+<p>Операторы внутри while могут оказаться не выполненными ни разу (так как проверка условия выполнения цикла осуществляется до выполнения последовательности операторов составляющих тело цикла).
+
+</td><td width="30%" align="center">
+<img src="while.gif" alt="Цикл do ... while" ismap>
+
+</td><td>
+<pre>
+x = a;
+while (x <= b)
+{
+	// серия команд тела цикла
+	операторы;
+	x += h;
+}
+</pre>
+<p>Правильность условия проверяется перед телом циклом. 
+</td></tr></table></center>
+<ul>
+<p><li type="disc">выражение 1 - начальное значение управляющей переменной цикла; 
+<li type="disc">выражение 2 - условие продолжения цикла; 
+<li type="disc">выражение 3 - модификация (приращение) управляющей переменной за каждое выполнение цикла.
+</ul>
+<p><b>Цикл while работает следующим образом:</b>
+<ol>
+<li>До цикла задается начальное значение управляющей переменной цикла x = a.
+<li>Проверяется условие окончания или продолжения цикла x <= b.
+<ul type="disc">
+<li>если условие истинно, то выполняются команды тела цикла (с пункта 3), 
+<li>если условие ложно, выполнение тела цикла прекращается и выполняется команда, следующая за циклом.
+</ul>
+<li>Выполняются команды тела цикла.
+<li>Изменяется значение управляющей переменной цикла x += h, затем управление передается пункту 2.
+</ol>
+<p>Необходимо выкопать траншею от забора до ... Работать надо до обеда.
+<br>Феде Лентяйкину уж очень не хочется копать, поэтому, выкопав очередные 12.3 см<sup>3</sup> траншеи он смотрит на часы, не наступил ли обед.
+<br>Сколько s см<sup>3</sup> траншеи выкопает Федя от "забора и до обеда"?
+<p><table width="80%" align="center">
+<tr valign="top"><td width="50%">
+<pre>
+#include&lt;conio.h>
+#include&lt;iostream.h>
+void main()
+{
+	clrscr();
+	char ch;
+	float s = 0;
+	cout << "Подойди к забору" << endl;
+	cout << "Обед (y/n) ?" << endl;
+	while(ch = getche() != 'y')
+	{
+		s += 12.3;
+		cout << "\ts = " << s << endl;
+	}
+	cout << "\ns = " << s << endl;
+	getch();
+}
+</pre>
+</td><td>
+<pre>
+<i>Возможные результаты:</i>
+
+	Подойди к забору
+	Обед (y/n) ?
+	y
+	s = 0
+
+	Подойди к забору
+	Обед (y/n) ?
+	n        s = 12.3
+	n        s = 24.6
+	n        s = 36.9
+	y
+	s = 36.9
+</pre>
+</td></tr>
+</table>
+<p>Тело цикла - это команды: нарастить значение суммы, вывести значение накопленных частичных сумм.
+<p>Полное значение суммы выводится за циклом после нажатия <b>y</b>.
+<p>Рассмотрим программу, которая:
+<ul>
+<li>позволит ввести предложение с клавиатуры и подсчитать при этом, сколько раз вы 
+нажали на клавиши клавиатуры до тех пор, пока не нажали на клавишу &lt;Enter>; 
+<li>сообщит, сколько символов (символ '\n' не подсчитывается) введено. Для отображения вводимых символов на экране дисплея используется функция putch. 
+<li>в условном выражении оператора while использует выражение присваивания, 
+что позволяет программе читать и одновременно сравнивать считанные символы 
+с символом, соответствующим клавише &lt;Enter>.
+<br>Если считанный символ не &lt;Enter>, то программа отображает его на экране дисплея и увеличивает на единицу значение len. 
+</ul>
+<p>Тело цикла может оказаться не выполненным ни разу, если первым введенным символом будет нажатие клавиши &ltEnter>.<p> 
+<pre>
+	#include&lt;conio.h&gt;
+	#include&lt;stdio.h&gt;
+	main()
+	{
+		clrscr();
+		char ch;
+		int len = 0;
+		puts("Наберите предложение, затем нажмите <Enter>\n");
+		while ((ch = getchar()) != '\n')
+		{
+			putch(ch);
+			len++;
+		}
+		printf("\n\n\nВаше предложение имеет длину %d символов\n", len);
+		getch(); return 0;
+	}
+</pre>
+<p>Поскольку цикл while является наиболее общим типом цикла, рассмотрим в следующем примере возможность вычисления математических выражений с его использованием.
+<br>Используя цикл while, вычислить значение функции 
+<img src="pic_04.gif" alt="pic_04.gif" ismap align="middle">,
+при значениях аргумента x, изменяющегося от 1,7 до 2 с шагом 0,1.
+<p><table  width="80%" align=center border=0 cellspacing=0 cellpadding=0>
+<tr valign="top"><td width="50%"><pre>
+#include&lt;conio.h&gt;
+#include&lt;math.h&gt;
+#include&lt;iostream.h&gt;
+main()
+{
+	float y, x = 1.7, h = .1; clrscr();
+	while(x <= 2)
+	{
+		y = pow(sin(x) + cos(x), log(x));
+		cout << "x = " << x << " y = " << y << endl;
+		x += h;
+	}
+	getch(); return 0;
+}
+</pre>
+</td><td>&nbsp;&nbsp;&nbsp;
+</td><td><pre>
+Результаты:
+
+x = 1.7  y = 0.924693
+x = 1.8  y = 0.842206
+x = 1.9  y = 0.738067
+x = 2     y = 0.612618
+</pre>
+</td></tr></table>
+<p>Фактически задачи такого вида наиболее удобно решать с использованием цикла for.
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="lec_m.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

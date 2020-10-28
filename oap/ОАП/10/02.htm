@@ -1,0 +1,77 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 10</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Основания чисел различных систем счисления</p>
+Манипуляторы потоков <b>dec</b>, <b>oct</b>, <b>hex</b> и <b>setbase</b> задают основание чисел, требуют 
+включения заголовочного файла iomanip.h.
+<p>Целые числа обычно интерпретируются как десятичные (с основанием 10). 
+<p>Для изменения основания интерпретации целых чисел в потоке используется 
+<ul>
+<li>манипулятор <b>hex</b>, чтобы установить шестнадцатеричный формат представления элементов данных (с основанием 16), 
+<li>манипулятор <b>oct</b>, чтобы установить восьмеричный формат представления данных (с основанием 8), 
+<li>манипулятор <b>dec</b> для возврата к основанию потока 10. 
+</ul>
+<p>Основание потока может быть изменено с помощью манипулятора потока <b>setbase</b>, который принимает один 
+целый параметр со значениями 10, 8 или 16, задающими соответствующие основания 
+системы счисления. <br>Поскольку манипулятор setbase принимает параметр, он называется 
+параметризованным манипулятором потока. 
+<pre>
+	#include&lt;iostream.h&gt;
+	#include&lt;iomanip.h&gt;
+	void main()
+	{
+		int n;
+		cout << "Десятичное целое число "; cin >> n;
+		cout << "\n16 система счисления " << hex << n
+			<< "\n 8 система счисления " << oct << n
+			<< "\nдесятичное целое число " << dec << n
+			<< endl << setbase(8) << n << endl;
+	}
+	<b><i>Результаты:</i></b>	Десятичное целое число 3456
+			16 система счисления       d80
+			8 система счисления       6600
+			десятичное целое число 3456
+			6600
+</pre>
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

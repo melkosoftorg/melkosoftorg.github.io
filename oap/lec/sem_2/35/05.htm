@@ -1,0 +1,57 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>Лекция | Структуры</title>
+
+<link rel="stylesheet" type="text/css" href="../../../css/lec.css"></head><body>
+<a name="#start"></a>
+<table class="pages" align="center" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr colspan="5">
+<td>&nbsp;&nbsp;<a href="../../../plan_2.htm" class="p">Календарно-тематический план</a>&nbsp;&nbsp;</td>
+<td><a href="index.htm" class="p">&nbsp; План лекции &nbsp;</a></td>
+<td><a href="01.htm" class="p">&nbsp; 1 &nbsp;</a></td>
+<td><a href="02.htm" class="p">&nbsp; 2 &nbsp;</a></td>
+<td><a href="03.htm" class="p">&nbsp; 3 &nbsp;</a></td>
+<td><a href="04.htm" class="p">&nbsp; 4 &nbsp;</a></td>
+<td><a href="05.htm" class="a">&nbsp; 5 &nbsp;</a></td>
+<td><a href="06.htm" class="p">&nbsp; 6 &nbsp;</a></td>
+</tr>
+</tbody></table>
+<!-- -------Inside table------- -->
+<table border="0" cellpadding="5" cellspacing="0" width="98%">
+<tbody><tr>
+<td class="usual">
+<p class="dbi" align="center"><br>Структуры и функции</p>
+Передача структур функциям в качестве аргументов и возврат их от функций в виде 
+результата относятся к операциям копирования и присваивания. 
+<p><b><i>Передавать функциям объекты можно тремя способами:</i></b>
+</p><ul>
+<li><span style="font-weight: bold;">передавать компоненты по отдельности.</span>
+<p>Функция makepoint получает два целых значения и возвращает структуру point 
+</p><pre>	// makepoint: формирует точку по компонентам x и y <br>	struct point makepoint(int x, int y)<br>	{<br>		struct point temp;<br>		temp.x = x; temp.y = y;<br>		return temp;<br>	}<br><br></pre>
+<p>Теперь с помощью makepoint можно выполнять динамическую инициализацию любой 
+структуры или формировать структурные аргументы для функций.
+struct rect screen;
+</p><pre>	struct point middle;<br>	struct point makepoint(int, int);<br>	screen.pt1 = makepoint(0, 0);<br>	screen.pt2 = makepoint(XMAX, YMAX);<br>	middle = makepoint( (screen.pt1.x + screen.pt2.x) / 2, <br>			(screen.pt1.y + screen.pt2.y) / 2 );<br><br></pre>
+</li><li><span style="font-weight: bold;">передавать всю структуру целиком.</span>
+<pre>	#include&lt;conio.h&gt;<br>	#include&lt;iostream.h&gt;<br>	// Объявление шаблона структуры point<br>	struct point<br>	{<br>		int x, y;<br>	};<br>	// Совместное объявление структуры и экземпляра, инициализация<br>	struct rect<br>	{<br>		struct point pt1;<br>		struct point pt2;<br>	} MyBox = {1, 1, 10, 10};<br>	// Функция: вывести структуру на экран<br>	void print(struct rect MyBox)<br>	{<br>		cout &lt;&lt; "Диагональные вершины: (" &lt;&lt; MyBox.pt1.x &lt;&lt; ", " &lt;&lt; MyBox.pt1.y &lt;&lt; ") ("<br>			&lt;&lt; MyBox.pt2.x &lt;&lt; ", " &lt;&lt; MyBox.pt2.y &lt;&lt; ')' &lt;&lt; endl;<br>	}<br>	void main()<br>	{<br>		print(MyBox);<br>		getch();<br>	}<br></pre>
+</li><li><span style="font-weight: bold;">передавать указатель на структуру.</span>
+</li></ul>
+<p>&nbsp;</p>
+</td></tr>
+</tbody></table>
+<!-- -------End of Inside table------- -->
+<table class="pages" align="center" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr colspan="5">
+<td>&nbsp;&nbsp;<a href="../../../plan_2.htm" class="p">Календарно-тематический план</a>&nbsp;&nbsp;</td>
+<td><a href="index.htm" class="p">&nbsp; План лекции &nbsp;</a></td>
+<td><a href="01.htm" class="p">&nbsp; 1 &nbsp;</a></td>
+<td><a href="02.htm" class="p">&nbsp; 2 &nbsp;</a></td>
+<td><a href="03.htm" class="p">&nbsp; 3 &nbsp;</a></td>
+<td><a href="04.htm" class="p">&nbsp; 4 &nbsp;</a></td>
+<td><a href="05.htm" class="a">&nbsp; 5 &nbsp;</a></td>
+<td><a href="06.htm" class="p">&nbsp; 6 &nbsp;</a></td>
+</tr>
+</tbody></table>
+<a name="#end"></a>
+</body></html>

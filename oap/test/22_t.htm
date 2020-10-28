@@ -1,0 +1,206 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Вопросы теста 22 </title>
+<link rel=stylesheet type=text/css href=lec.css>
+</head>
+<body>
+<table cellpadding=0 cellspacing=0>
+<tr id=top><td colspan=5>
+<center>
+<a id=top href=../plan_2.htm>Календарно-тематический план &nbsp &nbsp </a>
+</center>
+</td></tr>
+<tr>
+<td class=bok></td>
+<td class=bok1></td>
+<td>
+<p id=head>Вопросы тестирования по теме:<br>Вложенные циклы</p>
+<ol>
+<li>Какие циклы называются вложенными?
+<li>Когда рационально использовать вложенные циклы для многократного повторения вычислений?
+<li>Какие правила необходимо выполнять при программировании вложенных циклов?
+<li>Какие циклы называются итерационными?
+</ol>
+<p id=head1>Что будет выведено на экран после исполнения фрагмента программы ?</p>
+<ol>
+<li><pre>
+	int i, j;
+	for (j = 1; j < 4; j++)
+	{	for(i = 2; i < 10; i += 3);
+		printf("%d ", i * j);
+	}
+</pre>
+<li><pre>
+	int i, j;
+	for (j = 1; j < 4; j++)
+	{	for(i = 2; i < 8; i += 3)
+			printf("%d ", i * j);
+	}
+</pre>
+<li><pre>
+	int i = 7, j;
+	do
+	{	j = 2;
+		do
+			j++;
+		while(j < 4);
+		i += 3; printf("%d %d ", i, j);
+	} while(i < 12);
+</pre>
+<li><pre>
+	int i = 7, j;
+	do
+	{	j = 2;
+		do
+		{	j++;
+			printf("%d ", j);
+		} while(j < 4);
+		i += 3; printf("%d ", i);
+	} while(i < 12);
+</pre>
+<li><pre>
+	int i = 7, j;
+	do
+	{	j = 2; i += 3;
+		while(j < 6)
+			j += 2;
+		printf("%d %d ", i, j);
+	} while(i < 12);
+</pre>
+<li><pre>
+	int i = 7, j;
+	do
+	{	j = 2; i += 3; printf("%d %d ", i, j);
+		while(j < 6)
+			j += 2;
+	} while(i < 12);
+</pre>
+<li><pre>
+	int i, j;
+	for(j = 5; j < 8; j++)
+		for(i = 1; i < 10; i += j)
+			printf("%d ", i);
+	</pre>
+<li><pre>
+	int i, j;
+	for(j = 1; j < 3; j++)
+	{	i = 0;
+		while((i += 8) <= 20)
+			printf("%d ", j * i++);
+	}
+</pre>
+<li><pre>
+	int i, j;
+	for(j = 5; j > 0; j--)
+	{	i = 1;
+		while((i *= 2) <= 50);
+		printf("%d ", i / j);
+	}
+</pre>
+<li><pre>
+	int i, j = 7;
+	while((j -= 2) > 1)
+	{	i = 300;
+		do
+		{	i /= j;
+			printf("%d ", i);
+		} while(i > 20);
+	}
+</pre>
+<li><pre>
+	int i, j;
+	for (j = 1; j < 4; j++)
+	{	for(i = 2; i < 10; i += 3);
+		printf("%d ", i * j++);
+	}
+</pre>
+<li><pre>
+	int i, j;
+	for (j = 1; j < 4; j++)
+	{	for(i = 2; i < 8; i += 3)
+			printf("%d ", i / j);
+	}
+</pre>
+<li><pre>
+	int i = 7, j;
+	while(i < 12)
+	{	i += 2; j = 3;
+		while(j > 0)
+			j -= 2;
+		printf("%d %d ", i, j);
+	}
+</pre>
+<li><pre>
+	int i = 7, j;
+	while(i < 12)
+	{	i += 2; j = 3; printf("%d %d ", i, j);
+		while(j > 0)
+			j -= 2;
+	}
+</pre>
+<li><pre>
+	int i = 7, j;
+	do
+	{	j = 1;
+		do
+			j += 3;
+		while(j < i);
+		i += 2; printf("%d %d ", i, j);
+	} while(i < 12);
+</pre>
+<li><pre>
+	int i, j;
+	for(j = 5; j > 3; j--)
+	{	i = 150;
+		do
+		{	i /= 3;
+			printf("%d ", i + j);
+		} while(i > 20);
+	}
+</pre>
+<li><pre>
+	int i, j;
+	for(j = 10; j > 7; j--)
+		for(i = 1; i < 10; i += j)
+			printf("%d ", i);
+</pre>
+<li><pre>
+	int i, j;
+	for(j = 1; j < 3; j++)
+	{	i = 0;
+		while((i += 8) <= 20)
+			printf("%d ", j + i--);
+	}
+</pre>
+<li><pre>
+	int i, j;
+	for(j = 5; j > 0; j--)
+	{	i = 1;
+		while((i *= 2) <= 30);
+		printf("%d ", i + j);
+	}
+</pre>
+<li><pre>
+	int i, j = 7;
+	while((j += 2) < 13)
+	{	i = 300;
+		do
+		{	i /= j;
+			printf("%d ", i);
+		} while(i > 20);
+	}
+</pre>
+</ol>
+<p>&nbsp</p>
+</td>
+<td class=bok1></td>
+<td class=bok></td>
+</tr>
+<tr id=top><td colspan=5>
+<center>
+<a id=top href=../plan_2.htm>Календарно-тематический план &nbsp &nbsp </a>
+</center>
+</td></tr>
+</body>
+</html>

@@ -1,0 +1,191 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 36</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Пример применения массива структур</p>
+В программе для бригады из трех человек ведется учет выплаченной в течение  
+года  заработной  платы поквартально.
+<br>Предусмотрен вывод по выбору пользователя:
+<ul>
+<li>строки ведомости, включающей порядковый номер,  фамилию,  имя и отчество любого члена бригады,  его заработную плату за каждый  квартал и суммарную за год,
+<li>итоговой строки ведомости с заработной платой бригады за каждый квартал и за год,
+<li>столбцов ведомости, включающих порядковый номер, фамилию, имя и отчество членов бригады,  заработную плату каждого члена бригады за выбранный квартал и суммарную за данный квартал,
+<li>итогового столбца ведомости с заработной платой каждого члена бригады за год и всей бригады за год.
+</ul>
+<pre>
+	#include&lt;conio.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;stdlib.h&gt;
+	#define  T  80		// длина текста
+	#define  K   5		// количество кварталов
+	#define  B   4		// строк в списке
+	char  ch = 179;
+	void starbar()		// вывод строки символов
+	{
+	  for (int col = 1; col <= 73; col++)
+		putchar(196);
+	}
+	void tit()			// шапка таблицы
+	{
+	  char *str = "Фамилия, имя, отчество", *kk = "кв.", *g = "За год";
+	  gotoxy(2, 2); printf(" %23s %c",  str, ch);
+	  for(int i = 1; i <= 4; i++)
+	     {  gotoxy(20 + i * 9, 2); printf("%d%5s%2c", i, kk, ch); }
+	  printf("%8s", g);
+	}
+	// определение структурного типа
+	struct zp  {
+		      char  fio[T];
+		      float  kv[K];
+		   };
+	void main()
+	{
+	  // определение и инициализация массива структур
+	  struct zp brig[B] =
+	      { {"И т о г о ", 0, 0, 0, 0, 0},
+		{"Иванов Сидор Петрович", 0,1234.45, 2356.29, 1111.46, 1567.77},
+		{"Сидоров Петр Иванович", 0,1999.67, 3487.96, 1234.88, 2345.66},
+		{"Петров Иван Сидорович", 0,2000.23, 1234.88, 2345.00, 1436.11}
+	      };
+	
+	  int i, j,  pw, kw, st;
+	  float zz;
+	  window(1, 1, 80, 25); textbackground(7); clrscr();
+	  window(10, 3, 71, 5); textbackground(0); clrscr();
+	  window(9, 2, 70, 4); textbackground(1); textcolor(14); clrscr();
+	  gotoxy(15, 2); puts("Создание и использование структур");
+	  window(4, 8, 78, 16); textbackground(7); textcolor(1); clrscr();
+	
+	  // окно вывода ведомости
+	  window(4, 8, 78, 15); textbackground(0); clrscr();
+	  window(3, 7, 77, 14); textbackground(1); textcolor(14); clrscr();
+	  // шапка таблицы
+	  gotoxy(2, 1); starbar(); tit(); gotoxy(2, 3); starbar();
+	  // заполнение таблицы
+	  for(i = 1; i < B; i++)
+	    { gotoxy(2, 3 + i); printf("%d. %-22s%c",  i, brig[i].fio, ch);
+	      for(j = 1; j < K; j++)
+		 {
+		   brig[i].kv[0] += brig[i].kv[j];
+		   gotoxy(20 + j * 9, 3 + i); printf("%7.2f%c", brig[i].kv[j], ch);
+		 }
+	      printf("%9.2f", brig[i].kv[0]);
+	    }
+	  gotoxy(2, 3 + i++); starbar();
+	  gotoxy(2, 3 + i++); printf(" %23s %c",  brig[0].fio, ch);
+	  for(j = 1; j < K; j++)
+	    {
+	      for(i = 1; i < B; i++)
+		{ brig[0].kv[j] += brig[i].kv[j]; }
+	      brig[0].kv[0] += brig[0].kv[j];
+	      gotoxy(20 + j * 9, 8); printf("%7.2f%c", brig[0].kv[j], ch);
+	    } printf("%9.2f", brig[0].kv[0] );
+	  // окно вывода выбора
+	  window(3, 17, 77, 24); textbackground(1); textcolor(14);
+	  do
+	  { clrscr();
+	    gotoxy(5, 3); printf("Что хотите посмотреть ?");
+	    gotoxy(35, 3); printf("1. Зарплату члена бригады за год");
+	    gotoxy(35, 5); printf("2. Зарплату бригады за квартал");
+	    gotoxy(35, 7); printf("3. Закончить просмотр");
+	    pw = getch();
+	    switch(pw)
+	    {
+	      case '1': clrscr();  gotoxy(15, 3);
+		     printf("Порядковый номер или  0 для итоговой строки");
+		     st = getch();
+		     switch(st)
+		     {
+		       case '0': case '1': case '2':  case '3':
+			    clrscr();  gotoxy(2, 1); starbar(); tit();
+			    gotoxy(2, 3); starbar(); i = st - 48;
+			    gotoxy(2, 4); printf("%d. %-22s%c",  i, brig[i].fio, ch);
+			    for(j = 1; j < K; j++)
+			       { gotoxy(20 + j * 9, 4);
+				 printf("%7.2f%c", brig[i].kv[j], ch);
+			       }
+			    if(i == 0)
+			       {  printf("%9.2f", brig[0].kv[0] ); }
+			    else
+			       {  printf("%9.2f", brig[i].kv[0]); }
+			    gotoxy(2, 5); starbar();
+			    break;
+		     }  break;
+	      case '2': clrscr(); gotoxy(15, 3);
+		     printf("Номер квартала или 0 для итогового столбца");
+		     kw = getch();
+		     switch(kw)
+		     {
+		       case '0': case '1': case '2': case '3': case '4':
+			    clrscr();  gotoxy(2, 1); starbar(); tit();
+			    gotoxy(2, 3); starbar();
+			    for(i = 1; i < B; i++)
+			       for (j = 1; j < K; j++)
+				 { gotoxy(20 + j * 9, 3 + i);  printf("%8c", ch); }
+			    j = kw - 48;
+			    for(i = 1; i < B; i++)
+			       { gotoxy(2,  3+ i);
+				 printf("%d. %-22s%c",    i, brig[i].fio, ch);
+				 if(j == 0)
+				   { gotoxy(64, 3 + i); 
+				     printf("%9.2f", brig[i].kv[j]);
+	 			   }
+				 else
+				   { gotoxy(20 + j * 9, 3 + i); printf("%7.2f", brig[i].kv[j]); }
+			       }
+			    gotoxy(2, 3 + i++); starbar();
+			    gotoxy(2, 3 + i++); printf("  %23s%  c",  brig[0].fio,ch);
+			    for(i = 1; i < K; i++)
+			       {  gotoxy(20 + i * 9, 8); printf("%8c", ch);  }
+			    if(j == 0)
+			      {  gotoxy(64, 8); printf("%9.2f", brig[0].kv[0]);  }
+			    else
+			       { gotoxy(20 + j * 9, 8); printf("%7.2f%c", brig[0].kv[j], ch); }
+			    break;
+	       	     }  break;
+	    }   getch();
+	  } while(pw != '3');
+	  getch();
+	}
+</pre>
+При запуске программы на экран будет выведена ведомость и предложение сделать выбор для просмотра.
+<p><center><img src="l38_01.gif"></center>
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=a>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

@@ -1,0 +1,152 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 45</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Виртуальный базовый класс</p>
+Чтобы устранить дублирование объектов непрямого базового класса при множественном 
+наследовании, этот базовый класс объявляют виртуальным, для чего в списке базовых 
+классов перед именем класса помещают ключевое слово virtual. <br>Например, класс X будет 
+виртуальным базовым классом при таком описании:
+<pre>
+	class Х { ... f() ; ... };
+	class Y <b>:</b> virtual public X { ... };
+	class Z <b>:</b> virtual public X { ... };
+	class D <b>:</b> public Y, public Z { ... };
+</pre>
+Теперь класс D будет включать только один экземпляр X, доступ к которому равноправно 
+имеют классы Y и Z. <br>Пример множественного наследования с виртуальным базовым 
+классом.
+<pre>
+	#include&lt;iostream.h&gt;
+	#include&lt;conio.h&gt;
+	class base		// Первичный (основной) базовый класс
+	{	int jj; char cc; char vv[10];
+		public:	base (int j = 0, char c = '*')
+			{ jj = j; cc = c; }
+	};
+	class dbase <b>:</b> public virtual base
+	{	double dd;
+		public:	dbase(double d = 0.0) <b>:</b> base()
+			{ dd = d; }
+	};
+	class fbase <b>:</b> public virtual base
+	{	float ff;
+		public:	fbase(float f = 0.0) <b>:</b> base()
+			{ ff = f; }
+	};
+	class top <b>:</b> public dbase, public fbase
+	{	long tt;
+		public:	top(long t = 0) <b>:</b> dbase(), fbase()
+			{ tt = t; }
+	};
+	void main()
+	{	clrscr();
+		cout << "\nOсновной базовый класс: sizeof(base) = " << sizeof(base);
+		cout << "\nНепосредствeнная база: sizeof(dbase) = " << sizeof(dbase);
+		cout << "\nНeпосредствeнная база: sizeof(fbase) = " << sizeof(fbase);
+		cout << "\nПроизводный класс: sizeof(top) = " << sizeof(top) ; getch();
+	}
+
+	<b><i>Результаты выполнения программы:</i></b>	Основной базовый класс: sizeof(base) = 13
+						Непосредственная база: sizeof(dbase) = 23
+						Непосредственная база: sizeof(fbase) = 19
+						Производный класс: sizeof(top) = 33
+</pre>
+Основной базовый класс base в соответствии с размерами своих компонентов стандартных 
+типов int и char [11] имеет размер 13 байт. Создаваемые на его основе классы dbase и fbase 
+занимают соответственно 23 и 19 байт.<br>В dbase входит: переменная типа double, 
+занимающая 8 байт, наследуется базовый класс base, для которого требуется 13 байт, и 2 
+байта нужны для связи в иерархии виртуальных классов.<br>Производный класс top 
+включает: один экземпляр базового класса base (13 байт); данные и связи класса dbase (10 
+байт); данные и связи класса fbase (6 байт); компонент long tt (4 байта).
+<p>Если в той же программе убрать требование виртуальности (virtual) при наследовании 
+base в классах dbase и fbase, то результаты будут:
+<pre>
+	Основной базовый класс: sizeof(base) = 13
+	Непосредственная база: sizeof(dbase) = 21
+	Непосредственная база: sizeof(fbase) = 17
+	Производный класс: sizeof(top) = 42
+</pre>
+Размеры производных классов при отсутствии виртуальных базовых равны сумме длин их 
+компонентов и длин унаследованных базовых классов.
+При множественном наследовании один и тот же базовый класс может быть включен в 
+производный класс одновременно несколько раз, причем и как виртуальный, и как не 
+виртуальный.
+<pre>
+	class X { ... };
+	class Y <b>:</b> virtual public X { ... } ;
+	class Z <b>:</b> virtual public X { ... } ;
+	class В <b>:</b> virtual public X { ... } ;
+	class С <b>:</b> virtual public X { ... } ;
+	class E <b>:</b> public X { ... } ;
+	class D <b>:</b> public X { ... } ;
+	class A <b>:</b> public D, public B, public Y,
+	public Z, public C, public E { ... };
+</pre>
+В примере объект класса A включает три экземпляра объектов класса X: один 
+виртуальный, совместно используемый классами B, Y, C, Z, и два не виртуальных 
+относящихся соответственно к классам D и E.<br>Таким образом, виртуальность класса в 
+иерархии производных классов является не свойством класса как такового, а результатом 
+особенностей процедуры наследования.
+<p>Возможны и другие комбинации виртуальных и не виртуальных базовых классов:
+<pre>
+	class BB { ... };
+	class AA <b>:</b> virtual public ВВ { ... };
+	class CC <b>:</b> virtual public BB { ... };
+	class DD <b>:</b> public AA, public CC, public virtual BB { ... };
+</pre>
+При использовании наследования и множественного наследования могут возникать 
+неоднозначности при доступе к одноименным компонентам разных базовых классов. 
+Простейший и самый надежный способ устранения неоднозначностей - использование 
+квалифицированных имен компонентов. Для квалификации имени компонента 
+используется имя класса. Например:
+<pre>
+	class Х { public <b>:</b> int d; ... };
+	class Y { public <b>:</b> int d; ... };
+	class Z <b>:</b> public X, public Y,
+	{	public<b>:</b>	int d;
+			...
+			d = X <b>::</b> d + Y <b>::</b> d; ...
+	};
+</pre>
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

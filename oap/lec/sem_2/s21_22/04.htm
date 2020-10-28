@@ -1,0 +1,235 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОАП | Лекция № 7</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td>&nbsp&nbsp<a href="#end" class=p>Конец страницы</a>&nbsp&nbsp</td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Классификация символов
+<b><center>Семейство функций is... </center>
+</b>
+<br>В состав стандартных библиотек C++ включена библиотека ctype.h, которая осталась в наследство от С. 
+В эту библиотеку входит ряд функций, определяющих тип своего аргумента — символа. 
+<p><center><b>Функции библиотеки ctype.h</b></center>
+<p>
+<table border=1 align=center>
+<tr><td> <b><center>Прототип              </center></b>
+</td><td><b><center>Назначение функции</center></b>
+</td>
+</tr>
+<tr><td>int isascii(int c) </td>
+<td> Определена для всех целых значений из таблицы ASCII
+</td></tr>
+<tr>
+  <td>int isdigit(int c)</td>
+  <td>Является ли аргумент цифрой от 0 до 9</td>
+</tr>
+<tr>
+  <td>int isxdigit(int c)</td>
+  <td>Является ли аргумент 16-ричной цифрой 0-9, a-f, A-F</td>
+</tr>
+<tr>
+  <td>int isalpha(int c)</td>
+  <td>Является ли аргумент буквой</td>
+</tr>
+<tr>
+  <td>int isalnum(int c)</td>
+  <td>Является ли аргумент буквой или цифрой</td>
+</tr>
+<tr>
+  <td>int islower(int c)</td>
+  <td>Является ли аргумент маленькой буквой a-z</td>
+</tr>
+<tr>
+  <td>int isupper(int c)</td>
+  <td>Является ли аргумент большой буквой A-Z</td>
+</tr>
+<tr>
+  <td>int isspace(int c)</td>
+  <td>Является ли аргумент пробельным символом</td>
+</tr>
+<tr>
+  <td>int ispunct(int c)</td>
+  <td>Является ли аргумент символом пунктуации</td>
+</tr>
+<tr>
+  <td>int isgraph(int c)</td>
+  <td>Является ли аргумент печатаемым символом</td>
+</tr>
+<tr>
+  <td>int isprint(int c)</td>
+  <td>Является ли аргумент печатаемым символом</td>
+</tr>
+<tr>
+  <td>int tolower(int c)</td>
+  <td>Если аргумент A-Z, то результат а-z</td>
+</tr>
+<tr>
+  <td>int toupper(int c)</td>
+  <td>Если аргумент а-z , то результат  A-Z</td>
+</tr>
+</table>
+
+
+
+
+<p><b><i>isascii</i></b> определена для всех целых значений, остальные макрокоманды 
+определены только в том случае, если isascii равна true, или когда параметр ch 
+имеет значение EOF, не нуль, если ch находится в пределах от 0 до 127 (0x00 - 
+0x7F).
+<p><b><i>isalpha</i></b> не нуль, если ch - это буква (A - Z, a - z).
+<p><b><i>isalnum</i></b> не нуль, если ch - это буква или цифра (A - Z, a - z, 0 - 9).
+<p><b><i>isdigit</i></b> не нуль, если ch - цифра (0 - 9).
+<p><b><i>isgraph</i></b> не нуль, если ch является печатаемым символом, работает 
+также, как isprint, за исключением того, что рассматривается символ пробела 
+(0x21 - 0x7E).
+<p><b><i>islower</i></b> не нуль, если ch - буква нижнего регистра.
+<p><b><i>isprint</i></b> не нуль, если ch - печатаемый символ (0x20 - 0x7E).
+<p><b><i>ispunct</i></b> не нуль, если ch - символ пунктуации.
+<p><b><i>isspace</i></b> не нуль, если ch - символ пробела, табуляции, возврата 
+каретки, перехода на новую строку, вертикальной табуляции, перехода на 
+новую страницу (0x09 - 0x0D, 0x20).
+<p><b><i>isupper</i></b> не нуль, если ch - буква верхнего регистра (A - Z).
+<p><b><i>isxdigit</i></b> не нуль, если ch - шестнадцатеричная цифра (0 - 9, A - F, a - 
+f).
+
+<p>Представленная ниже программа позволяет просмотреть классификацию 
+символов стандартной части кодовой таблицы. <br>В программе переменные n1 - 
+n12 - счетчики количества символов.
+<pre>
+#include&ltctype.h>
+#include&ltstdio.h>
+#include&ltconio.h>
+main()
+{  unsigned char c; clrscr();
+    int n1 = 0, n2 = 0, n3 = 0, n4 = 0, n5 = 0, n6 = 0, 
+        n7 = 0, n8 = 0, n9 = 0, n10 = 0, n11 = 0, n12 = 0;
+   gotoxy(1, 1); printf("ascii:");       gotoxy(1, 3); printf("isalpha:");
+   gotoxy(1, 5); printf("isalnum:");   gotoxy(1, 7); printf("iscntrl:");
+   gotoxy(1, 9); printf("isdigit:");     gotoxy(1, 11); printf("isgraph:");
+   gotoxy(1, 13); printf("islower:"); gotoxy(1, 15); printf("isprint:");
+   gotoxy(1, 17); printf("ispunct:"); gotoxy(1, 19);printf("isspace:");
+   gotoxy(1, 21);printf("isupper:");  gotoxy(1, 23);printf("isxdigit:");
+   for(c=0; c<128; c++)
+      {  if(isascii(c)) 
+             { n1++; gotoxy(10+n1, 1); printf("%c %d",c,c);}
+         if(isalpha(c)) 
+             { n2++; gotoxy(10+n2, 3); printf("%c %d",c,c);}
+         if (isalnum(c))
+             { n3++; gotoxy(10+n3, 5); printf("%c %d",c,c);}
+         if(iscntrl(c)) 
+             { n4++; gotoxy(10+n4, 7); printf("%c %d",c,c);}
+         if(isdigit(c)) 
+             { n5++; gotoxy(10+n5, 9); printf("%c %d",c,c);}
+         if(isgraph(c)) 
+             { n6++; gotoxy(10+n6, 11); printf("%c %d",c,c);}
+         if(islower(c)) 
+             { n7++; gotoxy(10+n7, 13); printf("%c %d",c,c);}
+         if(isprint(c)) 
+             { n8++; gotoxy(10+n8, 15); printf("%c %d",c,c);}
+         if(ispunct(c)) 
+             { n9++; gotoxy(10+n9, 17); printf("%c %d",c,c);}
+         if(isspace(c)) 
+             { n10++; gotoxy(10+n10, 19); printf("%c %d",c,c);}
+         if(isupper(c)) 
+             { n11++; gotoxy(10+n11, 21); printf("%c %d",c,c);}
+         if(isxdigit(c))
+             { n12++; gotoxy(10+n12, 23); printf("%c %d",c,c);}
+      } getch(); return 0;
+}
+</pre>
+<p>Функции, имеющие префикс is, являются <i>функциями-предикатами</i>.
+<p><b>Функция-предикат</b> — это функция, результатом работы которой является логическое значение <i>"истина"</i> или <i>"ложь"</i>. 
+Но поскольку библиотека стандартизирована еще в С, функции возвращают не логические значения true и false, а целые. Но если результат "ложь", как обычно, равен 0, то результат 1 - "истина" отнюдь не равен 1. В справочной системе Borland C++ 3.1 указано, что функции возвращают <i>ненулевое значение</i>. 
+<br>И действительно, операторы
+<pre>
+	cout << isalpha(‘a’) << endl;
+	cout << isdigit (‘0’) << endl;
+</pre>
+выводят на экран 8 и 2 соответственно. В системе Visual C++ 6 те же функции выводят 2 и 4. Поэтому полагаться на то, что возвращаемое значение будет равно 1, нельзя. Исключение составляют функции tolower и toupper. Первая преобразует аргумент — большую английскую букву — в соответствующую маленькую, а вторая наоборот.
+<p>Все эти функции чрезвычайно полезны при обработке символов и строк, однако они работают <i>только с английским алфавитом</i>. Нам, естественно, хотелось бы иметь обработку и русских букв. Для этого нам надо знать коды <b>русских букв</b>. Однако следует напомнить, что представление национальных алфавитов является наиболее системно-зависимым.
+<p>В состав всех систем фирмы Borland входит библиотека conio.h, которая содержит очень много полезных функций. Такая же библиотека есть и в составе системы Visual C++6. В первую очередь нам потребуется функция ввода символов, прототип которой выглядит так:
+<pre>
+	int getch (void);
+</pre>
+Эта функция позволяет получить с клавиатуры  любую клавишу, даже управляющие клавиши курсора и функциональные.
+<p>Сначала напишем программу, выполняющую ввод клавиши и выводящую код клавиши на экран. Программа должна работать, пока мы не нажмем клавишу "Esc", код которой равен 27. Чтобы выводились положительные коды, надо прописать переменную для вводимого символа как <b>unsigned char</b>. Программа определения кодов символов приведена  далее
+<pre>
+	#include &ltiostream.h> 
+	#include &ltconio.h>
+	void  main()
+	{
+		const int Esc = 27;		// ASCII-код ESC
+		unsigned char ch = 0;		// нужен беззнаковый char
+		while (ch  != Esc)
+		{
+			ch = getch();			// ввод кода — целого в char 
+			cout << ch << “=” << int(ch) << endl;	 // вывод кода
+		}
+	}
+</pre>
+Выясняется, что большие русские буквы имеют последовательные коды от 128 до 159, Исключение составляет только буква “Ё”, которая имеет код 240. А вот с маленькими буквами дело обстоит не так хорошо – буквы от “а” до “п” имеют коды от 160 до 175 (отличаются от больших букв ровно на 32), а вот буквы от “р” до “я” кодируются числами от 224 до 239. Между “п” и “р” разрыв в 48 символов – коды в диапазоне 176-223 соответствуют символам псевдографики текстового режима работы дисплея. Кроме того, как и в случае больших букв исключением является буква, “ё”, которая имеет код 241.  
+
+
+
+<p>Для просмотра символов, коды которых лежат за пределами стандартной 
+таблицы ASCII-кодов, можно использовать фрагмент программы:
+<pre>
+		for(c = 128; c < 255; c++) 
+			printf("%c = %d ", c, c);
+</pre>
+
+</td>
+</tr>
+
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 6 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td>&nbsp&nbsp<a href="#start" class=p>Начало страницы</a>&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<FONT color="#FFFF66" size=1><i>Copyright</i> &copy; <a class=p href="http://prep.scc/~blp">
+Болгак Л. П.</a> <i>2003</i>
+&nbsp;&nbsp;&nbsp; <a class=p href="http://prep.scc/~ems">
+Строганова Е.М.</a> <i>2006</i></font></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

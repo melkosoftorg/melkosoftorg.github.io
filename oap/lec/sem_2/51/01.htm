@@ -1,0 +1,250 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 51</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Родовая функция и оператор template<br>(BC++ 3.0 и выше)</p>
+<p>Слово template переводится на русский язык как шаблон (такое же значение имеет слово templet).
+<br>С помощью шаблонов можно создавать родовые функции (generic functions) и родовые классы (generic classes).
+В родовой функции или классе тип данных, с которыми функция или класс работают, 
+задается в качестве параметра. Это позволяет одну и ту же функцию или класс использовать с
+несколькими различными типами данных без необходимости программировать новую версию функции
+или класса для каждого конкретного типа данных. Таким образом шаблоны дают возможность 
+создавать многократно используемые программы.
+<p>Родовая функция определяет базовый набор операций, которые можно применять к разным типам данных
+и оперирует с тем типом данных, который она получает в качестве параметра.
+<br>Многие алгоритмы логически одинаковы, например, алгоритмы сортировки, независимо от того, для обработки каких типов данных они предназначены.
+В таких ситуациях оправданно использование родовых функций, которые создаются с помощью ключевого слова template.
+<p><b><i>Типовая форма определения функции-шаблона</i></b>
+<pre>
+    template < class тип_данных > возвращаемое_значение имя_функции(список_параметров)
+    {
+    	// тело функции
+    }
+</pre>
+<br>Предположим, необходимо вычислить минимальное значение двух переменных х и y:
+<br><center>min(x, y)</center>
+<br>Тип переменных может быть различный, например int и double. 
+<br>Для решения рассматриваемой задачи можно создать две перегружаемые функции вида
+<pre>
+		int min(int х, int y)
+		{
+			return (х < у) ? х : y;
+		}
+		double min(double x, double y)
+		{
+			return (х < y) ? х : y;
+		}
+</pre>
+<p>Если переменные х и y могут иметь другие типы, необходимо создавать новые перегружаемые версии функции min. Это не всегда удобно.
+<p>Оператор template позволяет задать в виде параметра тип функции min и типы ее аргументов.
+<br>Введем вместо типов int и double параметр MY (можно использовать так же любое другое имя). Тогда вместо двух рассмотренных версий можно записать одну:
+<pre>
+		MY min(MY x, MY y)
+		{ 
+			return (x < у) ? х : y; 
+		}
+</pre>
+<p>Задать параметр MY можно с помощью оператора template в следующем виде:
+<pre>
+		template < class MY >
+		MY min(MY x, MY y)
+		{
+			return (x < y) ? х : у;
+		}
+</pre>
+<p>Теперь вместо слова MY можно задать любой допустимый тип данных, например:
+<pre>
+		int i = min(10, 20);
+		long j = min(123456L, 987654L);
+		double f = min(123.456, 34.1234);
+</pre>
+<p>Рассмотрим пример программы, в которой выполняются подобные действия.
+<pre>
+	#include&lt;iostream.h>
+	#include&lt;conio.h>
+	template &lt;class My > My min(My x, My y)
+	{
+		return (x < y) ? x : y;
+	}
+	void main(void)
+	{	clrscr();
+		int i = min(10, 20);
+		long j = min(123456L, 987654L);
+		double f = min(123.456, 34.1234);
+		cout << "int_i = " << i << "\nlong_j = " << j << "\ndouble_f = " << f << '\n';
+		getch();
+	}
+
+	<i>Результаты работы программы:</i>	int_i = 10
+						long_j = 123456
+						double_f = 34.1234
+</pre>
+<p>С помощью инструкции template можно определить более одного родового типа данных, отделяя их друг от друга запятыми.
+Это сделано в следующей программе для вывода двух значений.
+<pre>
+	#include&lt;iostream.h>
+	#include&lt;conio.h>
+	template &lt;class type1, class type2>
+	void myfunc(type1 x, type2 y)
+	{
+		cout << x << ' ' << y << endl;
+	}
+	int main()
+	{	clrscr();
+		myfunc(10, "hi");
+		myfunc(0.23, 10L);
+		getch(); return 0;
+	}
+
+	<i>Результаты работы программы:</i>	10 hi
+						0.23 10
+</pre>
+<p>По аналогии можно параметризировать типы различных компонентов в классе.
+<p>Оператор template позволяет задавать шаблоны для классов (можно сказать, что он позволяет определять классы, содержащие 
+компоненты различных типов). Такая возможность достигается параметризацией класса.
+<p><b><i>Основная форма объявления родового класса</i></b>
+<pre>
+	template &lt;class фиктивное_имя_типа> class имя_класса
+	{
+		...
+	}
+</pre>
+<p>После создания родового класса можно создать конкретный экземпляр этого класса
+<pre>
+		имя_класса &lt;тип> объект;	
+</pre>
+<p>Предположим, что задан класс с именем my_class. В этом классе с атрибутом private определены компоненты а, b и array[2]. Типы этих компонентов могут быть разными. Тогда можно написать следующую программу:
+<pre>
+	#include&lt;iostream.h>
+	#include&lt;conio.h>
+	template&lt;class M> class my_class
+	{	M a, b, array[2];
+		public:
+			my_class(M A, M B, M C, M D)
+			{
+				a = A; b = B; array[0] = C, array[1] = D;
+			}
+			void show(void)
+			{	cout << "a = " << a << "\tb = " << b << "\tarray[0] = " << array[0] 
+					<< "\tarray[1] = " << array[1] << '\n';
+			}
+	};
+	void main(void)
+	{	clrscr();
+		my_class&lt;int> int_var(10, 20, 30, 40);
+		my_class&lt;double> double_var(100000.5, 200000.6, 300000.7, 400000.8);
+		my_class&lt;char> char_var('А', 'Б', 'В', 'Г');
+		int_var.show();
+		double_var.show();
+		char_var.show(); getch();
+	}
+
+	<i>Результаты работы программы:</i>
+	а = 10		b = 20		array[0] = 30		array[1] = 40
+	а = 100000.5	b = 200000.6	array[0] = 300000.7	array[1] = 400000.8
+	a = A		b = Б		array[0] = B		array[1] = Г
+</pre>
+<p>В класс можно также передать некоторые параметры, которые задаются в списке после оператора template.
+<br>Рассмотрим пример:
+<pre>
+	#include&lt;iostream.h>
+	#include&lt;conio.h>
+	template&lt;class M, int x = 1, y = 50>
+	class my_class
+	{	M a, b, array[2];
+		public:
+			my_class(M A, M B, M C, M D)
+			{
+				a = A; b = B; array[0] = C, array[1] = D;
+			}
+			void show(void)
+			{
+				cout << "a = " << a << "\tb = " << b 
+					<< "\tarray[0] = " << array[0] << "\tarray[1] = " << array[1] 
+					<< "\nx = " << x << "\ty = " << y << '\n';
+			}
+	};
+	void main(void)
+	{	clrscr();
+		my_class&lt;int> int_var(10, 20, 30, 40);
+		my_class&lt;double, 5> double_var(100000.5, 200000.6, 300000.7, 400000.8);
+		my_class&lt;char, 7, 12> char_var('А', 'Б', 'В', 'Г');
+		int_var.show();
+		double_var.show();
+		char_var.show(); getch();
+	}
+</pre>
+<p>В дополнение к предыдущим результатам после каждой выдачи значений
+а, b, array[0], array[1] будут отображены пары значений x и y:
+<pre>
+	a = 10		b = 20		array[0] = 30		array[1] = 40
+	x = 1		y = 50
+	a = 100000.5	b = 200000.6	array[0] = 300000.7	array[1] = 400000.8
+	x = 5		y = 50
+	a = А		b = Б		array[0] = В		array[1] = Г
+	x = 7		y = 12
+</pre>
+<p>Класс-шаблон может иметь более одного родового типа данных, как например в следующем примере с двумя родовыми типами данных.
+<pre>
+	#include&lt;iostream.h>
+	#include&lt;conio.h>
+	template &lt;class Type1, class Type2> class myclass
+	{	Type1 i;
+		Type2 j;
+		public:
+			myclass(Type1 a, Type2 b) { i = a; j = b; }
+			void show() { cout << i << ' ' << j << '\n'; }
+	};
+	int main()
+	{	clrscr();
+		myclass&lt;int, double> ob1(10, 0.23);
+		myclass&lt;char, char *> ob2('X', "Это проверка");
+
+		ob1.show();    // вывод значений типа int и double
+		ob2.show();    // вывод значений типа char и char *
+	}
+
+	<i>Результаты работы программы:</i>	10 &nbsp; 0.23
+						X &nbsp; Это проверка
+</pre>
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=a>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

@@ -1,0 +1,112 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 28</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<!--tr><td class=rule>
+Внимание!
+<ol>В окнах такого цвета будут отображаться правила и примечания относительно 
+лекционного материала
+</ol></td></tr-->
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Массивы динамической памяти</p>
+В программе показано, как можно ввести и напечатать в обратном порядке набор 
+вещественных чисел, количество которых заранее не задано.
+<P>Для ввода - вывода значений использованы возможности C и C++.
+<pre>
+	#include&lt;iostream.h&gt;
+	#include&lt;stdio.h&gt;	
+	#include&lt;conio.h&gt;
+	#include&lt;stdlib.h&gt;
+	main()
+	{  
+		float *t,  mas;		// Указатель для выделяемого блока памяти
+		int i, n;   clrscr();
+		// ввод значений с клавиатуры
+		printf("Количество элементов массива  n = "); scanf("%d", &n);
+		/* Указатель на начало области, выделяемой для размещения
+		   n  вводимых чисел. Принимает значение адреса области,
+		   выделяемой для   n   штук значений типа  float
+		*/
+		t = (float*) malloc(n * sizeof(float));
+		for(i = 0; i < n; i++)
+		{
+		  /* стандартный поток вывода  cout   в сочетании
+		     с   << - оператором вставки - служит для отображения
+		     литерал, значений констант и переменных без использования
+		     указателей формата */
+			cout << "t[" << i << "] = ";
+		  /* стандартный поток ввода  cin   в сочетании
+		     с   >> - оператором извлечения - служит для
+		     считывания данных с клавиатуры */
+			cin >> t[i];
+		}
+		// вывод элементов массива в обратном порядке
+		for(i = n-1; i >= 0; i--)
+		{
+			if (i % 2 == 0) printf("\n");
+				printf("\tt[%d] = %5.1f", i, t[i]);
+		}
+		// вывод адреса начального байта и значения элемента t[0]
+		printf("\n\n\t&t = %p\t*t = %5.1f\n\n", &t, *t);
+		free(t);		//  Освобождение памяти
+		getch();
+	}
+
+	<i>Возможные результаты:</i>
+
+			Количество элементов массива  n = 5
+			t[0] = 2.6
+			t[1] = 7.5
+			t[2] = -9.5
+			t[3] = .56
+			t[4] = -2.85
+			
+				t[4] =  -2.8    t[3] =   0.6
+				t[2] =  -9.5    t[1] =   7.5
+				t[0] =   2.6
+			
+				&t = 8FD0:0FFC  *t =   2.6
+</pre>
+
+<p>
+
+</td>
+</tr>
+
+</table>
+
+<!-- -------End of Inside table------- -->
+
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=a>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

@@ -1,0 +1,251 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251"><title>ОП | Экзамен II Тест 2</title>
+
+<link href="test/lec.css" type="text/css" rel="stylesheet"></head><body>
+<table cellpadding="0" cellspacing="0">
+<tbody><tr id="top"><td colspan="5">
+<center><a id="top" href="plan_1.htm" class="p">&nbsp;Семестр 1</a>&nbsp;&nbsp;
+<a id="top" href="plan_2.htm" class="p">Семестр 2</a></center>
+</td></tr>
+<tr><td class="bok"><br>
+</td><td class="bok1"><br>
+</td>
+<td>
+<p id="head"><b>Указатели. Числовые и строковые массивы (одномерные и двумерные)</b></p>
+<p id="head2">Сформулировать определения</p>
+<ol>
+<p></p><li>Массив - это...
+<p></p></li><li>Указатель - это...
+<p></p></li><li>Класс памяти - это...
+<p></p></li><li>Определение одномерного массива имеет вид:
+<p></p></li><li>Первый элемент массива:
+<p></p></li><li>Последний элемент массива:
+<p></p></li><li>Объем памяти (в байтах) для массива тип имя [N] равен...
+<p></p></li><li>Укажите верные утверждения:
+<ul>
+<li>Размер массива - это количество элементов, входящих в массив.
+</li><li>В массив могут входить элементы разных типов.
+</li><li>Тип массива может быть одномерный, двумерный
+</li><li>У каждого элемента массива есть свой номер (индекс)
+</li><li>Размер массива - это количество байт, занимаемых массивом в памяти компьютера
+</li></ul>
+
+<p></p></li><li>Укажите НЕ верные утверждения:
+<ul>
+<li>Массивы могут быть только числовыми
+</li><li>Размерность массива - это количество элементов, входящих в массив
+</li><li>Массив - это упорядоченный набор однотипных данных
+</li><li>В массив могут входить элементы разных типов
+</li><li>Индекс элемента массива принимает значения от 0 до N-1, где N - размер массива
+</li></ul>
+<p></p></li><li>Укажите основные характеристики, указываемые при описании массива:
+
+<p></p></li><li>Какой объем памяти занимает массив int n[7] = {10, 28, 35, 2, 78, 9, 0};
+
+<p></p></li><li>Фрагмент программы:<pre>for (int i = 0; i &lt; 10;  i++)<br>	a[i] = random(100);</pre>
+
+<p></p></li><li>По размерности массивы различают:
+
+<p></p></li><li>Индекс элемента массива записывается:
+
+<p></p></li><li>Определение многомерного массива:
+<p></p></li><li>Определение и описание указателя-переменной:
+<p></p></li><li>Определение и инициализация одномерного массива, содержащего целочисленные значения:
+<p></p></li><li>Определение указателей на объекты целочисленного типа:
+<p></p></li><li>Определение и инициализация символьной переменной типа char:
+<p></p></li><li>Инициализированный указатель на объект типа char:
+<p></p></li><li>Неинициализированный указатель на объект типа char:
+</li></ol>
+<p id="head2">Что делает функция</p>
+<ol>
+<p></p><li>int rand(void)
+<p></p></li><li>int random(int num)
+<p></p></li><li>void randomize(void)
+</li></ol>
+<p id="head2">Что будет выведено на экран после исполнения строк программы</p>
+<ol>
+<p></p><li>
+<pre>	int mas[10];<br>	enum mit {y1 = 5, y2, y3 = 2, y4};<br>	mas[y4] = y2;<br>	printf("mas[%d] = %d\n", y4, mas[y4]);<br></pre>
+<p></p></li><li>
+<pre>	int mas[10];<br>	enum mit {y1 = 5, y2, y3 = 2, y4};<br>	mas[y2] = y4;<br>	printf("mas[%d] = %d\n", y2, mas[y2]);<br></pre>
+<p></p></li><li>
+<pre>	int mas[10];<br>	enum mit {y1 = 5, y2, y3 = 2, y4};<br>	mas[y1] = y3;<br>	printf("mas[%d] = %d\n", y1, mas[y1]); <br></pre>
+<p></p></li><li>
+<pre>	int mas[10];<br>	enum mit {y1 = 5, y2, y3 = 2, y4};<br>	mas[y3] = y1;<br>	printf("mas[%d] = %d\n", y3, mas[y3]); <br></pre>
+<p></p></li><li>
+<pre>	int i, s[10];<br>	enum mit {z1, z2, z3, z4, z5, z6};<br>	s[0] = z2; s[1] = z1; s[2] = z6; s[3] = z5; s[4] = z3; s[5] = z4;<br>	for(i = 0; i &lt; 6; i++)<br>		printf("%d ", s[i]);<br></pre>
+<p></p></li><li>
+<pre>	int i, s[10];<br>	enum mit {z1 = 2, z2, z3, z4, z5 = 0, z6};<br>	s[0] = z2; s[1] = z1; s[2] = z6; s[3] = z5; s[4] = z3; s[5] = z4;<br>	for(i = 0; i &lt; 6; i++)<br>		printf("%d ", s[i]);<br></pre>
+<p></p></li><li>
+<pre>	int i, s[10];<br>	enum mit {z1 = 6, z2, z3 = 0, z4, z5, z6};<br>	s[0] = z2; s[1] = z1; s[2] = z6; s[3] = z5; s[4] = z3; s[5] = z4;<br>	for(i = 0; i &lt; 6; i++)<br>		printf("%d ", s[i]);<br></pre>
+<p></p></li><li>
+<pre>	int i, s[10];<br>	enum mit {z1, z2 = 0, z3, z4 = 0, z5, z6};<br>	s[0] = z2; s[1] = z1; s[2] = z6; s[3] = z5; s[4] = z3; s[5] = z4;<br>	for(i = 0; i &lt; 6; i++)<br>		printf("%d ", s[i]);<br></pre>
+<p></p></li><li>
+<pre>	int i, mas[10]; <br>	for(i = 3; i &lt; 10; i += 2)<br>	{<br>		mas[i] = i - 3; printf("%d ", mas[i]);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int i, mas[10];<br>	for(i = 1; i &lt;= 8; i *= 2) <br>	{<br>		mas[i] = i * 2; printf("%d ", mas[i]);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int i, mas[10];<br>	for(i = 9; i &gt; 0; i -= 2)<br>	{<br>		mas[i] = i / 2; printf("%d ", mas[i]);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int i, mas[10];<br>	for(i = 9; i &gt; 0; i -= 2)<br>	{<br>		mas[i] = i % 2; printf("%d ", mas[i]);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int i = 7, mas[10];<br>	do<br>	{<br>		mas[i] = i % 2; printf("%d ", mas[i]);<br>		i--;<br>	} while(i != 2);<br></pre>
+<p></p></li><li>
+<pre>	int i = 2, mas[10]; <br>	do<br>	{ <br>		mas[i] = i; printf("%d ", mas[i]);<br>		i += ++i;<br>	} while(i &lt;= 29);<br></pre>
+<p></p></li><li>
+<pre>	int i = 0, mas[10]; <br>	do<br>	{<br>		mas[i] = 2 * i + 3; printf("%d ", mas[i]);<br>		i++;<br>	} while(i != 4);<br></pre>
+<p></p></li><li>
+<pre>	int i = -1, mas[10]; <br>	do<br>	{ <br>		i++;<br>		mas[i] = i + 2; printf("%d ", mas[i]);<br>	} while(i != 3);<br></pre>
+<p></p></li><li>
+<pre>	int i = 7, mas[10]; <br>	while(i &lt;= 16)<br>	{<br>		mas[i] = i % 3; printf("%d ", mas[i]);<br>		i += 2;<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int i = 17, mas[10]; <br>	while(i &gt;= 13)<br>	{<br>		mas[i] = i / 3; printf("%d ", mas[i]);<br>		i--;<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int i = 0, mas[10]; <br>	while(i != 6)<br>	{<br>		mas[i] = 0.5 * i; printf("%d ", mas[i]);<br>		i += 2 + i;<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int i = 1, mas[10]; <br>	while(i &lt;= 5)<br>	{<br>		mas[i] = i / 3 + 1; printf("%d ", mas[i]);<br>		i++;<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {8, 0, -9, 1, 6, 2, 7, 3, -1, 4};<br>	int i, k = 0, m = ss[k];<br>	for(i = 0; i &lt; 10; i++)<br>		if(ss[i] &lt; m)<br>		{<br>			m = ss[i]; k = i;<br>		}<br>	printf("%d %d ", k, m);<br>	for(i = 3; i &lt; 10; i++)<br>		printf("%d ", ss[i]);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {8, 0, -9, 1, 6, 2, 7, 3, -1, 4};<br>	int i, k = 0, m = ss[k];<br>	for(i = 0; i &lt; 10; i++)<br>		if(ss[i] &gt; m)<br>		{<br>			m = ss[i]; k = i;<br>		}<br>	printf("%d %d ", k, m);<br>	for(i = 5; i &lt; 10; i++)<br>		printf("%d ", ss[i]);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {8, 0, -9, 1, 6, 2, 7, 3, -1, 4};<br>	int i, k = 0;<br>	for(i = 0; i &lt; 10; i++)<br>		if((ss[i] % 2) != 0)<br>		{<br>			k++; printf("%d ", ss[i]);<br>		}<br>	printf("%d ", k);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {8, 0, -9, 1, 6, 2, 7, 3, -1, 4};<br>	int i, k = 0;<br>	for(i = 0; i &lt; 10; i++)<br>		if(ss[i] != 0)<br>		{<br>			k += ss[i]; printf("%d ", ss[i]);<br>		}<br>	printf("%d ", k);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {8, 0, -9, 1, 6, 2, 7, 3, -1, 4};<br>	int i, k = 0;<br>	for(i = 0; i &lt; 10; i++)<br>		if((ss[i] % 2) == 0 &amp;&amp; ss[i] != 0)<br>		{<br>			k ++; printf("%d ", ss[i]);<br>		}<br>	printf("%d ", k);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {8, 0, -9, 1, 6, 2, 7, 3, -1, 4};<br>	int i, k = 1;<br>	for(i = 0; i &lt; 10; i++)<br>		if(ss[i] &lt; 0)<br>		{<br>			k *= ss[i]; printf("%d ", ss[i]);<br>		}<br>	printf("%d ", k);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {8, 0, -9, 1, 6, 2, 7, 3, -1, 4};<br>	int i, k, m;<br>	for(i = 0; i &lt; 9; i++)<br>		for(k = i + 1; k &lt; 10; k++)<br>			if(ss[i] &lt; ss[k])<br>			{<br>				m = ss[i]; ss[i] = ss[k]; ss[k] = m;<br>			}<br>	for(i = 0; i &lt; 10; i++)<br>		printf("%d ", ss[i]);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {8, 0, -9, 1, 6, 2, 7, 3, -1, 4};<br>	int i, k, m;<br>	for(i = 0; i &lt; 9; i++)<br>		for(k = i + 1; k &lt; 10; k++)<br>			if(ss[i] &gt; ss[k])<br>			{<br>				m = ss[i]; ss[i] = ss[k]; ss[k] = m;<br>			}<br>	for(i = 0; i &lt; 10; i++)<br>		printf("%d ", ss[i]);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {7, -9, 5, 0, -2, 1, 3, -8, 0, 2};<br>	int i, k = 0;<br>	for(i = 0; i &lt; 10; i++)<br>		if(ss[i] &gt; 0)<br>		{<br>			k++; printf("%d ", ss[i]);<br>		}<br>	printf("%d ", k);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {7, -9, 5, 0, -2, 1, 3, -8, 0, 2};<br>	int i, k = 0;<br>	for(i = 0; i &lt; 10; i++)<br>		if(ss[i] &lt; 0)<br>		{<br>			k++; printf("%d ", ss[i]);<br>		}<br>	printf("%d ", k);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {7, -9, 5, 0, -2, 1, 3, -8, 0, 2};<br>	int i, k = 0;<br>	for(i = 0; i &lt; 10; i++)<br>		if(ss[i] == 0)<br>		{<br>			k++; printf("%d ", ss[i]);<br>		}<br>	printf("%d ", k);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {7, -9, 5, 0, -2, 1, 3, -8, 0, 2};<br>	int i, k = 0;<br>	for(i = 0; i &lt; 10; i++)<br>		if(ss[i] != 0)<br>		{<br>			k++; printf("%d ", ss[i]);<br>		}<br>	printf("%d ", k);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {7, -9, 5, 0, -2, 1, 3, -8, 0, 2};<br>	int i, k = 0;<br>	for(i = 0; i &lt; 10; i++)<br>		if((ss[i] % 2) == 0 &amp;&amp; ss[i] != 0)<br>		{<br>			k++; printf("%d ", ss[i]);<br>		}<br>	printf("%d ", k);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {7, -9, 5, 0, -2, 1, 3, -8, 0, 2};<br>	int i, k = 0;<br>	for(i = 0; i &lt; 10; i++)<br>		if((ss[i] % 2) != 0)<br>		{<br>			k++; printf("%d ", ss[i]);<br>		}<br>	printf("%d ", k);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {7, -9, 5, 0, -2, 1, 3, -8, 0, 2};<br>	int i, k = 0;<br>	for(i = 0; i &lt; 10; i++)<br>		if(ss[i] != 0)<br>		{<br>			k += ss[i]; printf("%d ", ss[i]);<br>		}<br>	printf("%d ", k);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {7, -9, 5, 0, -2, 1, 3, -8, 0, 2};<br>	int i, k = 1;<br>	for(i = 0; i &lt; 10; i++)<br>		if(ss[i] &gt; 0)<br>		{<br>			k *= ss[i]; printf("%d ", ss[i]);<br>		}<br>	printf("%d ", k);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {7, -9, 5, 0, -2, 1, 3, -8, 0, 2};<br>	int i, k = 1;<br>	for(i = 0; i &lt; 10; i++)<br>		if(ss[i] &lt; 0)<br>		{<br>			k *= ss[i]; printf("%d ", ss[i]);<br>		}<br>	printf("%d ", k);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {7, -9, 5, 0, -2, 1, 3, -8, 0, 2};<br>	int i, k, m;<br>	for(i = 0; i &lt; 9; i++)<br>		for(k = i + 1; k &lt; 10; k++)<br>			if(ss[i] &lt; ss[k])<br>			{<br>				m = ss[i]; ss[i] = ss[k]; ss[k] = m;<br>			}<br>	for(i = 0; i &lt; 10; i++)<br>		printf("%d ", ss[i]);<br></pre>
+<p></p></li><li>
+<pre>	int ss[10] = {7, -9, 5, 0, -2, 1, 3, -8, 0, 2};<br>	int i, k, m;<br>	for(i = 0; i &lt; 9; i++)<br>		for(k = i + 1; k &lt; 10; k++)<br>			if(ss[i] &gt; ss[k])<br>			{<br>				m = ss[i]; ss[i] = ss[k]; ss[k] = m;<br>			}<br>	for(i = 0; i &lt; 10; i++)<br>		printf("%d ", ss[i]);<br></pre>
+<p></p></li><li>
+<pre>	int i, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 0; i &lt; 10; i++)<br>		cout &lt;&lt; ss[i] &lt;&lt; ' ';<br></pre>
+<p></p></li><li>
+<pre>	int i, n = 0, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 0; i &lt; 10; i++)<br>	{	if(ss[i] == 0)<br>		{<br>			n++; cout &lt;&lt; ss[i] &lt;&lt; ' ';<br>		}<br>	} cout &lt;&lt; n;<br></pre>
+<p></p></li><li>
+<pre>	int i, j = 0, ss[10] = { -2, 6, 8, -1, 4 }, n = ss[0];<br>	for(i = 1; i &lt; 10; i++)<br>	{	if(ss[i] &lt; n)<br>		{<br>			j = i; n = ss[i];<br>		}<br>	} cout &lt;&lt; n &lt;&lt; ' ' &lt;&lt; j;<br></pre>
+<p></p></li><li>
+<pre>	int i, j = 0, ss[10] = { -2, 6, 8, -1, 4 }, n = ss[0];<br>	for(i = 1; i &lt; 10; i++)<br>	{	if(ss[i] &gt; n)<br>		{<br>			j = i; n = ss[i];<br>		}<br>	} cout &lt;&lt; n &lt;&lt; ' ' &lt;&lt; j;<br></pre>
+<p></p></li><li>
+<pre>	int i, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 0; i &lt; 10; i++)<br>	{	if(ss[i] &gt; 0)<br>			cout &lt;&lt; ss[i] &lt;&lt; ' ' &lt;&lt; i &lt;&lt; ' ';<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int i, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 0; i &lt; 10; i++)<br>	{	if(ss[i] &lt; 0)<br>			cout &lt;&lt; i &lt;&lt; ' ' &lt;&lt; ss[i] &lt;&lt; ' ';<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int i, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 0; i &lt; 10; i++)<br>	{	if(ss[i] == 0)<br>			cout &lt;&lt; i &lt;&lt; ' ' &lt;&lt; ss[i] &lt;&lt; ' ';<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int i, ss[10] = { -2, 6, 8, -1, 4 }, n = ss[5];<br>	for(i = 0; i &lt; 10; i++)<br>	{	if(ss[i] &gt; n)<br>			cout &lt;&lt; i &lt;&lt; ' ';<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int i, ss[10] = { -2, 6, 8, -1, 4 }, n = ss[5];<br>	for(i = 0; i &lt; 10; i++)<br>	{	if(ss[i] &lt; n)<br>			cout &lt;&lt; i &lt;&lt; ' ';<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int i, j = 0, n = 0, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 0; i &lt; 10; i++)<br>	{	if(ss[i] &lt; 0)<br>		{<br>			n += ss[i]; j++; cout &lt;&lt; ss[i] &lt;&lt; ' ';<br>		}<br>	} cout &lt;&lt; n &lt;&lt; ' ' &lt;&lt; j;<br></pre>
+<p></p></li><li>
+<pre>	int i, j = 0, n = 0, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 0; i &lt; 10; i++)<br>	{	if(ss[i] &gt; 0)<br>		{<br>			n += ss[i]; j++; cout &lt;&lt; ss[i] &lt;&lt; ' ';<br>		}<br>	} cout &lt;&lt; n &lt;&lt; ' ' &lt;&lt; j;<br></pre>
+<p></p></li><li>
+<pre>	int i, j = 0, n = 1, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 1; i &lt; 10; i +=2 )<br>	{	if(ss[i] != 0)<br>		{<br>			n *= ss[i]; j++; cout &lt;&lt; ss[i] &lt;&lt; ' ';<br>		}<br>	} cout &lt;&lt; n &lt;&lt; ' ' &lt;&lt; j;<br></pre>
+<p></p></li><li>
+<pre>	int i, j = 0, n = 1, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 2; i &lt; 10; i +=2 )<br>	{	if(ss[i] != 0)<br>		{<br>			n *= ss[i]; j++; cout &lt;&lt; ss[i] &lt;&lt; ' ';<br>		}<br>	} cout &lt;&lt; n &lt;&lt; ' ' &lt;&lt; j;<br></pre>
+<p></p></li><li>
+<pre>	int i, j = 0, n = 0, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 0; i &lt; 10; i++)<br>	{	if((ss[i] % 2) == 0 &amp;&amp; ss[i] != 0)<br>		{<br>			n += ss[i]; j++; cout &lt;&lt; ss[i] &lt;&lt; ' ';<br>		}<br>	} cout &lt;&lt; n &lt;&lt; ' ' &lt;&lt; j;<br></pre>
+<p></p></li><li>
+<pre>	int i, j = 0, n = 1, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 0; i &lt; 10; i++)<br>	{	if((ss[i] % 2) != 0)<br>		{<br>			n *= ss[i]; j++; cout &lt;&lt; ss[i] &lt;&lt; ' ';<br>		}<br>	} cout &lt;&lt; n &lt;&lt; ' ' &lt;&lt; j;<br></pre>
+<p></p></li><li>
+<pre>	int i, j = 0, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 0; i &lt; 10; i++)<br>	{	if(ss[i] &lt; 0)<br>		{<br>			j++; cout &lt;&lt; -ss[i] &lt;&lt; ' ' &lt;&lt; i &lt;&lt; ' ';<br>		}<br>	} cout &lt;&lt; j;<br></pre>
+<p></p></li><li>
+<pre>	int i, j = 0, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 0; i &lt; 10; i++)<br>	{	if(ss[i] &gt; 0)<br>		{<br>			j++; cout &lt;&lt; -ss[i] &lt;&lt; ' ' &lt;&lt; i &lt;&lt; ' ';<br>		}<br>	} cout &lt;&lt; j;<br></pre>
+<p></p></li><li>
+<pre>	int i, j = 0, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 0; i &lt; 10; i++)<br>	{	if(ss[i] &gt; 0)<br>		{<br>			j++; ss[i] = i;<br>		}<br>		cout &lt;&lt; ss[i] &lt;&lt; ' ';<br>	} cout &lt;&lt; j;<br></pre>
+<p></p></li><li>
+<pre>	int i, j = 0, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 0; i &lt; 10; i++)<br>	{	if(ss[i] &lt; 0)<br>		{<br>			j++; ss[i] = i;<br>		}<br>		cout &lt;&lt; ss[i] &lt;&lt; ' ';<br>	} cout &lt;&lt; j;<br></pre>
+<p></p></li><li>
+<pre>	int i, j = 0, ss[10] = { -2, 6, 8, -1, 4 };<br>	for(i = 0; i &lt; 10; i++)<br>	{	if(ss[i] == 0)<br>		{<br>			j++; ss[i] = i;<br>		}<br>		cout &lt;&lt; ss[i] &lt;&lt; ' ';<br>	} cout &lt;&lt; j;<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {2, 0, 4}, {4, 0, 0}, {3, 3, 3} };<br>	int s = 0, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>		for(j = 0; j &lt; 3; j++)<br>			s += ss[i][j];<br>	printf("%d ", s);<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {2, 3, 1}, {2, 0, 0}, {0, 2, 2} };<br>	int s = 1, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>		for(j = 0; j &lt; 3; j++)<br>			if(ss[i][j] &gt; 0)<br>				s *= ss[i][j];<br>	printf("%d ", s);<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {3, 7, 0}, {8, 5, 0}, {0, 7, 3} };<br>	int s = 0, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	for(j = 0; j &lt; 3; j++)<br>			if (i == j)<br>				s += ss[i][j];<br>	}<br>	printf("%d ", s);<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {2, 3, 4}, {2, 3, 2}, {1, 6, 5} };<br>	int s = 1, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	for(j = 0; j &lt; 3; j++)<br>			if (i == j)<br>				s *= ss[i][j];<br>	}<br>	printf("%d ", s);<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {2, 3, 7}, {6, 2, 5}, {6, 8, 1} };<br>	int s = 1, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	for(j = 0; j &lt; 3; j++)<br>			if (i + j == 2)<br>				s *= ss[i][j];<br>	}<br>	printf("%d ", s);<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {17, 0, 16}, {1, 5, 2}, {6, 13, 17} };<br>	int s = 0, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	for(j = 0; j &lt; 3; j++)<br>			if (i + j == 2)<br>				s += ss[i][j];<br>	}<br>	printf("%d ", s);<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {1, 3, 1}, {2, 3, 2}, {4, 3, 1} };<br>	int s = 0, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>		for(j = 0; j &lt; 3; j++)<br>			s += ss[i][j];<br>	printf("%d ", s);<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {0, 3, 1}, {3, 3, 0}, {2, 3, 1} };<br>	int s = 1, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>		for(j = 0; j &lt; 3; j++)<br>			if(ss[i][j] &gt; 0)<br>				s *= ss[i][j];<br>	printf("%d ", s);<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {1, 2, 4}, {6, 2, 7}, {1, 0, 6} };<br>	int s = 0, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	for(j = 0; j &lt; 3; j++)<br>			if (i == j)<br>				s += ss[i][j];<br>	}<br>	printf("%d ", s);<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {3, 7, 5}, {4, 7, 3}, {3, 1, 6} };<br>	int s = 1, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	for(j = 0; j &lt; 3; j++)<br>			if (i == j)<br>				s *= ss[i][j];<br>	}<br>	printf("%d ", s);<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {0, 0, 6}, {3, 2, 5}, {8, 4, 7} };<br>	int s = 1, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	for(j = 0; j &lt; 3; j++)<br>			if (i + j == 2)<br>				s *= ss[i][j];<br>	}<br>	printf("%d ", s);<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {13, 4, 8}, {17, 13, 10}, {2, 13, 9} };<br>	int s = 0, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	for(j = 0; j &lt; 3; j++)<br>			if (i + j == 2)<br>				s += ss[i][j];<br>	}<br>	printf("%d ", s);<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {4, 6, 7}, {6, 8, 8}, {9, 4, 7} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = 0;<br>		for(j = 0; j &lt; 3; j++)<br>			s += ss[i][j];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {7, 1, 7}, {7, 2, 7}, {3, 7, 5} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = 1;<br>		for(j = 0; j &lt; 3; j++)<br>			s *= ss[i][j];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {0, 3, 5}, {1, 1, 5}, {2, 5, 1} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = 1;<br>		for(j = 0; j &lt; 3; j++)<br>			s *= ss[j][i];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {7, 6, 13}, {3, 3, 10}, {14, 7, 3} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = 0;<br>		for(j = 0; j &lt; 3; j++)<br>			s += ss[j][i];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {23, 27, 39}, {8, 36, 12}, {22, 3, 22} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = ss[i][0];<br>		for(j = 0; j &lt; 3; j++)<br>			if(ss[i][j] &lt; s)<br>				s = ss[i][j];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {33, 40, 39}, {12, 21, 45}, {12, 37, 9} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = ss[0][i];<br>		for(j = 0; j &lt; 3; j++)<br>			if(ss[j][i] &lt; s)<br>				s = ss[j][i];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {14, 13, 50}, {18, 39, 43}, {3, 40, 45} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = ss[i][0];<br>		for(j = 0; j &lt; 3; j++)<br>			if(ss[i][j] &gt; s)<br>				s = ss[i][j];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {52, 23, 54}, {32, 49, 8}, {7, 17, 44} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = ss[0][i];<br>		for(j = 0; j &lt; 3; j++)<br>			if(ss[j][i] &gt; s)<br>				s = ss[j][i];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {6, 6, 3}, {6, 8, 7}, {9, 7, 2} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = 0;<br>		for(j = 0; j &lt; 3; j++)<br>			s += ss[i][j];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {6, 1, 4}, {1, 3, 6}, {4, 0, 5} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = 1;<br>		for(j = 0; j &lt; 3; j++)<br>			s *= ss[i][j];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {3, 1, 0}, {5, 5, 5}, {5, 4, 3} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = 1;<br>		for(j = 0; j &lt; 3; j++)<br>			s *= ss[j][i];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {17, 19, 12}, {12, 13, 10}, {17, 6, 3} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = 0;<br>		for(j = 0; j &lt; 3; j++)<br>			s += ss[j][i];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {2, 22, 11}, {13, 13, 4}, {16, 28, 17} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = ss[i][0];<br>		for(j = 0; j &lt; 3; j++)<br>			if(ss[i][j] &lt; s)<br>				s = ss[i][j];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {18, 14, 13}, {21, 23, 3}, {6, 15, 7} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = ss[0][i];<br>		for(j = 0; j &lt; 3; j++)<br>			if(ss[j][i] &lt; s)<br>				s = ss[j][i];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {26, 12, 3}, {18, 8, 9}, {20, 13, 4} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = ss[i][0];<br>		for(j = 0; j &lt; 3; j++)<br>			if(ss[i][j] &gt; s)<br>				s = ss[i][j];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li><li>
+<pre>	int ss[3][3] = { {1, 16, 25}, {28, 30, 21}, {8, 13, 4} };<br>	int s, i, j;<br>	for(i = 0; i &lt; 3; i++)<br>	{	s = ss[0][i];<br>		for(j = 0; j &lt; 3; j++)<br>			if(ss[j][i] &gt; s)<br>				s = ss[j][i];<br>		printf("%d ", s);<br>	}<br></pre>
+<p></p></li></ol><br>
+</td><td class="bok1"><br>
+</td><td class="bok"><br>
+</td></tr>
+<tr id="top"><td colspan="5"><center>
+<a id="top" href="plan_1.htm" class="p">&nbsp;Семестр 1</a>&nbsp;&nbsp;
+<a id="top" href="plan_2.htm" class="p">Семестр 2</a></center>
+</td></tr>
+</tbody></table></body></html>

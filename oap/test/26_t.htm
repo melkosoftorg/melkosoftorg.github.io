@@ -1,0 +1,127 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Вопросы теста 26 </title>
+<link rel=stylesheet type=text/css href=lec.css>
+</head>
+<body>
+<table cellpadding=0 cellspacing=0>
+<tr id=top><td colspan=5>
+<center>
+<a id=top href=../plan_2.htm>Календарно-тематический план &nbsp &nbsp </a>
+</center>
+</td></tr>
+<tr>
+<td class=bok></td>
+<td class=bok1></td>
+<td>
+<p id=head>Вопросы тестирования по теме:
+<br>Функции графической библиотеки.</p>
+<p id=head1>Что делает функция
+</p><ol>
+<li>void far floodfill(int x, int y, int border);
+<p><li>void far setfillstyle(int pattern, int color);
+<p><li>void far setlinestyle(int linestyle, unsigned upattern, int thickness);
+<p><li>void far rectangle(int left, int top, int right, int bottom);
+<p><li>void far bar(int left, int top, int right, int bottom);
+<p><li>void far bar3d(int left, int top, int right, int bottom, int depth, int topflag);
+<p><li>void far arc(int x, int y, int st, int end, int r);
+<p><li>void far circle(int x, int y, int r);
+<p><li>void far ellipse(int x, int y, int st, int end, int xr, int yr);
+<p><li>void far pieslice (int x, int y, int st, int end, int r);
+<p><li>void far setcolor(int color);
+</ol>
+<p id=head1>Расставьте последовательность команд,<br>необходимых для построения следующего изображения</p>
+<p><center><table class=ris border=0 cellpadding=0 cellspacing=0>
+<tr valign=top><td width=25%><img src="g02_01.gif">
+</td><td><pre>
+ setcolor(4); circle(300, 270, 50);
+ setlinestyle(SOLID_LINE, 0, THICK_WIDTH);
+ setcolor(10); rectangle(245, 255, 355, 285);
+ setfillstyle(1, 11); bar(240, 250, 360, 290);
+ setfillstyle(1, 3); bar(230, 240, 370, 300);
+ </pre
+</td></tr>
+<tr valign=top><td><img src="g02_02.gif">
+</td><td><pre>
+ setcolor(i); circle(300, 270, 7 * i);
+ for(int i = 1; i < 7; i++)
+ {
+ setcolor(10); rectangle(250, 250, 350, 290);
+ }
+ setlinestyle(SOLID_LINE, 0, THICK_WIDTH);
+
+ </pre
+</td></tr>
+<tr valign=top><td><img src="g02_03.gif">
+</td><td><pre>
+ for(i = 1; i < 7; i++)
+ setcolor(i); circle(300, 270, 7 * i);
+ setlinestyle(SOLID_LINE, 0, THICK_WIDTH);
+ {
+ setcolor(10); rectangle(250, 240, 350, 300);
+ }
+
+ </pre
+</td></tr>
+<tr valign=top><td><img src="g02_04.gif">
+</td><td><pre>
+ setlinestyle(SOLID_LINE, 0, THICK_WIDTH);
+ if(i % 2 == 0)
+ else	{	setfillstyle(1, i);
+ bar(100 + 10 * i, 100 + 10 * i, 200 + 10 * i, 150 + 10 * i); }
+ for(i = 2; i < 6; i++)
+ {	
+ rectangle(100 + 10 * i, 100 + 10 * i, 200 + 10 * i, 150 + 10 * i); }
+ {	setcolor(i);
+ }
+
+ </pre
+</td></tr>
+<tr valign=top><td><img src="g02_05.gif">
+</td><td><pre>
+ setcolor(14); setfillstyle(1, 12); pieslice(330, 260, 150, 190, 50);
+ setcolor(1); setfillstyle(1, 4); pieslice(300, 250, 250, 290, 50);
+ setcolor(11); setfillstyle(1, 3); pieslice(320, 280, 50, 110, 70);
+ setlinestyle(SOLID_LINE, 0, THICK_WIDTH);
+ setcolor(12); arc(300, 270, 0, 220, 50);
+
+ </pre
+</td></tr>
+<tr valign=top><td><img src="g02_06.gif">
+</td><td><pre>
+ setcolor(12); rectangle(252, 242, 378, 338);
+ for(i = 1; i < 7; i++)
+ setcolor(i);
+ {
+ ellipse(290 + 7 * i, 290 + 6 * i, 0, 180, 30 + i, 40 + i);
+ }
+ setlinestyle(SOLID_LINE, 0, THICK_WIDTH);
+ setfillstyle(1, 14); bar(250, 240, 380, 340);
+
+ </pre
+</td></tr>
+<tr valign=top><td><img src="g02_07.gif">
+</td><td><pre>
+ setcolor(3); rectangle(260, 230, 370, 310);
+ bar3d(280, 260, 360, 290, 10, 1);
+ setlinestyle(SOLID_LINE, 0, THICK_WIDTH);
+ setcolor(12); rectangle(270, 220, 300, 320);
+ setfillstyle(1, 14); bar(250, 240, 380, 300);
+ setcolor(2); setfillstyle(1, 1);
+
+ </pre
+</td></tr>
+</table></center>
+<p>&nbsp</p>
+</td>
+<td class=bok1></td>
+<td class=bok></td>
+</tr>
+<tr id=top><td colspan=5>
+<center>
+<a id=top href=../plan_2.htm>Календарно-тематический план &nbsp &nbsp </a>
+</center>
+</td></tr>
+</body>
+</html>

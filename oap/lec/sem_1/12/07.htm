@@ -1,0 +1,123 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 12</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Аргументы по умолчанию</p>
+Обычно при вызове функции в нее передается конкретное значение каждого аргумента, но 
+в языке C++ имеется возможность назначать значения аргументов функции, заданные 
+по умолчанию.
+<p><b><i>Аргумент по умолчанию</i></b> - это значение, которое присваивается параметру функции при ее вызове,
+если при этом соответствующий аргумент функции не указан.
+<P>Если аргумент по умолчанию не указан в вызове функции, то в вызов автоматически передается  
+значение этого аргумента по умолчанию. 
+<p>Если вызывается функция с двумя или более аргументами по умолчанию и если пропущенный 
+аргумент не является самым правым в списке аргументов, то все аргументы справа от пропущенного 
+тоже пропускаются.
+<p>Аргументы по умолчанию должны быть указаны при первом упоминании имени функции - в прототипе. 
+<p>Значения по умолчанию могут быть:
+<ul>
+<li>константами,
+<li>глобальными переменными,
+<li>вызовами функций.
+</ul>
+<p>В рассматриваемой программе встраиваемая (inline) функция вычисляет объем параллелепипеда. 
+Всем трем аргументам (длине, ширине, высоте) было дано значение по умолчанию равное 1 (int l = 1, int w = 1, int h = 1).
+<br>В первом вызове функции не указаны аргументы, поэтому используются все три значения по умолчанию.
+<br>Во втором вызове передается один параметр - длина, поэтому для ширины и высоты 
+используются параметры по умолчанию.
+<br>В третьем вызове переданы параметры для длины и ширины, параметром по умолчанию является высота.
+<br>В четвертом вызове значения по умолчанию не используются, поскольку переданы функции все три параметра. 
+<br>Аргументы по умолчанию - самые правые аргументы в списке параметров.
+<pre>
+	#include&lt;conio.h&gt;
+	#include&lt;iostream.h&gt;
+	inline int boxVol(int l=1, int w=1, int h=1)
+	{
+		return l*w*h;
+	}
+	main()
+	{	clrscr();   cout << "Объем параллелепипеда\n\n";
+		cout << "Размером по умолчанию " << boxVol();
+		cout << "\n10 x 1 x 1 равен " << boxVol(10);
+		cout << "\n10 x 5 x 1 равен " << boxVol(10, 5);
+		cout << "\n10 x 5 x 3 равен " << boxVol(10, 5, 3);
+		getch(); return 0;
+	}
+		<b><i>Результаты:</i></b>	Объем параллелепипеда
+				Размером по умолчанию 1
+				10 x 1 x 1 равен 10
+				10 x 5 x 1 равен 50
+				10 x 5 x 3 равен 150
+</pre>
+<p>Если задается для какого-то параметра значение по умолчанию, то нужно предусмотреть значения по умолчанию
+ для всех последующих параметров функции. Таким образом, параметры со значениями по умолчанию должны стоять после 
+всех остальных параметров в списке.
+<p>Небольшой пример:
+<pre>
+	#include&lt;conio.h>
+	#include&lt;istdio.h>
+	int Sum(int a, int b, int c = 0, int d = 0);   // Правильный прототип
+	//
+	// Неправильный прототип:
+	// int Sum(int a, int b = 0, int c, int d = 0);
+	//
+	int Sum(int a, int b, int c, int d)   // Определение функции
+	{
+		return a + b + c + d;
+	}
+
+	main()
+	{
+		printf("1 + 2 + 3 + 4 = %d\n", Sum(1, 2, 3, 4));
+		printf("    1 + 2 + 3 = %d\n", Sum(1, 2, 3));
+		printf("        1 + 2 = %d\n", Sum(1, 2));
+		//
+		// Недопустимый вызов:
+		// printf("1 + 2 + 4 = %d\n", Sum(1, 2,, 4));
+		//
+		getch();
+		return 0;
+	}
+</pre>
+
+<p>&nbsp;</p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=a>&nbsp 7 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

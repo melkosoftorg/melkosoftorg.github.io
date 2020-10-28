@@ -1,0 +1,244 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 33</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Поиск</p>
+<b><i>strlen</i></b> вычисляет длину строки, возвращает число символов в строке str, 
+не считая символ нулевого окончания.
+<p><b>Синтаксис</b> unsigned strlen(char *str);
+<br><b>Прототип</b> в string.h
+<p><b><i>strchr</i></b> анализирует строку на первое появление данного символа, 
+просматривает строку (с начала вперед), производя поиск на заданный символ, 
+реагирует на первое появление символа ch в строке str. <br>Нулевое окончание 
+считается частью строки. 
+<p><b>Синтаксис</b> char *strchr(char *str, char c);
+<br><b>Прототип</b> в string.h
+<p>В примере: strchr(strs, 0) в качестве результата 
+функции возвращается указатель на нулевое окончание в строке "strs".
+<br>strchr возвращает указатель на первый встретившийся в строке str символ ch, 
+если символ ch не появляется в строке str, функция возвращает нуль NULL.
+<pre>
+	#include&lt;stdio.h&gt;
+	#include&lt;string.h&gt;
+	#include&lt;conio.h&gt;
+	main()
+	{	unsigned char str[40],
+		ss[20]="Программа на C";
+		char *strl, c='р'; clrscr();
+		strcpy(str, ss); strl = strchr(str, c);
+		printf("В фразе %s\nдлиной %d символов\n\n", ss, strlen(ss));
+		if(strl)
+			printf("Символ %c в позиции %d \n", c, strl-str);
+		else
+			printf("Символ не найден \n");
+		getch(); return 0;
+	}
+
+	<b><i>Результат</i></b>	В фразе Программа на C
+			длиной 14 символов
+
+			Символ р в позиции 1
+
+</pre>
+<b><i>strcspn</i></b> анализирует строку на первый сегмент, не содержащий 
+любого подмножества из данного набора символов, возвращает длину первого 
+сегмента строки str1, который целиком не содержит ни одного символа из 
+имеющихся в строке str2.
+<p><b>Синтаксис</b> int strcspn(char *str1, char *str2);
+<br><b>Прототип</b> в string.h
+<pre>
+	#include&lt;stdio.h&gt;
+	#include&lt;alloc.h&gt;
+	#include&lt;string.h&gt;
+	#include&lt;conio.h&gt;
+	main()
+	{	char *str1 = "1234567890";
+		char *str2 = "747dc8";
+		int len; clrscr();
+		len = strcspn(str1, str2);
+		printf("%s %s\n", str1, str2);
+		printf("Позиция пересечения строк %d", len);
+		printf("\nЗначение %c\n", str1[len]);
+		getch(); return 0;
+	}
+
+	<b><i>Результат</i></b>	1234567890 747dc8
+			Позиция пересечения строк 3
+			Значение 4
+
+</pre>
+<b><i>strpbrk</i></b> анализирует строку str1 на первое появление любого символа 
+из заданного набора, имеющегося в строке str2. <br>Возвращает указатель на первое 
+появление в строке str1 любого символа из строки str2, если таких символов в 
+строке str1 нет, возвращается значение NULL.
+<p><b>Синтаксис</b> char * strpbrk(char *str1, char *str2);
+<br><b>Прототип</b> в string.h
+<pre>
+	#include&lt;stdio.h&gt;
+	#include&lt;string.h&gt;
+	#include&lt;conio.h&gt;
+	main()
+	{	char *str = "Как однажды летом";
+		char *ptr, *let = "жок"; clrscr();
+		ptr = strpbrk(str, let);
+		printf("%s%s \n", str, let);
+		if (ptr)
+			printf("первый символ - %c\n", *ptr);
+		else
+			printf("символ не найден\n");
+		getch(); return 0;
+	}
+
+	<b><i>Результат</i></b>	Как однажды летомжок
+			первый символ - к
+
+</pre>
+<b><i>strrchr</i></b> анализирует строку на последнее появление данного 
+символа, просматривает в поиске заданного символа, строку в обратном 
+направлении. Причем ищет последнее появление символа ch в строке str. 
+Символ нулевого окончания считается частью строки. <br>Возвращает указатель на 
+последнее появление символа ch в строке str. Если символ ch не найден, 
+возвращается NULL.
+<p><b>Синтаксис</b> char * strrchr(char *str, char c);
+<br><b>Прототип</b> в string.h
+<pre>
+	#include&lt;string.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;conio.h&gt;
+	main()
+	{	char str[35], *ptr, c = 'r',
+		ss[40] = "Borland International";
+		clrscr(); printf("%s\n\n", ss);
+		strcpy(str, ss); ptr = strrchr(str, c);
+		if (ptr != 0)
+			printf("Символ %c в позиции %d\n",c, ptr-str);
+		else
+			printf("Символ не найден\n");
+		getch();return 0;
+	}
+
+	<b><i>Результат</i></b>	Borland International
+
+			Символ r в позиции 12
+
+</pre>
+<b><i>strspn</i></b> анализирует строку на первый сегмент, являющийся 
+подмножеством данного набора символов, возвращает длину первого сегмента 
+строки str1, который целиком состоит из символов строки str2.
+<p><b>Синтаксис</b> int strspn(char *str1, char *str2);
+<br><b>Прототип</b> в string.h
+<pre>
+	#include&lt;string.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;alloc.h&gt;
+	#include&lt;conio.h&gt;
+	main()
+	{	char *ptr = "123D4567890";
+		char *str = "123DC8"; int len; clrscr();
+		printf("%s и %s\n", ptr, str);
+		len = strspn(ptr, str);
+		printf("отличаются с позиции %d\n", len);
+		getch(); return 0;
+	}
+
+	<b><i>Результат</i></b>	123D4567890 и 123DC8
+			отличаются с позиции 4
+
+</pre>
+<b><i>strstr</i></b> анализирует строку на появление одной подстроки, просматривает 
+str2 на первое появление подстроки str1. <br>Возвращает указатель на элемент в str2, 
+с которого начинается подстрока str1. <br>Если str2 не содержит str1, функция 
+возвращает NULL.
+<p><b>Синтаксис</b> char * strstr(char *str1, char *str2);
+<br><b>Прототип</b> в string.h
+<pre>
+	#include&lt;string.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;conio.h&gt;
+	main()
+	{	char *str1="Borland international";
+		char *str2="national", *ptr;
+		clrscr(); printf("В строке %s\n", str1);
+		ptr = strstr(str1, str2);
+		printf("подстрока %s\n", ptr);
+		getch(); return 0;
+	}
+
+	<b><i>Результат</i></b>	В строке Borland international
+			подстрока national
+
+</pre>
+<b><i>strtok</i></b> просматривает одну строку на маркеры, которые выделены 
+ограничителями, определенными во второй строке, анализирует содержание в 
+строке str1 последовательности из нуля или более текстовых маркеров, 
+выделенных с помощью символов из строки str2.
+<p><b>Синтаксис</b> char * strtok(char *str1, char *str2);
+<br><b>Прототип</b> в string.h
+<p>Первый вызов функции strtok возвращает указатель на первый символ первого 
+маркера в строке str1 и записывает нулевой символ в строку str1 
+непосредственно сразу за выделенным маркером. <br>Последующие вызовы со 
+значением NULL в качестве первого аргумента будут обрабатывать строку str1 
+таким же образом, пока не кончатся все маркеры. <br>Строка-разделитель str2 от 
+вызова к вызову может меняться. <br>Когда закончатся все маркеры, содержащиеся 
+в строке str1, функция strtok возвратит нулевой указатель (NULL).
+<pre>
+	#include&lt;string.h&gt;
+	#include&lt;stdio.h&gt;
+	#include&lt;conio.h&gt;
+	main()
+	{	char *inp = "abc, d", *p;
+		clrscr(); printf("%s\n", inp);
+		// strtok помещает нулевое окончание после лексемы
+		p = strtok(inp, "c");
+		if (p)
+			printf("%s\n", p);
+		// второй вызов возвращает вторую лексему
+		p = strtok(NULL, ",");
+		if (p)
+			printf("%s\n", p);
+		getch(); return 0;
+	}
+
+	<b><i>Результат</i></b>	abc, d
+			ab
+			 d
+
+</pre><P>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=a>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=p>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

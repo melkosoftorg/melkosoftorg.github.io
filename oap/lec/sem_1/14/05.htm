@@ -1,0 +1,121 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 14</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Открытие файла</p>
+<b><i>Открытие файла</i></b>  в самом общем смысле означает процедуру, информирующую систему о 
+тех действиях, которые предполагается выполнять с файлом.
+<p><b><i>fopen</i></b>  - открывает поток, устанавливает связь между программой и файлом.
+<br><b>Синтаксис</b> FILE *fopen(char *filename, char *type);
+<br><b>Прототип</b> в stdio.h
+<p>fopen открывает файл, именованный параметром filename и связывает его с 
+соответствующим потоком str. 
+<p>Функция fopen в качестве результата возвращает адресный 
+указатель, который будет идентифицировать поток str в последующих операциях.
+<p><b><i>Символьная строка type имеет одно из значений:</i></b>
+<table border=0 align=center cellpadding=5>
+<tr><td>r</td><td>- открытие файла только для чтения,</td></tr>
+<tr><td>w</td><td>- создание файла для записи. Если файл уже существует на диске, вся 
+информация, записанная в нем на данный момент, будет заменена новой 
+информацией,</td></tr>
+<tr><td>а</td><td>- присоединение. Открытие для записи в конец файла или создание для записи, 
+если файл не существует,</td></tr>
+<tr><td>r+</td><td>- открытие существующего файла для обновления (чтения и записи),</td></tr>
+<tr><td>w+</td><td>- создание нового файла для изменения,</td></tr>
+<tr><td>a+</td><td>- открытие для присоединения; открытие (или создание, если файл не существует) для обновления в конец файла.</td></tr>
+</table>
+<br>Если файл открывается или создается в текстовом режиме, можно приписать символ t к 
+значению параметра type (rt, w+t, и так далее). 
+<br>Для спецификации бинарного режима к 
+значению параметра type добавить символ b (wb, a+b, и так далее).
+<br>Если в параметре type отсутствуют символы t или b, режим будет определяться 
+глобальной переменной _fmode:
+<ul>
+<li>если переменная _fmode имеет значение O_BINARY, файлы будут открываться в 
+бинарном режиме,
+<li>если _fmode имеет значение O_TEXT, файлы открываются в текстовом режиме. 
+</ul>
+Данные константы O_... определены в файле fcntl.h.
+<p>При открытии файла в режиме обновления (UPDATE), над результирующим потоком str 
+могут быть выполнены как операции ввода, так и вывода.
+<br>Вывод не может следовать непосредственно за вводом без вмешательства функций fseek 
+(устанавливает указатель файла в потоке) или rewind (устанавливает указатель в начало 
+потока), а также ввод, без применения функций fseek, rewind не может непосредственно 
+следовать за выводом или вводом, который встречает конец файла (EOF). 
+<p>При успешном завершении, каждая функция возвращает заново открытый поток str. В случае ошибки 
+функция возвращают адресный нуль (NULL). 
+<pre>
+	#include&lt;stdio.h&gt;
+	#include&lt;dir.h&gt;
+	#include&lt;conio.h&gt;
+	void main()
+	{
+		char *g1, *g2, *ch = "с:\\progr\\l_17c.cpp", *p = "\\calc.c";
+		FILE *in, *out; clrscr();
+		if ((in = fopen(ch, "rt")) == NULL)
+		{
+			fprintf(stderr, "Не могу открыть файл \n");
+			return(1);
+		}
+		if ((out = fopen(p, "wt")) == NULL)
+		{
+			fprintf(stderr, "Не могу открыть выходной файл \n");
+			return(1);
+		}
+		while(!feof(in))
+			fputc(fgetc(in), out);
+		fclose(in); fclose(out);
+		g1 = searchpath(ch); printf("Маршрут %s : %s\n", ch, g1);
+		g2 = searchpath(p); printf("Маршрут %s : %s\n", p, g2);
+		getch();
+	}
+</pre>
+<p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_1.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=p>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+<td><a href="05.htm" class=a>&nbsp 5 &nbsp</a></td>
+<td><a href="06.htm" class=p>&nbsp 6 &nbsp</a></td>
+<td><a href="07.htm" class=p>&nbsp 7 &nbsp</a></td>
+<td><a href="08.htm" class=p>&nbsp 8 &nbsp</a></td>
+<td><a href="09.htm" class=p>&nbsp 9 &nbsp</a></td>
+<td><a href="10.htm" class=p>&nbsp 10 &nbsp</a></td>
+<td><a href="11.htm" class=p>&nbsp 11 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>

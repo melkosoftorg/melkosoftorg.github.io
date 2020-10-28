@@ -1,0 +1,148 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Вопросы теста 18 </title>
+<link rel=stylesheet type=text/css href=lec.css>
+</head>
+<body>
+<table cellpadding=0 cellspacing=0>
+<tr id=top><td colspan=5>
+<center>
+<a id=top href=../plan_2.htm>Календарно-тематический план &nbsp &nbsp </a>
+</center>
+</td></tr>
+<tr>
+<td class=bok></td>
+<td class=bok1></td>
+<td>
+<p id=head>Вопросы тестирования по теме:<br>Условный оператор <b>?&nbsp;:</b></p>
+<p id=head1>Сформулировать определения</p>
+<ol>
+<li>Разветвляющийся процесс
+<li>Ветвь 
+<li>Оператор И - &&
+<li>Оператор ИЛИ - ||
+<li>При каких значениях аргумента <b>x</b> будет истинным значение логического выражения
+<pre>	<b>((х < 5) && (x < 30)) ||  !(x <= 18)</b></pre>
+
+<li>Что определяет данное выражение x = (y > x) ? y : x
+
+
+<li>Укажите правильную запись условного оператора:
+<ul>
+	<li>x = (e1 > e2) ? e1 : e2;
+	<li>x = (e1 > e2) ? e1 > e2;
+	<li>x = (e1 > e2) & e1 : e2;
+	<li>if (e1 > e2) x = e1; else x = e2;
+	<li>if (e1 > e2) ? e1 else e2;
+</ul>
+
+<li>Какие значения e и f выведутся в результате выполнения данного фрагмента
+ программы? <pre>	int a = 42; <br>	int b = 2; <br>	int c = 99; <br>	int d = 0; <br>	int e = (b == 0) ? 0 : (a / b); <br>	int f = (d == 0) ? 0 : (c / d); <br>	printf("e = %d ", e); <br>	printf("f = %d", f);</pre>
+
+</ol>
+<p id=head1>Что будет выведено на экран после исполнения фрагмента программы ?</p>
+<ol>
+<li><pre>
+	char *str; float k = 1.3786; 
+	int x = ceil(k), y = floor(k);
+	str = (x > y) ? " больше " : " меньше ";
+	printf("%d%s%d", x, str, y);
+</pre>
+<li><pre>
+	char *str; float k = 1.3786; 
+	int x = ceil(k), y = floor(k);
+	str = (x < y) ? " больше " : " меньше ";
+	printf("%d не%s%d", x, str, y);
+</pre>
+<li><pre>
+	char *str; float k = 1.3786; 
+	int x = floor(k), y = ceil(k);
+	str = (x > y) ? " больше " : " меньше ";
+	printf("%d%s%d", x, str, y);
+</pre>
+<li><pre>
+	char *str; float k = 1.3786; 
+	int x = floor(k), y = ceil(k);
+	int z = x / y;
+	str = (x > z) ? " " : " не ";
+	printf("%d%sбольше %d", x, str, z);
+</pre>
+<li><pre>
+	char *str; float k = 1.3786; 
+	int x = floor(k), y = ceil(k);
+	int z = x % y;
+	str = (x < z) ? " " : " не ";
+	printf("%d%sбольше %d", x, str, z);
+</pre>
+<li><pre>
+	char *str; float k = 1.3786; 
+	int x = ceil(k), y = floor(k);
+	int z = x / y;
+	str = (x == z) ? " " : " не ";
+	printf("%d%sравно %d", x, str, z);
+</pre>
+<li><pre>
+	char *str; float k = 1.3786; 
+	int x = ceil(k), y = floor(k);
+	int z = pow(y, x);
+	str = (x == z) ? " " : " не ";
+	printf("%d%sравно %d", x, str, z);
+</pre>
+<li><pre>
+	char *str; float k = 1.3786; 
+	int x = floor(k), y = ceil(k);
+	int z = x / y;
+	str = (x == z) ? " " : " не ";
+	printf("%d%sравно %d", x, str, z);
+</pre>
+<li><pre>
+	char *str; float k = 1.3786; 
+	int x = floor(k), y = floor(exp(1));
+	str = (x == y) ? " " : " не ";
+	printf("%d%sравно %d", x, str, y);
+</pre>
+<li><pre>
+	char *str; float k = 1.3786; 
+	int x = floor(k), y = floor(sqrt(k));
+	str = (x == y) ? " " : " не ";
+	printf("%d%sравно %d", x, str, y);
+</pre>
+<li><pre>
+	int x = 3, y = -3, i;
+	i = (x <= 3 && y > 0) ? x * y : x + y;
+	printf("i = %d", i);
+</pre>
+<li><pre>
+	int x = 3, y = -3, i;
+	i = (x > y || y != 0) ? ++x : ++y;
+	printf("i = %d", i);
+</pre>
+<li><pre>
+	int x = 3, y = -3, i = 1;
+	i = (x != y && y < 0 && i > 0) ? --y : ++y;
+	printf("i = %d", i);
+</pre>
+<li><pre>
+	int x = 2, y = 3, i;
+	i = (x != 2) ? x * (y - x) : x + y;
+	printf("i = %d", i);
+</pre>
+<li><pre>
+	int x = 3, y = -3, i;
+	i = (x >= y) ? x * y : x + y;
+	printf("i = %d", i);
+</pre>
+</ol>
+<p>&nbsp</p>
+</td>
+<td class=bok1></td>
+<td class=bok></td>
+</tr>
+<tr id=top><td colspan=5>
+<center>
+<a id=top href=../plan_2.htm>Календарно-тематический план &nbsp &nbsp </a>
+</center>
+</td></tr>
+</body>
+</html>

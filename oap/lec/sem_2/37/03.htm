@@ -1,0 +1,97 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<title>ОП | Лекция № 37</title>
+<link rel=stylesheet type=text/css href=../../../css/lec.css>
+</head>
+<body>
+<a name=#start></a>
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<!-- -------Inside table------- -->
+<table width=98% border=0 cellpadding=5 cellspacing=0>
+<tr>
+<td class=usual>
+<p align=center class=dbi><br>Поиск в массиве структур</p>
+<p>Теперь посчитаем количество в списке женщин и мужчин, средний рост всех.
+<br>Счетчикам количества женщин nf, количества мужчин nm, переменной sum, в которой будет накапливаться рост всех людей списка, заданы начальные значения, равные нулю.
+<br>Функция strstr(lib[i].aut, "жен.") позволяет осуществлять сортировку по признаку пола.
+<pre>
+		int i, nf = 0, nm = 0; float sum;
+		sum = 0;
+		for(i = 0; i < col; i++)
+		{	sum += lib[i].val;
+			if(strstr(lib[i].aut, "жен."))
+			{	frau[nf] = lib[i];
+				nf++;
+			}
+			else
+			{	man[nm] = lib[i];
+				nm++;
+			}
+		}
+		cout << "\nВ списке женщин " << nf << " мужчин " << nm << "\n\n";
+		cout << "Ср. рост всех = " << sum / col << "\n\n";
+</pre>
+<br>В списке женщин вычислим их средний рост, найдем самую низкую женщину и выведем сведения о ней.
+<pre>
+		print_struct(frau, nf);
+		sum = 0;
+		for(i = 0; i < nf; i++)
+		{
+			sum += frau[i].val;
+		}
+		cout << "Ср. рост женщин = " << sum / nf << "\n\n";
+		col = 0; sum = frau[col].val;
+		for(i = 1; i < nf; i++)
+			if(frau[i].val < sum)
+			{	sum = frau[i].val;
+				col=i;
+			}
+		cout << "Самая низкая женщина = " << sum  << "\n\n";
+		cout << frau[col].tit << frau[col].aut << ' ' << frau[col].val << ' ' << frau[col].god << "\n\n";
+</pre>
+<p>Этот фрагмент программы даст результаты:
+<p><center><img src="l39_02.gif"></center>
+<p>В списке мужчин вычислим их средний рост, найдем самого высокого мужчину.
+<pre>
+		print_struct(man, nm);
+		sum = 0;
+		for(i = 0; i < nm; i++)
+		{
+			sum += man[i].val;
+		}
+		cout << "\nСр. рост мужчин = " << sum / nm << "\n\n";
+		sum = man[0].val;
+		for(i = 1; i < nm; i++)
+			if(man[i].val > sum)
+				sum = man[i].val;
+		cout << "Самый высокий мужчина = " << sum  << "\n";
+</pre>
+<p>Получим:
+<br><center><img src="l39_03.gif"></center>
+<p> &nbsp; </p>
+</td></tr>
+</table>
+<!-- -------End of Inside table------- -->
+<table class=pages align=center border=0 cellpadding=0 cellspacing=0>
+<tr colspan=5>
+<td>&nbsp&nbsp<a href="../../../plan_2.htm" class=p>Календарно-тематический план</a>&nbsp&nbsp</td>
+<td><a href="index.htm" class=p>&nbsp План лекции &nbsp</a></td>
+<td><a href="01.htm" class=p>&nbsp 1 &nbsp</a></td>
+<td><a href="02.htm" class=p>&nbsp 2 &nbsp</a></td>
+<td><a href="03.htm" class=a>&nbsp 3 &nbsp</a></td>
+<td><a href="04.htm" class=p>&nbsp 4 &nbsp</a></td>
+</tr>
+</table>
+<a name=#end></a>
+</body>
+</html>
