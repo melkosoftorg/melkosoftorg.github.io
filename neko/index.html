@@ -1,15 +1,105 @@
 <!DOCTYPE HTML>
 <html>
- <head>
-  <meta charset="utf-8">
-  <title>Анатомия кошкодевочки</title>
- </head>
- <body> 
 
+<head>
+	<meta charset="utf-8">
+	<title>Анатомия кошкодевочки</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	// Load this script once the document is ready
+	$(document).ready(function() {
+		// Get all the thumbnail
+		$('div.thumbnail-item').mouseenter(function(e) {
+			// Calculate the position of the image tooltip
+			x = e.pageX - $(this).offset().left;
+			y = e.pageY - $(this).offset().top;
+			// Set the z-index of the current item, 
+			// make sure it's greater than the rest of thumbnail items
+			// Set the position and display the image tooltip
+			$(this).css('z-index', '15').children("div.tooltip").css({
+				'top': y + 10,
+				'left': x + 20,
+				'display': 'block'
+			});
+		}).mousemove(function(e) {
+			// Calculate the position of the image tooltip			
+			x = e.pageX - $(this).offset().left;
+			y = e.pageY - $(this).offset().top;
+			// This line causes the tooltip will follow the mouse pointer
+			$(this).children("div.tooltip").css({
+				'top': y + 10,
+				'left': x + 20
+			});
+		}).mouseleave(function() {
+			// Reset the z-index and hide the image tooltip 
+			$(this).css('z-index', '1').children("div.tooltip").animate({
+				"opacity": "hide"
+			}, "fast");
+		});
+	});
+	</script>
+	<style>
+	body {
+		background: #ffffff;
+	}
+	
+	.wrapper {
+		margin: 5% 35%;
+	}
+	
+	.thumbnail-item {
+		/* position relative so that we can use position absolute for the tooltip */
+		position: relative;
+		float: center;
+	}
+	
+	.thumbnail-item a {
+		display: block;
+	}
+	
+	.thumbnail-item img.thumbnail {
+		text-align: center;
+	}
+	
+	.tooltip {
+		/* by default, hide it */
+		display: none;
+		/* allow us to move the tooltip */
+		position: absolute;
+		/* align the image properly */
+		padding: -8px 0 0 -8px;
+	}
+	
+	.tooltip span.overlay {
+		/* the png image, need ie6 hack though */
+		
+		/* put this overlay on the top of the tooltip image */
+		position: absolute;
+		top: 45px;
+		left: 35px;
+		display: block;
+		width: 80%;
+		height: 200px;
+        color: #ffffff;
+	}
+	</style>
+</head>
+
+<body>
+	<!--
   <p align="center">
       <img src="neko.png" 
   width="100%">
-  </p>
-
- </body>
+  </p> -->
+	<div class="thumbnail-item"> 
+        <img src="neko.png" class="thumbnail" />
+        <div class="tooltip"> 
+            <img src="cyberpunk-overlay.jpg" alt="" width="330" height="185" /> 
+            <span class="overlay">Это подвид кошкодевочки, имеющий очень милый вид ушек</span> 
+        </div>
+	</div>
+</body>
+<!-- pcvector.net -->
+<script type="text/javascript" src="/templates/pcv/js/pcvector.js"></script>
+<!-- /pcvector.net -->
 </html>
