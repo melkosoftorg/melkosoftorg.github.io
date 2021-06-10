@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>Разработка и оценка архитектуры на основе сценариев</title></head><body>
+<div style="text-align: center;">[ <a href="../../ktp.html">Тематический
+план </a>]
+[<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><a href="z16v00.html">Архитектура программного обеспечения<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span></a><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><a href="z16v00.html"></a> </span>] [ <a href="z16v01.html">1
+</a>] [ 2
+] [ <a href="z16v03.html">3</a>
+] [ <a href="z16v04.html">4</a>
+]
+
+
+
+
+</div>
+
+
+
+
+
+<hr>
+<div style="text-align: center;">
+<div style="text-align: center;">
+
+</div>
+<h3 style="text-align: center;">Разработка и оценка архитектуры на основе
+сценариев</h3>
+
+
+
+
+
+</div>
+&nbsp; При проектировании архитектуры системы на основе
+требований, зафиксированных в виде вариантов использования, первые возможные
+шаги состоят в следующем.
+
+<ol start="1" type="1">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Выделение
+     компонентов<o:p></o:p></span></li><ul type="circle"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Выбирается
+      набор "основных" <span class="keyword">сценариев использования</span>
+      — наиболее существенных и выполняемых чаще других.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Исходя
+      из опыта проектировщиков, выбранного <span class="keyword">архитектурного
+      стиля</span> (см. следующую лекцию) и требований к переносимости и <span class="keyword">удобству сопровождения</span> системы определяются
+      компоненты, отвечающие за определенные действия в рамках этих <span class="keyword">сценариев</span>, т.е. за решение определенных подзадач.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Каждый
+      <span class="keyword">сценарий использования</span> системы представляется
+      в виде последовательности обмена сообщениями между полученными
+      компонентами.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">При
+      возникновении дополнительных хорошо <span class="keyword">выделенных
+      подзадач</span> добавляются новые компоненты, и сценарии уточняются.<o:p></o:p></span></li></ul><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Определение
+     интерфейсов компонентов<o:p></o:p></span></li><ul type="circle"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Для
+      каждого компонента в результате выделяется его интерфейс — набор
+      сообщений, которые он принимает от других компонентов и посылает им.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рассматриваются
+      "неосновные" сценарии, которые так же разбиваются на
+      последовательности обмена сообщениями с использованием, по возможности,
+      уже определенных интерфейсов.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Если
+      интерфейсы недостаточны, они расширяются.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Если
+      интерфейс компонента слишком велик, или компонент отвечает за слишком
+      многое, он разбивается на более мелкие.<o:p></o:p></span></li></ul><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Уточнение
+     набора компонентов<o:p></o:p></span></li><ul type="circle"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Там,
+      где это необходимо в силу требований эффективности или <span class="keyword">удобства сопровождения</span>, несколько компонентов могут
+      быть объединены в один.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Там,
+      где это необходимо для <span class="keyword">удобства сопровождения</span>
+      или надежности, один компонент может быть разделен на несколько.<o:p></o:p></span></li></ul><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Достижение
+     нужных свойств.<o:p></o:p></span></li>
+</ol>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Все это делается до тех пор,
+пока не выполнятся следующие условия:</p>
+
+
+<ol start="4" type="1">
+<ul type="circle"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Все
+      <span class="keyword">сценарии использования</span> реализуются в виде
+      последовательностей обмена сообщениями между компонентами в рамках их
+      интерфейсов.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Набор
+      компонентов достаточен для обеспечения всей нужной функциональности,
+      удобен для сопровождения или портирования на другие платформы и не
+      вызывает заметных проблем производительности.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Каждый
+      компонент имеет небольшой и четко очерченный круг решаемых задач и строго
+      определенный, сбалансированный по размеру интерфейс.<o:p></o:p></span></li></ul>
+</ol>
+
+
+<p style="text-align: justify;">На основе возможных <span class="keyword">сценариев
+использования</span> или модификации системы возможен также <span class="keyword">анализ</span> характеристик архитектуры и оценка ее пригодности
+для поставленных задач или сравнительный <span class="keyword">анализ</span>
+нескольких архитектур. Это так называемый метод анализа <span class="keyword">архитектуры
+ПО</span> (<span class="keyword">Software Architecture</span> <span class="keyword">Analysis</span> <span class="keyword">Method</span>, <span class="keyword">SAAM</span>).
+Основные его шаги следующие.</p>
+
+
+<ol start="1" type="1">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Определить
+     набор сценариев действий пользователей или внешних систем, использующих
+     некоторые возможности, которые могут уже планироваться для реализации в
+     системе или быть новыми. Сценарии должны быть значимы для конкретных
+     заинтересованных лиц, будь то пользователь, разработчик, ответственный за
+     сопровождение, представитель контролирующей организации и пр. Чем полнее
+     набор сценариев, тем выше будет качество анализа. Можно также оценить
+     частоту появления и важность сценариев, возможный ущерб от невозможности
+     их выполнить.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Определить
+     архитектуру (или несколько сравниваемых архитектур). Это должно быть
+     сделано в форме, понятной всем участникам оценки.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Классифицировать
+     сценарии. Для каждого сценария из набора должно быть определено,
+     поддерживается ли он уже данной архитектурой или для его поддержки нужно
+     вносить в нее изменения. Сценарий может поддерживаться, т.е. его
+     выполнение не потребует внесения изменений ни в один из компонентов, или
+     же не поддерживаться, если его выполнение требует изменений в описании
+     поведения одного или нескольких компонентов или изменений в их
+     интерфейсах. Поддержка сценария означает, что лицо, заинтересованное в его
+     выполнении, оценивает степень поддержки как достаточную, а необходимые при
+     этом действия — как достаточно удобные.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Оценить
+     сценарии. Определить, какие из сценариев полностью поддерживаются
+     рассматриваемыми архитектурами. Для каждого неподдерживаемого сценария
+     надо определить необходимые изменения в архитектуре — внесение новых
+     компонентов, изменения в существующих, изменения связей и способов
+     взаимодействия. Если есть возможность, стоит оценить трудоемкость внесения
+     таких изменений.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Выявить
+     взаимодействие сценариев. Определить какие компоненты требуется изменять
+     для неподдерживаемых сценариев; если требуется изменять один компонент для
+     поддержки нескольких сценариев — такие сценарии называют
+     взаимодействующими. Нужно оценить смысловые связи между взаимодействующими
+     сценариями.<o:p></o:p></span></li>
+</ol>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Малая связанность по смыслу
+между взаимодействующими сценариями означает, что компоненты, в которых они
+взаимодействуют, выполняют слабо связанные между собой задачи и их стоит
+декомпозировать.</p>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Компоненты, в которых
+взаимодействуют много (более двух) сценариев, также являются возможными
+проблемными местами.</p>
+
+
+<ol start="6" type="1">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Оценить
+     архитектуру в целом (или сравнить несколько заданных архитектур). Для
+     этого надо использовать оценки важности сценариев и степень их поддержки
+     архитектурой.<o:p></o:p></span></li>
+</ol>
+
+
+<p style="text-align: justify;">Рассмотрим сравнительный <span class="keyword">анализ</span>
+двух архитектур на примере индексатора — программы для построения индекса
+некоторого текста, т.е. упорядоченного <span class="keyword">по</span> алфавиту
+списка его слов без повторений.<br>
+</p>
+<p style="text-align: center;"><img style="width: 620px; height: 119px;" alt="" src="16_2.gif"></p>
+<p style="text-align: justify;">
+
+</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис. 16.2<b> </b></span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Пример работы индексатора текста<o:p></o:p></span></p>
+
+
+<ol start="1" type="1">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Выделим
+     следующие сценарии работы или модификации программы (р<span style="">ис. 16.2)</span>:<o:p></o:p></span></li><ul type="circle"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Надо
+      сделать так, чтобы индексатор мог работать в инкрементальном режиме,
+      читая на входе одну фразу за другой и пополняя получаемый в процессе
+      работы индекс.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Надо
+      сделать так, чтобы индексатор мог игнорировать предлоги, союзы,
+      местоимения, междометия, частицы и другие служебные слова.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Надо
+      сделать так, чтобы индексатор мог обрабатывать тексты, подаваемые ему на
+      вход в виде архивов.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Надо
+      сделать так, чтобы в индексе оставались только слова в основной
+      грамматической форме — существительные в единственном числе и
+      именительном падеже, глаголы в неопределенной форме и пр.<o:p></o:p></span></li></ul><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Определим
+     две возможных архитектуры индексатора для сравнительного анализа.<o:p></o:p></span></li><ul type="circle"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В
+      качестве первой архитектуры рассмотрим разбиение индексатора на два
+      компонента. Один компонент принимает на свой вход входной текст,
+      полностью прочитывает его и выдает на выходе список слов, из которых он
+      состоит. Второй компонент принимает на вход список слов, а на выходе
+      выдает его упорядоченный вариант без повторений. Этот вариант архитектуры
+      построен в стиле "каналы и фильтры" (см. следующую лекцию).</span></li></ul>
+</ol>
+<div style="text-align: center;"><img style="width: 620px; height: 64px;" alt="" src="16_3.gif"><br>
+
+
+</div>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис. 16.3<b> </b></span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Архитектура индексатора в стиле "каналы и
+фильтры"<br style="">
+<!--[if !supportLineBreakNewLine]--><!--[endif]--><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: Symbol;">·</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp; </span>Другой вариант архитектуры
+индексатора устроен следующим образом (р<span style="">ис.
+16.3).</span> Имеется внутренняя структура данных, хранящая подготовленный на
+настоящий момент вариант индекса. Он представляет собой упорядоченный список
+без повторений всех слов, прочитанных до настоящего момента. Кроме того,
+имеются две переменные — строка, хранящая последнее (быть может, не до конца)
+прочитанное слово, и ссылка на то слово в подготовленном списке, которое
+лексикографически следует за последним словом (соответственно, предшествующее
+этому слово в списке лексикографически предшествует последнему прочитанному
+слову). <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В дополнение к этим данным имеются следующие
+компоненты:<o:p></o:p></span></p>
+
+
+<ol start="1" type="1">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Первый
+     читает очередной символ на входе и передает его на обработку одному из
+     остальных.<o:p></o:p></span></li>
+</ol>
+
+
+<p class="MsoNormal" style="margin-left: 36pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Если это разделитель слов (пробел,
+табуляция, перевод строки), управление получает второй компонент.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 36pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Если это буква — третий.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 36pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Если входной текст кончается —
+четвертый.<o:p></o:p></span></p>
+
+
+<ol start="2" type="1">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Второй
+     компонент закачивает ввод последнего слова — оно помещается в список перед
+     тем местом, на которое указывает ссылка, после чего последнее слово
+     становится пустым, а ссылка начинает указывать на первое слово в списке.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Третий
+     компонент добавляет прочитанную букву в конец последнего слова, после
+     чего, быть может, перемещает ссылку на следующее за полученным слово в
+     списке.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Четвертый
+     компонент выдает полученный индекс на выход.<o:p></o:p></span></li>
+</ol>
+
+
+<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Эта архитектура построена в стиле
+"репозиторий".</span><br>
+<div style="text-align: center;"><img style="width: 620px; height: 223px;" alt="" src="16_4.gif"><br>
+
+
+</div>
+<p class="MsoNormal" style="text-align: center;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис. 16.4.<b> </b></span><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Архитектура индексатора в стиле
+репозитория<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp; </span>Определим поддерживаемые сценарии из
+выделенного набора.<o:p></o:p></span></p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сценарий
+     a.<o:p></o:p></span></li>
+</ul>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Этот сценарий прямо
+поддерживается второй архитектурой.</p>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Чтобы поддержать его в первой,
+необходимо внести изменения в оба компонента так, чтобы первый компонент мог
+пополнять промежуточный список, читая входной текст фраза за фразой, а второй —
+аналогичным способом пополнять результирующий упорядоченный список, вставляя
+туда поступающие ему на вход слова.</p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сценарий
+     b.<o:p></o:p></span></li>
+</ul>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Обе архитектуры не
+поддерживают этот сценарий.</p>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Для его поддержки в первой
+архитектуре необходимо изменить первый компонент или, лучше, вставить после
+него дополнительный фильтр, отбрасывающий вспомогательные части речи.</p>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Для поддержки этого сценария
+второй архитектурой нужно ввести дополнительный компонент, который
+перехватывает буквы, выдаваемые модулем их обработки (соответственно, этот
+модуль больше не должен перемещать указатель по итоговому списку) и сигналы о
+конце слова от первого компонента, после чего он должен отсеивать служебные
+слова.</p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сценарий
+     c.<o:p></o:p></span></li>
+</ul>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Этот сценарий также требует
+изменений в обеих архитектурах.</p>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Однако в обоих случаях эти
+изменения одинаковы — достаточно добавить дополнительный компонент,
+декодирующий архивы, если они подаются на вход.</p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сценарий
+     d.<o:p></o:p></span></li>
+</ul>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Этот сценарий также не
+поддерживается обеими архитектурами.</p>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Требуемые им изменения
+аналогичны требованиям второго сценария, только в этом случае дополнительный
+компонент-фильтр должен еще и преобразовывать слова в их основную форму и
+только после этого пытаться добавить результат к итоговому индексу.</p>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Таким образом, требуется, как
+и во втором случае, изменить или добавить один компонент в первой архитектуре и
+изменить один и добавить новый — во второй.</p>
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family: Symbol;">·</span><span style="">&nbsp; </span><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Мы
+уже выполнили оценку сценариев на предыдущем шаге. Итоги этой оценки приведены
+в таблице 16.1</span><span style="font-size: 12pt; line-height: 115%;">. <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: Symbol;">·</span><span style="font-size: 12pt; line-height: 115%;"><span style="">&nbsp;
+</span>Мы </span><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">видели, что при использовании первого варианта
+архитектуры только для поддержки первого сценария пришлось бы вносить изменения
+в ее компоненты. В остальных случаях достаточно было добавить новый компонент,
+что несколько проще.<o:p></o:p></span></p>
+
+
+<p style="text-align: justify;">При использовании второго варианта в двух разных
+сценариях, помимо добавления нового компонента, нам потребовалось изменить
+компонент, обрабатывающий буквы.</p>
+
+
+<table class="MsoNormalTable" style="" border="0" cellpadding="0" cellspacing="1">
+
+ <tbody><tr style="">
+  <td colspan="5" style="padding: 1.5pt; background: rgb(216, 216, 216) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+  <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Таблица
+  16.1. Итоги оценки двух вариантов архитектуры индексатора.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 1.5pt; background: rgb(216, 216, 216) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Архитектура<o:p></o:p></span></b></p>
+  </td>
+  <td style="padding: 1.5pt; background: rgb(216, 216, 216) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сценарий
+  a<o:p></o:p></span></b></p>
+  </td>
+  <td style="padding: 1.5pt; background: rgb(216, 216, 216) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сценарий
+  b<o:p></o:p></span></b></p>
+  </td>
+  <td style="padding: 1.5pt; background: rgb(216, 216, 216) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сценарий
+  c<o:p></o:p></span></b></p>
+  </td>
+  <td style="padding: 1.5pt; background: rgb(216, 216, 216) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сценарий
+  d<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 1.5pt; background: rgb(234, 234, 234) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" valign="top">
+  <p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Каналы и фильтры<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 1.5pt; background: rgb(234, 234, 234) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" valign="top">
+  <p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">- -<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 1.5pt; background: rgb(234, 234, 234) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" valign="top">
+  <p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">+ + *<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 1.5pt; background: rgb(234, 234, 234) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" valign="top">
+  <p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">+ + *<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 1.5pt; background: rgb(234, 234, 234) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" valign="top">
+  <p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">+ + *<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 1.5pt; background: rgb(234, 234, 234) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" valign="top">
+  <p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Репозиторий<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 1.5pt; background: rgb(234, 234, 234) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" valign="top">
+  <p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">+ + + +<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 1.5pt; background: rgb(234, 234, 234) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" valign="top">
+  <p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">+ + - + *<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 1.5pt; background: rgb(234, 234, 234) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" valign="top">
+  <p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">+ + + + *<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 1.5pt; background: rgb(234, 234, 234) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" valign="top">
+  <p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">+ + - + *<o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">+ обозначает возможность не изменять компонент, -
+— необходимость изменения компонента,</p>
+
+
+<p style="text-align: justify;">* — необходимость добавления одного компонента</p>
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp; </span>В целом первая архитектура на предложенных
+сценариях выглядит лучше второй. Единственный ее недостаток — отсутствие
+возможности инкрементально поставлять данные на вход компонентам. Если его
+устранить, сделав компоненты способными потреблять данные постепенно, эта
+архитектура станет почти идеальным вариантом, поскольку она легко расширяется —
+для решения многих дополнительных задач потребуется только добавлять компоненты
+в общий конвейер.<o:p></o:p></span></p>
+
+
+<p style="text-align: justify;">Вторая архитектура, несмотря на выигрыш в
+инкрементальности, проигрывает в целом. Основная ее проблема — слишком
+специфически построенный компонент — обработчик букв. Необходимость изменить
+его в нескольких сценариях показывает, что нужно объединить обработчик букв и
+обработчик конца слов в единый компонент, выдающий слова целиком, после чего
+полученная архитектура не будет ничем уступать исправленной первой.</p>
+
+
+<br>
+
+
+
+
+</body></html>

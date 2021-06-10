@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>Серверное программное обеспечение</title></head><body><div style="text-align: center;"><div style="text-align: center;">
+<a href="../../ktp.html">Тематический
+план </a>]
+[&nbsp;<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&nbsp;</span><a href="z43v00.html"><span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Установка серверной части. Виды серверного
+программного обеспечения.</span></a>]<br>&nbsp;[ 1
+]
+
+
+
+
+
+
+
+
+
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span>
+<div style="text-align: center;"><h2>Серверное программное обеспечение</h2>
+
+
+</div>&nbsp;
+Для того чтобы компьютер мог выступать в роли сетевого сервера 
+необходимо установить серверную часть сетевой операционной системы, 
+которая позволяет поддерживать ресурсы и распространять их среди сетевых
+ клиентов. Важным вопросом для сетевых серверов является возможность 
+ограничить доступ к сетевым ресурсам. Это называется сетевой защитой 
+(network security). Она предоставляет средства управления над тем, к 
+каким ресурсам могут получить доступ пользователи, степень этого 
+доступа, а также, сколько пользователей смогут получить такой доступ 
+одновременно. Этот контроль обеспечивает конфиденциальность и защиту и 
+поддерживает эффективную сетевую среду.
+<p>В дополнение к обеспечению контроля над сетевыми ресурсами сервер выполняет следующие функции:</p>
+<ul><li>предоставляет проверку регистрационных имен (logon identification) для пользователей;</li><li>управляет пользователями и группами;</li><li>&nbsp;хранит инструменты сетевого администрирования для управления, контроля и аудита;</li><li>обеспечивает отказоустойчивость для защиты целостности сети.</li></ul>
+<h3>Установка веб-сервера (Apache 2.4, MySQL 8.0, PHP 7, phpMyAdmin)</h3>
+<p>Локальный сервер очень полезный инструмент. Он точно пригодиться 
+веб-мастерам, программистам на PHP, тестерам на проникновение. Все 
+программы, входящие в типичную установку веб-сервера, являются 
+бесплатными, у всех у них открыт исходный код. Локальный веб-сервер 
+потребляет минимум ресурсов и, на самом деле, его совсем нетрудно 
+установить и настроить.</p>
+<p>Эта инструкция расскажет о том, как установить локальный веб-сервер 
+без использования готовых сборок. Этот способ имеет свои преимущества. 
+Самыми важными из них являются: полный контроль на тем, что вы 
+устанавливаете; возможность использовать самые последние версии 
+программного обеспечения.</p>
+<h4>Подготовка (скачивание программ, входящих в сервер, создание структуры сервера)</h4>
+<p>Нам нужны:</p>
+<ul><li><strong>Apache</strong>&nbsp;(непосредственно веб-сервер)</li><li><strong>PHP</strong>&nbsp;- среда для работы PHP программ (требуется практически всеми веб-сайтами)</li><li><strong>MySQL</strong>&nbsp;- система управления базами данных (требуется большинством веб-сайтов)</li><li><strong>phpMyAdmin</strong>&nbsp;- очень удобный инструмент для управления базами данных</li></ul>
+<p>Официальный сайт разработчиков Apache это&nbsp;httpd.apache.org.
+ Можно скачать Apache с этого сайта. Но официальная версия собирается с 
+использованием старого компилятора, по этой причине она не работает с 
+новыми версиями PHP. Авторы PHP рекомендуют Apache с сайта&nbsp;apachelounge.com/download. Поэтому для этой инструкции скачиваем&nbsp;Apache именно с сайта&nbsp;apachelounge.com/download.</p>
+<p>Если у вас 64-битная версия Windows, то вы можете выбрать как 
+64-битную, так и 32-битную версию компонентов. Главное правило - все 
+компоненты должны быть одной битности. Если у вас 32-битная версия 
+Windows, то все компоненты должны быть 32-битными. Это не относится к 
+phpMyAdmin, который написан на языке PHP. Для PHP программ понятие 
+битности неприменимо.</p>
+<p>PHP 7 скачайте со страницы&nbsp;https://windows.php.net/download/. Выберите версию&nbsp;<strong>Thread Safe</strong>, обратите внимание на битность.&nbsp;</p>
+<p>Бесплатная версия MySQL называется&nbsp;<strong>MySQL Community Server</strong>. Её можно скачать на странице&nbsp;https://dev.mysql.com/downloads/mysql/.
+ На этой же странице есть установщик в виде исполнимого файла, но я 
+рекомендую скачать ZIP-архив. На странице скачивания нам предлагают 
+зарегистрироваться или войти в существующую учётную запись - но это 
+делать необязательно. Достаточно нажать на ссылку «<strong>No thanks, just start my download</strong>». Обратите внимание на битность.</p>
+<p>Сайт для скачивания phpMyAdmin&nbsp;phpmyadmin.net.</p>
+<p>Ещё нам нужен файл C++ Redistributable Visual Studio 2017, т.е. 
+Распространяемый компонент Visual C++ для Visual Studio 2017 (или любой 
+другой более поздний), скачать его можно на официальном сайте Microsoft&nbsp;. Этот файл нужен для веб-сервера. А 
+для&nbsp;MySQL необходим&nbsp;Распространяемые пакеты Visual C++ для Visual Studio
+ 2015.&nbsp;</p>
+<p>Итак, у меня скачались следующие файлы:</p>
+<ul><li>httpd-2.4.29-Win64-VC15.zip</li><li>php-7.2.0-Win32-VC15-x64.zip</li><li>mysql-8.0.11-winx64.zip</li><li>phpMyAdmin-4.7.6-all-languages.zip</li><li>vc_redist.x64.exe</li><li>vcredist_x64.exe</li></ul>
+<p>Установите файлы&nbsp;<strong>vc_redist.x64.exe</strong>&nbsp;и&nbsp;<strong>vcredist_x64.exe</strong>.</p>
+<h3>Создание структуры веб-сервера</h3>
+<p>Создадим структуру каталогов нашего сервера. Главная идея - разделить
+ исполнимые файлы и файлы сайтов с базами данных. Это удобно для 
+обслуживания сервера, в том числе для резервного копирования.</p>
+<p>В корне диска&nbsp;<strong>C:\</strong>&nbsp;создайте каталог&nbsp;<strong>Server</strong>. В этом каталоге создайте 2 подкаталога:&nbsp;<strong>bin</strong>&nbsp;(для исполнимых файлов) и&nbsp;<strong>data</strong>.</p>
+
+<p>Перейдите в каталог&nbsp;<strong>data</strong>&nbsp;и там создайте подпапки&nbsp;<strong>DB</strong>&nbsp;(для баз данных) и&nbsp;<strong>htdocs</strong>&nbsp;(для сайтов).</p>
+<p>Перейдите в каталог&nbsp;<strong>C:\Server\data\DB\</strong>&nbsp;и создайте там пустую папку&nbsp;<strong>data</strong>.</p>
+<h3>Установка Apache 2.4</h3>
+<p>Содержимое скаченного архива (точнее говоря, только каталог&nbsp;<strong>Apache24</strong>), распакуйте в&nbsp;<strong>C:\Server\bin\</strong>.</p>
+<p>Перейдите в каталог&nbsp;<strong>c:\Server\bin\Apache24\conf\</strong>&nbsp;и откройте файл&nbsp;<strong>httpd.conf</strong>&nbsp;любым текстовым редактором.</p>
+<p>В нём нам нужно заменить ряд строк.</p>
+<p>Меняем</p>
+<pre><code>Define SRVROOT "c:/Apache24"</code></pre>
+<p>на</p>
+<pre><code>Define SRVROOT "c:/Server/bin/Apache24"</code></pre>
+<p>меняем</p>
+<pre><code>#ServerName www.example.com:80</code></pre>
+<p>на</p>
+<pre><code>ServerName localhost</code></pre>
+<p>меняем</p>
+<pre><code>DocumentRoot "${SRVROOT}/htdocs"</code></pre>
+<p>на</p>
+<pre><code>DocumentRoot "c:/Server/data/htdocs/"</code></pre>
+<p>меняем</p>
+<pre><code>&lt;Directory "${SRVROOT}/htdocs"&gt;</code></pre>
+<p>на</p>
+<pre><code>&lt;Directory "c:/Server/data/htdocs/"&gt;</code></pre>
+<p>меняем</p>
+<pre><code>DirectoryIndex index.html</code></pre>
+<p>на</p>
+<pre><code>DirectoryIndex index.php index.html index.htm</code></pre>
+<p>меняем</p>
+<pre><code># AllowOverride controls what directives may be placed in .htaccess files.<br># It can be "All", "None", or any combination of the keywords:<br>#&nbsp;&nbsp; AllowOverride FileInfo AuthConfig Limit<br>#<br>AllowOverride None</code></pre>
+<p>на</p>
+<pre><code># AllowOverride controls what directives may be placed in .htaccess files.<br># It can be "All", "None", or any combination of the keywords:<br>#&nbsp;&nbsp; AllowOverride FileInfo AuthConfig Limit<br>AllowOverride All</code></pre>
+<p>и меняем</p>
+<pre><code>#LoadModule rewrite_module modules/mod_rewrite.so</code></pre>
+<p>на</p>
+<pre><code>LoadModule rewrite_module modules/mod_rewrite.so</code></pre>
+<p>Сохраняем и закрываем файл. Всё, настройка Apache завершена!&nbsp;</p>
+<p>Откройте командную строку (это можно сделать нажав одновременно 
+клавиши Win+X). Выберите там Windows PowerShell&nbsp;(администратор) 
+и&nbsp;скопируйте туда:</p>
+<pre><code>c:\Server\bin\Apache24\bin\httpd.exe -k install</code></pre>
+<p>Если поступит запрос от файервола&nbsp;в отношение Apache, то нажмите Разрешить.</p>
+<p>Теперь вводим в командную строку:</p>
+<pre><code>c:\Server\bin\Apache24\bin\httpd.exe -k start</code></pre>
+<p>Теперь в браузере набираем&nbsp;http://localhost/&nbsp;и видим следующее:</p><p><img style="width: 795px; height: 306px;" alt="" src="43_01.jpg"></p><p>Это означает две вещи:</p>
+<ul><li>Apache работает</li><li>в каталоге&nbsp;<strong>c:\Server\data\htdocs\</strong>&nbsp;нет ни одного файла.</li></ul>
+<p>Можете поиграться — добавить в каталог любые html-файлы — полноценный веб-сервер работает.</p>
+<h3>Установка и настройка MySQL 8.0</h3>
+<p>В каталог&nbsp;<strong>bin</strong>&nbsp;распаковываем файлы MySQL (из архива mysql-8.0.11-winx64.zip). Переименовываем папку mysql-8.0.11-winx64 в&nbsp;<strong>mysql-8.0</strong>&nbsp;(для краткости).&nbsp;Кстати, распакованная папка mysql-8.0 занимает около&nbsp;гигабайта!</p>
+<p>Заходим в эту папку и создаём там файл&nbsp;<strong>my.ini</strong>&nbsp;Теперь открываем этот файл любым текстовым редактором.</p>
+<p>Добавьте туда следующие строки:</p>
+<pre><code>[mysqld]<br>&nbsp;<br>sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES <br>datadir="c:/Server/data/DB/data/"<br>&gt;default_authentication_plugin=mysql_native_password</code></pre>
+<p>Сохраните и закройте его.</p>
+<p>Настройка завершена, но нужно ещё выполнить инициализацию и 
+установку, для этого открываем командную строку от имени администратора и
+ последовательно вводим туда:</p>
+<pre><code>C:\Server\bin\mysql-8.0\bin\mysqld --initialize-insecure --user=root<br>C:\Server\bin\mysql-8.0\bin\mysqld --install<br>net start mysql</code></pre>
+<p>По окончанию этого процесса в каталоге&nbsp;<strong>C:\Server\data\DB\data\</strong>&nbsp;должны появиться автоматически сгенерированные файлы.</p>
+<p>Теперь служба MySQL будет запускаться при каждом запуске Windows.</p>
+<p>Если инициализация завершилась неудачей и в папке&nbsp;<strong>C:\Server\data\DB\data\</strong>&nbsp;недостаёт файлов, а в логе ошибок&nbsp;<strong>C:\Server\data\DB\data\*.err</strong>&nbsp;вы видите примерно следующие записи:</p>
+<pre><code>[ERROR] InnoDB: Operating system error number 87 in a file operation<br>[ERROR] InnoDB: File .\ib_logfile101: 'aio write' return OS error 187.<br>[ERROR] InnoDB: Cannot continue operation</code></pre>
+<p>То для решения этой проблемы удалите всё&nbsp;содержимое папки&nbsp;<strong>C:\Server\data\DB\data\</strong>&nbsp;и в файл&nbsp;<strong>my.ini</strong>&nbsp;добавьте ещё одну строчку:</p>
+<pre><code>innodb_flush_method=normal</code></pre>
+<p>Теперь инициализируйте MySQL ещё раз:</p>
+<pre><code>C:\Server\bin\mysql-8.0\bin\mysqld --initialize-insecure --user=root<br>C:\Server\bin\mysql-8.0\bin\mysqld --install<br>net start mysql</code></pre>
+<h3>Установка PHP 7</h3>
+<p>В папке&nbsp;<strong>c:\Server\bin\</strong>&nbsp;создаём каталог&nbsp;<strong>PHP</strong>&nbsp;и копируем в него содержимое архива php-7.0.0RC6-Win32-VC14-x64.zip.</p>
+<p>В файле&nbsp;<strong>c:\Server\bin\Apache24\conf\httpd.conf</strong>&nbsp;в самый конец добавляем строчки</p>
+<pre><code>PHPIniDir "C:/Server/bin/PHP"<br>AddHandler application/x-httpd-php .php<br>LoadModule php7_module "C:/Server/bin/PHP/php7apache2_4.dll"<br></code></pre>
+<p>И перезапускаем Apache</p>
+<pre><code>c:\Server\bin\Apache24\bin\httpd.exe -k restart</code></pre>
+<p>В каталоге&nbsp;<strong>c:\Server\data\htdocs\</strong>&nbsp;создаём файл с названием&nbsp;<strong>i.php</strong></p>
+<p>Копируем в этот файл:</p>
+<pre><code>&lt;?php<br>phpinfo ();</code></pre>
+<p>В браузере откройте ссылку&nbsp;http://localhost/i.php. Если вы видите тоже самое, что на картинке, значит PHP работает:</p><p><img style="width: 1919px; height: 1046px;" alt="" src="43_02.jpg"></p><h3>Настройка PHP 7</h3>
+<p>Настройка PHP происходит в файле&nbsp;<strong>php.ini</strong>. В 
+zip-архивах, предназначенных для ручной установки и для обновлений, 
+php.ini нет (это сделано специально, чтобы случайно не затереть ваш 
+файл, с вашими уникальными настройками). Зато есть два других, которые 
+называются php.ini-development и php.ini-production. Любой из них, при 
+ручной установке, можно переименовать в php.ini и настраивать дальше. На
+ локалхосте мы будет использовать&nbsp;<strong>php.ini-development</strong>.</p>
+<p>Открываем файл&nbsp;<strong>php.ini</strong>&nbsp;любым текстовым редактором, ищем строчку</p>
+<pre><code>; extension_dir = "ext"</code></pre>
+<p>и заменяем её на</p>
+<pre><code>extension_dir = "C:\Server\bin\PHP\ext\"</code></pre>
+<p>Теперь найдите группу строк:</p>
+<pre><code>;extension=bz2<br>;extension=curl<br>;extension=fileinfo<br>;extension=gd2<br>;extension=gettext<br>;extension=gmp<br>;extension=intl<br>;extension=imap<br>;extension=interbase<br>;extension=ldap<br>;extension=mbstring<br>;extension=exif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; Must be after mbstring as it depends on it<br>;extension=mysqli<br>;extension=oci8_12c&nbsp; ; Use with Oracle Database 12c Instant Client<br>;extension=openssl<br>;extension=pdo_firebird<br>;extension=pdo_mysql<br>;extension=pdo_oci<br>;extension=pdo_odbc<br>;extension=pdo_pgsql<br>;extension=pdo_sqlite<br>;extension=pgsql<br>;extension=shmop</code></pre>
+<p>и замените её на:</p>
+<pre><code>extension=bz2<br>extension=curl<br>extension=fileinfo<br>extension=gd2<br>extension=gettext<br>extension=gmp<br>extension=intl<br>extension=imap<br>;extension=interbase<br>extension=ldap<br>extension=mbstring<br>extension=exif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; Must be after mbstring as it depends on it<br>extension=mysqli<br>;extension=oci8_12c&nbsp; ; Use with Oracle Database 12c Instant Client<br>extension=openssl<br>;extension=pdo_firebird<br>extension=pdo_mysql<br>;extension=pdo_oci<br>extension=pdo_odbc<br>extension=pdo_pgsql<br>extension=pdo_sqlite<br>extension=pgsql<br>extension=shmop</code></pre>
+<p>теперь раскомментируйте эту группу строк:</p>
+<pre><code>;extension=soap<br>;extension=sockets<br>;extension=sqlite3<br>;extension=tidy<br>;extension=xmlrpc<br>;extension=xsl</code></pre>
+<p>должно получиться:</p>
+<pre><code>extension=soap<br>extension=sockets<br>extension=sqlite3<br>extension=tidy<br>extension=xmlrpc<br>extension=xsl</code></pre>
+<p>Этими действиями мы включили расширения. Они могут понадобиться в разных ситуациях для разных скриптов. Сохраняем файл и&nbsp;<strong>перезапускаем Apache</strong>.</p>
+<h3>6. Установка и настройка phpMyAdmin</h3>
+<p>В каталог&nbsp;<strong>c:\Server\data\htdocs\</strong>&nbsp;копируем содержимое архива phpMyAdmin-4.5.1-all-languages.zip. Переименовываем phpMyAdmin-4.5.1-all-languages в&nbsp;<strong>phpmyadmin</strong>&nbsp;(для лаконичности)</p>
+<p>В каталоге&nbsp;<strong>c:\Server\data\htdocs\phpmyadmin\</strong>&nbsp;создаём файл&nbsp;<strong>config.inc.php</strong>&nbsp;и копируем туда:</p>
+<pre><code><br>&lt;?php<br> <br>/* Servers configuration */<br>$i = 0;<br> <br>/* Server: localhost [1] */<br>$i++;<br>$cfg['Servers'][$i]['verbose'] = '';<br>$cfg['Servers'][$i]['host'] = 'localhost';<br>$cfg['Servers'][$i]['port'] = '';<br>$cfg['Servers'][$i]['socket'] = '';<br>$cfg['Servers'][$i]['connect_type'] = 'tcp';<br>$cfg['Servers'][$i]['extension'] = 'mysqli';<br>$cfg['Servers'][$i]['auth_type'] = 'cookie';<br>$cfg['Servers'][$i]['user'] = 'root';<br>$cfg['Servers'][$i]['password'] = '';<br>$cfg['Servers'][$i]['nopassword'] = true;<br>$cfg['Servers'][$i]['AllowNoPassword'] = true;<br> <br>/* End of servers configuration */<br> <br>$cfg['blowfish_secret'] = 'kjLGJ8g;Hj3mlHy+Gd~FE3mN{gIATs^1lX+T=KVYv{ubK*U0V';<br>$cfg['DefaultLang'] = 'ru';<br>$cfg['ServerDefault'] = 1;<br>$cfg['UploadDir'] = '';<br>$cfg['SaveDir'] = '';<br> <br>?&gt;<br></code></pre>
+<p>В браузере набираем&nbsp;http://localhost/phpmyadmin/</p>
+<p>В качестве имя пользователя вводим root. Поле пароля оставляем пустым. Если всё сделано правильно, то всё должно выглядеть так:</p><p><img style="width: 1919px; height: 1039px;" alt="" src="43_03.jpg"></p><h3>Использование сервера и бэкап данных</h3>
+<p>В каталоге<strong>&nbsp;c:\Server\data\htdocs\</strong>&nbsp;создавайте папки и файлы, например:</p>
+<p>c:\Server\data\htdocs\test\ajax.php – этот файл, соответственно, будет доступен по адресу http://localhost/test/ajax.php и т.д.</p>
+<p>Для создания полного бэкапа всех сайтов и баз данных достаточно скопировать каталог&nbsp;<strong>C:\Server\data\</strong>.</p>
+<p>Перед обновлением модулей, делайте бэкап папки&nbsp;<strong>bin</strong>&nbsp;– в случае возникновения проблем, можно будет легко откатиться к предыдущим версиям.</p>
+<p>При повторной установке сервера или при его обновлении, необходимо 
+заново настраивать конфигурационные файлы. Если у вас есть копии этих 
+файлов, то процесс можно значительно ускорить. Желательно забэкапить 
+следующие файлы:</p>
+<ul><li>c:\Server\bin\Apache24\conf\httpd.conf</li><li>c:\Server\bin\mysql-8.0\my.ini</li><li>c:\Server\bin\PHP\php.ini</li><li>c:\Server\data\htdocs\phpMyAdmin\config.inc.php</li></ul>
+<p>В них и хранятся все настройки.</p><p></p></body></html>

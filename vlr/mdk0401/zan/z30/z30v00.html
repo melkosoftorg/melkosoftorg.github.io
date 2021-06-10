@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>Введение</title></head><body> 
+<div style="text-align: center;"><a href="file:///F:/%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0/public_html/uch/mdk0301/ktp.html">Тематический
+план </a>]
+[ <span style="font-size: 12pt; line-height: 150%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Причины
+возникновения проблем совместимости. Методы выявления проблем совместимости ПО.</span>]<br>
+</div>
+<div style="text-align: center;">
+
+&nbsp;[ <a href="z30v01.html">1
+</a>] [ <a href="z30v02.html">2
+</a>] [ <a href="z30v03.html">3</a>
+]&nbsp;
+
+
+
+
+
+
+
+
+
+</div>
+<hr>
+<div style="text-align: right;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br>
+<a href="vopr.html">Вопросы</a></div>
+
+
+
+
+
+
+
+
+
+
+
+<span class="keyword"></span><br>
+
+
+
+
+
+
+
+<span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span>
+<div style="text-align: center;"><big><span style="font-weight: bold;">Введение</span></big><br>
+
+
+</div>
+
+&nbsp;
+<br>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">По мере развития операционной системы Windows
+поддержки новых технологий и функций может измениться реализация некоторых
+функций. Это может привести к проблемам с приложениями, которые основываются на
+исходной реализации. Вы можете избежать проблем с совместимостью с помощью
+инфраструктуры совместимости приложений Microsoft Windows (исправление
+совместимости) для создания исправления для определенной версии приложения.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 14pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Принцип работы инфраструктуры
+исправления совместимости<o:p></o:p></span></b></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Инфраструктура исправления совместимости использует
+возможности связывания API для перенаправления приложения из кода Windows
+непосредственно в альтернативный код, реализующий исправление совместимости.<o:p></o:p></span></p>
+
+
+<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В формате переносимого исполняемого файла Windows
+есть заголовки, содержащие каталоги данных, которые используются для
+обеспечения уровня косвенного переключения между приложением и связанным
+файлом. Вызовы API внешних двоичных файлов находятся в таблице адресов импорта
+(IAT), которая затем напрямую вызывает операционную систему Windows, как показано
+на приведенном ниже рисунке.<br>
+<img style="width: 470px; height: 210px;" alt="" src="30_1.PNG"><br>
+<br>
+</span>
+
+<p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В частности, процесс изменяет адрес уязвимой функции
+Windows в IAT таким образом, чтобы она указывала на код исправления
+совместимости, как показано на приведенном ниже рисунке.<o:p></o:p></span></p>
+
+
+<img style="width: 580px; height: 210px;" alt="" src="30_2.PNG"><br>
+
+
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Примечание<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Для статических связанных DLL перенаправление кода
+происходит при загрузке приложения. Кроме того, вы можете исправить динамически
+связываемые DLL-библиотеки, подключая функцию GetProcAddress API.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 18pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Влияние инфраструктуры исправления
+совместимости на проектирование<o:p></o:p></span></b></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">При определении стратегии исправления приложения
+необходимо учитывать важные моменты в соответствии с определенными
+характеристиками инфраструктуры исправления совместимости.<o:p></o:p></span></p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Исправление
+     совместимости не является частью операционной системы Windows (как
+     показано на предыдущем рисунке). Следовательно, те же ограничения
+     безопасности применяются к исправлению совместимости, которое применимо к
+     коду приложения, что означает, что вы не можете использовать исправления
+     совместимости для обхода каких либо механизмов безопасности операционной
+     системы. Таким образом, исправления совместимости не увеличивают уровень
+     безопасности, и вам не нужно понижать параметры безопасности для
+     обеспечения исправлений совместимости.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Инфраструктура
+     исправления совместимости внедряет в приложение дополнительный код, прежде
+     чем он будет вызывать операционную систему. Это означает, что любое
+     решение, которое может быть выполнено исправлением совместимости, также
+     можно решить путем исправления кода приложения.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Исправления
+     совместимости выполняются как код пользовательского режима внутри процесса
+     приложения в пользовательском режиме. Это означает, что вы не можете
+     использовать исправление совместимости для устранения проблем с кодом в
+     режиме ядра. Например, нельзя использовать исправление совместимости для устранения
+     проблем с драйверами устройств.<o:p></o:p></span></li>
+</ul>
+
+
+<p class="MsoNormal" style="margin-left: 36pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Примечание<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 36pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Некоторые антивирусные программы,
+брандмауэры и вредоносные программы работают в режиме ядра.<o:p></o:p></span></p>
+
+
+<br>
+
+ 
+  
+
+</body></html>

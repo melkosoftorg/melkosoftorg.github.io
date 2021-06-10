@@ -1,0 +1,721 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>Технологии виртуализации</title></head><body>
+<div style="text-align: center;"><a href="../../ktp.html">Тематический
+план </a>]
+[ <a href="z34v00.html"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Создание в системе
+виртуальной машины для исполнения приложений.</span></a>]<br>
+</div>
+
+
+<div style="text-align: center;">
+
+&nbsp;[ 1
+] [ <a href="z34v02.html">2
+</a>] [ <a href="z34v03.html">3</a>
+]&nbsp;
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<hr>
+<div style="text-align: right;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class="keyword"></span><br>
+</div>
+
+
+
+
+
+
+
+
+
+<span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span>
+<div style="text-align: center;"><b><span style="font-size: 13.5pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Технологии виртуализации</span></b>
+
+
+</div>
+
+
+
+&nbsp;
+<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Согласно статистике средний уровень загрузки
+процессорных мощностей у серверов под управлением Windows не превышает 10%, у
+Unix-систем этот показатель лучше, но тем не менее в среднем не превышает 20%.
+Низкая эффективность использования серверов объясняется широко применяемым с
+начала 90-х годов подходом "одно приложение — один сервер", т. е.
+каждый раз для развертывания нового приложения компания приобретает новый
+сервер. Очевидно, что на практике это означает быстрое увеличение серверного
+парка и как следствие — возрастание затрат на его администрирование,
+энергопотребление и охлаждение, а также потребность в дополнительных помещениях
+для установки всё новых серверов и приобретении лицензий на серверную ОС.<o:p></o:p></span></p>
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Виртуализация ресурсов физического сервера позволяет
+гибко распределять их между приложениями, каждое из которых при этом
+"видит" только предназначенные ему ресурсы и "считает", что
+ему выделен отдельный сервер, т. е. в данном случае реализуется подход "один
+сервер — несколько приложений", но без снижения производительности,
+доступности и безопасности серверных приложений. Кроме того, решения
+виртуализации дают возможность запускать в разделах разные ОС с помощью
+эмуляции их системных вызовов к аппаратным ресурсам сервера.</span></p>
+<p class="MsoNormal" style="text-align: center; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><img style="width: 550px; height: 346px;" alt="" src="34_1.jpg"></span></p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис. 34.1. </span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Виртуализация подразумевает запуск на одном физическом
+компьютере нескольких виртуальных компьютеров<o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В основе виртуализации лежит возможность одного
+компьютера выполнять работу нескольких компьютеров благодаря распределению его
+ресурсов по нескольким средам. С помощью виртуальных серверов и виртуальных
+настольных компьютеров можно разместить несколько ОС и несколько приложений в
+едином местоположении. Таким образом, физические и географические ограничения
+перестают иметь какое-либо значение. Помимо энергосбережения и сокращения
+расходов благодаря более эффективному использованию аппаратных ресурсов,
+виртуальная инфраструктура обеспечивает высокий уровень доступности ресурсов,
+более эффективную систему управления, повышенную безопасность и усовершенствованную
+систему восстановления в критических ситуациях.<o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В широком смысле понятие виртуализации представляет
+собой сокрытие настоящей реализации какого-либо процесса или объекта от
+истинного его представления для того, кто им пользуется. Продуктом виртуализации
+является нечто удобное для использования, на самом деле, имеющее более сложную
+или совсем иную структуру, отличную от той, которая воспринимается при работе с
+объектом. Иными словами, происходит отделение представления от реализации
+чего-либо. Виртуализация призвана абстрагировать программное обеспечение от
+аппаратной части.<o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><i><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В компьютерных технологиях под термином
+"виртуализация" обычно понимается абстракция вычислительных ресурсов
+и предоставление пользователю системы, которая "инкапсулирует"
+(скрывает в себе) собственную реализацию</span></i><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">. Проще говоря, пользователь работает с удобным для
+себя представлением объекта, и для него не имеет значения, как объект устроен в
+действительности.<o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сейчас возможность запуска нескольких виртуальных
+машин на одной физической вызывает большой интерес среди компьютерных
+специалистов, не только потому, что это повышает гибкость ИТ-инфраструктуры, но
+и потому, что виртуализация, на самом деле, позволяет экономить деньги.<o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">История развития технологий виртуализации насчитывает
+более сорока лет. Компания IBM была первой, кто задумался о создании
+виртуальных сред для различных пользовательских задач, тогда еще в мэйнфреймах.
+В 60-х годах прошлого века виртуализация представляла чисто научный интерес и
+была оригинальным решением для изоляции компьютерных систем в рамках одного
+физического компьютера. После появления персональных компьютеров интерес к
+виртуализации несколько ослаб ввиду бурного развития операционных систем,
+которые предъявляли адекватные требования к аппаратному обеспечению того
+времени. Однако бурный рост аппаратных мощностей компьютеров в конце девяностых
+годов прошлого века заставил ИТ-сообщество вновь вспомнить о технологиях
+виртуализации программных платформ.<o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В 1999 г. компания VMware представила технологию
+виртуализации систем на базе x86 в качестве эффективного средства, способного
+преобразовать системы на базе x86 в единую аппаратную инфраструктуру общего
+пользования и назначения, обеспечивающую полную изоляцию, мобильность и широкий
+выбор ОС для прикладных сред. Компания VMware была одной из первых, кто сделал
+серьезную ставку исключительно на виртуализацию. Как показало время, это
+оказалось абсолютно оправданным. Сегодня WMware предлагает комплексную
+виртуализационную платформу четвертого поколения VMware vSphere 4, которая
+включает средства как для отдельного ПК, так и для центра обработки данных.
+Ключевым компонентом этого программного комплекса является гипервизор VMware
+ESX Server. Позднее в "битву" за место в этом модном направлении
+развития информационных технологий включились такие компании как Parallels
+(ранее SWsoft), Oracle (Sun Microsystems), Citrix Systems (XenSourse).<o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Корпорация Microsoft вышла на рынок средств
+виртуализации в 2003 г. с приобретением компании Connectiх, выпустив свой
+первый продукт Virtual PC для настольных ПК. С тех пор она последовательно
+наращивала спектр предложений в этой области и на сегодня почти завершила
+формирование виртуализационной платформы, в состав которой входят такие решения
+как Windows 2008 Server R2 c компонентом Hyper-V, Microsoft Application
+Virtualization (App-v), Microsoft Virtual Desktop Infrastructure (VDI), Remote
+Desktop Services, System Center Virtual Machine Manager.<o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">На сегодняшний день поставщики технологий
+виртуализации предлагают надежные и легкоуправляемые платформы, а рынок этих
+технологий переживает настоящий бум. По оценкам ведущих экспертов, сейчас
+виртуализация входит в тройку наиболее перспективных компьютерных технологий.
+Многие эксперты предсказывают, что к 2015 году около половины всех компьютерных
+систем будут виртуальными.<o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Повышенный интерес к технологиям виртуализации в
+настоящее время неслучаен. Вычислительная мощь нынешних процессоров быстро
+растет, и вопрос даже не в том, на что эту мощь расходовать, а в том, что
+современная "мода" на двухъядерные и многоядерные системы, проникшая
+уже и в персональные компьютеры (ноутбуки и десктопы), как нельзя лучше
+позволяет реализовать богатейший потенциал идей виртуализации операционных
+систем и приложений, выводя удобство пользования компьютером на новый качественный
+уровень. Технологии виртуализации становятся одним из ключевых компонентов (в
+том числе, и маркетинговых) в самых новых и будущих процессорах Intel и AMD, в
+операционных системах от Microsoft и ряда других компаний.<o:p></o:p></span></p>
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;">
+
+</p>
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Преимущества виртуализации</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Приведем основные достоинства технологий
+виртуализации:<o:p></o:p></span></p>
+
+
+<ol start="1" type="1">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Эффективное
+     использование вычислительных ресурсов</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">. Вместо 3х, а то 10 серверов, загруженных на
+     5-20% можно использовать один, используемый на 50-70%. Кроме прочего, это
+     еще и экономия электроэнергии, а также значительное сокращение финансовых
+     вложений: приобретается один высокотехнологичный сервер, выполняющий
+     функции 5-10 серверов. С помощью виртуализации можно достичь значительно
+     более эффективного использования ресурсов, поскольку она обеспечивает объединение
+     стандартных ресурсов инфраструктуры в единый пул и преодолевает
+     ограничения устаревшей модели "одно приложение на сервер".<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сокращение
+     расходов на инфраструктуру</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">: Виртуализация позволяет сократить количество
+     серверов и связанного с ними ИТ-оборудования в информационном центре. В
+     результате этого потребности в обслуживании, электропитании и охлаждении
+     материальных ресурсов сокращаются, и на ИТ затрачивается гораздо меньше
+     средств.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Снижение
+     затрат на программное обеспечение</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">. Некоторые производители программного
+     обеспечения ввели отдельные схемы лицензирования специально для
+     виртуальных сред. Так, например, покупая одну лицензию на Microsoft
+     Windows Server 2008 Enterprise, вы получаете право одновременно её
+     использовать на 1 физическом сервере и 4 виртуальных (в пределах одного
+     сервера), а Windows Server 2008 Datacenter лицензируется только на
+     количество процессоров и может использоваться одновременно на
+     неограниченном количестве виртуальных серверов.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Повышение
+     гибкости и скорости реагирования системы</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">: Виртуализация предлагает новый метод управления
+     ИТ-инфраструктурой и помогает ИТ-администраторам затрачивать меньше
+     времени на выполнение повторяющихся заданий — например, на инициацию,
+     настройку, отслеживание и техническое обслуживание. Многие системные администраторы
+     испытывали неприятности, когда "рушится" сервер. И нельзя,
+     вытащив жесткий диск, переставив его в другой сервер, запустить все как
+     прежде… А установка? поиск драйверов, настройка, запуск… и на все нужны
+     время и ресурсы. При использовании виртуального сервера — возможен
+     моментальный запуск на любом "железе", а если нет подобного
+     сервера, то можно скачать готовую виртуальную машину с установленным и
+     настроенным сервером, из библиотек, поддерживаемых компаниями
+     разработчиками гипервизоров (программ для виртуализации).<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Несовместимые
+     приложения могут работать на одном компьютере</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">. При использовании
+     виртуализации на одном сервере возможна установка linux и windows
+     серверов, шлюзов, баз данных и прочих абсолютно несовместимых в рамках
+     одной не виртуализированной системы приложений.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Повышение
+     доступности приложений и обеспечение непрерывности работы предприятия</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">: Благодаря надежной системе
+     резервного копирования и миграции виртуальных сред целиком без перерывов в
+     обслуживании вы сможете сократить периоды планового простоя и обеспечить
+     быстрое восстановление системы в критических ситуациях.
+     "Падение" одного виртуального сервера не ведет к потере
+     остальных виртуальных серверов. Кроме того, в случае отказа одного
+     физического сервера возможно произвести автоматическую замену на резервный
+     сервер. Причем это происходит не заметно для пользователей без
+     перезагузки. Тем самым обеспечивается непрерывность бизнеса.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Возможности
+     легкой архивации</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">.
+     Поскольку жесткий диск виртуальной машины обычно представляется в виде файла
+     определенного формата, расположенный на каком-либо физическом носителе,
+     виртуализация дает возможность простого копирования этого файла на
+     резервный носитель как средство архивирования и резервного копирования
+     всей виртуальной машины целиком. Возможность поднять из архива сервер
+     полностью еще одна замечательная особенность. А можно поднять сервер из
+     архива, не уничтожая текущий сервер и посмотреть положение дел за прошлый
+     период.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Повышение
+     управляемости инфраструктуры</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">: использование централизованного управления
+     виртуальной инфраструктурой позволяет сократить время на администрирование
+     серверов, обеспечивает балансировку нагрузки и "живую" миграцию
+     виртуальных машин.<o:p></o:p></span></li>
+</ol>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Виртуальной машиной</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> <i>будем называть программную или аппаратную среду,
+которая скрывает настоящую реализацию какого-либо процесса или объекта от его
+видимого представления</i>.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Виртуальная машина</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> <i>— это полностью изолированный программный
+контейнер, который работает с собственной ОС и приложениями, подобно
+физическому компьютеру. Виртуальная машина действует так же, как физический
+компьютер, и содержит собственные виртуальные (т.е. программные) ОЗУ, жесткий
+диск и сетевой адаптер</i>.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">ОС не может различить виртуальную и физическую машины.
+То же самое можно сказать о приложениях и других компьютерах в сети. Даже сама
+виртуальная машина считает себя "настоящим" компьютером. Но несмотря
+на это виртуальные машины состоят исключительно из программных компонентов и не
+включают оборудование. Это дает им ряд уникальных преимуществ над физическим
+оборудованием.<o:p></o:p></span></p>
+
+
+<div style="text-align: center;"><img style="width: 170px; height: 174px;" alt="" src="34_2.jpg">
+
+</div>
+<p class="MsoNormal" style="text-align: justify; line-height: normal;">
+
+</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис. 34.2. </span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Виртуальная машина<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рассмотрим основные особенности виртуальных машин
+более детально:<o:p></o:p></span></p>
+
+
+<ol start="1" type="1">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Совместимость</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">. Виртуальные машины, как
+     правило, совместимы со всеми стандартными компьютерами. Как и физический
+     компьютер, виртуальная машина работает под управлением собственной
+     гостевой операционной системы и выполняет собственные приложения. Она
+     также содержит все компоненты, стандартные для физического компьютера
+     (материнскую плату, видеокарту, сетевой контроллер и т.д. ). Поэтому
+     виртуальные машины полностью совместимы со всеми стандартными
+     операционными системами, приложениями и драйверами устройств. Виртуальную
+     машину можно использовать для выполнения любого программного обеспечения,
+     пригодного для соответствующего физического компьютера.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Изолированность</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">. Виртуальные машины полностью
+     изолированы друг от друга, как если бы они были физическими компьютерами
+     Виртуальные машины могут использовать общие физические ресурсы одного
+     компьютера и при этом оставаться полностью изолированными друг от друга,
+     как если бы они были отдельными физическими машинами. Например, если на
+     одном физическом сервере запущено четыре виртуальных машины, и одна из них
+     дает сбой, это не влияет на доступность оставшихся трех машин.
+     Изолированность — важная причина гораздо более высокой доступности и
+     безопасности приложений, выполняемых в виртуальной среде, по сравнению с
+     приложениями, выполняемыми в стандартной, невиртуализированной системе.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Инкапсуляция</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">. Виртуальные машины полностью
+     инкапсулируют вычислительную среду. Виртуальная машина представляет собой
+     программный контейнер, связывающий, или "инкапсулирующий" полный
+     комплект виртуальных аппаратных ресурсов, а также ОС и все её приложения в
+     программном пакете. Благодаря инкапсуляции виртуальные машины становятся
+     невероятно мобильными и удобными в управлении. Например, виртуальную
+     машину можно переместить или скопировать из одного местоположения в другое
+     так же, как любой другой программный файл. Кроме того, виртуальную машину
+     можно сохранить на любом стандартном носителе данных: от компактной карты
+     Flash-памяти USB до корпоративных сетей хранения данных.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Независимость
+     от оборудования</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">.
+     Виртуальные машины полностью независимы от базового физического
+     оборудования, на котором они работают. Например, для виртуальной машины с
+     виртуальными компонентами (ЦП, сетевой картой, контроллером SCSI) можно
+     задать настройки, абсолютно не совпадающие с физическими характеристиками
+     базового аппаратного обеспечения. Виртуальные машины могут даже выполнять
+     разные операционные системы (Windows, Linux и др.) на одном и том же
+     физическом сервере. В сочетании со свойствами инкапсуляции и
+     совместимости, аппаратная независимость обеспечивает возможность свободно
+     перемещать виртуальные машины с одного компьютера на базе x86 на другой,
+     не меняя драйверы устройств, ОС или приложения. Независимость от
+     оборудования также дает возможность запускать в сочетании абсолютно разные
+     ОС и приложения на одном физическом компьютере.<o:p></o:p></span></li>
+</ol>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рассмотрим основные разновидности виртуализации, такие
+как:<o:p></o:p></span></p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">виртуализация
+     серверов (полная виртуализация и паравиртуализация)<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">виртуализация
+     на уровне операционных систем,<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">виртуализация
+     приложений,<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">виртуализация
+     представлений.<o:p></o:p></span></li>
+</ul>
+
+
+<h4>Виртуализация серверов</h4>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сегодня, говоря о
+технологиях виртуализации, как правило, подразумевают виртуализацию серверов,
+так как последняя становится наиболее популярным решением на рынке IT.
+Виртуализация серверов подразумевает запуск на одном физическом сервере
+нескольких виртуальных серверов. Виртуальные машины или сервера представляют
+собой приложения, запущенные на хостовой операционной системе, которые
+эмулируют физические устройства сервера. На каждой виртуальной машине может
+быть установлена операционная система, на которую могут быть установлены
+приложения и службы. Типичные</span><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">представители</span><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">это</span><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">продукты</span><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"> VmWare (ESX, Server, Workstation) </span><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">и</span><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"> Microsoft (Hyper-V, Virtual <span class="keyword">Server,
+Virtual</span> PC).</span></p>
+<div style="text-align: center;"><img style="width: 614px; height: 282px;" alt="" src="34_3.jpg"></div>
+<p class="MsoNormal" style="text-align: justify;">
+
+</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис. 34.3. </span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Виртуализация серверов<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Центры обработки данных используют большое
+пространство и огромное количество энергии, особенно если прибавить к этому
+сопровождающие их системы охлаждения и инфраструктуру. Средствами технологий
+виртуализации выполняется консолидация серверов, расположенных на большом
+количестве физических серверов в виде виртуальных машин на одном
+высокопроизводительном сервере.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Число физических машин, необходимых для работы в
+качестве серверов уменьшается, что снижает количество энергии, необходимой для
+работы машин и пространство, требуемое для их размещения. Сокращение в
+количестве серверов и пространстве уменьшает количество энергии, необходимой
+для их охлаждения. При меньшем расходе энергии вырабатывается меньшее
+количество углекислого газа. Данный показатель, например в Европе, имеет
+достаточно важную роль.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Немаловажным фактором является финансовая сторона.
+Виртуализация является важным моментом экономии. Виртуализация не только
+уменьшает потребность в приобретении дополнительных физических серверов, но и
+минимизирует требования к их размещению. Использование виртуального сервера
+предоставляет преимущества по быстроте внедрения, использования и управления,
+что позволяет уменьшить время ожидания развертывания какого-либо проекта.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Не так давно появились модели последнего поколения
+процессоров в архитектуре x86 корпораций AMD и Intel, где производители впервые
+добавили технологии аппаратной поддержки виртуализации. До этого виртуализация
+поддерживалась программно, что естественно приводила к большим накладным
+расходам производительности.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Для появившихся в восьмидесятых годах двадцатого века
+персональных компьютерах проблема виртуализации аппаратных ресурсов, казалось
+бы, не существовала по определению, поскольку каждый пользователь получал в
+свое распоряжение весь компьютер со своей ОС. Но по мере повышения мощности ПК
+и расширения сферы применения x86-систем ситуация быстро поменялась.
+"Диалектическая спираль" развития сделала свой очередной виток, и на
+рубеже веков начался очередной цикл усиления центростремительных сил по
+концентрации вычислительных ресурсов. В начале нынешнего десятилетия на фоне
+растущей заинтересованности предприятий в повышении эффективности своих
+компьютерных средств стартовал новый этап развития технологий виртуализации,
+который сейчас преимущественно связывается именно с использованием архитектуры
+x86.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Отметим, что хотя в идеях x86-виртуализации в
+теоретическом плане вроде бы ничего неизвестного ранее не было, речь шла о
+качественно новом для ИТ-отрасли явлении по сравнению с ситуацией 20-летней
+давности. Дело в том, что в аппаратно-программной архитектуре мэйнфреймов и
+Unix-компьютеров вопросы виртуализации сразу решались на базовом уровне и
+аппаратном уровне. Система же x86 строилась совсем не в расчете на работу в
+режиме датацентров, и ее развитие в направлении виртуализации — это довольно
+сложный эволюционный процесс со множеством разных вариантов решения задачи.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Важный момент заключается также в качественно разных
+бизнес-моделях развития мэйнфреймов и x86. В первом случае речь идет фактически
+о моновендорном программно-аппаратном комплексе для поддержки довольно
+ограниченного круга прикладного ПО для достаточно узкого круга крупных
+заказчиков. Во втором - мы имеем дело с децентрализованным сообществом
+производителей техники, поставщиков базового ПО и огромной армией разработчиков
+прикладного программного обеспечения.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Использование средств x86-виртуализации началось в
+конце 90-х с рабочих станций: одновременно с увеличением числа версий
+клиентских ОС постоянно росло и количество людей (разработчиков ПО,
+специалистов по технической поддержке, экспертов), которым нужно было на одном
+ПК иметь сразу несколько копий различных ОС.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Виртуализация для серверной инфраструктуры стала
+применяться немного позднее, и связано это было, прежде всего, с решением задач
+консолидации вычислительных ресурсов. Но тут сразу сформировалось два
+независимых направления:<o:p></o:p></span></p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">поддержка
+     неоднородных операционных сред (в том числе, для работы унаследованных
+     приложений). Этот случай наиболее часто встречается в рамках корпоративных
+     информационных систем. Технически проблема решается путем одновременной
+     работы на одном компьютере нескольких виртуальных машин, каждая из которых
+     включает экземпляр операционной системы. Но реализация этого режима
+     выполнялась с помощью двух принципиально разных подходов: <b>полной
+     виртуализации и паравиртуализации</b> ;<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">поддержка
+     однородных вычислительных сред подразумевает изоляцию служб в рамках
+     одного экземпляра ядра операционной системы ( <b>виртуализация на уровне
+     ОС</b> ), что наиболее характерно для хостинга приложений провайдерами
+     услуг. Конечно, тут можно использовать и вариант виртуальных машин, но
+     гораздо эффективнее создание изолированных контейнеров на базе одного ядра
+     одной ОС.<o:p></o:p></span></li>
+</ul>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Следующий жизненный этап технологий x86-виртуализации
+стартовал в 2004-2006 гг. и был связан с началом их массового применения в
+корпоративных системах. Соответственно, если раньше разработчики в основном
+занимались созданием технологий исполнения виртуальных сред, то теперь на
+первый план стали выходить задачи управления этими решениями и их интеграции в
+общую корпоративную ИТ-инфраструктуру. Одновременно обозначилось заметное
+повышение спроса на виртуализацию со стороны персональных пользователей (но
+если в 90-х это были разработчики и тестеры, то сейчас речь уже идет о конечных
+пользователях как профессиональных, так и домашних).<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Многие трудности и проблемы разработки технологий
+виртуализации связаны с преодолением унаследованных особенностей программно-аппаратной
+архитектуры x86. Для этого существует несколько базовых методов:<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Полная виртуализация</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> (Full, Native Virtualization). Используются не
+модифицированные экземпляры гостевых операционных систем, а для поддержки
+работы этих ОС служит общий слой эмуляции их исполнения поверх хостовой ОС, в
+роли которой выступает обычная операционная система. Такая</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">технология</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">применяется</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">, </span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">в</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">частности</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">, </span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">в</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"> VMware
+Workstation, VMware Server (</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">бывший</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"> GSX Server), Parallels Desktop, Parallels Server, MS Virtual PC, MS
+Virtual Server, Virtual Iron. </span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">К достоинствам данного подхода можно причислить относительную простоту
+реализации, универсальность и надежность решения; все функции управления берет
+на себя хост-ОС. Недостатки — высокие дополнительные накладные расходы на
+используемые аппаратные ресурсы, отсутствие учета особенностей гостевых ОС,
+меньшая, чем нужно, гибкость в использовании аппаратных средств.</span></p>
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"></p>
+<div style="text-align: center;"><img style="width: 315px; height: 146px;" alt="" src="34_4.jpg"><br>
+</div>
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify;">
+
+</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис. 34.4. </span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Полная виртуализация<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Паравиртуализация</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> (paravirtualization). Модификация ядра гостевой ОС
+выполняется таким образом, что в нее включается новый набор API, через который
+она может напрямую работать с аппаратурой, не конфликтуя с другими виртуальными
+машинами. При этом нет необходимости задействовать полноценную ОС в качестве
+хостового ПО, функции которого в данном случае исполняет специальная система,
+получившая название гипервизора (hypervisor). Именно этот вариант является
+сегодня наиболее актуальным направлением развития серверных технологий виртуализации
+и применяется в VMware ESX Server, Xen (и решениях других поставщиков на базе
+этой технологии), Microsoft Hyper-V. Достоинства данной технологии заключаются
+в отсутствии потребности в хостовой ОС – ВМ, устанавливаются фактически на
+"голое железо", а аппаратные ресурсы используются эффективно.
+Недостатки — в сложности реализации подхода и необходимости создания
+специализированной ОС-гипервизора.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 315px; height: 146px;" alt="" src="34_5.jpg"></div>
+<p class="MsoNormal" style="text-align: justify;">
+
+</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис. 34.5. </span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Паравиртуализация<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Виртуализация на уровне ядра ОС</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> (operating system-level
+virtualization). Этот вариант подразумевает использование одного ядра хостовой
+ОС для создания независимых параллельно работающих операционных сред. Для
+гостевого ПО создается только собственное сетевое и аппаратное окружение. Такой
+вариант используется в Virtuozzo (для Linux и Windows), OpenVZ (бесплатный
+вариант Virtuozzo) и Solaris Containers. Достоинства — высокая эффективность
+использования аппаратных ресурсов, низкие накладные технические расходы,
+отличная управляемость, минимизация расходов на приобретение лицензий.
+Недостатки — реализация только однородных вычислительных сред.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 315px; height: 169px;" alt="" src="34_6.jpg"></div>
+<p class="MsoNormal" style="text-align: justify;">
+
+</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис. 34.6. </span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Виртуализация на уровне ОС<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Виртуализация приложений</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> подразумевает применение модели
+сильной изоляции прикладных программ с управляемым взаимодействием с ОС, при
+которой виртуализируется каждый экземпляр приложений, все его основные
+компоненты: файлы (включая системные), реестр, шрифты, INI-файлы, COM-объекты,
+службы. Приложение исполняется без процедуры инсталляции в традиционном ее
+понимании и может запускаться прямо с внешних носителей (например, с флэш-карт
+или из сетевых папок). С точки зрения ИТ-отдела, такой подход имеет очевидные
+преимущества: ускорение развертывания настольных систем и возможность
+управления ими, сведение к минимуму не только конфликтов между приложениями, но
+и потребности в тестировании приложений на совместимость. Данная технология
+позволяет использовать на одном компьютере, а точнее в одной и той же
+операционной системе несколько несовместимых между собой приложений
+одновременно. Виртуализация приложений позволяет пользователям запускать одно и
+то же заранее сконфигурированное приложение или группу приложений с сервера.
+При этом приложения будут работать независимо друг от друга, не внося никаких
+изменений в операционную систему. Фактически именно такой вариант виртуализации
+используется в Sun Java Virtual Machine, Microsoft Application Virtualization
+(ранее называлось Softgrid), Thinstall (в начале 2008 г. вошла в состав
+VMware), Symantec/Altiris.</span></p>
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"></p>
+<div style="text-align: center;"><img style="width: 220px; height: 269px;" alt="" src="34_7.jpg"><br>
+</div>
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify;">
+
+</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис. 34.7. </span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Виртуализация приложений<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Виртуализация представлений (рабочих мест)</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> Виртуализация представлений
+подразумевает эмуляцию интерфейса пользователя. Т.е. пользователь видит
+приложение и работает с ним на своём терминале, хотя на самом деле приложение
+выполняется на удалённом сервере, а пользователю передаётся лишь картинка
+удалённого приложения. В зависимости от режима работы пользователь может видеть
+удалённый рабочий стол и запущенное на нём приложение, либо только само окно
+приложения.</span></p>
+<div style="text-align: center;"><img style="width: 293px; height: 271px;" alt="" src="34_8.jpg"></div>
+<p class="MsoNormal" style="text-align: justify; line-height: normal;">
+
+</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис. 34.8. </span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Виртуализация представлений<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Потребности бизнеса меняют наши представления об
+организации рабочего процесса. Персональный компьютер, ставший за последние
+десятилетия неотъемлемым атрибутом офиса и средством выполнения большинства
+офисных задач, перестает успевать за растущими потребностями бизнеса. Реальным
+инструментом пользователя оказывается программное обеспечение, которое лишь
+привязано к ПК, делая его промежуточным звеном корпоративной информационной
+системы. В результате активное развитие получают "облачные"
+вычисления, когда пользователи имеют доступ к собственным данным, но не
+управляют и не задумываются об инфраструктуре, операционной системе и
+собственно программном обеспечении, с которым они работают.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Вместе с тем, с ростом масштабов организаций,
+использование в ИТ-инфраструктуре пользовательских ПК вызывает ряд сложностей:<o:p></o:p></span></p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">большие
+     операционные издержки на поддержку компьютерного парка;<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">сложность,
+     связанная с управлением настольными ПК;<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">обеспечение
+     пользователям безопасного и надежного доступа к ПО и приложениям,
+     необходимым для работы;<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">техническое
+     сопровождение пользователей;<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">установка
+     и обновление лицензий на ПО и техническое обслуживание;<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">резервное
+     копирование и т.д.<o:p></o:p></span></li>
+</ul>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Уйти от этих сложностей и сократить издержки,
+связанные с их решением, возможно благодаря применению технологии виртуализации
+рабочих мест сотрудников на базе инфраструктуры виртуальных ПК – Virtual
+Desktop Infrastructure (VDI). VDI позволяет отделить пользовательское ПО от
+аппаратной части – персонального компьютера, - и осуществлять доступ к
+клиентским приложениям через терминальные устройства.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">VDI - комбинация соединений с удаленным рабочим столом
+и виртуализации. На обслуживающих серверах работает множество виртуальных
+машин, с такими клиентскими операционными системами, как Windows 7, Windows
+Vista и Windows XP или Linux операционными системами. Пользователи дистанционно
+подключаются к виртуальной машине своей настольной среды. На локальных
+компьютерах пользователей в качестве удаленного настольного клиента могут
+применяться терминальные клиенты, старое оборудование с Microsoft Windows
+Fundamentals или дистрибутив Linux.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">VDI полностью изолирует виртуальную среду
+пользователей от других виртуальных сред, так как каждый пользователь
+подключается к отдельной виртуальной машине. Иногда используется статическая
+инфраструктура VDI, в которой пользователь всегда подключается к той же
+виртуальной машине, в других случаях динамическая VDI, в которой пользователи
+динамически подключаются к различным виртуальным машинам, и виртуальные машины
+создаются по мере необходимости. При использовании любой модели важно хранить
+данные пользователей вне виртуальных машин и быстро предоставлять приложения.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Наряду с централизованным управлением и простым
+предоставлением компьютеров, VDI обеспечивает доступ к настольной среде из
+любого места, если пользователи могут дистанционно подключиться к серверу.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Представим, что на клиентском компьютере возникла
+неполадка. Придется выполнить диагностику и, возможно, переустановить
+операционную систему. Благодаря VDI в случае неполадок можно просто удалить
+виртуальную машину и за несколько секунд создать новую среду, с помощью
+созданного заранее шаблона виртуальной машины. VDI обеспечивает дополнительную
+безопасность, так как данные не хранятся локально на настольном компьютере или
+ноутбуке.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Как пример виртуализации представлений можно
+рассматривать и технологию тонких терминалов, которые фактически виртуализируют
+рабочие места пользователей настольных систем: пользователь не привязан к
+какому-то конкретному ПК, а может получить доступ к своим файлам и приложениям,
+которые располагаются на сервере, с любого удаленного терминала после
+выполнения процедуры авторизации. Все команды пользователя и изображение сеанса
+на мониторе эмулируются с помощью ПО управления тонкими клиентами. Применение
+этой технологии позволяет централизовать обслуживание клиентских рабочих мест и
+резко сократить расходы на их поддержку — например, для перехода на следующую
+версию клиентского приложения новое ПО нужно инсталлировать только один раз на
+сервере.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"></p>
+<div style="text-align: center;"><img style="width: 402px; height: 254px;" alt="" src="34_9.jpg"><br>
+</div>
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify;">
+
+</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal;" align="center"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис. 34.9. </span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Пример тонкого клиента. Терминал Sun Ray.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Одним из наиболее известных тонких клиентов является
+терминал Sun Ray, для организации работы которого используется программное
+обеспечение Sun Ray Server Software. Для начала сеанса Sun Ray достаточно лишь
+вставить в это устройство идентификационную смарт-карту. Применение смарт-карты
+существенно повышает мобильность пользователя — он может переходить с одного
+Sun Ray на другой, переставляя между ними свою карточку и сразу продолжать
+работу со своими приложениями с того места, где он остановился на предыдущем
+терминале. А отказ от жесткого диска не только обеспечивает мобильность
+пользователей и повышает безопасность данных, но и существенно снижает
+энергопотребление по сравнению с обычными ПК, поэтому терминал Sun не имеет
+вентилятора и работает практически бесшумно. Кроме того, сокращение числа
+компонентов тонкого терминала уменьшает и риск выхода его из строя, а
+следовательно, экономит расходы на его обслуживание. Еще одно преимущество Sun
+Ray — это существенно расширенный по сравнению с обычными ПК жизненный цикл
+продукта, поскольку в нём нет компонентов, которые могут морально устареть.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify;"><br>
+<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"></span><b style=""><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"><o:p></o:p></span></b></p>
+
+
+
+
+  
+
+</body></html>

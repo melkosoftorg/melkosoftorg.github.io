@@ -1,0 +1,623 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+<meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>Практическая работа №13</title></head><body>
+  <a href="../../ktp.html">назад</a><br>
+<br>
+
+
+<p class="MsoNormal" style="text-align: center;" align="center">
+
+</p>
+<p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Практическая
+работа №13</span></b></p>
+<div style="text-align: center;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">.</span><b><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span></b><b><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">«Управление процессами и потоками в
+ОС Windows».<o:p></o:p></span></b></div>
+
+
+<p class="MsoNormal" style="text-align: justify; text-indent: 35.4pt; line-height: 97%;"><b><i><span style="font-size: 12pt; line-height: 97%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Цель работы</span></i></b><b><span style="font-size: 12pt; line-height: 97%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">:<i> </i></span></b><span style="font-size: 12pt; line-height: 97%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">получение практических навыков
+управления процессами и самостоя-тельной работы с документацией команд</span><span style="font-size: 12pt; line-height: 97%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 35pt; text-align: justify;"><b><i><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">План выполнения работы.</span></i></b><span style="font-size: 10pt; line-height: 115%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 47pt; text-align: justify; text-indent: -11.95pt; line-height: 97%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 97%;"><span style="">1.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp; </span></span></span><!--[endif]--><span style="font-size: 12pt; line-height: 97%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Изучите приведенные ниже краткие теоретические
+сведения.</span><span style="font-size: 12pt; line-height: 97%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 47pt; text-align: justify; text-indent: -11.95pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt;"><span style="">2.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp; </span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Выполните все задания рпактической работы.</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 47pt; text-align: justify; text-indent: -11.95pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt;"><span style="">3.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp; </span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Предоставьте электронный отчет по данной практической&nbsp; работе.</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 14.05pt;"><span style="font-size: 12pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 35pt; text-align: justify;"><b><i><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Краткие теоретические сведения:</span></i></b><span style="font-size: 10pt; line-height: 115%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 35pt; text-align: justify;"><b><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Команды Windows для работы с
+процессами:</span></b><span style="font-size: 10pt; line-height: 115%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 70pt; text-align: justify; text-indent: -34.95pt; line-height: 98%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 98%; font-family: Symbol;"><span style="">1.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><b><span style="font-size: 12pt; line-height: 98%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">at
+</span></b><span style="font-size: 12pt; line-height: 98%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">-<b> </b>запуск программ в заданное
+время</span><span style="font-size: 12pt; line-height: 98%; font-family: Symbol;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 0.05pt;"><span style="font-size: 12pt; font-family: Symbol;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 70pt; text-align: justify; text-indent: -34.95pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt; font-family: Symbol;"><span style="">2.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Schtasks </span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">-<b> </b>настраивает выполнение команд по расписанию</span><span style="font-size: 12pt; font-family: Symbol;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 70pt; text-align: justify; text-indent: -34.95pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt; font-family: Symbol;"><span style="">3.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Start </span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">-<b> </b>запускает определенную программу или команду в
+отдельном окне.</span><span style="font-size: 12pt; font-family: Symbol;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 70pt; text-align: justify; text-indent: -34.95pt; line-height: 99%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 99%; font-family: Symbol;"><span style="">4.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><b><span style="font-size: 12pt; line-height: 99%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">command.com
+</span></b><span style="font-size: 12pt; line-height: 99%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">-<b> </b>запуск командной оболочки<b>
+</b>MS-DOS</span><span style="font-size: 12pt; line-height: 99%; font-family: Symbol;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 70pt; text-align: justify; text-indent: -34.95pt; line-height: 99%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 99%; font-family: Symbol;"><span style="">5.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><b><span style="font-size: 12pt; line-height: 99%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">cmd.exe
+</span></b><span style="font-size: 12pt; line-height: 99%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">-<b> </b>запуск командной оболочки<b>
+</b>Windows</span><span style="font-size: 12pt; line-height: 99%; font-family: Symbol;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 1.45pt;"><span style="font-size: 12pt; font-family: Symbol;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; text-align: justify; text-indent: 35.05pt; line-height: 95%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 95%; font-family: Symbol;"><span style="">6.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; line-height: 95%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Для
+вывода списка процессов используется команда <b>tasklist</b> (англ. Task List –
+список задач).Для получения более подробной информации, можно использовать
+центр справки и поддержки или команду <b>help</b> (например: <b>help at</b>)</span><span style="font-size: 12pt; line-height: 95%; font-family: Symbol;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 1.7pt;"><span style="font-size: 12pt; font-family: Symbol;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; text-align: justify; text-indent: 35.05pt; line-height: 97%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 97%; font-family: Symbol;"><span style="">7.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; line-height: 97%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Для
+остановки выполнения процесса используется команда <b>taskkill</b> (англ. Task
+KIll – «Убить» задачу). Для остановки процесса требуется указать идентификатор
+процесса PID (англ. Process IDentifier – Идентификатор процесса). PID – это
+«уникальное» целое число, назначенное каждому процессу. У всех процессов эти
+номера разные.</span><span style="font-size: 12pt; line-height: 97%; font-family: Symbol;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="line-height: 14.2pt;"><span style="font-size: 12pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 35pt;"><b><i><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Ход работы:</span></i></b><span style="font-size: 10pt; line-height: 115%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 35pt; line-height: 97%;"><b><i><u><span style="font-size: 12pt; line-height: 97%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Задание</span></u></i></b><b><i><span style="font-size: 12pt; line-height: 97%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> <u>1.</u> </span></i></b><span style="font-size: 12pt; line-height: 97%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Работа с Диспетчером задач<b><i> </i></b>Windows.</span><span style="font-size: 10pt; line-height: 97%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="line-height: 0.05pt;"><span style="font-size: 12pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 70pt; text-indent: -34.95pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt;"><span style="">3.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Запустите ОС Windows.</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 70pt; text-indent: -34.95pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt;"><span style="">4.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Запустите диспетчер задач. Для этого
+воспользуйтесь одним из способов:</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="line-height: 0.6pt;"><span style="font-size: 12pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 72pt; text-align: justify; text-indent: -18.35pt; line-height: 98%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 98%;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; line-height: 98%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">нажатием
+сочетания клавиш Ctrl+Alt+Del. При использовании данной команды не стоит
+пренебрегать последовательностью клавиш. Появится меню, в котором курсором
+следует выбрать пункт «Диспетчер задач»;</span><span style="font-size: 12pt; line-height: 98%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="line-height: 0.65pt;"><span style="font-size: 12pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 1pt 0.0001pt 72pt; text-align: justify; text-indent: -18.35pt; line-height: 98%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 98%;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; line-height: 98%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">переводом
+курсора на область с показаниями системной даты и времени и нажатием правого
+клика, будет выведено меню, в котором следует выбрать «Диспетчер задач».</span><span style="font-size: 12pt; line-height: 98%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="line-height: 0.05pt;"><span style="font-size: 12pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 71pt;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Будет выведено окно как на рис. 1.</span></p>
+<div style="text-align: center;"><img style="width: 401px; height: 390px;" alt="" src="45_01.JPG"><i><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><br>
+Рис. 1. Диспетчер задач Windows 7.</span></i><span style="font-size: 10pt; line-height: 115%;"><o:p></o:p></span></div>
+<p class="MsoNormal" style="margin-left: 71pt;">
+
+</p>
+
+
+<p class="MsoListParagraph" style="margin: 0cm 0cm 0.0001pt; text-indent: 0cm; line-height: normal;"><!--[if !supportLists]--><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">3.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Поработайте
+с основными вкладками диспетчера задач:</span><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><o:p></o:p></span></b></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; text-align: justify; text-indent: 35.05pt; line-height: 97%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 97%; font-family: Symbol;"><span style="">1.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; line-height: 97%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Вкладка
+«Приложения» отображает список запущенных задач (программ) выполняющиеся в
+настоящий момент не в фоновом режиме, а также отображает их состояние. Также в
+данном окне можно снять задачу переключиться между задачами и запустить новую
+задачу при помощи соответствующих кнопок.</span><span style="font-size: 12pt; line-height: 97%; font-family: Symbol;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="line-height: 1.7pt;"><span style="font-size: 12pt; font-family: Symbol;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt; text-align: justify; text-indent: 35.05pt; line-height: 95%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 95%; font-family: Symbol;"><span style="">2.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; line-height: 95%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Вкладка
+«Процессы» отображает список запущенных процессов, имя пользователя
+запустившего процесс, загрузку центрального процессора в процентном
+соотношении, а также объем памяти используемого для выполнения процесса.</span><span style="font-size: 12pt; line-height: 95%; font-family: Symbol;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="line-height: 1.7pt;"><span style="font-size: 12pt; font-family: Symbol;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 1pt 0.0001pt 0cm; text-align: justify; text-indent: 35.05pt; line-height: 95%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 95%; font-family: Symbol;"><span style="">3.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; line-height: 95%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Вкладка
+«Службы» показывает, какие службы запущены на компьютере. Службы - приложения,
+автоматически запускаемые системой при запуске ОС Windows и выполняющиеся вне
+зависимости от статуса пользователя.</span><span style="font-size: 12pt; line-height: 95%; font-family: Symbol;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="line-height: 1.7pt;"><span style="font-size: 12pt; font-family: Symbol;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 1pt 0.0001pt 0cm; text-indent: 35.05pt; line-height: 94%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 94%; font-family: Symbol;"><span style="">4.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; line-height: 94%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Вкладка
+«Быстродействие» отображает в графическом режиме загрузку процессора, а также
+хронологию использования физической памяти компьютера.</span><span style="font-size: 12pt; line-height: 94%; font-family: Symbol;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 0.05pt;"><span style="font-size: 12pt; font-family: Symbol;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 70pt; text-align: justify; text-indent: -34.95pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt; font-family: Symbol;"><span style="">5.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Вкладка «Сеть» отображает
+подключенные сетевые адаптеры, а также сетевую</span><span style="font-size: 12pt; font-family: Symbol;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 99%;"><span style="font-size: 12pt; line-height: 99%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">активность.</span><span style="font-size: 12pt; line-height: 99%; font-family: Symbol;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 0.05pt;"><span style="font-size: 12pt; font-family: Symbol;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 70pt; text-align: justify; text-indent: -34.95pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt; font-family: Symbol;"><span style="">6.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Вкладка «Пользователи» отображает
+список подключенных пользователей.</span><span style="font-size: 12pt; font-family: Symbol;"><o:p></o:p></span></p>
+
+
+<p class="MsoListParagraph" style="margin-bottom: 0.0001pt; text-align: justify; text-indent: -18pt; line-height: 98%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 98%; font-family: Symbol;"><span style="">·<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; line-height: 98%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Потренируйтесь
+в завершении и повторном запуске процессов.</span><span style="font-size: 12pt; line-height: 98%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 0.05pt;"><span style="font-size: 12pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoListParagraph" style="margin-bottom: 0.0001pt; text-align: justify; text-indent: -18pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt; font-family: Symbol;"><span style="">·<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Разберите мониторинг загрузки и
+использование памяти.</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 0.6pt;"><span style="font-size: 12pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoListParagraph" style="margin: 0cm 1pt 0.0001pt 36pt; text-align: justify; text-indent: -18pt; line-height: 97%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 97%; font-family: Symbol;"><span style="">·<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; line-height: 97%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Попытайтесь
+запустить новые процессы при помощи диспетчера, для этого можно использовать
+команды: cmd, msconfig.</span><span style="font-size: 12pt; line-height: 97%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 0.05pt;"><span style="font-size: 12pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoListParagraph" style="margin-bottom: 0.0001pt; text-align: justify; text-indent: -18pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt; font-family: Symbol;"><span style="">·<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Оформите отчет по проделанной
+работе (скрин, указав сетевое имя&nbsp; в Paint, отменив непрозрачный фон).</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 13.8pt;"><span style="font-size: 12pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 35pt; text-align: justify;"><b><i><u><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Задание</span></u></i></b><b><i><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> <u>2.</u> </span></i></b><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Командная строка<b><i> </i></b>Windows.</span><span style="font-size: 12pt; line-height: 115%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 0.6pt;"><span style="font-size: 10pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoListParagraph" style="margin: 0cm 23pt 0.0001pt 36pt; text-align: justify; text-indent: -18pt; line-height: 103%;"><!--[if !supportLists]--><span style="font-size: 11.5pt; line-height: 103%; font-family: Symbol;"><span style="">·<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 11.5pt; line-height: 103%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Запустите
+командную строку в режиме Windows, для этого следует нажать: (Пуск) &gt; «Все
+программы» &gt; «Стандартные» &gt; «Командная строка»</span><span style="font-size: 11.5pt; line-height: 103%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 0.15pt;"><span style="font-size: 11.5pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoListParagraph" style="margin: 0cm 1pt 0.0001pt 36pt; text-align: justify; text-indent: -18pt; line-height: 97%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 97%; font-family: Symbol;"><span style="">·<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; line-height: 97%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Поработайте
+выполнением основных команд работы с процессами: запуская, отслеживая и
+завершая процессы.</span><span style="font-size: 12pt; line-height: 97%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 0.05pt;"><span style="font-size: 12pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoListParagraph" style="margin-bottom: 0.0001pt; text-align: justify; text-indent: -18pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt; font-family: Symbol;"><span style="">·<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В появившемся окне (рис. 2)
+наберите: cd/ - переход в корневой каталог;</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-right: -34.95pt; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">cd windows – переход в каталог
+Windows.</span><span style="font-size: 10pt; line-height: 115%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-right: -34.95pt; text-align: center;" align="center"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">dir - просмотр содержимого каталога.</span><span style="font-size: 10pt; line-height: 115%;"><o:p></o:p></span></p>
+
+
+<br>
+<br>
+
+
+<div style="text-align: center;"><img style="width: 505px; height: 260px;" alt="" src="45_02.JPG"><br>
+
+
+</div>
+<div class="Section1">
+
+<p class="MsoNormal" style="margin-left: 168pt;"><i><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис. 2. Командная строка Windows</span></i><span style="font-size: 10pt; line-height: 115%;"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 70pt; text-align: justify; text-indent: -34.95pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt;"><span style="">5.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Запустите программу «Блокнот»:
+C:\Windows &gt; start notepad.exe.</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 70pt; text-align: justify; text-indent: -34.95pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt;"><span style="">6.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Отследите выполнение процесса:
+C:\Windows &gt; tasklist </span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">(скрин, указав сетевое имя&nbsp; в Paint, отменив непрозрачный фон).</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">.</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 70pt; text-align: justify; text-indent: -34.95pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt;"><span style="">7.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Завершите выполнение процесса:
+C:\Windows&gt;taskkill/IM notepad.exe.</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 70pt; text-align: justify; text-indent: -34.95pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt;"><span style="">8.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Проделайте те же операции с
+текстовым редактором WordPad.</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 70pt; text-indent: -34.95pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt;"><span style="">9.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Оформите электронный отчет по проделанной
+работе.</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="line-height: 13.8pt;"><span style="font-size: 10pt;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="margin-left: 35pt;"><b><i><u><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Задание</span></u></i></b><b><i><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> <u>3.</u> </span></i></b><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Самостоятельное задание.</span><span style="font-size: 10pt; line-height: 115%;"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="line-height: 0.6pt;"><span style="font-size: 10pt;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0cm 1pt 0.0001pt 35.05pt; text-align: justify; line-height: 97%;"><span style="font-size: 12pt; line-height: 97%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Отследите
+выполнение процесса explorer.exe при помощи диспетчера задач и командной
+строки.</span><span style="font-size: 12pt; line-height: 97%;"><o:p></o:p></span></p>
+
+</div>
+
+
+<span style="font-size: 11pt; line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;;"><br style="page-break-before: always;" clear="all">
+</span>
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt -15pt; text-align: justify; text-indent: 35.05pt; line-height: 97%;"><!--[if !supportLists]--><span style="font-size: 12pt; line-height: 97%;"><span style="">-<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; line-height: 97%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Продемонстрируйте
+преподавателю завершение и повторный запуск процесса explorer.exe из:</span><span style="font-size: 12pt; line-height: 97%;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: 0.1pt;"><span style="font-size: 12pt;"><o:p>&nbsp;</o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 55pt; text-align: justify; text-indent: -16.35pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">диспетчера задач;</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 55pt; text-align: justify; text-indent: -16.35pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt;"><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">командной строки.</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin: 0cm 0cm 0.0001pt 55pt; text-align: justify; text-indent: -34.95pt; line-height: normal;"><!--[if !supportLists]--><span style="font-size: 12pt;"><span style="">-<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><!--[endif]--><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Подготовьте отчет по проделанной
+работе </span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">(скрин, указав сетевое имя&nbsp; в Paint, отменив непрозрачный фон).</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">.</span><span style="font-size: 12pt;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify;"><b><i><u><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Задание</span></u></i></b><b><i><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> 4<u>.</u></span></i></b><b><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><o:p></o:p></span></b></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Ознакомиться с управлением процессами в ОС Windows с
+помощью утилиты <a href="ProcessExplorer/procexp.exe">Process Explorer </a>(procexp.exe).<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Просмотр и управление процессами под Windows будем
+выполнять с помощью утилиты Process Explorer фирмы SysInternals.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Утилита показывает не просто список активных
+процессов, но и файлы динамических библиотек, связанные с процессом, приоритет процесса,
+нагрузку на процессор отдельно для каждой программы и т.д.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">· Возможность запуска и полноценного использования в
+режиме простого пользователя.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">· Полнофункциональное дерево процессов с возможностью
+полного раскрытия для изучения различных дочерних процессов (ветвей).<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">· Отличный системный монитор с более богатой и
+подробной информацией.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">· Возможность назначения тем или иным процессам
+различных приоритетов.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">· Интерактивное отображение того или иного процесса в
+двух режимах – Handle mode (отображение всех системных операций задействованных
+выделенным в верхнем окне программы процессом) и DLL mode (отображение всех
+динамических библиотек, так или иначе связанных с выделенным для изучения
+процессом) и многое другое.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Помимо этого, с помощью программы можно изменить
+приоритет процесса, просмотреть информацию о DLL-файле и принудительно
+завершить безнадежно зависшую программу.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Process Explorer&nbsp; может быть очень полезна как
+системным администраторам, так и программистам (например, позволяет отыскивать
+утечки памяти в приложениях), так как обладает следующими интересными
+преимуществами по сравнению хотя бы со встроенным в Windows NT/2000/XP
+диспетчером задач:<o:p></o:p></span></p>
+
+
+<div style="text-align: center;"><img style="width: 798px; height: 598px;" alt="" src="45_04.JPG"><br>
+
+
+</div>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Утилита
+содержит 2 окна. В правом отображается список активных процессов (в т.ч.
+идентификатор процесса - <b>PID</b>, процент загрузки процессора - <b>CPU</b>,
+описание - <b>Description,</b> наименование аккаунта владельца - <b>Owner</b>,
+приоритет процесса - <b>Priority</b>, <b>Handles, Windows Title</b>).
+Информация, показываемая в левом окне, зависит от режима <b>Process Explorer</b>
+- если он находится в режиме <b>handle mode</b>, Вы можете видеть <b>handles</b>(файлы
+для Windows 9x/Ме), которые открыл процесс, выбранный в верхнем окне; если это
+режим <b>DLL (DLL mode</b>) - Вы можете видеть <b>DLL</b>, которые загрузил
+данный процесс.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Переключение между режимами осуществляется
+"горячими клавишами" или с помощью соответствующих пунктов меню: Вы
+можете сортировать процессы по любому критерию, щелкая мышкой на
+соответствующей колонке; либо представить процессы в виде дерева процессов (<b>process
+tree</b>) путем выбора пункта меню <b>View - Show Process Tree.</b><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Щелкнув правой кнопкой мыши по выбранному процессу, с
+помощью появившегося контекстного меню Вы можете изменить базовый приоритет
+процесса (Set Priority), принудительно завершить процесс (<b>Kill Process</b>)
+и просмотреть дополнительные параметры процесса (<b>Properties):</b><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">С помощью пункта меню <b>Options - Highlight Services</b>
+можно выделить процессы, которые обслуживают хост. Для выделения процессов
+текущего пользователя выберите пункт меню <b>Options - Highlight Own Processes</b>.</span></p>
+<h3 style="text-align: right;"><a href="z45v01.html">Общие сведения о программе Process Explorer</a> </h3>
+<span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><o:p></o:p></span>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Практическое задание №1.</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> Запустив утилиту, запустите восемь
+приложений (например Word, Paint, Notepad и т.д.), обратите внимание на
+изменения в окне процессов. Прокомментируйте их. Приведите копии экрана и
+опишите процессы, порожденные запущенными приложениями.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Практическое задание №2.</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> Выполните следующие действия.
+Отсортируйте процессы по заданному критерию. Опишите один из системных
+процессов. Запустите указанное приложение. Опишите возникший процесс по
+заданным характеристикам. Принудительно завершите указанный процесс.
+Выполняемые действия иллюстрируйте копиями экранов.<o:p></o:p></span></p>
+
+
+<table class="MsoNormalTable" style="width: 486.5pt;" border="0" cellpadding="0" width="649">
+
+ <tbody><tr style="">
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&nbsp;Критерий
+  <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Приложение
+  <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Характеристики
+  <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Показать
+  дерево системных процессов <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Far
+  Manager <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Определить
+  используемые DLL <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Отсортировать
+  по PID <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Блокнот <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Просмотреть
+  доп. свойства процесса <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Отсортировать
+  по загрузке процессора <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Wordpad <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Определить
+  используемые handles <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Отсортировать
+  по приоритету <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Калькулятор
+  <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Просмотреть
+  доп. свойства процесса <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Отсортировать
+  по владельцу <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Paint <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Изменить
+  приоритет пользовательского процесса <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Показать
+  дерево пользовательских процессов <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Проводник <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Просмотреть
+  доп. свойства процесса <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Отсортировать
+  по наименованию <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Редактор
+  реестра <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Определить
+  используемые DLL <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Отсортировать
+  по приоритету <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Web-браузер
+  <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Изменить
+  приоритет пользовательского процесса <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Отсортировать
+  по загрузке процессора <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сетевое
+  окружение <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Определить
+  используемые handles <o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="">
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Показать
+  дерево пользовательских процессов <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Дефрагментация
+  диска <o:p></o:p></span></p>
+  </td>
+  <td style="padding: 0.75pt;">
+  <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Определить
+  используемые DLL <o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody>
+</table>
+
+
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Копии экрана
+с выполненным заданием и описание выполненных действий привести в отчете.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Контрольные
+вопросы: <o:p></o:p></span></p>
+
+
+<ol start="1" type="1">
+<li class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Что такое процесс? <o:p></o:p></span></li><li class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Опишите общие сведения про
+     Диспетчер задач? <o:p></o:p></span></li><li class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Что означает параметр
+     «бездействие системы»? <o:p></o:p></span></li><li class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Можно ли изменить внешний вид
+     вкладки процессы в диспетчере задач? <o:p></o:p></span></li><li class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Как завершить процесс? <o:p></o:p></span></li><li class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Опишите возможности работы с
+     помощью утилиты Process Explorer . <o:p></o:p></span></li><li class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Записать процессы и их описание
+     из таблицы в тетрадь и выучить их наизусть. <o:p></o:p></span></li>
+</ol>
+
+
+<br>
+
+</body></html>

@@ -1,0 +1,380 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>Файловая система</title></head><body><a href="z27v00.html">назад</a><br><br>
+
+<h2 style="text-align: justify;"><span style="font-size: 14pt;">Файловая система<o:p></o:p></span></h2>
+
+
+<p style="text-align: justify;">Файловая система представляет собой иерархическую
+структуру («дерево») каталогов, в каждом каталоге могут находиться вложенные
+каталоги и файлы.</p>
+
+<p style="text-align: justify;">В ОС, ведущих свою историю от MS DOS каждое
+устройство хранения информации (логический диск) обозначается буквой латинского
+алфавита (именно поэтому DOS получила название «дисковая операционная
+система»). В отличии от этого в ОС UNIX все устройства представляются как ветви
+единого дерева каталогов. Каждое устройство подключается к дереву в качестве
+каталога. Процесс подключения устройства к дереву каталогов называется
+монтированием файловой системы, а каталог к которому происходит подключение –
+точкой монтирования. Подробнее монтирование файловой системы изучается в
+последующих работах.</p>
+
+<p style="text-align: justify;">В виде файлов в ОС UNIX представляются различные
+объекты:</p>
+
+<ul type="disc"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">собственно
+     файлы, то есть упорядоченная совокупность данных, хранящихся на диске;<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">ссылки
+     на другие файлы;<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">устройства
+     ввода-вывода;<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">каналы
+     для взаимодействия с ядром ОС.<o:p></o:p></span></li></ul>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В именах файлов и каталогов допустимы буквы латинского
+алфавита, цифры и символы, за исключением символов “ ‘ * ? $. Заглавные и
+строчные буквы различаются. Для удобства после символа «.» обычно указывают
+расширение (набор символов, указывающий на содержимое файла), но в отличии от
+DOS расширение не влияет на способ работы ОС с этим файлом. Если имя файла
+начинается с символа «.», то он является скрытым (по умолчанию не отображается
+при просмотре каталога соответствующей командой).<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В общем случае при указании имени файла или каталога
+необходимо указать полный путь к нему, начиная от корневого каталога. Каталоги
+находящиеся на пути к объекту перечисляются через символ “/” например путь к
+файлу passwd находящемуся в каталоге etc, находящемуся корневом каталоге
+записывается так: /etc/passwd.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Если путь к объекту не указан, то берется объект из
+текущего каталога.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 14pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Ссылки на файлы<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Существуют два типа ссылок: жесткие и мягкие. Жесткая
+ссылка на файл это его имя, которое представляет файл в файловой системе. Один
+и тот же файл может иметь несколько имен, находящихся в разных каталогах, то
+есть имена /var/log/myfile.log и /home/user/file1 могут указывать на один и тот
+же файл. Если у файла имеется только одно имя (одна жесткая ссылка), то
+удаление этого файла приводит к удалению данных. Если ссылок несколько, то
+удаление файла по одной из его ссылок приводит только к удалению ссылки.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Мягкие ссылки представляют собой файл, содержащий путь
+к другому файлу и интерпретируемый оболочкой как указатель на этот файл. Мягкие
+ссылки подобны ярлыкам в ОС Windows.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Назначение каталогов</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Традиционные для ОС UNIX названия каталогов, имеющих
+конкретное назначение приведены в таблице. Переименование этих каталогов и
+файлов может нарушить работоспособность системы, так как разработчики системы и
+прикладных программ всегда используют именно эти названия.<o:p></o:p></span></p>
+
+<table class="MsoNormalTable" style="width: 313.5pt;" border="0" cellpadding="0" cellspacing="0" width="418">
+ <tbody><tr style="height: 0.75pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 0.75pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Каталог<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 0.75pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Содержимое<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 2.25pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 2.25pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/bin<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 2.25pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Внешние команды системы<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 13.5pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 13.5pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/dev<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 13.5pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Специальные файлы устройств, являющиеся интерфейсом
+  взаимодействия команд и драйверов<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 2.25pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 2.25pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/etc<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 2.25pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Файлы конфигурации<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 13.5pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 13.5pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/etc/rc.d<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 13.5pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сценарии инициализации системы, автоматически
+  выполняемые при запуске<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 2.25pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 2.25pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/boot<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 2.25pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Файлы с исполняемым кодом ядра операционной системы<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 1.5pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 1.5pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/lib<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 1.5pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Коды библиотек языков программирования<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 13.5pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 13.5pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/lost+found<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 13.5pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">«Потерянные» файлы, то есть совокупности данных, на
+  которые в следствии ошибки файловой системы не ссылается ни одно имя<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 27pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 27pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/mnt<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 27pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">К подкаталогам этого каталога обычно подключают
+  файловые системы дополнительных устройств хранения данных (CD-ROM, гибкий
+  диск и т. п.)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 1.5pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 1.5pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/home<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 1.5pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Домашние каталоги пользователей<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 2.25pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 2.25pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/usr<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 2.25pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Служебные данные различных подсистем<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 1.5pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 1.5pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/usr/src<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 1.5pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Исходные коды программ, в том числе ядра Linux<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 27pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 27pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/var<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 27pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Для хранения различных дбанных – электронных
+  почтовых ящиков пользователей; каталогов, к которым осуществляется доступ по
+  FTP и через веб-сервер, и т. п.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 1.5pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 1.5pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/var/log<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 1.5pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Файлы с протоколом работы системы<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 2.25pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 2.25pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/var/www<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 2.25pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Каталог веб-сервера, в котором хранятся публикуемые
+  веб-страницы<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 1.5pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 1.5pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/root<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 1.5pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Домашний каталог суперпользователя<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="height: 1.5pt;">
+  <td style="padding: 5.25pt; width: 75.15pt; height: 1.5pt;" valign="top" width="100">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">/tmp<o:p></o:p></span></p>
+  </td>
+  <td style="padding: 5.25pt; width: 238.35pt; height: 1.5pt;" valign="top" width="318">
+  <p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Каталог для временных файлов, доступен всем
+  пользователям системы<o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<h1 style="text-align: justify;"><span style="font-size: 14pt; line-height: 115%;">Команды
+для работы с файлами и каталогами<o:p></o:p></span></h1>
+
+<p style="text-align: justify;">Для запуска файла программы нужно ввести в
+качестве команды полный путь к этому файлу. Если запускается файл из текущего
+каталога, то перед именем файла нужно поставить символы «./» в (символ «.» в
+качестве названия каталога означает «текущий каталог»). Например для запуска
+файла myprog из текущего каталога набрать</p>
+
+<p><b>./myprog </b></p>
+
+<p style="text-align: justify;">Если путь (или символ «.») не указан, оболочка
+ищет требуемый файл в каталогах, , имена которых содержатся в переменной среды
+PATH.</p>
+
+<p style="text-align: justify;">При указании имен файлов и каталогов в качестве
+параметров команды можно указывать полный путь к файлу (каталогу), либо только
+название для файлов из текущего каталога.</p>
+
+<p style="text-align: justify;">В командах копирования, перемещения и удаления
+фалов в именах файлов можно использовать символы шаблоны * (любое число
+символов) и ? (один произвольный символ).</p>
+
+<p style="text-align: justify;">Ниже приведен краткий справочник по командам.
+Реально большинство приведенных здесь команд имеет более десяти параметров,
+подробно о них можно узнать в [1] или в справочной системе.</p>
+
+<h2><span style="font-size: 14pt;">Команды для работы с файлами и каталогами<o:p></o:p></span></h2>
+
+<p style="text-align: justify;"><b>pwd</b></p>
+
+<p style="text-align: justify;">Выводит имя текущего каталога</p>
+
+<p style="text-align: justify;"><b>cd [directory]</b></p>
+
+<p style="text-align: justify;">Переход к указанному каталогу ( к домашнему
+каталогу, если каталог не указан)</p>
+
+<p style="text-align: justify;"><b><span style="" lang="EN-US">mkdir directory</span></b><span style="" lang="EN-US"><o:p></o:p></span></p>
+
+<p style="text-align: justify;">Создает<span style=""> </span>новый<span style=""> </span>каталог<span style="" lang="EN-US"><o:p></o:p></span></p>
+
+<p style="text-align: justify;"><b><span style="" lang="EN-US">ls [-a] [-l] [directory]</span></b><span style="" lang="EN-US"><o:p></o:p></span></p>
+
+<p style="text-align: justify;">Выводит список файлов в каталоге (если каталог не
+задан, используется текущий каталог).</p>
+
+<p style="text-align: justify;">–a вывод сведений о всех файлах, включая скрытые
+(имена которых начинаются с точки); </p>
+
+<p style="text-align: justify;">–l вывод сведений о файлах в длинном формате (
+включая информацию о владельцах файлов, дате создания и пр.)</p>
+
+<p style="text-align: justify;"><b><span style="" lang="EN-US">cp source destination</span></b><span style="" lang="EN-US"><o:p></o:p></span></p>
+
+<p style="text-align: justify;">Создает<span style=""> </span>копию<span style=""> </span>файла<span style="" lang="EN-US"> source </span>с<span style=""> </span>именем<span style="" lang="EN-US"> destination<o:p></o:p></span></p>
+
+<p style="text-align: justify;"><b>cp source directory</b></p>
+
+<p style="text-align: justify;">Копирует файл (или несколько файлов, заданных
+шаблоном или перечисленных через пробел) в каталог directory (каталог должен
+существовать, в конце имени каталога обязательно указывается символ /)</p>
+
+<p style="text-align: justify;"><b>rm [-f] file</b></p>
+
+<p style="text-align: justify;">Удаляет указанный файл (файлы), если не указана
+опция –f, для каждого удаления требуется подтверждение</p>
+
+<p style="text-align: justify;"><b>rmdir</b></p>
+
+<p style="text-align: justify;">Удаляет пустые каталоги</p>
+
+<p style="text-align: justify;"><b>cat [file]</b></p>
+
+<p style="text-align: justify;">Выводит содержимое файла (файлов). Если имя файла
+не указано, выводится получаемые на вход данные (то есть вводимые с
+клавиатуры).</p>
+
+<p style="text-align: justify;"><b>ln [-s] target linkname</b></p>
+
+<p style="text-align: justify;">Создает ссылку с именем linkname на файл с именем
+target. Если ключ –s не указан, создается жесткая ссылка, если указан – мягкая.</p>
+
+<p style="text-align: justify;"><b><span style="" lang="EN-US">touch [–t [[CC]YY]MMDDhhmm.[ss]] file</span></b><span style="" lang="EN-US"><o:p></o:p></span></p>
+
+<p style="text-align: justify;">Изменяет время доступа и модификации указанного
+файла, на заданные опцией –t (век, год, месяц, день, час, минуты, секунды).
+Если опция –t не указана, используется текущее время. Если файл не существует,
+он создается.</p>
+
+<h2 style="text-align: justify;"><span style="font-size: 14pt;">Права на доступ к
+файлам и каталогам<o:p></o:p></span></h2>
+
+<p style="text-align: justify;">В UNIX каждому объекту файловой системы (файлу
+или каталогу) сопоставлен пользователь-владелец и группа-владелец. Права на
+доступ к файлу отдельно задаются для пользователя-владельца; для пользователей,
+входящих в группу-владельца; для остальных пользователей. Для каждой из этих
+трех категорий указывается наличие/отсутствие разрешения на чтение, на запись
+(изменение) и на исполнение файла (то есть может ли он быть запущен как
+программа). Таким образом права на доступ к файлу описываются девятью двоичными
+цифрами, что соответствует трем восьмеричным цифрам. Куоманда ls с опцией –l
+позволяет узнать пользователя-владельца, группу-владельца и заданные права
+доступа для файлов (каталогов). При этом права на доступ к объекту указываются
+в виде девяти символов, например:</p>
+
+<p style="text-align: justify;"><b>-rw-r-----</b></p>
+
+<p style="text-align: justify;"><b>drwxrwxrwx</b></p>
+
+<p style="text-align: justify;"><b>-rwxr-x---</b></p>
+
+<p style="text-align: justify;">Первый символ показывает является ли объект файловой
+системы файлом (-) или каталогом (d)</p>
+
+<p style="text-align: justify;">Второй-четвертый символы показывают состояние
+битов прав доступа для пользователя владельца (символ «-» означает что бит не
+установлен, буква (r – read, w- write, x – execute) – бит установлен (имеется
+соответствующее право доступа).</p>
+
+<p style="text-align: justify;">Пятый-седьмой и восьмой-десятый биты аналогично
+показывают состояние битов прав доступа для группы-владельца и остальных
+пользователей.</p>
+
+<p style="text-align: justify;">Право на чтения для каталога означает возможность
+просмотреть его содержимое. Право на запись в каталог означает возможность
+записывать в него файлы и удалять их (даже если права на запись в эти файлы у
+пользователя нет!). Право на исполнение для каталога интерпретируется как право
+доступа к вложенным каталогам. Предположим что пользователь имеет право на
+чтение и запись для каталога /home/user/cat1/cat2/, но не имеет такого права
+для /home/user/cat1/. Если он имеет право на исполнение для /home/user/cat1/,
+то он сможет просматривать каталог /home/user/cat1/cat2/ и записывать в него
+файлы.</p>
+
+<p style="text-align: justify;">Для смены пользователя-владельца,
+группы-владельца и управления правами доступа используются следующие команды:</p>
+
+<p style="text-align: justify;"><b>chown username|UID file</b></p>
+
+<p style="text-align: justify;">Задает указанного пользователя в качестве
+пользователя-владельца файла (нескольких файлов)</p>
+
+<p style="text-align: justify;"><b>chgrp groupname|GID file</b></p>
+
+<p style="text-align: justify;">Задает указанную группу в качестве
+группы-владельца файла (нескольких файлов)</p>
+
+<p style="text-align: justify;"><b>chmod mode file</b></p>
+
+<p style="text-align: justify;">Задает указанные права доступа для файла
+(нескольких файлов). Права доступа могут быть указаны трехзначным восьмеричным
+числом, или в символьном формате:</p>
+
+<h1 style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%;">Программа
+Midnight Commander<o:p></o:p></span></h1>
+
+<p style="text-align: justify;">Программа Midnight Commander представляет собой
+аналог программы Norton Commander для UNIX. Запуск программы осуществляется с
+помощью команды mc.</p>
+
+<p style="text-align: justify;">Для выполнения операций с файлами используются те
+же клавиши, что и в программе NortonCommander.</p>
+
+<p style="text-align: justify;">Расширенное меню, вызываемое по клавише F9
+позволяет задавать права доступа к файлам и изменять данные о владельцах.</p>
+</body></html>

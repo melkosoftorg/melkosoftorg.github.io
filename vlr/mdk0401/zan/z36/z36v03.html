@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>Как на практике применить групповые политики в Windows 10</title></head><body><div style="text-align: center;">
+<a href="../../ktp.html">Тематический
+план </a>]
+[&nbsp;<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><a href="z36v00.html">Решение проблем конфигурации с помощью групповых
+политик </a>&nbsp;</span>]<br>
+</div>
+
+
+<div style="text-align: center;">
+
+&nbsp;[ <a href="z36v01.html">1</a>
+] [ <a href="z36v02.html">2</a>
+] [ 3
+]&nbsp;
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span>
+<div style="text-align: center;"><div style="text-align: center;">
+
+</div><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><big style="font-weight: bold;"><big>Как на
+практике применить групповые политики в Windows 10</big></big><br style="">
+<!--[if !supportLineBreakNewLine]--><br style="">
+<!--[endif]--><o:p></o:p></span></p>
+
+
+
+
+
+</div>
+
+
+
+&nbsp;
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span>В этой лекции мы рассмотрим что такое редактор локальной групповой
+ политики, как установить эту функцию на Windows 10 Home и как 
+администраторам сети управлять и вносить нужные изменения в параметры 
+операционных систем других ПК всего с одного компьютера.</span></p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><img style="width: 705px; height: 376px;" alt="" src="36_35.png"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Windows
+ 10 является последней версией операционной системы от Microsoft и стала
+ ядром большинства существующих платформ: персональные компьютеры, 
+ноутбуки, планшеты, смартфоны и даже игровые консоли. Тем не менее, 
+компания разработчиков решила разделить единую операционную систему на 
+подтипы. Практически наверняка ведущим мотиватором, как и для любой 
+другой компании, стала прибыль. Гораздо выгоднее повышать ценник с 
+добавлением дополнительных функций, нежели сделать all inclusive с одной
+ ценой.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Несмотря
+ на то, что версий операционной системы Windows 10 целых 4, далеко не 
+каждый пользователь сможет найти между ними разницу. Именно поэтому была
+ создана Windows 10 Home Edition. Она представляет собой базовую ОС со 
+всеми необходимыми функции для начинающих юзеров. К сожалению, Windows 
+10 Home не осталась без недостатков — в ней полностью отсутствует 
+возможность выбора способа обновления ядра операционной системы.</span></p>
+<h2 class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_h2" id="otlichie_versiii_windows_10_pro_i_windows"><span>Отличие версий Windows 10 Pro и Windows 10 Home</span></h2>
+<img style="width: 506px; height: 301px;" alt="" src="36_36.jpeg"><br>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Базовые
+ компоненты Pro и Home версий совершенно идентичны, разница заключается 
+лишь в бизнес-компонентах. Они позволяют настроить связь между 
+компьютерами внутри одной корпоративной сети и беспрепятственно работать
+ целым офисом. В домашних же условиях эта особенность бесполезна и у нас
+ нет нужды связывать два устройства.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Что отличает Windows 10 Pro от Windows 10 Home:</span></p>
+<ul class="article-render__block article-render__block_ul">
+<li class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_li"><span>Поддержка подключения дополнительных устройств и возможность управления ими.</span></li><li class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_li"><span>Доступ к шифрованию передаваемых данных в единой корпоративной сети.</span></li><li class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_li"><span>Расширенный список сетевых стандартов.</span></li><li class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_li"><span>Доступ к общим офисным документам и принтерам.</span></li><li class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_li"><span>Работа с облаком.</span></li><li class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_li"><span>Управление групповыми политиками.</span></li><li class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_li"><span>Возможность недорогого обновления до Windows 10 Enterprise.</span></li>
+</ul>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Большинство
+ описанных выше функций не пригодятся обычному пользователю. Они 
+предназначены для ведения бизнеса и работы с документами. Однако, особое
+ внимание следует уделить такой особенности как </span><span><b>управление групповыми политиками</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Данная
+ функция открывает широкие возможности по настройке компьютера для 
+каждого юзера и при этом не вынуждает идти на высокие риски.</span></p>
+<h2 class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_h2" id="chto_takoe_redaktor_lokalnoii_gryppovoii_p"><span>Что такое редактор локальной групповой политики</span></h2>
+<h3 class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_h3" id="o_prilojenii_gpeditmsc"><span><b>О приложении gpedit.msc</b></span></h3>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Редактор
+ групповой политики — это инструмент, позволяющий администраторам сети 
+внести нужные изменения в параметры Windows всего с одного компьютера. 
+Данное приложение включает в себе все доступные варианты настройки 
+операционной системы: реестровые параметры, настройки безопасности, 
+параметры установки программного обеспечения, сценарии запуска и 
+отключения компьютера, пере-направление папок.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>С
+ помощью редактора групповой политики вы можете с легкостью ограничить 
+сотрудникам доступ к тем или иным корпоративным документам, или же, 
+наоборот, открыть его. Таким образом появляется возможность контроля 
+информации внутри предприятия.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Редактор
+ групповой политики позволяет работать с одиночным компьютером и 
+проводить с ним аналогичные манипуляции. Прекрасно подходит для 
+настройки Windows в домашних условиях.</span></p>
+<h3 class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_h3" id="otlichie_mejdy_redaktorom_lokalnoii_grypp"><span><b>Отличие между редактором локальной групповой политики и редактором реестра</b></span></h3>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Если
+ вы обратите внимание на функционал обоих редакторов, то быстро 
+убедитесь в превосходстве редактора локальной групповой политики. Это 
+объясняется тем, что работая в режиме групповой политики, вы всегда 
+видите и понимаете с чем имеете дело — нет сложных кодов, которые 
+доступны только людям, работающим в данной сфере.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Внося
+ какое-либо изменение внутри редактора групповой политики, они 
+автоматически будут задействованы и в редакторе реестра. Так же и 
+наоборот. Если вы внесете изменения в редакторе реестра, значения 
+редактора групповой политики будут изменены до следующей корректировки.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Интересный
+ факт. Групповая политика в Windows 10 с определенным интервалом времени
+ автоматически совершает обновление реестра. Это делается для сохранения
+ его рабочего состояния. Как правило, интервал времени находится в 
+диапазоне от 30 до 90 минут. Однако, при желании, вы всегда можете его 
+изменить.</span></p>
+<h3 class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_h3" id="kak_otkrt_redaktor_lokalnoii_gryppovoii"><span><b>Как открыть редактор локальной групповой политики в Windows 10</b></span></h3>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Для
+ пользователей операционных систем Windows 10 Pro и Windows 10 
+Enterprise открыть редактор локальной групповой политики довольно легко.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>1.</b></span><span> Откройте утилиту </span><span><b>Выполнить</b></span><span> с помощью комбинации клавиш </span><span><b>Windows + R</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>2.</b></span><span> Введите команду </span><span><b>gpedit.msc</b></span><span> и нажмите клавишу </span><span><b>Enter</b></span><span>.</span></p>
+<img style="width: 431px; height: 208px;" alt="" src="36_37.jpeg"><br>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>3.</b></span><span> Выполните нужные действия в открывшемся окне приложения </span><span><b>Редактор локальной групповой политики</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 705px; height: 411px;" alt="" src="36_38.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Главная
+ же проблема заключается в Windows 10 Home, а точнее в отсутствии 
+редактора локальной групповой политики. Для пользователей данной версии 
+операционной системы Windows мы подготовили подробный гайд и подготовке и
+ установке gpedit.msc.</span></p>
+<h2 class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_h2" id="ystanovka_redaktora_lokalnoii_gryppovoii"><span>Установка редактора локальной групповой политики в Windows 10 Home</span></h2>
+<h3 class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_h3" id="osobennosti_rabot_gpeditmsc_na_windows"><span><b>Особенности работы gpedit.msc на Windows 10 Home Edition</b></span></h3>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>В
+ установке редактора локальной групповой политики в Windows 10 Home нет 
+ничего сложного. Достаточно загрузить установочный файл и запустить его —
+ все, редактор на вашем компьютере! Однако, это было бы слишком просто, 
+не будь здесь подводных камней.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>К
+ сожалению, редактор локальной групповой политики работает не на всех ПК
+ под управлением Windows 10 Home. В этом случае, скорее всего, 
+операционная система попросит вас установить устаревшие версии Microsoft
+ NET Framework (v2.0 или v3.0).</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span></span><span class="article-link article-link_theme_undefined">Скачайте</span><span> </span><span><b>Редактор локальной групповой политики (gpedit.msc)</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>В
+ нашем следующем руководстве мы опишем не столько процесс установки 
+групповой политики, сколько способы заставить ее работать на вашем ПК.</span></p>
+<h3 class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_h3" id="aktivaciya_redaktora_lokalnoii_gryppovoii"><span><b>Активация редактора локальной групповой политики</b></span></h3>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Как
+ мы уже говорили выше, gpedit.msc не всегда торопится нормально работать
+ в операционной системе Windows 10 Home. Тем не менее, мы можем его 
+заставить. Для этого будут разобраны два способа: работа через системную
+ папку </span><span><b>SysWOW64</b></span><span> и работа со всеми любимой </span><span><b>командной строкой</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>SysWOW64</b></span><span><br>Подходит в случае когда система оповещает об отсутствии файла </span><span><b>gpedit.msc</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>1.</b></span><span> Откройте папку </span><span><b>C:\Windows\SysWOW64</b></span><span>.<br>Чтобы упростить задачу, скопируйте путь и вставьте его в диалоговое окно </span><span><b>меню Пуск</b></span><span> или </span><span><b>Проводника</b></span><span>. Затем нажмите клавишу </span><span><b>Enter</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 705px; height: 529px;" alt="" src="36_39.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>2.</b></span><span> Скопируйте папки </span><span><b>GroupPolicy</b></span><span> и </span><span><b>GroupPolicyUsers</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 705px; height: 529px;" alt="" src="36_40.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>3.</b></span><span> Теперь пройдите по пути </span><span><b>C:\Windows\System32</b></span><span> и вставьте скопированные папки.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 705px; height: 529px;" alt="" src="36_41.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>Командная строка</b></span><span><br>Подходит в случае возникновения ошибки </span><span><b>MMC could not create the snap-in</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>1.</b></span><span> Откройте командную строку от имени администратора.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>2.</b></span><span> Введите команду </span><span><b>cd/</b></span><span> и нажмите клавишу </span><span><b>Enter</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 693px; height: 338px;" alt="" src="36_42.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>3.</b></span><span> Теперь введите команду </span><span><b>cd Windows</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 693px; height: 338px;" alt="" src="36_43.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>4.</b></span><span> Введите команду </span><span><b>cd Temp</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 693px; height: 338px;" alt="" src="36_44.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>5.</b></span><span> Если на вашем компьютере все работает, вы получите следующее уведомление: </span><span><b>Системе не удается найти указанный путь</b></span><span>. Если же нет, перейдите к пункту </span><span><b>6</b></span><span> не покидая командной строки.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 666px; height: 311px;" alt="" src="36_45.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>6.</b></span><span> Введите команду </span><span><b>x64.bat</b></span><span> и нажмите клавишу </span><span><b>Enter</b></span><span>, чтобы завершить работу.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>7.</b></span><span> Перезапустите компьютер, чтобы внесенные изменения вступили в силу.</span></p>
+<h2 class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_h2" id="nekotore_fynkcii_redaktora_gryppovoii_po"><span>Некоторые функции редактора групповой политики (gpedit.msc)</span></h2>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Как
+ только вы закончили с установкой редактора групповой политики, 
+рекомендуем обратить внимание на ее возможности. Для этого мы 
+подготовили пару примеров, с помощью которых покажем самые базовые 
+возможности приложения. Оно объединяет в себе буквально все параметры 
+Windows, которые только можно найти. Главное только не забывать, что 
+внося много рискованных изменений мы можем непреднамеренно повредить 
+Windows. Поэтому, совершая те или иные корректировки, соблюдайте 
+осторожность.</span></p>
+<h3 class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_h3" id="otklyuchenie_zaschitnika_windows"><span><b>Отключение Защитника Windows</b></span></h3>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>Защитник Windows</b></span><span>
+ — это встроенный системный антивирус, задача которого оберегать своего 
+пользователя от угроз из интернета и загруженных им приложений. В 
+некоторых случаях он может потреблять слишком много ресурсов или 
+начинает работать тогда когда в этом нет необходимости. Поэтому самым 
+частым решением данной ситуации является отключение Защитника Windows.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Как отключить встроенный антивирус с помощью редактора групповой политики:</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>1.</b></span><span> Откройте утилиту </span><span><b>Выполнить</b></span><span> с помощью комбинации клавиш </span><span><b>Windows + R</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>2.</b></span><span> Введите команду </span><span><b>gpedit.msc</b></span><span> и нажмите клавишу </span><span><b>Enter</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 431px; height: 208px;" alt="" src="36_46.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>3.</b></span><span> Проследуйте по следующему пути внутри приложения “Редактор локальной групповой политики”:<br></span><span><b>Конфигурация компьютера &gt; Административные шаблоны &gt; Компоненты Windows &gt; Антивирусная программа “Защитник Windows”</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 705px; height: 490px;" alt="" src="36_47.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>4.</b></span><span> Найдите параметр </span><span><b>Выключить антивирусную программу “Защитник Windows”</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 705px; height: 427px;" alt="" src="36_48.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>5.</b></span><span> Щелкните по параметру правой кнопкой мыши и нажмите </span><span><b>Изменить</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 705px; height: 427px;" alt="" src="36_49.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>6.</b></span><span> Измените состояние параметра на </span><span><b>Отключено</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 686px; height: 636px;" alt="" src="36_50.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>7.</b></span><span> Примените и сохраните внесенные изменения.</span></p>
+<h3 class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_h3" id="otklyuchenie_obnovleniii_windows"><span><b>Отключение обновлений Windows</b></span></h3>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Часто
+ обновление операционной системы начинается совершенно не вовремя, когда
+ мы к этому не готовы и, например, работаем. Это нарушает распорядок дня
+ и, хуже всего, если такое обновление заканчивается багом вследствие 
+которого компьютер перестает запускаться. Единственным действенным 
+решением в такой ситуации является откат апдейта.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Можно
+ ли предотвратить неожиданные обновления Windows и получить контроль над
+ этим процессом? Легко! С помощью редактора локальной групповой политики
+ вы можете в два клика отключить автоматические обновления операционной 
+системы. При желании, вы можете запустить процесс апдейта вручную.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>1.</b></span><span> Откройте утилиту </span><span><b>Выполнить</b></span><span> с помощью комбинации клавиш </span><span><b>Windows + R</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>2.</b></span><span> Введите команду </span><span><b>gpedit.msc</b></span><span> и нажмите клавишу </span><span><b>Enter</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 431px; height: 208px;" alt="" src="36_51.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>3.</b></span><span> Проследуйте по следующему пути внутри приложения “Редактор локальной групповой политики”:<br></span><span><b>Конфигурация компьютера &gt; Административные шаблоны &gt; Компоненты Windows &gt; Центр обновления Windows</b></span><span>.</span></p>
+<img style="width: 705px; height: 435px;" alt="" src="36_52.jpeg"><br>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>5.</b></span><span> Щелкните по параметру правой кнопкой мыши и нажмите </span><span><b>Изменить</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 705px; height: 393px;" alt="" src="36_53.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>6.</b></span><span> Измените статус параметра на </span><span><b>Отключено</b></span><span>.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><img style="width: 686px; height: 636px;" alt="" src="36_54.jpeg"></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><b>7.</b></span><span> Примените и сохраните внесенные изменения.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Как
+ вы, наверняка, заметили функционал редактора локальной групповой 
+политики весьма обширен. Вы можете изменить каждый параметр операционной
+ системы всего в одном приложении.</span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span><i>“С большой силой приходит большая ответственность”.</i></span></p>
+<p class="article-render__block article-render__block_underlined-text-enabled article-render__block_bold-italic-combination-enabled article-render__block_unstyled"><span>Поэтому,
+ внося изменения в редакторе локальной групповой политики, вы вносите 
+корректировки в реестр тоже. Помните об этом и соблюдайте осторожность.</span></p>
+<br>
+<br>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><o:p></o:p></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="position: absolute; left: -99999px;">возможности системной 
+утилиты gpedit, которая позволяет управлять запуском и установкой 
+приложений, контролировать поведение пользователей, ограничивать 
+некоторые возможности ОС. Сегодня я хотел бы подробно рассказать о такой
+ важной вещи, как настройка групповых политик в Windows 10. Будет 
+рассмотрено несколько полезных примеров, которые могут Вам пригодиться.
+
+Сразу же подчеркну, что подобный функционал доступен только в 
+«Профессиональной» и «Корпоративной» версиях операционной системы 
+Microsoft. Но есть способ установить утилиту и для «Домашней» (Home) 
+версии. Если этого не делать, то вносить изменения в некоторые аспекты 
+ОС придется через редактирование реестра, что менее безопасно и не так 
+удобно, чем с помощью графического интерфейса.<br>Источник:  https://it-tehnik.ru/software/windows-10/gpedit-windows-10.html </div></body></html>

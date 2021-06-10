@@ -1,0 +1,392 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>Web-технологии</title></head><body>
+<div style="text-align: center;">
+<a href="../../ktp.html">Тематический
+план </a>]
+[&nbsp;<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><a href="z42v00.html"><span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Аппаратно-программные платформы серверов и рабочих
+станций.</span></a><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span>]<br>
+</div>
+
+
+
+
+
+
+
+
+<div style="text-align: center;">
+
+&nbsp;[ <a href="z42v01.html">1</a>
+] [ <a href="z42v02.html">2</a>
+] [ 3
+]&nbsp;
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span>
+<div style="text-align: center;">
+
+<p class="MsoNormal" style="line-height: normal;">
+
+</p>
+<p class="MsoNormal" style="margin-left: 0cm; text-align: center; text-indent: 0cm;">
+
+</p>
+<h3 style="text-align: center; background-color: white;"><span style="background-image: none; background-repeat: repeat; background-attachment: scroll; background-position: 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">Web-технологии</span></h3>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-align: center; text-indent: 0cm;"><span style="" lang="EN-US"><o:p></o:p></span></p>
+
+
+
+<p class="MsoNormal" style="line-height: normal;"><b><span style="font-size: 13.5pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><o:p></o:p></span></b></p>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+&nbsp;
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;">
+
+</p>
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;">
+
+</p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;">
+
+</p>
+
+<p style="text-align: justify;">
+
+</p>
+<p style="text-align: justify;"><span class="texample">Web</span> -технологии
+чрезвычайно сильно используются в современном корпоративном программном
+обеспечении. Перечислим основные используемые технологии <i>Web-</i>
+программирования.</p>
+
+
+<h4 style="text-align: justify;"><a name="sect16"></a><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">CGI-скрипты<o:p></o:p></span></h4>
+
+
+<p style="text-align: justify;"><span class="texample">CGI</span> -скрипт - это
+программа, выполняемая на стороне сервера и следующая правилам интерфейса <i>CGI
+(Common gateway interface)</i>.Исторически это первая технология
+"динамического" программирования для <span class="texample">Web</span>.
+<span class="texample">CGI</span> -скрипты могут быть как обычными исполняемыми
+модулями (написанными на любом языке программирования, например, на <span class="texample">C++</span> ), так и сценариями ("скриптами"),
+написанными на интерпретируемых языках</p>
+
+
+<p style="text-align: justify;">(например, на <i>Perl, Unix shell, Tcl</i>.)</p>
+
+
+<p style="text-align: justify;">Последовательность действий при работе с <span class="texample">CGI</span> -скриптом следующая:</p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Клиент посылает
+     <i>HTTP</i> '-запрос <span class="texample">Web</span> -серверу.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span class="texample"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Web</span></span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> -сервер инициирует
+     выполнение <span class="texample">CGI</span> -скрипта (т.е. просто запускает
+     программу, если она представляет собой исполняемый модуль, либо запуская
+     соответствующий интерпретатор с подачей ему на вход текста сценария, если
+     это сценарий) и передает ему необходимые данные.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span class="texample"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">CGI</span></span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> -скрипт выполняется, и по
+     окончании работы передает результаты (ответ на исходный запрос) вызвавшему
+     его серверу. При этом <span class="texample">CGI</span> -скрипт может
+     производить сколь угодно сложные действия, например, обращаться к другим
+     удаленным программам и т.п.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span class="texample"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Web</span></span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> -сервер отдает полученные
+     от <span class="texample">CGI</span> -скрипта данные клиенту.<o:p></o:p></span></li>
+</ul>
+
+
+<p style="text-align: justify;">Из современных <span class="texample">Web</span>
+-технологий это, пожалуй, самая простая, но и самая немаштабируемая, а также
+немобильная (платформо-зависимая) и не вполне устойчивая технология.</p>
+
+
+<h4 style="text-align: justify;"><a name="sect17"></a><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Специальные интерпретируемые языки скриптов<o:p></o:p></span></h4>
+
+
+<p style="text-align: justify;">Ряд <span class="texample">Web</span> -серверов
+предусматривают встроенные интерпретаторы специальных языков для динамического <span class="texample">Web</span> -программирования. Примерами являются <i>ASP </i>для <span class="texample">Web</span> -сервера <i>Internet Information Server (IIS) </i>и <i>PHP
+</i>(например, для <span class="texample">Web</span> -сервера <i>Apache)</i>.</p>
+
+
+<p style="text-align: justify;"><i>ASP </i>(или, соответственно, <i>PHP) </i>страница
+представляет собой обычный <i>HTML </i>файл, который кроме текста и тэгов <i>HTML
+</i>содержит еще и конструкции соответствующего языка <i>(ASP </i>или <i>PHP)</i>.При
+запросе этого документа клиентом <span class="texample">Web</span> -сервер
+сначала просматривает документ, интерпретируя директивы соответствующего языка <i>(ASP
+</i>или <i>PHP) </i>и преобразуя их в обычный статический <i>HTML</i>,который и
+отдается клиенту. Важно отметить, что как <i>ASP</i>,так и <i>PHP</i>,являются
+полноценными языками программирования, что позволяет создать с использованием
+этих технологий сложнейшие <span class="texample">Web</span> -системы (вплоть до
+полномоаштабного управления производством или, например, торговлей). Эти
+технологии кроме того, весьма просты, и поэтому популярны, например, для
+создания электронных магазинов. Недостатком является принципиальная
+интерпретируемость этих языков, а также существенная привязка к конкретному <i>Web-</i>
+серверу (например, <i>ASP </i>работает только для <i>IIS)</i>.</p>
+
+
+<h4 style="text-align: justify;"><a name="sect18"></a><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Апплеты<o:p></o:p></span></h4>
+
+
+<p style="text-align: justify;">Апплеты - это программы на <i>Java</i>,работающие
+под управлением другой программы (как правило, интернет-браузера). Апплеты
+загружаются с <i>Web </i>сайта вместе со статическим <i>HTML </i>кодом, а затем
+выполняются браузером на компьютере пользователя (естественно, для этого
+браузер использует виртуальную <span class="texample">Java</span> -машину). Они
+могут использоваться для создания богатых графикой и интерактивными
+возможностями пользовательских интерфейсов, которые не способны выразить
+средствами обычного языка разметки <i>HTML</i>.Важно однако понимать, что
+апплет - это интеллектуальная программа, а не просто мультипликация (как,
+например, <i>Flash </i>анимация). Другими словами, апплет способен обрабатывать
+действия пользователя и динамически менять свое поведение. При работе с
+программами, полученными из сети, пользователь может столкнуться с неприятными
+последствиями их работы. Существует множество вирусов, "троянских
+коней" или просто некачественных программ. Апплет автоматически
+запускается при загрузке <i>web-</i> страницы, поэтому апплеты требуют
+повышенного режима безопасности. Для обеспечения защиты, создателями <i>Java </i>был
+разработан механизм, получивший название "песочницы" <i>(sandbox)</i>,ограничивает
+доступ "ненадежных" апплетов к компьютеру пользователя. Если
+разработчику апплета понадобилось расширить возможности апплета - ему
+необходимо поставить цифровую подпись, тогда апплет воспринимается броузером
+как "надежный", и вы сами решаете, доверять апплету или нет. Хотя
+цифровая подпись не обеспечивает вашей безопасности, вы можете установить
+происхождение апплета, при возникновении проблем. "Песочница"
+включает в себя три основных механизма защиты:</p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">проверки
+     на уровне <i>JVM;</i> <o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">защита на
+     уровне языка;<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">интерфейс
+     <i>JavaSecurity</i>.<o:p></o:p></span></li>
+</ul>
+
+
+<p style="text-align: justify;">Апплеты могли бы быть почти идеальным со всех
+точек зрения решением для создателей динамических <span class="texample">Web</span>
+-сайтов и корпоративных <span class="texample">Web</span> -систем: они не требуют
+затрат на установку, соответствуют лозунгу сторонников чистого <i>HTML </i>("написано
+однажды -работает везде") и имеют собственный богатый графический
+пользовательский интерфейс. Но до сих пор эти надежды не сбылись. Апплеты, в
+общем, используются сравнительно редко. Возможно, потому, что некоторые
+разработчики неверно оценили накладные расходы при интерпретации байт-кода в
+виртуальной машине <i>Java</i>.У других множество нареканий вызывает защита,
+основанная на принципе "песочницы" ( <span class="texample">sandbox</span>
+), который не позволяет <i>Java </i>использовать в полной мере локальные и
+удаленные службы. Третьи отмечают различия между виртуальными машинами основных
+браузеров, имеющихся на рынке. Так или иначе до сих апплеты не оправдали
+возложенных на них ожиданий, и <span class="texample">Web</span> -приложения на
+базе <span class="texample">HTML</span> не были вытеснены <span class="texample">Web</span>
+-приложениями с равным уровнем переносимости и мобильности, но функционально
+более мощным графическим пользовательским интерфейсом.</p>
+
+
+<p style="text-align: justify;">Тем не менее, при помощи апплетов можно сделать
+немало полезного. Вот несколько ярких примеров.</p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><i><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">AnywareOffice </span></i><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">компании</span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> <i><span lang="EN-US">VistaSource </span></i><span lang="EN-US">(</span></span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">http ://www.anywareoffice.com/</span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">). </span><i><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">VistaSource
+     </span></i><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">использует
+     апплет <i>Java </i>для реализации <i>Applixware</i>,своего популярного
+     офисного пакета, в браузерах, ориентированных на <i>Java</i>.Когда
+     провайдер услуг доступа к приложениям использует <i>AnywareOffice</i>,приложения
+     (такие, как текстовый процессор) работают на сервере, но отображаются в
+     апплете.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><i><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">QuestAgent </span></i><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">компании</span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> <i><span lang="EN-US">JObjects </span></i><span lang="EN-US">(</span></span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">http://www.jobjects.com/</span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">). </span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Этот
+     апплет представляет собой кроссплатформенный механизм поиска, часто
+     включаемый в состав компакт-диска с публикациями на базе <i>HTML</i>.Браузер
+     может отображать информационное наполнение таких публикаций, но не может
+     выполнять поиск в своем индексе. <i>QuestAgent </i>предлагает мобильный
+     поиск и позволяет отказаться от необходимости создавать и отображать
+     оригинальный механизм поиска.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><i><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">MindTerm </span></i><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">компании</span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> <i><span lang="EN-US">Mindbright Technologies </span></i><span lang="EN-US">(</span></span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">http://www.mindbright.com/</span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">). </span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Предположим,
+     что пользователь оказался вне офиса, и при нем нет мобильного компьютера,
+     а ему необходимо передать файл на домашний сервер. <i>MindTerm </i>-
+     реализация защищенной версии интерпретатора команд <i>Secure Shell (SSH) </i>на
+     базе <i>Java </i>позволяет преобразовать любой ориентированный на <i>Java </i>браузер
+     в клиент <i>SSH</i>,который можно применять для шифрования сеансов
+     передачи файла.<o:p></o:p></span></li>
+</ul>
+
+
+<h4 style="text-align: justify;"><a name="sect19"></a><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сервлеты<o:p></o:p></span></h4>
+
+
+<p style="text-align: justify;">Сервлеты - это программы на <i>Java</i>,которые
+работают <i>на серверном компьютере</i>. Их выполнение инициируется <span class="texample">Web</span> -сервером или сервером приложений <i>(Application
+Server) </i>по запросу клиента. Последовательность выполнения сервлета
+следующая.</p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Клиент
+     посылает запрос <span class="texample">Web</span> -серверу или серверу
+     приложений.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span class="texample"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Web</span></span><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> -сервер или сервер
+     приложений инициирует выполнение сервлета, передавая ему необходимые
+     данные.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сервлет
+     выполняется (как правило, на виртуальной <span class="texample">Java</span>
+     -машине сервера), и по окончании работы передает результаты (ответ на
+     исходный запрос) вызвавшему его серверу. При этом сервлет может
+     производить сколь угодно сложные действия, например, обращаться к другим
+     сервлетам или удаленным программам и т.п. Обмен данными между сервлетом
+     сервлетом и сервером происходит при помощи специального <i>Java-API </i>(его
+     главные составляющие это классы <i>HttpServletRequest </i>для передачи
+     запроса и <i>HttpServletResponse </i>для ответа).<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сервер
+     отдает полученные от сервлета данные клиенту.<o:p></o:p></span></li>
+</ul>
+
+
+<p style="text-align: justify;">На самом деле схема, как правило, чуть более
+сложная. В связке с сервером работает базовый сервлет. Именно ему сервер
+отправляет данные и от него же получает ответ, отправляемый клиенту.
+Фактически, базовый сервлет является "мозгом" сервера. Основная
+функция этого сервлета - прочитать запрос клиента, расшифровать его и, в
+соответствиии с расшифровкой, передать работу сервлету, отвечающему за
+конкретный тип запрашиваемой информации. Зачастую, для достижения скорости,
+роль базового сервлета играет сам сервер. Именно по такой схеме работает,
+скажем, <span class="texample">Web</span> -сервер <i>Jakarta Tomcat</i>.По сути
+дела, в этой схеме нет ничего принципиально нового по сравнению с <i>CGI-</i>
+скриптами, кроме, конечно, большей унифицированности и существенно меньшей
+зависимости от платформ (благодаря использованию <i>Java)</i>.Действительно,
+сервлеты и были разработаны, чтобы заменить <span class="texample">CGI</span>
+-скрипты.</p>
+
+
+<p style="text-align: justify;">Среда исполнения сервлетов, кроме того,
+обеспечивает некоторые полезные и экономящие время возможности, включая
+преобразование <i>HTTP-запросов </i>из сети в удобный для использования <i>HttpServletRequest
+</i>объект, обеспечивая выходной поток для программиста, чтобы использовать его
+для ответа, и преобразование удобного в работе объекта <i>HttpServletResponse </i>в
+<i>HTTP-ответ</i>,который может быть послан обратно по сети. Она также
+обеспечивает удобные возможности управления сессиями, в том числе хранения
+состояния сессии, что позволяет, например, назначать ресурсы (такие как
+подключения к базе данных), которые могут использоваться для многократных
+запросов.</p>
+
+
+<p style="text-align: justify;">По сравнению с апплетами сервлеты имеют
+преимущества с архитектурной точки зрения. Если апплет, посланный по сети,
+окажется в несовместимой с ним виртуальной машине <i>Java</i>,то он, скорее
+всего, корректно работать не будет. Сервлет развертывается в более управляемой
+среде. Так как параметры <i>JVM </i>известны, проблем совместимости не
+возникает. Более того, среда, которая окружает данную виртуальную машину, может
+увеличивать производительность сервлета. Некоторые серверы <span class="texample">Java</span> -приложений могут компилировать сервлеты в
+"родной" для себя код и тем самым значительно увеличивать скорость
+выполнения. Другие серверы запускают параллельно несколько <i>JVM</i>,иногда в
+различных процессах хостовой ОС. Эти стратегии увеличивают масштабируемость и
+отказоустойчивость службы.</p>
+
+
+<p style="text-align: justify;">Вариантом сервлета является <span class="texample">JSP</span>
+-страница <i>(Java Server Pages)</i>. <span class="texample">JSP</span>
+-страница, подобно <i>ASP </i>или <i>PHP </i>скрипту представляет собой обычный
+<i>HTML </i>файл с записанным внутри него при помощи специального синтаксиса
+исходным <span class="texample">Java</span> -кодом сервлета. Каждая <span class="texample">JSP</span> -страница автоматически преобразуется в сервлет <span class="texample">Web</span> -сервером при запросе на эту страницу со стороны
+клиента. Затем сервлет выполняется по описанной схеме. Подытоживая, можно
+сказать, что сервлеты имеют преимущество максимальной переносимости: они могут
+работать на большем количестве <span class="texample">Web</span> -серверов или
+серверов приложений и на большем количестве платформ, чем любая другая
+технология динамических <span class="texample">Web</span> -приложений, доступная
+сегодня. Следует также отметить, что <i>API</i> сервлета намного проще в
+изучении и в использовании, чем технология <i>EJB</i>,поэтому и применяется
+пока что чаще (хотя <i>EJB </i>также уже стал фактически промышленной
+технологией).</p>
+
+
+<h3 style="text-align: justify;"><a name="sect20"></a>Заключение</h3>
+
+
+<p style="text-align: justify;">В современном развитии программных и аппаратных
+платформ прослеживаются две отчетливые тенденции:</p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">программные
+     и аппаратные платформы становятся все более и более совместимыми друг с
+     другом, границы между ними становятся легко преодолимыми;<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">все время
+     появляются новые технологии, которые предлагают разные способы решения
+     одних и тех же задач.<o:p></o:p></span></li>
+</ul>
+
+
+<p style="text-align: justify;">Таким образом, одна и та же задача <span class="keyword">по</span> разработке программного продукта может быть решена
+множеством разных способов, и <span class="keyword">менеджер</span> проекта <span class="keyword">по</span> разработке программного продукта должен уметь выбирать
+платформы и технологии, исходя из особенностей задачи и конкретных условий.</p>
+
+
+
+
+  
+
+</body></html>

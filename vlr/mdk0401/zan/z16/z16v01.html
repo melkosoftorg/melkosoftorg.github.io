@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>ПО авиасимулятора</title></head><body>
+<div style="text-align: center;">[ <a href="../../ktp.html">Тематический
+план </a>]
+[<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><a href="z16v00.html">Архитектура программного обеспечения<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span></a>] [ 1
+] [ <a href="z16v02.html">2
+</a>] [ <a href="z16v03.html">3</a>
+] [ <a href="z16v04.html">4</a>
+]
+
+
+
+
+</div>
+
+
+
+
+<hr>
+<div style="text-align: center;"><big><span style="font-weight: bold;"></span><big style="font-weight: bold;"><span class="keyword"><span style="font-size: 11pt; line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;;">Программное обеспечение</span></span></big><span style="font-size: 11pt; line-height: 115%; font-family: &quot;Calibri&quot;,&quot;sans-serif&quot;; font-weight: bold;"><big>
+авиасимулятора</big> </span></big>
+
+
+</div>
+
+&nbsp; <br>
+
+
+<p style="text-align: justify;">Рассмотрим в качестве примера <span class="keyword">программное обеспечение</span> авиасимулятора для командной
+тренировки пилотов. Задачей такой системы в целом является <span class="keyword">контроль</span>
+и выработка необходимых для безопасного управления самолетом навыков у команд
+летчиков. Кроме того, отрабатываются навыки поведения в особых ситуациях,
+связанных с авариями, частичной потерей управления самолетом, тяжелыми
+условиями полета, и т.д.</p>
+
+
+<p style="text-align: justify;"><span class="keyword">Симулятор</span> должен:</p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Моделировать
+     определенные условия полета и создавать некоторые события, к которым
+     относятся следующие:<o:p></o:p></span></li><ul type="circle"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Скоростной
+      и высотный режим полета, запас горючего, их изменения со временем.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Модель
+      самолета и ее характеристики по управляемости, возможным режимам полета и
+      скорости реакции на различные команды.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Погода
+      за бортом и ее изменения со временем.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рельеф
+      и другие особенности местности в текущий момент, их изменения со
+      временем.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Исходный
+      и конечный пункты полета, расстояние и основные характеристики рельефа
+      между ними.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Исправность
+      или неисправность элементов системы контроля полета и управления
+      самолетом, показатели системы мониторинга и их изменение со временем.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Наличие
+      пролетающих вблизи курса самолета других самолетов, их геометрические и
+      скоростные характеристики.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Чрезвычайные
+      ситуации, например, террористы на борту, нарушение герметичности корпуса,
+      внезапные заболевания и "смерть" отдельных членов экипажа.<o:p></o:p></span></li></ul>
+</ul>
+
+
+<p style="margin-left: 36pt; text-align: justify;">При этом вся совокупность
+условий должна быть непротиворечивой, выглядеть и развиваться подобно реальным
+событиям. Некоторые условия, например, погода, должны изменяться достаточно
+медленно, другие события — происходить внезапно и приводить к связанным с ними
+последствиям (нарушение герметичности корпуса может сопровождаться поломками
+каких-то элементов системы мониторинга или "смертью" одного из
+пилотов). Если приборы показывают наличие грозы по курсу и они исправны, через
+некоторое время летчики должны увидеть грозу за бортом и она может начать оказывать
+влияние на условия полета.</p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Принимать
+     команды, подаваемые пилотами, и корректировать демонстрируемые
+     характеристики полета и работы системы управления самолетом в зависимости
+     от этих команд, симулируемой модели самолета и исправности системы
+     управления. Например, при повороте на некоторый угол вправо, показываемый
+     пилотам "вид из кабины" должен переместиться на соответствующий
+     угол влево со скоростью, соответствующей скорости реакции симулируемой
+     модели самолета и исправности задействованных элементов системы
+     управления.<o:p></o:p></span></li>
+</ul>
+
+
+<p style="text-align: justify;">Понятно, что одним из элементов симулятора служит
+система визуализации обстановки за бортом — она показывает пилотам "вид за
+окнами". Пилоты в ходе полета ориентируются <span class="keyword">по</span>
+показателям огромного количества датчиков, представленных на приборной панели
+самолета. Вся их работа тоже должна симулироваться. Наличие и характеристики
+работы таких датчиков могут зависеть от симулируемой модели, но их
+расположение, форма и цвет служат слишком важными элементами выработки навыков
+управления самолетом, поэтому требуется поддерживать эти характеристики
+близкими к реальным. Представлять их только в виде изображений на некоторой
+панели неудобно, поскольку они должны располагаться и выглядеть максимально
+похоже на реальные прототипы. Значит, симулировать можно только небольшое
+семейство самолетов с практически одним и тем же набором приборов на приборной
+панели.</p>
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Кроме того, все команды
+пилотов должны восприниматься соответствующими компонентами симулятора и
+встраиваться в моделируемые условия. В <span class="keyword">симулятор</span> должен
+быть включен <span class="keyword">генератор</span> событий, зависящий от текущей
+ситуации, а также <span class="keyword">интерфейс</span> мониторинга и
+управления, с помощью которого внешний оператор мог бы создавать определенные
+события во время симуляции полета наблюдать за всем, что происходит. Все
+события и действия пилотов должны протоколироваться с помощью камер и
+микрофонов для дальнейшего разбора полетов.<o:p></o:p></span></p>
+
+
+<div style="text-align: center;"><img style="width: 620px; height: 405px;" alt="" src="16_1.gif"><br>
+
+
+</div>
+<p class="MsoNormal" style="text-align: center;" align="center"><b><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис.
+16.1. </span></b><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Примерная архитектура авиасимулятора<o:p></o:p></span></p>
+
+
+<p style="text-align: justify;">Рис. 16.1 показывает набросок архитектуры такого
+авиасимулятора. Каждый из указанных компонентов решает свои задачи, которые
+необходимы для работы всей системы. В совокупности они решают все задачи
+системы в целом. Стрелками показаны <span class="keyword">потоки данных</span> и
+управления между компонентами. Пунктирные стрелки изображают <span class="keyword">потоки данных</span>, передаваемых для протоколирования.</p>
+
+
+<p style="text-align: justify;"><span class="keyword">Архитектура</span> определяет
+большинство характеристик качества <span class="keyword">ПО</span> в целом. <span class="keyword">Архитектура</span> служит также основным средством общения между
+разработчиками, а также между разработчиками и всеми остальными лицами,
+заинтересованными в данном <span class="keyword">ПО</span>.</p>
+
+
+<p style="text-align: justify;">Выбор архитектуры задает способ <span class="keyword">реализации требований</span> на высоком уровне абстракции. Именно
+<span class="keyword">архитектура</span> почти полностью определяет такие
+характеристики <span class="keyword">ПО</span> как <span class="keyword">надежность</span>,
+<span class="keyword">переносимость</span> и <span class="keyword">удобство
+сопровождения</span>. Она также значительно влияет на <span class="keyword">удобство
+использования</span> и эффективность <span class="keyword">ПО</span>, которые,
+однако, сильно зависят и от реализации отдельных компонентов. Значительно
+меньше влияние архитектуры на функциональность — обычно заданную
+функциональность можно реализовать, использовав совершенно различные
+архитектуры.</p>
+
+
+<p style="text-align: justify;">Поэтому выбор между той или иной архитектурой
+определяется в большей степени именно нефункциональными требованиями и
+необходимыми свойствами <span class="keyword">ПО</span> с точки зрения <span class="keyword">удобства сопровождения</span> и переносимости. При этом для
+построения хорошей архитектуры надо учитывать возможные противоречия между
+требованиями к различным характеристикам и уметь выбирать компромиссные
+решения, дающие приемлемые значения <span class="keyword">по</span> всем
+показателям.</p>
+
+
+<p style="text-align: justify;">Так, для повышения эффективности в общем случае
+выгоднее использовать монолитные архитектуры, в которых выделено небольшое
+число компонентов (в пределе — единственный <span class="keyword">компонент</span>).
+Этим обеспечивается экономия как памяти, поскольку каждый <span class="keyword">компонент</span>
+обычно имеет свои данные, а здесь число компонентов минимально, так и времени
+работы, поскольку возможность оптимизировать работу алгоритмов обработки данных
+имеется также только в рамках одного компонента.</p>
+
+
+<p style="text-align: justify;">С другой стороны, для повышения <span class="keyword">удобства сопровождения</span>, наоборот, лучше разбить систему на
+большое число отдельных маленьких компонентов, с тем чтобы каждый из них решал
+свою небольшую, но четко определенную часть общей задачи. При этом, если
+возникают изменения в требованиях или проекте, их обычно можно свести к
+изменению в постановке одной, реже двух или трех таких подзадач и,
+соответственно, изменять только отвечающие за решение этих подзадач компоненты.</p>
+
+
+<p style="text-align: justify;">С третьей стороны, для повышения надежности лучше
+использовать либо небольшой набор простых компонентов, либо дублирование функций,
+т.е. сделать несколько компонентов ответственными за решение одной подзадачи.
+Заметим, однако, что ошибки в <span class="keyword">ПО</span> чаще всего носят
+неслучайный характер. Они повторяемы, в отличие от аппаратного обеспечения, где
+ошибки связаны часто со случайными изменениями характеристик среды и могут быть
+преодолены простым дублированием компонентов без изменения их внутренней
+реализации. Поэтому при таком обеспечении надежности надо использовать
+достаточно сильно отличающиеся способы решения одной и той же задачи в разных
+компонентах.</p>
+
+
+<p style="text-align: justify;">Другим примером <span class="keyword">противоречивых
+требований</span> служат характеристики удобства использования и защищенности.
+Чем сильнее защищена система, тем больше проверок, процедур идентификации и пр.
+нужно проходить пользователям. Соответственно, тем менее удобна для них работа
+с такой системой. При разработке реальных систем приходится искать некоторый
+разумный <span class="keyword">компромисс</span>, чтобы сделать систему
+достаточно защищенной и способной поставить ощутимую преграду для
+несанкционированного доступа к ее данным и, в то же время, не отпугнуть
+пользователей сложностью работы с ней.</p>
+
+
+<p style="text-align: justify;"><span class="keyword">Список</span> стандартов,
+регламентирующих описание архитектуры, которое является основной составляющей
+проектной документации на <span class="keyword">ПО</span>, выглядит так:</p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">IEEE
+     1016-1998 Recommended Practice for Software Design Descriptions</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp; </span>(рекомендуемые методы описаний проектных
+     решений для ПО).<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">IEEE 1471-2000 Recommended Practice for
+     Architectural Description of Software-Intensive Systems</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"><span style="">&nbsp; </span>(</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">рекомендуемые</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">методы</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">описания</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">архитектуры</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">программных</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">систем</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">).<o:p></o:p></span></li>
+</ul>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Основное содержание этого
+стандарта сводится к определению набора понятий, связанных с архитектурой
+программной системы.</p>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Это, прежде всего, само
+понятие архитектуры как набора основополагающих принципов организации системы,
+воплощенных в наборе ее компонентов, связях их друг с другом и между ними и
+окружением системы, а также принципов проектирования и развития системы.</p>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Это определение, в отличие от
+данного в начале этой лекции, делает акцент не на наборе структур в основе
+архитектуры, а на принципах ее построения.</p>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Стандарт <span class="keyword">IEEE
+1471</span> определяет также <span class="keyword">представление архитектуры
+(architectural description)</span> как согласованный набор документов,
+описывающий архитектуру с точки зрения определенной группы заинтересованных лиц
+с помощью набора моделей. Архитектура может иметь несколько представлений,
+отражающих интересы различных групп заинтересованных лиц.</p>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Стандарт рекомендует для
+каждого представления фиксировать отраженные в нем взгляды и интересы, роли
+лиц, которые заинтересованы в таком взгляде на систему, причины,
+обуславливающие необходимость такого рассмотрения системы, несоответствия между
+элементами одного представления или между различными представлениями, а также
+различную служебную информацию об источниках информации, датах создания
+документов и пр.</p>
+
+
+<p style="margin-left: 36pt; text-align: justify;">Стандарт <span class="keyword">IEEE
+1471</span> отмечает необходимость использования архитектуры системы для
+решения таких задач, как следующие:</p>
+
+
+<ul type="disc">
+<ul type="circle"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Анализ
+      альтернативных проектов системы.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Планирование
+      перепроектирования системы, внесения изменений в ее организацию.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Общение
+      по поводу системы между различными организациями, вовлеченными в ее
+      разработку, эксплуатацию, сопровождение, приобретающими систему или
+      продающими ее.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Выработка
+      критериев приемки системы при ее сдаче в эксплуатацию.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Разработка
+      документации по ее использованию и сопровождению, включая обучающие и
+      маркетинговые материалы.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Проектирование
+      и разработка отдельных элементов системы.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Сопровождение,
+      эксплуатация, управление конфигурациями и внесение изменений и поправок.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Планирование
+      бюджета и использования других ресурсов в проектах, связанных с разработкой,
+      сопровождением или эксплуатацией системы.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Проведение
+      обзоров, анализ и оценка качества системы.<o:p></o:p></span></li></ul>
+</ul>
+
+
+<br>
+<br>
+
+  
+
+</body></html>

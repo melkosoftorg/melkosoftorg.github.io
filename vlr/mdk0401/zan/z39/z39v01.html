@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>Как увеличить производительность процессора</title></head><body>
+<div style="text-align: center;">
+<div style="text-align: center;">
+<a href="../../ktp.html">Тематический
+план </a>]
+[ <a href="z39v00.html"><span style="font-size: 12pt; line-height: 150%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Настройка управления
+питанием. Оптимизация использования процессора.</span></a>
+
+<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span>]<br>
+&nbsp;[ 1<a href="file:///D:/%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80/public_html/uch/mdk0401/zan/z38/z38v01.html">
+</a>] [ <a href="z39v02.html">2
+</a>] [ <a href="z39v03.html">3</a>
+]&nbsp;
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span>
+<div style="text-align: center;">
+<h1>Как увеличить производительность процессора за счет настроек электропитания (парковка ядер, как включить все ядра ЦП &#10004;)</h1>
+
+
+
+
+</div>
+Windows не всегда "идеально" работает с многоядерными процессорами. В
+ целях снижения энергопотребления, ряд&nbsp;процессов может выполняться на 
+том ядре, на котором они были запущены изначально (такой подход 
+позволяет: с одной стороны (позитивной)&nbsp;— не использовать постоянно все 
+ядра <span style="color: rgb(153, 153, 153);">(и за счет этого снизить энергопотребление)</span>, а с другой (негативной) — не позволяет процессору работать на полную "катушку").
+<p><span id="more-18384"></span></p>
+
+<p>К тому же функция <span style="text-decoration: underline;"><em>парковки ядер</em></span>
+ позволяет процессору (при определенной нагрузке) переносить все задачи 
+на одно ядро, а остальные переводить в режим ожидания (т.е. работать 
+будет фактически только одно ядро). Естественно, это снижает общую 
+производительность (правда, делает систему более отзывчивой,&nbsp;но 
+незначительно). Отмечу, что Windows к тому же не совсем корректно 
+работает с парковой ядер на процессорах Intel (по крайней мере Windows 
+7).</p>
+
+<p>Так вот, задав определенные настройки электропитания, можно 
+ограничить работу функции парковки ядер и повысить общую 
+производительность (в некоторых случаях до 20%!). На мой взгляд есть 
+смысл попробовать потратить 3-5 мин. на "эксперимент"!</p>
+<em><span style="text-decoration: underline;">Примечание</span>:
+ в первую очередь эта тема касается многоядерных процессоров от Intel </em>
+<h2 style="text-align: center;"><span style="color: rgb(51, 102, 255);">Как настроить тонко электропитание&nbsp;процессора</span></h2>
+Чтобы не быть голословным о повышении производительности, приведем один небольшой тест быстродействия в WinRAR .
+ На скриншоте ниже: в левой части приведена общая скорость до 
+оптимизации настроек; справа&nbsp;— после. Даже невооруженным глазом видно, 
+что в <span style="text-decoration: underline;">тестах</span> ЦП начинает работать быстрее <span style="color: rgb(128, 128, 128);">(что положительно сказывается и в реальных задачах, тех же играх, например)</span>.<br>
+<div style="text-align: center;"><em><span style="text-decoration: underline;"></span> <img style="width: 800px; height: 398px;" alt="" src="39_06.png"></em><br>
+<em></em></div>
+<span style="text-decoration: underline;">Примечание</span>: рекомендуем 
+вам запустить тест в WinRAR сначала до оптимизации настроек (и запомнить
+ общую скорость), и затем провести тест после оптимизации. Далее просто 
+сравнить эти числа, в ряде случаев удается выжать из ЦП еще 10-20%!<br>
+<p><strong>Важный момент!</strong></p>
+
+<p>Как уже сказано выше, в первую очередь этот вопрос касается
+многоядерных процессоров (4 ядра и выше). Чтобы узнать количество ядер
+своего ЦП&nbsp;— просто запустите утилиту CPU-Z, и посмотрите в нижнюю
+часть окна: в графе Cores увидите кол-во ядер (пример ниже).</p>
+<div style="text-align: center;"><img style="width: 563px; height: 563px;" alt="" src="39_07.png"><br>
+
+
+</div>
+<div style="text-align: center;">CPU-Z — 4 Cores (4 ядра, 8 потоков)<br>
+</div>
+<p>&nbsp;<br>
+<span style="text-decoration: underline;"><span style="color: rgb(51, 102, 255);"><em>1) И так, начать нужно с настройки реестра.</em></span></span></p>
+
+<p>Тут дело в том, что Windows по умолчанию скрывает часть настроек 
+электропитания. Чтобы их открыть для редактирования, необходимо внести 
+определенные изменения в реестр. Проще всего это сделать с помощью уже 
+готового файла настроек, который нужно просто запустить и согласиться с 
+добавлением параметров в системный реестр. Вот подготовленный файл:&nbsp;<a href="core_parking.rar">core_parking</a>&nbsp;<span style="color: rgb(153, 153, 153);">(нужно извлечь его из архива и запустить. Архив запакован с помощью WinRAR, актуален для Windows 7-10)</span>.</p>
+<div style="text-align: center;"><img style="width: 773px; height: 193px;" alt="" src="39_08.png"><br>
+</div>
+<p style="text-align: center;" class="wp-caption-text">Редактор реестра — настройки успешно внесены в реестр</p>
+
+<p>На всякий случай приведем текст этого файла чуть ниже (в целях 
+безопасности, вдруг кто-то усомниться в файле, и пожелает вносить 
+изменения в реестр вручную).</p>
+
+<blockquote><p><span style="color: rgb(128, 128, 128);">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583]</span><br>
+<span style="color: rgb(128, 128, 128);">"Attributes"=dword:00000000</span></p>
+<p><span style="color: rgb(128, 128, 128);">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\3b04d4fd-1cc7-4f23-ab1c-d1337819c4bb]</span><br>
+<span style="color: rgb(128, 128, 128);">"Attributes"=dword:00000000</span></p>
+<p><span style="color: rgb(128, 128, 128);">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\5d76a2ca-e8c0-402f-a133-2158492d58ad]</span><br>
+<span style="color: rgb(128, 128, 128);">"Attributes"=dword:00000000</span></p>
+<p><span style="color: rgb(128, 128, 128);">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\a55612aa-f624-42c6-a443-7397d064c04f]</span><br>
+<span style="color: rgb(128, 128, 128);">"Attributes"=dword:00000000</span></p>
+<p><span style="color: rgb(128, 128, 128);">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\ea062031-0e34-4ff1-9b6d-eb1059334028]</span><br>
+<span style="color: rgb(128, 128, 128);">"Attributes"=dword:00000000</span></p></blockquote>
+
+<p>&nbsp;</p>
+
+<p><span style="text-decoration: underline;"><span style="color: rgb(51, 102, 255);"><em>2) Настройка схемы электропитания</em></span></span></p>
+
+<p>Теперь необходимо открыть панель управления Windows раздел <span style="color: rgb(0, 128, 128);"><em>"Оборудование и звук/Электропитание"</em></span>. После перейти в&nbsp;настройки текущей схемы электропитания (т.е. ту, которая сейчас у вас используется). В нашем случае это <span style="text-decoration: underline;"><em>сбалансированная</em></span> (см. скриншот ниже).</p>
+<div style="text-align: center;"><img style="width: 800px; height: 495px;" alt="" src="39_09.png"><br>
+</div>
+<p style="text-align: center;" class="wp-caption-text">Настройка текущей схемы электропитания</p>
+
+<p>Далее нужно открыть дополнительные настройки питания.</p>
+<div style="text-align: center;"><img style="width: 800px; height: 546px;" alt="" src="39_10.png"><br>
+</div>
+<p style="text-align: center;" class="wp-caption-text">Изменить дополнительные параметры питания</p>
+
+<p>Теперь самое главное (см. скриншот ниже):</p>
+
+<ol>
+<li>минимальное число ядер в состоянии простоя: рекомендуется выставить значение в <strong>99%</strong> (почему-то если выставить 100%&nbsp;— Windows часто отправляет одно ядро "отдыхать");</li><li>разрешить состояние снижения питания: переведите в режим<strong> выкл</strong>. (не дает процессору экономить энергию);</li><li>отключение простоя процессора: переведите режим в <strong>откл.</strong>;</li><li>минимальное состояние процессора: <strong>100%</strong> (незначительно ускоряет работу ЦП <span style="color: rgb(128, 128, 128);">(кстати, в некоторых случаях позволяет уменьшить</span> писк от дросселей<span style="color: rgb(128, 128, 128);">))</span>.</li><li>политика охлаждения системы: <strong>активная</strong>&nbsp;(более эффективно охлаждает ЦП);</li><li>максимальное состояние процессора: <strong>100%</strong> (очень сильно влияет на производительность! Обязательно выставите на 100%);</li><li>максимальное число ядер в состоянии простоя: <strong>100%</strong> 
+(противоречивая опция. Если выставить что-то отличное от 100% — то 
+грузятся почему-то не все ядра,&nbsp;несмотря на то что активны все...).</li>
+</ol>
+<img style="width: 800px; height: 499px;" alt="" src="39_11.png"><br>
+<p class="wp-caption-text">Дополнительные параметры электропитания</p>
+
+
+<p>Сохраните настройки и перезагрузите компьютер! <br>
+</p>
+
+<p><span style="text-decoration: underline; color: rgb(51, 102, 255);"><em>3) Еще раз о режиме питания (касается в первую очередь ноутбуков)</em></span></p>
+
+<p>После перезагрузки компьютера (ноутбука)&nbsp;— обратите внимание на режим
+ питания (кликните по батарейке в трее). Выставите производительность на
+ 100%!</p>
+<div style="text-align: center;"><img style="width: 587px; height: 545px;" alt="" src="39_12.png"><br>
+</div>
+<p style="text-align: center;" class="wp-caption-text">Макс. производительность</p>
+
+<p>Кроме этого, обратите внимание на центры управления ноутбуком, 
+которые могут идти в комплекте к вашим драйверам (например, такие есть у
+ устройств от Lenovo, Sony и пр.). В них также устройство нужно 
+перевести в режим высокой производительности.</p>
+<div style="text-align: center;"><img style="width: 737px; height: 628px;" alt="" src="39_13.gif"><br>
+</div>
+<div style="text-align: center;">Питание ноутбука // менеджер ноутбука<br></div><p>&nbsp;</p><p><span style="text-decoration: underline;"><span style="color: rgb(51, 102, 255);"><em>4) Тестирование быстродействия</em></span></span></p>
+<p>После чего можно запустить WinRAR и провести тест быстродействия. Как
+ правило, после точечной настройки электропитания наблюдается рост цифр 
+(т.к. система перестает ограничивать ЦП, и он может начать работать на 
+весь свой потенциал).</p><div style="text-align: center;"><img style="width: 800px; height: 324px;" alt="" src="39_14.png"><br>
+</div><div style="text-align: center;">Тестирование — WinRAR / Кликабельно<br></div><p>&nbsp;</p>
+<p><strong>Дополнение!</strong></p>
+<p>Чтобы посмотреть, как идет нагрузка на ядра ЦП&nbsp;— откройте <span style="text-decoration: underline;"><em>"Диспетчер задач"</em></span> (Ctrl+Shift+Esc) и перейдите во вкладку <span style="text-decoration: underline;"><em>"Производительность"</em></span>. Далее щелкните правой кнопкой мышки по графику загрузки ЦП и в меню выберите <span style="text-decoration: underline;"><em>"Изменить график/Логические процессы"</em></span>. См. скрин ниже.</p><div style="text-align: center;"><img style="width: 800px; height: 609px;" alt="" src="39_15.png"><br></div>В результате у вас будет не один график, а несколько, в зависимости от количества ядер (потоков).<br><div style="text-align: center;"><img style="width: 800px; height: 546px;" alt="" src="39_16.png"><br></div><p style="text-align: center;" class="wp-caption-text">Все ядра загружены</p>
+<p>Обратите внимание, при нагрузке (например, тестировании)&nbsp;— в
+идеале все ядра должны быть загружены (как&nbsp;на скриншоте&nbsp;ниже).</p><div style="text-align: center;"><img style="width: 756px; height: 370px;" alt="" src="39_17.png"><br></div><p style="text-align: center;" class="wp-caption-text">При нагрузке</p>
+Для более показательного теста работы ЦП рекомендую воспользоваться утилитой <em>AIDA64</em><br>
+<br>
+
+  
+
+</body></html>

@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>Принцип работы с групповыми политиками</title></head><body><div style="text-align: center;">
+<a href="../../ktp.html">Тематический
+план </a>]
+[&nbsp;<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><a href="z36v00.html">Решение проблем конфигурации с помощью групповых
+политик </a>&nbsp;</span>]<br>
+</div>
+
+
+<div style="text-align: center;">
+
+&nbsp;[ <a href="z36v01.html">1</a>
+] [ 2
+] [ <a href="z36v03.html">3</a>
+]&nbsp;
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span>
+<div style="text-align: center;"><div style="text-align: center;">
+
+</div><p class="MsoNormal" style="line-height: normal; text-align: center;"><b><span style="font-size: 18pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Принцип работы с групповыми политиками<o:p></o:p></span></b></p>
+
+
+
+
+</div>
+
+
+
+&nbsp;
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рассматриваемый в этой статье инструмент позволяет
+применять множество самых разнообразных параметров. К сожалению, большинство из
+них понятно только профессионалам, использующим групповые политики в рабочих
+целях. Однако и обычному пользователю есть что настроить, используя некоторые
+параметры. Разберем несколько простых примеров.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 13.5pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Изменение окна безопасности Windows<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Если в Виндовс 7 зажать сочетание клавиш&nbsp;<i>Ctrl
++ Alt + Delete</i>, то будет запущено окно безопасности, где осуществляется
+переход к диспетчеру задач, блокировка ПК, завершение сеанса системы, смена
+профиля пользователя и пароля.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 407px; height: 434px;" alt="" src="36_15.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Каждая команда за исключением&nbsp;<i>«Сменить
+пользователя»</i>&nbsp;доступна для редактирования путем изменения нескольких
+параметров. Выполняется это в среде с параметрами или путем изменения реестра.
+Рассмотрим оба варианта.<o:p></o:p></span></p>
+
+<ol start="1" type="1"><ol start="1" type="1"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Откройте
+      редактор.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Перейдите
+      в папку&nbsp;<i>«Конфигурация пользователя»</i>,&nbsp;<i>«Административные
+      шаблоны»</i>,&nbsp;<i>«Система»</i>&nbsp;и&nbsp;<i>«Варианты действий
+      после нажатия Ctrl + Alt + Delete»</i>.<o:p></o:p></span></li></ol></ol>
+<div style="text-align: center;"><img style="width: 832px; height: 601px;" alt="" src="36_16.png"><br>
+
+</div><p class="MsoNormal" style="text-align: left;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Откройте
+любую необходимую политику в окне справа.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 832px; height: 601px;" alt="" src="36_17.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В простом окне
+управления состоянием параметра поставьте галочку напротив&nbsp;<em>«Включить»</em>&nbsp;и
+не забудьте применить изменения.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 764px; height: 706px;" alt="" src="36_18.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Пользователям, у которых нет редактора политик, все
+действия нужно будет выполнять через реестр. Давайте рассмотрим все действия
+пошагово:<o:p></o:p></span></p>
+
+<ol start="1" type="1"><ol start="1" type="1"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Перейдите
+      к редактированию реестра.<o:p></o:p></span></li></ol></ol>
+
+<ol start="1" type="1"><ol start="1" type="1"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Перейдите
+      к разделу&nbsp;<i>«System»</i>. Он находится по этому ключу:<o:p></o:p></span></li></ol></ol>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System<o:p></o:p></span></p>
+
+<ol start="1" type="1"><ol start="1" type="1"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Там вы
+      увидите три строки, отвечающие за появление функций в окне безопасности.<o:p></o:p></span></li></ol></ol>
+<div style="text-align: center;"><img style="width: 871px; height: 590px;" alt="" src="36_19.png"><br>
+
+</div><p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Откройте необходимую строку и поменяйте значение
+на&nbsp;<em>«1»</em>, чтобы активировать параметр.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 458px; height: 239px;" alt="" src="36_20.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">После сохранения изменений деактивированные параметры
+больше не будут отображаться в окне безопасности Windows 7. <o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 13.5pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Изменения панели мест<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Многие используют диалоговые окна&nbsp;<i>«Сохранить
+как»</i>&nbsp;или&nbsp;<i>«Открыть как»</i>. Слева отображается навигационная
+панель, включая раздел&nbsp;<i>«Избранное»</i>. Данный раздел настраивается
+стандартными средствами Windows, однако это долго и неудобно. Поэтому лучше
+воспользоваться групповыми политиками для редактирования отображения значков в
+данном меню. Редактирование происходит следующим образом:<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 739px; height: 544px;" alt="" src="36_21.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Перейдите в редактор,
+выберите&nbsp;<em>«Конфигурация пользователя»</em>, перейдите к&nbsp;<em>«Административные
+шаблоны»</em>,&nbsp;<em>«Компоненты Windows»</em>,&nbsp;<em>«Проводник»</em>&nbsp;и
+конечной папкой будет «<em>Общее диалоговое окно открытия файлов»</em>.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 342px; height: 645px;" alt="" src="36_22.png"><br>
+
+</div><p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Здесь вас интересует&nbsp;<em>«Элементы,
+отображаемые в панели мест»</em>.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 832px; height: 770px;" alt="" src="36_23.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Поставьте точку
+напротив&nbsp;<em>«Включить»</em>&nbsp;и добавьте до пяти различных путей
+сохранения в соответствующие строки. Справа от них отображается инструкция
+правильного указания путей к локальным или сетевым папкам.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 759px; height: 706px;" alt="" src="36_24.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Теперь рассмотрим добавление элементов через реестр
+для пользователей, у которых отсутствует редактор.<o:p></o:p></span></p>
+
+<ol start="1" type="1"><ol start="1" type="1"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Перейдите
+      по пути:<o:p></o:p></span></li></ol></ol>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\<o:p></o:p></span></p>
+
+<ol start="1" type="1"><ol start="1" type="1"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Выберите
+      папку&nbsp;<i>«Policies»</i>&nbsp;и сделайте в ней раздел&nbsp;<i>comdlg32</i>.
+      <o:p></o:p></span></li></ol></ol>
+<div style="text-align: center;"><img style="width: 1089px; height: 590px;" alt="" src="36_25.png"><br>
+
+</div><p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Перейдите в созданный раздел и сделайте внутри него
+папку&nbsp;<em>Placesbar</em>.<o:p></o:p></span></p>
+<br><div style="text-align: center;"><img style="width: 843px; height: 590px;" alt="" src="36_26.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В этом разделе
+потребуется создать до пяти строковых параметров и назвать их от&nbsp;<em>«Place0»</em>&nbsp;до&nbsp;<em>«Place4»</em>.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 843px; height: 590px;" alt="" src="36_27.png"><br>
+
+</div><p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">После создания откройте каждый из них и в строку
+введите необходимый путь к папке.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 458px; height: 239px;" alt="" src="36_28.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 13.5pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Слежение за завершением работы
+компьютера<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Когда вы завершаете работу за компьютером, выключение
+системы происходит без показа дополнительных окон, что позволяет не быстрее
+выключить ПК. Но иногда требуется узнать почему происходит выключение или
+перезапуск системы. В этом поможет включение специального диалогового окна.
+Включается оно с помощью редактора или путем изменения реестра.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 538px; height: 325px;" alt="" src="36_29.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Откройте редактор и
+перейдите к&nbsp;<em>«Конфигурация компьютера»</em>,&nbsp;<em>«Административные
+шаблоны»</em>, после чего выберите папку&nbsp;<em>«Система»</em>.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 337px; height: 648px;" alt="" src="36_30.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В ней нужно выбрать
+параметр&nbsp;<em>«Отображать диалог слежения за завершением работы»</em>.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 543px; height: 640px;" alt="" src="36_31.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Откроется простое окно
+настройки, где необходимо поставить точку напротив&nbsp;<em>«Включить»</em>,
+при этом в разделе параметры во всплывающем меню необходимо указать&nbsp;<em>«Всегда»</em>.
+После не забудьте применить изменения.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 764px; height: 706px;" alt="" src="36_32.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Данная функция включается и через реестр. Вам нужно
+совершить несколько простых действий:<o:p></o:p></span></p>
+
+<ol start="1" type="1"><ol start="1" type="1"><li class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Запустите реестр и перейдите
+      по пути:<o:p></o:p></span></li></ol></ol>
+
+
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">HKLM\Software\Policies\Microsoft\Windows NT\Reliability<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 843px; height: 590px;" alt="" src="36_33.png"><br>
+
+</div><ol start="1" type="1"><li class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Найдите в разделе две
+     строки:&nbsp;<i>«ShutdownReasonOn»</i>&nbsp;и&nbsp;<i>«ShutdownReasonUI»</i>.
+     <o:p></o:p></span></li><li class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Введите в строку с
+     состоянием&nbsp;<i>«1»</i>.<o:p></o:p></span></li></ol>
+<div style="text-align: center;"><img style="width: 458px; height: 239px;" alt="" src="36_34.png"><br></div></body></html>

@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>Программно-аппаратная диагностика</title></head><body>
+<div style="text-align: center;">
+<a href="../../ktp.html">Тематический
+план </a>]
+[&nbsp;<a href="z40v00.html"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Средства диагностики оборудования. Разрешение
+проблем аппаратного сбоя</span><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">.</span><small><span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span></small></a><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&nbsp;</span>]<br>
+</div>
+
+
+
+
+
+
+<div style="text-align: center;">
+
+&nbsp;[ <a href="z40v01.html">1
+</a>] [ 2
+] [ <a href="z40v03.html">3</a>
+]&nbsp;
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span>
+<div style="text-align: center;">
+<div style="text-align: center;">
+
+</div>
+<p class="MsoNormal" style="line-height: normal; text-align: center;">
+
+</p>
+<p class="MsoNormal" style="text-align: center; line-height: normal;"><b><span style="font-size: 13.5pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Программно-аппаратная диагностика<o:p></o:p></span></b></p>
+
+
+
+
+
+
+
+
+</div>
+
+&nbsp;
+<p class="MsoNormal" style="text-align: justify; line-height: normal;">
+
+</p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;">
+
+</p>
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Если все вышеперечисленное не помогло определить
+поломку, то придется перейти к программно-аппаратной диагностике. А для того,
+чтобы она прошла успешно необходимо точно знать, каков порядок включения
+устройств ПК. <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Итак, рассмотрим порядок загрузки компьютера.<o:p></o:p></span></p>
+
+
+<ol start="1" type="1">
+<li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">После
+     включения питания БП выполняет самотестирование. Если все выходные
+     напряжения соответствуют требуемым, БП выдает на материнскую плату сигнал
+     Power_Good (P_G) на контакт 8 20-контактного разъема питания ATX. Между
+     включением ПК и подачей сигнала проходит около 0,1-0,5 с.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Микросхема
+     таймера получает сигнал P_G и прекращает генерировать подаваемый на
+     микропроцессор сигнал начальной установки Reset. Если процессор не
+     исправен, то система зависает.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Если
+     CPU жив, то он начинает выполнять код, записанный в ROM BIOS по адресу
+     FFFF0h (адрес программы перезагрузки системы). По этому адресу находится
+     команда безусловного перехода JMP к адресу начала программы загрузки
+     системы через конкретный ROM BIOS (обычно это адрес F0000h).<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Начинается
+     выполнение конкретного кода ROM BIOS. BIOS начинает проверку компонентов
+     системы на работоспособность (POST – Power On Self Test). Обнаружив
+     ошибку, система подаст звуковой сигнал, так как видеоадаптер пока еще не
+     инициализирован. Проверяется и инициализируется чипсет, DMA и происходит
+     тест определения объема памяти. Если модули памяти вставлены не до конца
+     или некоторые банки памяти повреждены, то или система зависает или звучат
+     длинные повторяющие сигналы из системного динамика.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Происходит
+     разархивирование образа BIOS в оперативную память для более быстрого
+     доступа к коду BIOS.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Инициализируется
+     контроллер клавиатуры.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">BIOS
+     сканирует адреса памяти видеоадаптера, начиная с С0000h и заканчивая
+     C7800h. Если BIOS видеоадаптера найден, то проверяется контрольная сумма
+     (CRC) его кода. Если CRC совпадают, то управление передается Video BIOS,
+     который инициализирует видеоадаптер и выводит на экран информацию о версии
+     Video BIOS. Если контрольная сумма не совпадает, то выводится сообщение
+     «C000 ROM Error». Если Video BIOS не найден, то используется драйвер,
+     записанный в BIOS ROM, который инициализирует видеокарту.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">ROM
+     BIOS сканирует пространство памяти начиная с C8000h в поисках BIOS других
+     устройств, таких как сетевые карты и SCSI-адаптеры, и проверяется их
+     контрольная сумма.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">BIOS
+     проверяет значение слова по адресу 0472h, чтобы определить, какая загрузка
+     должна быть выполнена – «горячая» или «холодная». Если по этому адресу
+     записано слово 1234h, то процедура POST не выполняется, происходит
+     «горячая» загрузка.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В
+     случае холодной загрузки выполняется POST. Инициализируется процессор,
+     выводится информация о его марке, модели и т.д. Выдается один короткий
+     сигнал.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Тестируется</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"> RTC (Real Time Clock).<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Определение
+     частоты CPU, проверка типа видеоадаптера (в том числе встроенного).<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Тестирование
+     стандартной и расширенной памяти.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Присвоение
+     ресурсов всем ISA-устройствам.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Инициализация
+     IDE-контроллера. Если используется 40-контактный шлейф для подключения ATA/100
+     HDD, то появится соответствующее сообщение.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Инициализация
+     FDC-контроллера.<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">ROM
+     BIOS ищет системную дискету или MBR жесткого диска и читает сектор 1 на
+     дорожке 0 стороны 0, копирует этот сектор по адресу 7С00h. Далее
+     происходит проверка этого сектора: если он оканчивается сигнатурой 55AAh,
+     то MBR просматривает таблицу разделов (Partition Table) и ищет активный
+     раздел, а затем пытается загрузиться с него. Если первый сектор
+     оканчивается любой другой сигнатурой, то вызывается прерывание Int 18h и
+     на экран выводится сообщение «DISK BOOT FAILURE, INSERT SYSTEM DISK AND
+     PRESS ENTER» или «Non-system disk or disk error».<o:p></o:p></span></li>
+</ol>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В общем-то все. Что касается последнего пункта, то
+ошибки указанные в нем говорят о неисправности винчестера (программной или
+аппаратной). Теперь вам остается только выявить, в какой именно момент
+перестает работать ваш компьютер. Если это происходит до появления сообщений на
+мониторе, то неисправность можно определить по звуковым сигналам. Наиболее
+часто встречающиеся звуковые сигналы приведены в таблице.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal"><b style=""><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><img style="width: 738px; height: 798px;" alt="" src="41_01.JPG"><br>
+</span></b><b style=""><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"><o:p></o:p></span></b></p>
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Стоит заметить, что звуковые сигналы могут отличаться
+от приведенных выше из-за различия версий BIOS. Если же и звуковые сигналы не
+помогли определить неисправность, то остается лишь уповать на аппаратную
+диагностику. Она производится несколькими средствами.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 13.5pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Аппаратная диагностика<o:p></o:p></span></b></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Первое средство весьма банально, но вполне действенно.
+Работу отдельных блоков можно проверить, дотронувшись до них рукой, чтобы
+проверить их нагрев. После минутного включения должны греться чипсет,
+процессор, чипы памяти и блоки видеокарты. Если они кажутся теплыми, то этого
+достаточно, чтобы сделать вывод хотя бы о том, что на эти элементы подается
+питание. С большой долей вероятности они должны оказаться рабочими.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Второе средство более научно и требует некоторой
+инженерной подготовки. Заключается оно в измерении потенциалов на различных
+элементах. Для этого нужен тестер и осциллограф. Желательно иметь карту
+разводки материнской платы, поскольку она многослойная, и прохождение сигналов
+не так очевидно. Начать измерения стоит с силовых элементов входных цепей и
+стабилизирующих и шунтирующих конденсаторов, проверить наличие +3,3 и +5 В в
+соответствующих местах материнской платы, работу тактовых генераторов. После
+этого стоит проверить наличие штатных сигналов на выводах сокета процессора.
+Далее проверить наличие сигналов в слотах и портах. В последнюю очередь стоит
+заняться логическими элементами (хотя ремонт их часто оказывается делом
+неразумным). Для этого вам потребуется знание разводки портов и слотов. Эта информация
+приведена в таблицах.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal"><b style=""><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><img style="width: 610px; height: 799px;" alt="" src="41_02.JPG"><br>
+</span></b><b style=""><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US"><o:p></o:p></span></b></p>
+
+
+
+
+
+<p style="text-align: justify;">Третье и последнее средство диагностики –
+профессиональные аппаратные средства диагностики. К ним относится использование
+диагностических карт типа ДП-1 и комплекса PC-3000, созданных компанией «РОСК».
+Диагностическая плата устанавливается в свободный слот материнской платы, и
+после включения ПК на ее индикаторе отображается код ошибки в шестнадцатеричном
+виде. Применение такой платы существенно повышает вероятность локализации
+неисправности. Использование ДП-1 рассчитано на корректную работу процессора, а
+CPU выходит из строя крайне редко.</p>
+
+
+<p style="text-align: justify;">На данный момент в России диагностические карты,
+тестовые ROM BIOS и другие средства диагностики производятся компанией ACE
+Laboratory.</p>
+
+
+<p style="text-align: justify;">При аппаратной диагностике следует иметь ввиду,
+что в большинстве случаев выходит из строя только одно устройство, и проще
+всего его выявить, заменив на аналогичное, гарантированно работающее.</p>
+
+
+<p style="text-align: justify;">Что касается блоков питания и периферийных
+устройств, то диагностика неисправностей в них – тема отдельного разговора, но
+по поводу мониторов можно дать ряд советов. Достаточно часто из строя выходит
+промежуточный строчный трансформатор, включаемый между предоконечным и выходным
+транзистором строчной развертки. Основной его неисправностью, как правило,
+бывает короткое замыкание витков. Этот трансформатор – часть высоковольтного
+блока строчной развертки. Это высокое напряжение подается на ЭЛТ. Поэтому часто
+отсутствие свечения на экране и отсутствие растра указывают на отсутствие
+высокого напряжения. Как правило, вертикальная полоса на экране также указывает
+на отказ блока строчной развертки. Проверить наличие высокого напряжение на ЭЛТ
+можно проведя рукой по поверхности экрана. Если высокое напряжение подается, то
+вы должны почувствовать некоторую вибрацию или потрескивания статического
+электричества.</p>
+
+
+<h3 style="text-align: justify;">Программная диагностика</h3>
+
+
+<p style="text-align: justify;">Если же ваш компьютер все же включается, но
+работает нестабильно, зависает при загрузке, «выпадает» в синий экран, то это
+чаще всего является следствием переразгона, локального перегрева или «глючностью»
+памяти, а также ошибками работы HDD (к ним относится и «падение» Windows). </p>
+
+
+<p style="text-align: justify;">Стабильность их работы можно проверить под DOS,
+загрузившись c системной дискеты или диска. Для<span style=""> </span>этого<span style=""> </span>следует<span style=""> </span>использовать<span style=""> </span>утилиты<span style="" lang="EN-US">
+CheckIT, PC Doctor, Memtest 86, Stress Linux, Norton Diagnostics, The
+Troubleshooter. </span>Для профессионального тестирования и восстановления HDD
+следует использовать HDDUtility и MHDD, но они корректно работают только под
+MS-DOS 6.22. Первое, что требуется сделать с помощью них – проверить
+SMART-атрибуты состояния HDD. Также для диагностики, проверки и пометки
+bad-секторов можно использовать Norton Disk Doctor.</p>
+
+
+<p style="text-align: justify;">Следует помнить, что полноценную проверку железа
+можно произвести только под Windows, тестируя стабильность работы в burn-in тестах
+в течение не менее чем 24 часов. Среди<span style=""> </span>таких<span style=""> </span>тестов<span style=""> </span>можно<span style=""> </span>привести<span style="" lang="EN-US"> CPU Hi-t Professional Edition, CPU
+Stability Test, Bionic CPU Keeper, CPU Burn, Hot CPU Tester Pro, HD_Speed,
+DiskSpeed 32, MemTest. <o:p></o:p></span></p>
+
+
+<p style="text-align: justify;">А вообще, как известно, гораздо легче
+предупредить событие, чем исправить его последствия, поэтому гораздо легче
+регулярного (хотя бы раз в несколько недель) следить за параметрами выдаваемых
+блоком питания напряжений, смотреть SMART-параметры HDD (программы Active
+SMART, SMARTVision, SMART Disk Monitor), изучать температуру процессора,
+проверять наличие хорошего охлаждения и отсутствие посторонних звуков. Нелишним
+было бы и смазывание вентиляторов машинным маслом, как минимум раз в полгода.</p>
+
+
+
+  
+
+</body></html>

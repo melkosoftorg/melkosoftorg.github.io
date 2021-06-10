@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+<meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>Термины и определения</title></head><body>
+<p align="center">[ <a href="../../ktp.html">Тематический
+план </a>]
+[<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><a href="z12v00.html"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Тестирование
+программного обеспечения в процессе внедрения и эксплуатации</span></a><span style="font-size: 12pt; line-height: 150%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span>] [ 1
+] [ <a href="z12v02.html">2
+</a>] [ <a href="z12v03.html">3</a>
+] [ <a href="z12v04.html">4</a>
+] [ <a href="z12v05.html">5</a>
+]</p>
+
+
+
+
+
+<hr><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br>
+
+
+
+
+
+<span class="keyword"></span><br>
+
+
+<span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span>
+<div style="text-align: center;"><big><span style="font-weight: bold;"></span></big>
+
+<p class="MsoNormal"><span style="font-size: 12pt; line-height: 150%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;; font-weight: bold;">Термины и определения</span><br>
+
+
+
+</p>
+</div>
+
+
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;">
+
+</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Выполнение программы с целью обнаружения ошибок<span style="">&nbsp; </span>называется тестированием. Виды ошибок и
+способы их<span style="">&nbsp; </span>обнаружения приведены в табл. 1</span><br>
+</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: center; line-height: normal;"><img style="width: 538px; height: 292px;" alt="" src="image12_1.jpg"></p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;">
+
+</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Эффективность контроля 1-го вида зависит и от языка, и
+от компилятора. Контроль 2-го вида осуществляется с помощью исключений —
+Exceptions и весьма полезен для проверки правдоподобности промежуточных
+результатов. Тест — это набор контрольных входных данных совместно с
+ожидаемыми<span style="">&nbsp; </span>результатами. В число входных
+данных времязависимых программ <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">входят события и временные параметры. Ключевой вопрос
+— полнота тестирования: какое количество каких тестов<span style="">&nbsp; </span>гарантирует, возможно, более полную проверку
+программы?<span style="">&nbsp; </span><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Исчерпывающая проверка на всем множестве входных
+данных<span style="">&nbsp; </span>недостижима. Пример: программа,
+вычисляющая функцию двух<span style="">&nbsp; </span>переменных:
+Y=f(X, Z). Если X, Y, Z — real, то полное число тестов <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">(2<sup>32</sup>) <sup>2</sup>= 2<sup>64=</sup> 10<sup>31</sup>
+Если на каждый тест тратить 1 мс, то 2<sup>64</sup> мс = = 800 млн лет.
+Следовательно: <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">• в любой нетривиальной программе на любой стадии
+ее<span style="">&nbsp; </span>готовности содержатся необнаруженные
+ошибки; <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">• тестирование — технико-экономическая проблема,<span style="">&nbsp; </span>основанная на компромиссе время — полнота.
+Поэтому нужно стремиться к возможно меньшему количеству хороших<span style="">&nbsp; </span>тестов с желательными свойствами. <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><b style=""><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp;&nbsp;&nbsp; </span>Детективность:</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> тест должен с большой
+вероятностью<span style="">&nbsp; </span>обнаруживать возможные
+ошибки <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><b style=""><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp;&nbsp;&nbsp; </span>Покрывающая способность:</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> один тест должен выявлять как можно
+больше ошибок. <o:p></o:p></span></p>
+
+
+
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><b style=""><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp;&nbsp;&nbsp; </span>Воспроизводимость:</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> ошибка должна выявляться независимо
+от изменяющихся условий (например, от временных<span style="">&nbsp;
+</span>соотношений) — это труднодостижимо для времязависимых программ, результаты которых часто невоспроизводимы. <o:p></o:p></span></p>
+
+
+
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>Только на
+основании выбранного критерия можно<span style="">&nbsp;
+</span>определить тот момент времени, когда конечное множество тестов<span style="">&nbsp; </span>окажется достаточным для проверки программы с
+некоторой<span style=""> </span>полнотой (степень полноты, впрочем, определяется<span style="">&nbsp; </span>экспериментально). Используется два вида
+критериев (табл. 2): <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><b style=""><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">•
+функциональные тесты</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">
+составляются исходя из<span style="">&nbsp; </span>спецификации
+программы; <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><b style=""><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">•
+структурные тесты </span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">составляются
+исходя из текста<span style="">&nbsp; </span>программы.</span></p>
+
+
+<br>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><img style="width: 542px; height: 362px;" alt="" src="image12_2.jpg"></p>
+<br>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><img style="width: 462px; height: 290px;" alt="" src="image12_3.jpg"></p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;">
+
+</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">На рис. 1, а видно отличие тестирования команд<span style="">&nbsp; </span>(достаточен один тест) от С1 (необходимы два
+теста как минимум).<span style="">&nbsp; </span><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рисунок 1, б иллюстрирует различие С1 (достаточно
+двух тестов, покрывающих пути 1, 4 или 2, 3) от С2 (необходимо четыре<span style="">&nbsp; </span>теста для всех четырех путей). С2 недостижим
+в реальных программах из-за их цикличности, поэтому ограничиваются тремя<span style="">&nbsp; </span>путями для каждого цикла: 0, 1 и N повторений
+цикла. <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Остаются
+проблемы назначения классов входных/выходных данных для функционального
+тестирования и проектирования тестов для структурного тестирования. Классы, как
+правило,<span style="">&nbsp; </span>назначаются исходя из семантики
+решаемой задачи [6].<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Рассмотрим пример. Найти минимальный набор тестов для программы
+нахождения вещественных корней квадратного<span style="">&nbsp;
+</span>уравнения ах<sup>2</sup> + </span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;" lang="EN-US">b</span><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">х + с - 0. <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Решение представлено в табл. 3.</span></p>
+<img style="width: 536px; height: 274px;" alt="" src="image12_4.jpg">
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;">
+
+</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Таким образом, для этой программы предлагается<span style="">&nbsp; </span>минимальный набор функциональных тестов,
+исходя из 7 классов<span style="">&nbsp; </span>выходных данных. <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><b style=""><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Тестирование
+«белого ящика» и «черного ящика» </span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>В
+терминологии профессионалов тестирования<span style="">&nbsp;
+</span>(программного и некоторого аппаратного обеспечения) фразы<span style="">&nbsp; </span>тестирование «белого ящика» и тестирование
+«черного ящика» относятся к тому, имеет ли разработчик тестов доступ к
+исходному коду тестируемого ПО, или же тестирование выполняется через<span style="">&nbsp; </span>пользовательский интерфейс либо прикладной
+программный<span style="">&nbsp; </span>интерфейс, предоставленный
+тестируемым модулем. <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>При
+тестировании «белого ящика» (англ. white-box testing,<span style="">&nbsp; </span>также говорят — прозрачного ящика)
+разработчик теста имеет доступ к исходному коду и может писать код, который
+связан с<span style="">&nbsp; </span>библиотеками тестируемого ПО.
+Это типично для юнит-тестирования (англ. unit testing), при котором тестируются
+только отдельные части системы. Оно обеспечивает то, что компоненты<span style="">&nbsp; </span>конструкции работоспособны и устойчивы до
+определенной степени.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>При
+тестировании «черного ящика» (англ. black-box testing) тестировщик имеет доступ
+к ПО только через те же интерфейсы, что и заказчик или пользователь, либо через
+внешние<span style="">&nbsp; </span><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">интерфейсы, позволяющие другому компьютеру либо
+другому процессу подключиться к системе для тестирования. Например,<span style="">&nbsp; </span>тестирующий модуль может виртуально нажимать
+клавиши или кнопки мыши в тестируемой программе с помощью механизма<span style="">&nbsp; </span>взаимодействия процессов с уверенностью в
+том, что эти события<span style="">&nbsp; </span>вызывают тот же
+отклик, что и реальные нажатия клавиш и кнопок мыши. <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Если
+альфа- и бета-тестирование относятся к стадиям до<span style="">&nbsp; </span>выпуска продукта (а также, неявно, к объему
+тестирующего<span style="">&nbsp; </span>сообщества и ограничениям
+на методы тестирования), тестирование «белого ящика» и «черного ящика» имеет
+отношение к<span style="">&nbsp; </span>способам, которыми
+тестировщик достигает цели. <o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Бета-тестирование в целом ограничено техникой «черного ящика» (хотя
+постоянная часть тестировщиков обычно<span style="">&nbsp;
+</span>продолжает тестирование «белого ящика» параллельно<span style="">&nbsp; </span>бета-тестированию). Таким образом, термин
+бета-тестирование может<span style="">&nbsp; </span>указывать на
+состояние программы (ближе к выпуску, чем альфа) или может указывать на
+некоторую группу тестировщиков и процесс, выполняемый этой группой. Итак,
+тестировщик может<span style="">&nbsp; </span>продолжать работу по
+тестированию «белого ящика», хотя ПО уже «в бете» (стадия), но в этом случае он
+не является частью<span style="">&nbsp; </span>бета-тестирования
+(группы/процесса). &nbsp;<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><br>
+<span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; line-height: normal;"><br>
+<span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><o:p></o:p></span></p>
+
+
+
+  
+
+</body></html>

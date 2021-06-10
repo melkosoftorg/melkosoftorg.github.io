@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>Введение</title></head><body><div style="text-align: center;"><a href="../../ktp.html">Тематический
+план </a>]
+[&nbsp;<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">
+Анализ приложений с
+проблемами совместимости. Использование динамически загружаемых библиотек.
+Механизм решения проблем совместимости на основе «системных заплаток».
+Разработка модулей обеспечения совместимости.</span>]<br>
+</div>
+<div style="text-align: center;">
+
+&nbsp;[ <a href="z33v01.html">1
+</a>] [ <a href="file:///D:/public_html/uch/mdk0301/zan/z30/z30v02.html">2
+</a>] [ <a href="file:///D:/public_html/uch/mdk0301/zan/z30/z30v03.html">3</a>
+]&nbsp;
+
+
+
+
+
+
+
+
+
+</div>
+<hr>
+<div style="text-align: right;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br>
+<a href="vopr.html">Вопросы</a></div>
+
+
+
+
+
+
+
+
+
+
+
+<span class="keyword"></span><br>
+
+
+
+
+
+
+
+<span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span>
+<div style="text-align: center;"><big><span style="font-weight: bold;">Введение</span></big><br>
+
+
+</div>
+
+&nbsp;
+<br>
+
+
+
+<p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Режим совместимости
+Windows позволяет запускать программы на компьютере, работавшие в предыдущих
+версиях операционной системы. С выходом новой операционной системы, в работе
+некоторых программ неполадки: запуск программы с ошибкой, невозможность работы
+приложения и т. п.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Изменения, вносимые в новые версии Windows, приводят к
+невозможности использования некоторых программ в данной версии операционной
+системы. Не все программы долгое время поддерживаются разработчиками.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Многие программы прекрасно работают на компьютере
+много лет, даже после прекращения поддержки. Из-за изменений в коде Windows,
+приложение теряет работоспособность в новой версии ОС. Переписать код программы
+согласно требованиям новой версии Windows некому, потому что разработчик
+прекратил поддержку программного обеспечения. Поэтому необходим выход из
+подобной ситуации.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">На помощь придет режим совместимости в Windows. Запуск
+в режиме совместимости позволит запустить на ПК многие старые программы,
+прекрасно работающие на прежних версиях Windows.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Режим совместимости программ Windows запускается двумя
+способами:<o:p></o:p></span></p>
+
+<ul type="disc"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">из
+     свойства или ярлыка программы для всех версий Windows<o:p></o:p></span></li><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">с
+     помощью средства устранения неполадок Windows<o:p></o:p></span></li></ul>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В первом случае, пользователь кликает правой кнопкой
+мыши по ярлыку проблемной программы, или по исполнительному файлу (.exe)
+приложения. Второй способ подразумевает использование средства системы по
+устранению неполадок.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Имейте в виду, что часть программ все равно не будет
+нормально работать, после включения в режиме совместимости по разным причинам.
+В большинстве случаев, старые приложения все же удастся запустить на
+компьютере.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В инструкции на этой странице покажем режим
+совместимости в Windows 10. В других версиях Windows (Windows 7, Windows 8,
+Windows 8.1), настройка режима совместимости старых программ с установленной на
+компьютере версией системы, работает аналогичным образом.<o:p></o:p></span></p>
+</body></html>

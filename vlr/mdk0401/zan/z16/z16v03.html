@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>UML. Виды диаграмм UML</title></head><body>
+<div style="text-align: center;">[ <a href="../../ktp.html">Тематический
+план </a>]
+[<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span><a href="z16v00.html">Архитектура программного обеспечения<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span></a><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> </span>] [ <a href="z16v01.html">1
+</a>] [<a href="z16v02.html"> 2</a>
+] [ 3
+] [<a href="z16v04.html"> 4</a>
+]
+
+
+
+
+</div>
+
+
+
+
+
+
+<hr>
+<div style="text-align: center;">
+<div style="text-align: center;">
+
+</div>
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><b><span style="font-size: 13.5pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">UML. Виды
+диаграмм UML<o:p></o:p></span></b></p>
+
+
+</div>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Для представления архитектуры,
+а, точнее, различных входящих в нее структур, удобно использовать графические
+языки. На настоящий момент наиболее проработанным и наиболее широко
+используемым из них является <b>унифицированный язык моделирования (Unified
+Modeling Language, UML)</b>, хотя достаточно часто архитектуру системы
+описывают просто набором именованных прямоугольников, соединенных линиями и
+стрелками, которые представляют возможные связи.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">UML предлагает использовать для
+описания архитектуры 8 видов диаграмм. 9-й вид UML
+диаграмм, диаграммы вариантов использования (см. лекцию
+4), не относится к архитектурным представлениям. Кроме
+того, и другие виды диаграмм можно использовать для описания внутренней
+структуры компонентов или сценариев действий пользователей и прочих элементов,
+к архитектуре часто не относящихся. В этом курсе мы не будем разбирать
+диаграммы UML в деталях, а ограничимся обзором их
+основных элементов, необходимым для общего понимания смысла того, что
+изображено на таких диаграммах.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Диаграммы UML делятся на две
+группы — <b>статические</b> и <b>динамические диаграммы</b>.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Статические
+диаграммы<o:p></o:p></span></b></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Статические диаграммы представляют либо постоянно
+присутствующие в системе сущности и связи между ними, либо суммарную информацию
+о сущностях и связях, либо сущности и связи, существующие в какой-то
+определенный момент времени. Они не показывают способов поведения этих
+сущностей. К этому типу относятся диаграммы классов, <b>объектов,
+компонентов</b> и диаграммы развертывания.<o:p></o:p></span></p>
+
+
+<ul type="disc">
+<li class="MsoNormal" style="margin-left: 36pt; text-indent: -18pt; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Диаграммы классов (class diagrams) показывают <b>классы</b>
+     или <b>типы</b> сущностей системы, характеристики классов ( <b>поля</b> и <b>операции</b>
+     ) и возможные связи между ними. Пример диаграммы
+     классов изображен на рис. 16.5.<o:p></o:p></span></li>
+</ul>
+
+
+<p class="MsoNormal" style="margin-left: 36pt; text-indent: 0cm; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Классы представляются прямоугольниками, поделенными на
+три части. В верхней части показывают имя класса, в средней — набор его полей,
+с именами, типами, модификаторами доступа ( public ‘+’, protected ‘#’, private
+‘-’ ) и начальными значениями, в нижней — набор операций класса. Для каждой
+операции показывается ее модификатор доступа и сигнатура.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 36pt; text-indent: 0cm; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">На рис. 31 изображены классы Account, Person, Organization,
+Address, CreditAccount и абстрактный класс Client.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 36pt; text-indent: 0cm; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Класс CreditAccount имеет private поле maximumCredit
+типа double, а также public метод getCredit() и protected метод setCredit().<o:p></o:p></span></p>
+
+
+<b><span style="font-size: 12pt; line-height: 150%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Интерфейсы</span></b><span style="font-size: 12pt; line-height: 150%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">, т.е. типы, имеющие только набор операций и не определяющие способов их
+реализации, часто показываются в виде небольших кружков, хотя могут
+изображаться и как обычные классы. На рис. 16.5 представлен интерфейс AccountInterface.<br>
+</span>
+<div style="text-align: center;"><span style="font-size: 12pt; line-height: 150%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><img style="width: 620px; height: 572px;" alt="" src="16_5.gif"></span><br>
+<span style="font-size: 12pt; line-height: 150%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span></div>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal; text-align: center;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рис. 16.5. </span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Диаграмма классов<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Наиболее часто используется три вида связей между
+классами — связи по композиции, ссылки, связи по наследованию и реализации.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Композиция</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> описывает ситуацию, в которой объекты класса A
+включают в себя объекты класса B, причем последние не могут разделяться (объект
+класса B, являющийся частью объекта класса A, не может являться частью другого
+объекта класса A ) и существуют только в рамках объемлющих объектов
+(уничтожаются при уничтожении объемлющего объекта).<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Композицией на рис. 16.5 является связь между
+классами Organization и Address.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Ссылочная связь</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> (или <b>слабая агрегация</b> ) обозначает, что объект
+некоторого класса A имеет в качестве поля ссылку на объект другого (или того же
+самого) класса B, причем ссылки на один и тот же объект класса B могут иметься
+в нескольких объектах класса A.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">И композиция, и ссылочная связь изображаются
+стрелками, ведущими от класса A к классу B. Композиция дополнительно имеет
+закрашенный ромбик у начала этой стрелки. Двусторонние ссылочные связи,
+обозначающие, что объекты могут иметь ссылки друг на друга, показываются
+линиями без стрелок. Такая связь показана на рис. 16.5 между классами Account
+и Client.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Эти связи могут иметь описание <b>множественности</b>,
+показывающее, сколько объектов класса B может быть связано с одним объектом
+класса A. Оно изображается в виде текстовой метки около конца стрелки,
+содержащей точное число или нижние и верхние границы, причем бесконечность
+изображается звездочкой или буквой n. Для двусторонних связей множественности
+могут показываться с обеих сторон. На рис. 16.5 множественности, изображенные
+для связи между классами Account и Client, обозначают, что один клиент может
+иметь много счетов, а может и не иметь ни одного, и счет всегда привязан ровно
+к одному клиенту.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Наследование классов</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> изображается стрелкой с пустым наконечником, ведущей
+от наследника к предку. На рис. 16.5 класс CreditAccount наследует классу Account,
+а классы Person и Organization — классу Client.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Реализация интерфейсов</span></b><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"> показывается в виде пунктирной
+стрелки с пустым наконечником, ведущей от класса к реализуемому им интерфейсу,
+если тот показан в виде прямоугольника. Если же интерфейс изображен в виде
+кружка, то связь по реализации показывается обычной сплошной линией (в этом
+случае неоднозначности в ее толковании не возникает). Такая связь изображена на
+рис. 16.5 между классом Account и интерфейсом AccountInterface.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Один класс <b>использует</b> другой, если этот другой
+класс является типом параметра или результата операции первого класса. Иногда
+связи по использованию показываются в виде пунктирных стрелок. Пример такой
+связи между классом Person и перечислимым типом AddressKind можно видеть на рис.
+16.5.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Ссылочные связи, реализованные в виде ассоциативных
+массивов или отображений (map) — такая связь в зависимости от некоторого набора
+ключей определяет набор ссылок-значений — показываются при помощи стрелок,
+имеющих прямоугольник с перечислением типов и имен ключей, примыкающий к
+изображению класса, от которого идет стрелка. Множественность на конце стрелки
+при этом обозначает количество ссылок, соответствующее одному набору значений
+ключей.<o:p></o:p></span></p>
+
+
+<p class="MsoNormal" style="margin-left: 0cm; text-indent: 0cm; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">На рис. 16.5 такая связь ведет от класса Person к
+классу Address, показывая, что объект класса Person может иметь один адрес для
+каждого значения ключа kind, т.е. один домашний и один рабочий адреса.<o:p></o:p></span></p>
+
+
+<span style="font-size: 12pt; line-height: 150%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Диаграммы
+классов используются чаще других видов диаграмм.</span><br>
+<b>Диаграммы объектов (object diagrams)</b>  показывают часть объектов 
+системы и связи между ними в некотором конкретном состоянии или 
+суммарно, за некоторый интервал времени.
+<p id="id_211">Объекты 
+изображаются прямоугольниками с идентификаторами ролей объектов (в 
+контексте тех состояний, которые изображены на диаграмме) и типами. 
+Однородные коллекции объектов могут изображаться накладывающимися друг 
+на друга прямоугольниками.</p>
+
+
+<p id="id_212">Такие диаграммы используются довольно редко.<br>
+</p>
+<p style="text-align: center;" id="id_212"><img style="width: 620px; height: 240px;" alt="" src="16_6.gif"></p>
+<p style="text-align: center;" id="id_212"><b>Рис.
+                            16.6.
+                        </b>Диаграмма объектов
+</p>
+
+
+<span class="keyword_def"><span class="keyword">Диаграммы компонентов (component diagrams)</span></span>  представляют компоненты в нескольких смыслах — атомарные составляющие системы с точки зрения ее сборки, <span class="keyword">конфигурационного управления</span> и развертывания. Компоненты сборки и <span class="keyword">конфигурационного управления</span>
+ обычно представляют собой файлы с исходным кодом, динамически 
+подгружаемые библиотеки, HTML-странички и пр., компоненты развертывания —
+ это компоненты <span class="keyword">JavaBeans</span>, CORBA, COM и т.д. .
+<p id="id_215">Компонент изображается в виде прямоугольника с несколькими прямоугольными или другой формы "зубами" на левой стороне.</p>
+
+
+<p id="id_216">Связи, показывающие зависимости между компонентами, 
+изображаются пунктирными стрелками. Один компонент зависит от другого, 
+если он не может быть использован в отсутствии этого другого компонента в
+ конфигурации системы. Компоненты могут также реализовывать интерфейсы.</p>
+
+
+<p id="id_217">Диаграммы этого вида используются редко.<br>
+</p>
+<p style="text-align: center;" id="id_217"><img style="width: 458px; height: 371px;" alt="" src="16_7.gif"></p>
+<p style="text-align: center;" id="id_217"><b>Рис.
+                            16.7.
+                        </b>Диаграмма компонентов
+</p>
+
+<p id="id_219">На <span class="keyword">диаграмме компонентов</span>, изображенной на рис. 16.7, можно также увидеть <b>пакеты</b>,
+ изображаемые в виде "папок", точнее — прямоугольников с прямоугольными 
+"наростами" над левым верхним углом. Пакеты являются пространствами имен
+ и средством группировки диаграмм и других модельных элементов UML — 
+классов, компонентов и пр. Они могут появляться на <span class="keyword">диаграммах классов</span>
+  и компонентов для указания зависимостей между ними и отдельными 
+классами и компонентами. Иногда на такой диаграмме могут присутствовать 
+только пакеты с зависимостями между ними.</p>
+
+
+
+<span class="keyword_def"><span class="keyword">Диаграммы развертывания (deployment diagrams)</span></span>
+  показывают декомпозицию системы на физические устройства различных 
+видов — серверы, рабочие станции, терминалы, принтеры, маршрутизаторы и 
+пр. — и связи между ними, представленные различного рода сетевыми и 
+индивидуальными соединениями.
+<p id="id_221">Физические устройства, называемые <b>узлами</b>  системы ( <b>nodes</b> ), изображаются в виде кубов или параллелепипедов, а физические соединения между ними — в виде линий.</p>
+
+
+<p id="id_222">На <span class="keyword">диаграммах развертывания</span>
+  может быть показана привязка (в некоторый момент времени или 
+постоянная) компонентов развертывания системы к физическим устройствам —
+ например, для указания того, что компонент <span class="keyword">EJB</span> AccountEJB исполняется на сервере приложений, а аплет AccountInfoEditor — на рабочей станции оператора банка.<br>
+</p>
+<p style="text-align: center;" id="id_222"><img style="width: 620px; height: 369px;" alt="" src="16_8.gif"></p>
+<p style="text-align: center;" id="id_222"><b>Рис. 16.8.
+                        </b>Диаграмма развертывания
+</p>
+
+<p id="id_224">Эти диаграммы используются достаточно редко. Пример <span class="keyword">диаграммы развертывания</span>  изображен на рис. 16.8.</p>
+<br>
+
+  
+
+</body></html>

@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=Windows-1251" http-equiv="content-type"><title>Редактор групповой политики</title></head><body><div style="text-align: center;">
+<a href="../../ktp.html">Тематический
+план </a>]
+[&nbsp;<span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><a href="z36v00.html">Решение проблем конфигурации с помощью групповых
+политик </a>&nbsp;</span>]<br>
+</div>
+
+
+<div style="text-align: center;">
+
+&nbsp;[ 1
+] [ <a href="z36v02.html">2
+</a>] [ <a href="z36v03.html">3</a>
+]&nbsp;
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+<span style="font-size: 14pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"></span>
+<div style="text-align: center;"><div style="text-align: center;">
+
+</div><p class="MsoNormal" style="line-height: normal; text-align: center;"><b><span style="font-size: 14pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Редактор групповой политики<o:p></o:p></span></b></p>
+
+
+
+</div>
+
+
+
+&nbsp;
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В Windows 7 Домашняя Базовая/Расширенная и Начальная
+редактор групповых политик просто отсутствует. Разработчики позволяют
+использовать его только в профессиональных версиях Виндовс, например, в Windows
+7 Максимальная. Если вы не обладаете этой версией, то те же действия вам
+придется выполнять через изменения параметров реестра. Давайте подробнее
+рассмотрим редактор.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 13.5pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Запуск редактора групповой политики<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Переход к среде работы с параметрами и настройками
+осуществляется за несколько простых действий. Вам только необходимо:<o:p></o:p></span></p>
+
+<ol start="1" type="1"><ol start="1" type="1"><li class="MsoNormal" style="line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Зажать клавиши&nbsp;<i>Win + R</i>,
+      чтобы открыть&nbsp;<i>«Выполнить»</i>.<o:p></o:p></span></li></ol></ol>
+<div style="text-align: center;"><img style="width: 509px; height: 278px;" alt="" src="36_1.png"><br>
+
+</div><p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">1. Напечатать в строке&nbsp;<em>gpedit.msc</em>&nbsp;и
+подтвердить действие, нажав&nbsp;<em>«ОК»</em>. Далее запустится новое окно.</span><b style=""><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;"><o:p></o:p></span></b></p>
+<div style="text-align: center;"><img style="width: 832px; height: 601px;" alt="" src="36_2.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Теперь можно приступать к работе в редакторе.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 13.5pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Работа в редакторе<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Разделяется главное окно управления на две части.
+Слева располагается структурированные категории политик. Они в свою очередь
+делятся еще на две различные группы – настройка компьютера и настройка
+пользователя.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 832px; height: 601px;" alt="" src="36_3.png"><br>
+
+</div><p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В правой части отображается информация о выбранной
+политике из меню слева.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 832px; height: 601px;" alt="" src="36_4.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Из этого можно сделать
+вывод, что работа в редакторе осуществляется путем перемещения по категориям
+для поиска необходимой настройки. Выберите, например,&nbsp;<em>«Административные
+шаблоны»</em>&nbsp;в&nbsp;<em>«Конфигурации пользователя»</em>&nbsp;и перейдите
+в папку&nbsp;<em>«Меню «Пуск» и диспетчер задач»</em>. Теперь справа
+отобразятся параметры и их состояния. Нажмите на любую строку, чтобы открыть ее
+описание.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 831px; height: 601px;" alt="" src="36_5.png"><br>
+
+</div><p class="MsoNormal" style="line-height: normal;"><b><span style="font-size: 14pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Настройки политики<o:p></o:p></span></b></p>
+
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Каждая политика доступна для настройки. Открывается
+окно редактирования параметров по двойному щелчку на определенную строку. Вид
+окон может отличаться, все зависит от выбранной политики.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 764px; height: 706px;" alt="" src="36_6.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Стандартное простое
+окно имеет три различных состояния, которые настраиваются пользователем. Если
+точка стоит напротив&nbsp;<em>«Не задано»</em>, то политика не действует.&nbsp;<em>«Включить»</em>&nbsp;–
+она будет работать и активируются настройки.&nbsp;<em>«Отключить»</em>&nbsp;–
+находится в рабочем состоянии, однако параметры не применяются.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 764px; height: 706px;" alt="" src="36_7.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Рекомендуем обратить внимание на строку&nbsp;<i>«Поддерживается»</i>&nbsp;в
+окне, она показывает, на какие версии Windows распространяется политика.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><b><span style="font-size: 14pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Фильтры политик<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Минусом редактора является отсутствие функции поиска.
+Существует множество различных настроек и параметров, их больше трех тысяч, все
+они разбросаны по отдельным папкам, а поиск приходится осуществлять вручную.
+Однако данный процесс упрощается благодаря структурированной группе из двух
+ветвей, в которых расположились тематические папки.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 832px; height: 601px;" alt="" src="36_8.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify;"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Например, в
+разделе&nbsp;<em>«Административные шаблоны»</em>, в любой конфигурации,
+находятся политики, которые никак не связаны с безопасностью. В этой папке
+находится еще несколько папок с определенными настройками, однако можно
+включить полное отображение всех параметров, для этого нужно нажать на ветвь и
+выбрать пункт в правой части редактора&nbsp;<em>«Все параметры»</em>, что
+приведет к открытию всех политик данной ветви.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 832px; height: 601px;" alt="" src="36_9.png"><br>
+
+</div><p class="MsoNormal" style="line-height: normal;"><b><span style="font-size: 13.5pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Экспорт списка политик<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Если все-таки появляется необходимость найти
+определенный параметр, то сделать это можно только путем экспорта списка в
+текстовый формат, а потом уже через, например&nbsp;Word, осуществлять поиск. В
+главном окне редактора есть специальная функция&nbsp;<i>«Экспорт списка»</i>,
+он переносит все политики в формат TXT и сохраняет в выбранном месте на
+компьютере.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 832px; height: 601px;" alt="" src="36_10.png"><br>
+
+</div><p class="MsoNormal" style="line-height: normal;"><b><span style="font-size: 13.5pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Применение фильтрации<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Благодаря появлению ветви<i>&nbsp;«Все параметры»</i>&nbsp;и
+улучшению функции фильтрации поиск практически не нужен, ведь лишнее
+откидывается путем применения фильтров, а отображаться будут только необходимые
+политики. Давайте подробнее рассмотрим процесс применения фильтрации:<o:p></o:p></span></p>
+
+<ol start="1" type="1"><ol start="1" type="1"><li class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Выберите,
+      например,&nbsp;<i>«Конфигурация компьютера»</i>, откройте раздел&nbsp;<i>«Административные
+      шаблоны»</i>&nbsp;и перейдите в&nbsp;<i>«Все параметры»</i>.<o:p></o:p></span></li></ol></ol>
+<div style="text-align: center;"><img style="width: 832px; height: 601px;" alt="" src="36_11.png"><br>
+
+</div><p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">1. Разверните всплывающее меню&nbsp;<em>«Действие»</em>&nbsp;и
+перейдите в&nbsp;<em>«Параметры фильтра»</em>.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 832px; height: 601px;" alt="" src="36_12.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify;"><span style="font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Поставьте
+галочку возле пункта&nbsp;<em>«Включить фильтры по ключевым словам»</em>. Здесь
+имеется несколько вариантов подбора соответствий. Откройте всплывающее меню
+напротив строки ввода текста и выберите&nbsp;<em>«Любой»</em>&nbsp;– если нужно
+отображать все политики, которые соответствуют хотя бы одному указанному
+слову,&nbsp;<em>«Все»</em>&nbsp;– отобразит политики, содержащие текст из строки
+в любом порядке,&nbsp;<em>«Точный»</em>&nbsp;– только параметры, точно
+соответствующие заданному фильтру по словам, в правильном порядке. Флажками
+снизу строки соответствий отмечаются места, где будет осуществляться выборка.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 575px; height: 672px;" alt="" src="36_13.png"><br>
+
+</div><p class="MsoNormal"><span style="font-size: 12pt; line-height: 115%; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">Нажмите&nbsp;<em>«ОК»</em>&nbsp;и после этого в
+строке&nbsp;<em>«Состояние»</em>&nbsp;отобразятся только подходящие параметры.<o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 832px; height: 601px;" alt="" src="36_14.png"><br>
+
+</div><p class="MsoNormal" style="text-align: justify; line-height: normal;"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;;">В том же всплывающем меню&nbsp;<i>«Действие»</i>&nbsp;ставится
+или убирается галочка напротив строки&nbsp;<i>«Фильтр»</i>, если нужно
+применить или отменить заранее заданные настройки подбора соответствий.<o:p></o:p></span></p>
+</body></html>
