@@ -1,0 +1,85 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p04.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | 3 | | <a href="p04.html">4</a> | <br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.3.3. Сложные логические элементы</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Помимо простейших логических элементов, рассмотренных на предыдущей лекции, в состав стандартных серий входит и несколько более сложных логических элементов. Они представляют собой несложную комбинацию из простейших логических элементов. От более сложных комбинационных микросхем, которым будет посвящена следующая лекция, эти элементы отличаются именно очевидной сводимостью к простейшим элементам. Поэтому в справочниках обычно даже не приводятся таблицы истинности этих элементов.</p>
+    <p>Типичный пример сложного логического элемента — <b>ЛР1</b>. В корпусе микросхемы содержится два элемента, каждый из которых представляет собой комбинацию из двух элементов <b>2И</b> и одного элемента <b>2ИЛИ-НЕ</b> (рис. 18.3).</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/18-03.gif" width="455" height="107"><br><br>
+      Рис. 18.3. Логический элемент ЛР1 и его эквивалентная схема.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>По такому же принципу строятся и другие микросхемы <b>ЛР</b>. Разница между ними только в количестве элементов <b>И</b> и в количестве входов этих элементов (рис. 18.4). Некоторые из микросхем ЛР (ЛР1, ЛР3) допускают подключение к специальным входам микросхем расширителей <b>ЛД</b>, хотя такое расширение применяется на практике довольно редко. Микросхема <b>ЛР10</b> отличается от <b>ЛР9</b> выходом <i><b>ОК</b></i>.</p>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="center" valign="top"><img src="img/18-04.gif" width="441" height="202"><br><br>Рис. 18.4. Примеры логических элементов ЛР.</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="left" valign="top"><p>К сложным логическим элементам, помимо <b>ЛР</b>, можно отнести также и элементы <b>И-НЕ</b> с выходом <b>3С</b> (например, ЛА17 — 4И-НЕ, ЛА19 — 12И-НЕ). Их можно рассматривать как комбинацию обычного элемента <b>И-НЕ</b> и выходного буфера с выходом <b>3С</b>. Наличие дополнительного управляющего входа <b>EZ</b> и выход <b>3С</b> создают принципиально новые возможности применения этих элементов. Например, их можно использовать для работы на мультиплексированную или двунаправленную линию, при этом они еще и выполняют функцию <b>И-НЕ</b> над входными сигналами. Но на практике значительно чаще элемент <b>ЛА19</b> используют как самый обычный элемент <b>12И-НЕ</b> с выходом <b>2С</b>, для чего на управляющий вход <b>EZ</b> постоянно подается сигнал логического нуля. </p>
+    <p>Среди элементов <b>И, ИЛИ, ИЛИ-НЕ</b> элементы с выходом <b>3С</b> отсутствуют.</p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p03.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p04.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">3</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

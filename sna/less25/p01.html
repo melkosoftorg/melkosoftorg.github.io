@@ -1,0 +1,90 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p02.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | 1 | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.10.1.  Общие характеристики электронной памяти</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p><b>Память</b>, как и следует из ее названия, предназначена для запоминания, хранения каких-то массивов информации, проще говоря, наборов, таблиц, групп цифровых кодов. Каждый код хранится в отдельном элементе памяти, называемом ячейкой памяти. Основная функция любой памяти как раз и состоит в выдаче этих кодов на выходы микросхемы по внешнему запросу. А основной параметр памяти &#8211; это ее объем, то есть количество кодов, которые могут в ней храниться, и разрядность этих кодов.</p>
+    <p><b><i>Микросхемы памяти</i></b> (или просто память, или запоминающие устройства &#8211; <b>ЗУ</b>, английское &quot;Memory&quot;) представляют собой следующий шаг на пути усложнения цифровых микросхем по сравнению с микросхемами, рассмотренными ранее. Память &#8211; это всегда очень сложная структура, включающая в себя множество элементов. Правда, внутренняя структура памяти &#8211; регулярная, большинство элементов одинаковые, связи между элементами сравнительно простые, поэтому функции, выполняемые микросхемами памяти, не слишком сложные.</p>
+    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Для обозначения количества ячеек памяти используются следующие специальные единицы измерения:</p>
+      <ul>
+        <li>1К — это 1024 или 2<sup>10</sup> (читается "кило-");</li>
+        <li>1М — это  1048576 или 2<sup>20</sup> (читается "мега-");</li>
+        <li>1Г — это 1073741824 или 2<sup>30</sup> (читается "гига-").</li>
+      </ul>
+    <p>Принцип организации памяти записывается следующим образом: сначала пишется количество ячеек, а затем через знак умножения (х) — разрядность кода, хранящегося в одной ячейке. <i>Например</i>, организация памяти <b>64Кх8</b> означает, что память имеет <b>64К</b> (то есть 65536) ячеек и каждая ячейка — восьмиразрядная. А организация памяти <b>4Мх1</b> означает, что память имеет <b>4М</b> (то есть 4194304) ячеек, причем каждая ячейка имеет всего один разряд. </p>
+    <p>Общий объем памяти измеряется в <b>байт</b>ах (<b>килобай</b>тах = <b>Кбайт</b>, <b>мегабайт</b>ах = <b>Мбайт</b>, <b>гигабай</b>тах = <b>Гбайт</b>) или в <b>бит</b>ах (<b>килобит</b>ах = <b>Кбит</b>, <b>мегабит</b>ах = <b>Мбит</b>, <b>гигабит</b>ах = <b>Гбит</b>).</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>В зависимости от способа занесения (записи) информации и от способа ее хранения, <b>микросхемы памяти</b> разделяются на следующие основные типы: </p>
+    <p><b><i><img src="img/rom.jpg" width="200" height="108" hspace="3" vspace="1" align="right">Постоянная память</i></b> (<b>ПЗУ</b> &#8211; постоянное запоминающее устройство, <b>ROM</b> &#8211; <b>R</b>ead <b>O</b>nly <b>M</b>emory &#8211; память только для чтения), в которую информация заносится один раз на этапе изготовления микросхемы. Такая память называется еще масочным ПЗУ. Информация в памяти не пропадает при выключении ее питания, поэтому ее еще называют энергонезависимой памятью. </p>
+    <p>&nbsp;</p>
+    <p><b><i><img src="img/prom.jpg" width="150" height="102" hspace="3" vspace="1" align="right"></i></b></p>
+    <p><b><i>Программируемая постоянная память</i></b> (<b>ППЗУ</b> &#8211; программируемое ПЗУ, <b>PROM</b> &#8211; Programmable ROM), в которую информация может заноситься пользователем с помощью специальных методов (ограниченное число раз). Информация в ППЗУ тоже не пропадает при выключении ее питания, то есть она также энергонезависимая. ППЗУ делятся на репрограммируемые или перепрограммируемые ПЗУ (РПЗУ, <b>EPROM</b> — Erasable Programmable ROM), то есть допускающие стирание и перезапись информации, и однократно программируемые ПЗУ. В свою очередь, РПЗУ делятся на ПЗУ, информация в которых стирается электрическими сигналами (<b>EEPROM</b> — Electrically Erasable Programmable ROM), и на ПЗУ, информация в которых стирается ультрафиолетовым излучением через специальное прозрачное окошко в корпусе микросхемы (собственно EPROM — Erasable Programmable ROM). </p>
+<p>&nbsp;</p>
+    <p><b><i><img src="img/flashka.jpg" width="90" height="96" hspace="3" vspace="1" align="right">Флэш-память</i></b> (Flash-memory), представляющей собой ППЗУ с многократным электрическим стиранием и перезаписью информации. Можно считать, что флэш-память занимает промежуточное положение между ПЗУ и ОЗУ. </p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p><b><i><img src="img/ram.jpg" width="150" height="83" hspace="3" vspace="1" align="right">Оперативная память</i></b> (<b>ОЗУ</b> &#8211; оперативное запоминающее устройство, <b>RAM</b> &#8211; <b>R</b>andom <b>A</b>ccess <b>M</b>emory &#8211; память с произвольным доступом), запись информации в которую наиболее проста и может производиться пользователем сколько угодно раз на протяжении всего срока службы микросхемы. Информация в памяти пропадает при выключении ее питания.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p01.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p02.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">1</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

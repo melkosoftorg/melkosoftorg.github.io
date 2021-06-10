@@ -1,0 +1,30 @@
+P {
+	FONT-SIZE: 14px;
+	COLOR: #000;
+	TEXT-INDENT: 25px;
+	LINE-HEIGHT: 120%;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	text-align: justify;
+}
+
+A {
+  FONT-SIZE: 14px;
+  COLOR: #314A86;
+  FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+A:link {color:blue;    TEXT-DECORATION: none;}
+A:visited {color: #000000;    }
+A:active {color: brown;}
+A:hover {color: blue; TEXT-DECORATION: none;}
+
+.text {
+  MARGIN-TOP: 5px; FONT-SIZE: 12px; MARGIN-BOTTOM: 10px; LINE-HEIGHT: 150%; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-ALIGN: justify
+}
+
+.small {
+  FONT-SIZE: 11px; COLOR: #767676; TEXT-INDENT: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+body table tr td table {
+	text-align: left;
+}

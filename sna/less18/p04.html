@@ -1,0 +1,75 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=http://prep.scc/%7Esna/uch/os/less18/p05.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> |  | <a href="p04.html">4</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.3.4. Примеры использования элементов ЛР</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>На рис. 18.5 приведено несколько примеров наиболее типичных применений микросхемы ЛР1. Самое распространенное ее использование (<i><b>а</b></i>) состоит в организации двухканального мультиплексирования, то есть в переключении сигналов с двух входов на один выход. При этом один из входов каждого из элементов 2И используется в качестве информационного, а другой — в качестве разрешающего. Вариант этого включения (<i><b>б</b></i>) — использование одного управляющего входа переключения каналов и дополнительного инвертора. При единице на управляющем входе работает верхний канал, при нуле — нижний. Еще один вариант использования элемента ЛР1 (<i><b>в</b></i>) — смешивание двух отрицательных входных сигналов с возможностью <i>разрешения/запрета</i> выходного сигнала. Наконец, последний показанный на рисунке вариант (<i><b>г</b></i>) — смешивание двух положительных сигналов, один из которых может быть разрешен или запрещен. То есть такое объединение в одном элементе функций <b>И</b> и <b>ИЛИ</b> довольно удобно.</p>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/18-05.gif" width="620" height="142"><br><br>
+      Рис. 18.5. Примеры использования элементов ЛР1.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><p>На других элементах <b>ЛР</b> можно строить более сложные схемы. Например, элемент <b>ЛР9</b> позволяет построить четырехканальный мультиплексор, так как в его структуре четыре элемента <b>И</b> и элемент <b>4ИЛИ-НЕ</b>. Однако в большинстве случаев применение элементов <b>ЛР</b> для мультиплексирования оказывается не слишком удобным, так как в стандартных сериях имеются специальные микросхемы мультиплексоров с более удобным управлением.</p>
+    <p>При необходимости элементы <b>ЛР1</b> могут использоваться в качестве более простых элементов <b>2И-НЕ</b> и <b>2ИЛИ-НЕ</b> (рис. 18.6). Элемент <b>2ИЛИ-НЕ</b> получается при попарном объединении входов. Элемент <b>2И-НЕ</b> получается при отключении половины схемы путем подачи нулей на два входа. При желании можно, конечно, свести элемент <b>ЛР</b> даже к простому инвертору, но это, наверное, уже недопустимая роскошь.</p>
+    <div><img src="img/18-06.gif" width="406" height="149"><br><br>Рис. 18.6.  Использование элементов ЛР в качестве элементов 2И-НЕ и 2ИЛИ-НЕ. </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p04.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://prep.scc/%7Esna/uch/os/less18/p05.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">4</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

@@ -1,0 +1,297 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="460; URL=p04.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | 3 | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.4.3.  Работа дешифратора</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Рассмотрим подробнее функцию дешифратора. В стандартные серии входят дешифраторы на <i><b>4 выхода</b></i> (2 разряда входного кода), на <i><b>8 выходов</b></i> (3 разряда входного кода) и на <i><b>16 выходов</b></i> (4 разряда входного кода). Они обозначаются соответственно как 2–4, 3–8, 4–16. Различаются микросхемы дешифраторов входами управления (разрешения/запрета выходных сигналов), а также типом выхода: 2С или ОК. <i><b>Выходные сигналы</b></i> всех дешифраторов имеют отрицательную полярность. Входы, на которые поступает входной код, называют часто адресными входами. Обозначают эти входы <b>1, 2, 4, 8</b>, где число соответствует весу двоичного кода (1 — младший разряд, 2 — следующий разряд и т.д.), или А0, А1, А2, А5. В отечественных сериях микросхемы дешифраторов обозначаются буквами <b>ИД</b>. </p>
+    <p>На рис. 19.3 показаны три наиболее типичных микросхемы дешифраторов.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/19-03.gif" width="495" height="223"><br><br>Рис. 19.3. Примеры микросхем дешифраторов.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><p>Код на входах 1, 2, 4, 8 определяет номер активного выхода (вход 1 соответствует младшему разряду кода, вход 8 — старшему разряду кода). <i><b>Входы разрешения</b></i> <b>С1, С2, С3</b> объединены по функции <b>И</b> и имеют указанную на рисунке полярность. Для примера в табл. 19.1 приведена <i><b>таблица истинности дешифратора ИД7</b></i> (3—8). Существуют и дешифраторы 4–10 (например, <b>ИД6</b>), которые обрабатывают не все возможные 16 состояний входного кода, а только первые 10 из них. </p>
+      <div><img src="img/k555id7.jpg" width="300" height="275"><br>
+        Рис. 19.3.a. Дешифратор К555ИД7</div>
+    <p>Первые три строки таблицы соответствуют запрету выходных сигналов. Разрешением выхода будет единица на входе <b>С1</b> и нули на входах <b>С2</b> и <b>С3</b>. Символ <b>Х</b> обозначает безразличное состояние данного входа (неважно, нуль или единица). Нижние восемь строк соответствуют разрешению выходных сигналов. Номер активного выхода (на котором формируется нулевой сигнал) определяется кодом на входах <b>1, 2, 4</b>, причем вход 1 соответствует младшему разряду кода, а вход 4 — старшему разряду кода.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="center" valign="top"><table cellspacing="0" cellpadding="0">
+      <tr>
+        <td colspan="2"><div>
+          <div>
+               <table width="390" border="0" align="center" cellpadding="2" cellspacing="1">
+                  <caption>
+                    Таблица 19.1. Таблица истинности дешифратора ИД7.
+                    </caption>
+                  <tbody>
+                    <tr>
+                      <th colspan="6" align="center" bgcolor="#d8d8d8">Входы </th>
+                      <th colspan="8" align="center" bgcolor="#d8d8d8"> Выходы</th>
+                    </tr>
+                    <tr>
+                      <th bgcolor="#d8d8d8">C1</th>
+                      <th bgcolor="#d8d8d8">- C2</th>
+                      <th bgcolor="#d8d8d8">- C3</th>
+                      <th bgcolor="#d8d8d8">4</th>
+                      <th bgcolor="#d8d8d8">2</th>
+                      <th bgcolor="#d8d8d8">1</th>
+                      <th bgcolor="#d8d8d8">0</th>
+                      <th bgcolor="#d8d8d8">1</th>
+                      <th bgcolor="#d8d8d8">2</th>
+                      <th bgcolor="#d8d8d8">3</th>
+                      <th bgcolor="#d8d8d8">4</th>
+                      <th bgcolor="#d8d8d8">5</th>
+                      <th bgcolor="#d8d8d8">6</th>
+                      <th bgcolor="#d8d8d8">7</th>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">X</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">1</td>
+                      <td bgcolor="#eaeaea" valign="top">0</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div></td>
+      </tr>
+      <tr>
+        <td colspan="2" height="8"></td>
+      </tr>
+      <tr>
+        <td colspan="2" height="8"></td>
+      </tr>
+    </table></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p03.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p04.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">3</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

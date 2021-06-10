@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p06.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | 5 | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.7.5. Накапливающий сумматор</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Регистры могут также применяться в составе вычислителей, выполняя функцию <i>накопителя</i> результата вычисления. В данном случае мы уже имеем дело с более сложной обработкой информации, чем при чисто комбинационных схемах. С каждым тактом в регистре обновляется содержимое, являющееся результатом математической обработки входного кода и результата предыдущего вычисления. </p>
+    <p>Рассмотрим для примера схему таких вычислителей. Эта схема известна как <i><b>накапливающий сумматор</b></i>, применяющийся, <i>например</i>, в цифровых генераторах аналоговых сигналов. В самом названии схемы отражена ее функция: она суммирует и накапливает результат. Накапливающий сумматор (рис. 22.5) состоит из сумматора и выходного регистра, охваченных обратной связью. То есть на один вход сумматора подается код с выходов регистра, а на другой вход - входной код. В результате с каждым следующим фронтом тактового сигнала в регистр записывается код суммы входного кода с предыдущим содержимым регистра, с предыдущей суммой. Например, если входной код равен <b>3</b>, а в регистре записан код <b>6</b>, то в следующем такте в регистр будет записан код <b>9</b> (то есть 6 + 3), в следующем такте - код <b>12</b> (то есть 9 + 3) и т.д. Получается, что на выходе накапливающего сумматора формируется равномерно увеличивающийся двоичный код, и шаг этого увеличения можно менять. В данном случае удобно применять регистр со сбросом, <i>например</i>, <b>ИР35</b>.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/22-05.gif" width="445" height="126"><br><br>Рис. 22.5. Структура накапливающего сумматора.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>&nbsp;</p>
+      <p><b>Три особенности накапливающего сумматора:</b></p>
+    <p><b><i>Во-первых</i></b>, когда выходной код достигает максимальной величины (становится больше <b>2<sup>n</sup></b>, где <i><b>n</b></i> &#8211; количество разрядов регистра), происходит переполнение схемы и возобновление ее работы с минимальных значений кода. Однако совсем не обязательно в следующем цикле работы будут повторены те же значения кода, что и в предыдущем. <i>Например</i>, пусть <i><b>n</b></i> равняется <b>4</b>, то есть максимальное число на выходе регистра равно <b>1111</b> в двоичном коде или <b>15</b> в десятичном коде. Пусть входной код равен <b>3</b>. Тогда после начального сброса регистра выходной код будет нарастать так: 0, 3, 6, 9, 12, 15, 2, 5, 8, 11, 14, 1, 4, .… Это происходит потому, что суммирование чисел <b>15</b> и <b>3</b> даст <b>18</b> или, в двоичном коде, <b>10010</b>, а так как мы работаем только с младшими четырьмя разрядами, у нас получится <b>0010</b> или <b>2</b>. </p>
+    <p><b><i>Во-вторых</i></b>, особенность накапливающего сумматора состоит в том, что при больших значениях входного кода (больших половины максимально возможной величины) он может рассматриваться как накапливающий вычитатель. Пусть, <i>например</i>, входной код 4-разрядного сумматора равен <b>15</b> (1111 в двоичном коде), а в регистре записано число <b>13</b> (<b>1011</b> в двоичном коде). В следующем такте в регистр запишется сумма 1101 + 1111 = 11100, а без старшего разряда &#8211; <b>1100</b>, то есть <b>12</b>. То есть выходной код уменьшился на единицу. </p>
+    <p><b><i>В</i></b><i><b>-третьих</b></i>, совсем не обязательно шаг нарастания выходного кода накапливающего сумматора должен быть целым числом (то есть 0, 1, 2, 3, ...). Если в качестве выходного кода берутся не все, а только старшие разряды регистра, то шаг нарастания вполне может быть дробным, <i>например</i>, 0,5, 1,25 или 3,75. Не вошедшие в выходной код разряды будут иметь вес <b>2<sup>-1</sup></b> (то есть 0,5), <b>2<sup>-2</sup></b> (то есть 0,25) и т.д. Правда результат суммирования в выходном коде будет представлен с точностью до целых чисел. При этом возможна ситуация, когда в течение нескольких тактов код на выходе не меняется, <i>например</i>, при входном коде 0,5 выходной код будет меняться один раз на два такта, а при входном коде 0,25 &#8211; один раз на четыре такта.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p05.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p06.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">5</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

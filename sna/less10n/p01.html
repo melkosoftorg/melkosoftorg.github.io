@@ -1,0 +1,135 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p02.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+<script src="http://prep.scc/Scripts/swfobject_modified.js" type="text/javascript"></script>
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%" colspan="2">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | 1 | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td colspan="2"><div align="center">
+      <h3>1.6.1.  Устройство и принцип действия тиристоров</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td colspan="2" align="left" valign="top"><p><img src="img/tiristor.jpg" alt="tir" width="186" height="247" hspace="5" vspace="1" align="left">Тиристорами называют полупроводниковые приборы с двумя устойчивыми режимами работы (включен/ выключен), имеющие три или более (симистор) <b>p-n</b>&#8211;переходов. Крайняя <b>р</b>-область называется <i><b>анодом</b></i>, крайняя <b>n</b>-область называется <i><b>катодом</b></i>. Вывод средней <b>р</b>-области называется <i><b>управляющим электродом</b></i> (рис. 4.8).</p>
+      <p> Тиристор по своему принципу — прибор ключевого действия. Во включенном состоянии он подобен замкнутому ключу, а в выключенном — разомкнутому ключу. Те тиристоры, которые не имеют специальных электродов для подачи сигналов с целью изменения состояния, а имеют только два силовых электрода (анод и катод), называют неуправляемыми, или диодными тиристорами (<i><b>динисторами</b></i>). Иначе тиристоры называют управляемыми тиристорами, или просто <i><b>тиристорами</b></i>.</p>
+      <p align="justify">Тиристоры являются основными элементами в силовых устройствах электроники, которые называют также устройствами преобразовательной техники. Типичными представителями таких устройств являются управляемые выпрямители (преобразуют переменное напряжение в однонаправленное) и инверторы (преобразуют постоянное напряжение в переменное). Динисторы, как правило, используются в слаботочных импульсных устройствах.</p>
+      <p>Существует большое количество различных тиристоров. Для определенности вначале обратимся к так называемому управляемому по катоду незапираемому тиристору с тремя выводами (два силовых и один управляющий), который проводит ток только в одном направлении.<br>
+    Вот упрощенное изображение структуры тиристора (рис. 4.8) и его условное графическое обозначение на схемах (рис. 4.9):</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/tiristor2.jpg" width="388" height="187" alt="е"><br>
+Рис. 4.8</td>
+    <td align="center" valign="top"><img src="img/tiristor3.jpg" width="237" height="102" alt="е"><br>
+Рис. 4.9</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td colspan="2" align="center" valign="top"><p><b>Тиристор</b> имеет нелинейную вольт-амперную характеристику (ВАХ) с <i>участком отрицательного дифференциального сопротивления</i> (рис. 4.10). По сравнению, например, с транзисторными ключами, управление тиристором имеет некоторые особенности. Переход тиристора из одного состояния в другое в электрической цепи происходит скачком (лавинообразно) и осуществляется внешним воздействием на прибор: либо напряжением (током), либо светом (для фототиристора). После перехода тиристора в открытое состояние он остаётся в этом состоянии даже после прекращения управляющего сигнала, если протекающий через тиристор ток превышает некоторую величину, называемую током удержания. Амплитуда максимального тока некоторых тиристоров   может достигать десятков тысяч ампер, а напряжение анод-катод –   нескольких киловольт. После включения между выводами анод-катод   тиристоров присутствует остаточное напряжение величиной обычно от 1,2 В   до 2,5 В.</p>
+      <div><img src="img/BAX_tiristor.png" width="400" height="285" alt="bax"><br>
+    Рис. 4.10. Вольт-амперная характеристика тиристора</div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td colspan="2" align="left" valign="top"><p>Это типичная ВАХ тиристора, проводящего в одном направлении (с   управляющими электродами или без них). Она имеет   несколько участков:</p>
+      <ul>
+        <li>Между точками 0 и 1 находится участок, соответствующий высокому сопротивлению прибора — прямое запирание.</li>
+        <li>В точке 1 происходит включение тиристора.</li>
+        <li>Между точками 1 и 2 находится участок с отрицательным дифференциальным сопротивлением.</li>
+        <li>Участок между точками 2 и 3 соответствует открытому состоянию (прямой проводимости).</li>
+        <li>В точке 2 через прибор протекает минимальный удерживающий ток I<sub>h</sub>.</li>
+        <li>Участок между 0 и 4 описывает режим обратного запирания прибора.</li>
+        <li>Участок между 4 и 5 — режим обратного пробоя.</li>
+    </ul></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td colspan="2" align="center" valign="top"><p><img src="../img/video.jpg" alt="видео" width="69" height="75" align="left">&nbsp;
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="480" height="270" id="FLVPlayer">
+          <param name="movie" value="FLVPlayer_Progressive.swf" />
+          <param name="quality" value="high">
+          <param name="wmode" value="opaque">
+          <param name="scale" value="noscale">
+          <param name="salign" value="lt">
+          <param name="FlashVars" value="&amp;MM_ComponentVersion=1&amp;skinName=Clear_Skin_1&amp;streamName=img/tiristory&amp;autoPlay=false&amp;autoRewind=false" />
+          <param name="swfversion" value="8,0,0,0">
+          <!-- Этот тег param предлагает пользователям Flash Player 6.0 r65 и более поздних версий загрузить последнюю версию Flash Player. Удалите его, если не хотите, чтобы пользователи видели запрос. -->
+          <param name="expressinstall" value="Scripts/expressInstall.swf">
+          <!-- Следующий тег object не поддерживается браузером Internet Explorer. Поэтому скройте его от Internet Explorer при помощи IECC. -->
+          <!--[if !IE]>-->
+          <object type="application/x-shockwave-flash" data="FLVPlayer_Progressive.swf" width="480" height="270">
+            <!--<![endif]-->
+            <param name="quality" value="high">
+            <param name="wmode" value="opaque">
+            <param name="scale" value="noscale">
+            <param name="salign" value="lt">
+            <param name="FlashVars" value="&amp;MM_ComponentVersion=1&amp;skinName=Clear_Skin_1&amp;streamName=img/tiristory&amp;autoPlay=false&amp;autoRewind=false" />
+            <param name="swfversion" value="8,0,0,0">
+            <param name="expressinstall" value="Scripts/expressInstall.swf">
+            <!-- Браузер отображает следующее альтернативное содержимое для пользователей Flash Player 6.0 и более старых версий. -->
+            <div>
+              <h4>Для содержимого этой страницы требуется более новая версия Adobe Flash Player.</h4>
+              <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Получить проигрыватель Adobe Flash Player" /></a></p>
+            </div>
+            <!--[if !IE]>-->
+          </object>
+          <!--<![endif]-->
+        </object>
+    </p>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td colspan="2"><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p01.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p02.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">1</div></td>
+  </tr>
+</table>
+<script type="text/javascript">
+swfobject.registerObject("FLVPlayer");
+</script>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

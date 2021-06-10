@@ -1,0 +1,176 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p04.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | 3 | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>1.13.3. Системы счисления, применяемые при разработке цифровых устройств</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Существующие системы счисления делятся на <i>позиционные</i> и <i>непозиционные</i>. В непозиционных системах счисления значение конкретной цифры не меняется в зависимости от её положения в числе. Примером такой системы счисления может служить <a href="p09.html">римская система записи числа</a> &#8212; <a title="2011">MMXI</a>. В позиционных системах счисления значимость цифры определяется её положением в числе. </p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Принципиально возможно построение цифрового устройства, которое будет работать с числами любой системы счисления. Критерием выбора основания системы счисления является обеспечение высокой помехоустойчивости при минимальности аппаратных затрат. Оптимально отвечает этому требованию двоичная система счисления. Именно она положена в основу всех современных цифровых устройств.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="left" valign="top"><p><b><i>Двоичная система счисления</i></b> является наилучшей для синтеза и анализа работы современных цифровых устройств, так как принципы их построения базируются на ней. По она имеет некоторые недостатки с точки зрения человека. В первую очередь это громоздкость записи даже    относительно    небольших чисел и привычность для человека десятичной системы счисления. Некоторым компромиссом является использование шестнадцатеричной системы счисления. Но и она не очень привычна человеку, хотя запись числа становится компактнее. Поэтому в практике работы с цифровыми устройствами используются все три системы счисления: двоичная, десятичная и шестнадцатеричная.</p>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="left" valign="top"><p> В таблице 10.1 приведены числа в различных системах счисления от 0 до 15. Знание этой таблицы позволяет существенно ускорить процесс перевода из одной системы счисления в другую.</p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><br>
+      <i>Таблица 10.1</i><br><br><table border="1" cellpadding="0" cellspacing="0">
+      <col width="122">
+      <col width="137">
+      <col width="148">
+      <tr>
+        <td colspan="3" align="center"><b>Системы    счисления</b></td>
+        </tr>
+      <tr>
+        <td width="122" align="center">Десятичная</td>
+        <td width="137" align="center">Двоичная</td>
+        <td width="148" align="center">Шестнадцатеричная</td>
+      </tr>
+      <tr>
+        <td align="center">0</td>
+        <td align="center">0000</td>
+        <td align="center">0</td>
+      </tr>
+      <tr>
+        <td align="center">1</td>
+        <td align="center">0001</td>
+        <td align="center">1</td>
+      </tr>
+      <tr>
+        <td align="center">2</td>
+        <td align="center">0010</td>
+        <td align="center">2</td>
+      </tr>
+      <tr>
+        <td align="center">3</td>
+        <td align="center">0011</td>
+        <td align="center">3</td>
+      </tr>
+      <tr>
+        <td align="center">4</td>
+        <td align="center">0100</td>
+        <td align="center">4</td>
+      </tr>
+      <tr>
+        <td align="center">5</td>
+        <td align="center">0101</td>
+        <td align="center">5</td>
+      </tr>
+      <tr>
+        <td align="center">6</td>
+        <td align="center">0110</td>
+        <td align="center">6</td>
+      </tr>
+      <tr>
+        <td align="center">7</td>
+        <td align="center">0111</td>
+        <td align="center">7</td>
+      </tr>
+      <tr>
+        <td align="center">8</td>
+        <td align="center">1000</td>
+        <td align="center">8</td>
+      </tr>
+      <tr>
+        <td align="center">9</td>
+        <td align="center">1001</td>
+        <td align="center">9</td>
+      </tr>
+      <tr>
+        <td align="center">10</td>
+        <td align="center">1010</td>
+        <td align="center">А</td>
+      </tr>
+      <tr>
+        <td align="center">11</td>
+        <td align="center">1011</td>
+        <td align="center">В</td>
+      </tr>
+      <tr>
+        <td align="center">12</td>
+        <td align="center">1100</td>
+        <td align="center">С</td>
+      </tr>
+      <tr>
+        <td align="center">13</td>
+        <td align="center">1101</td>
+        <td align="center">D</td>
+      </tr>
+      <tr>
+        <td align="center">14</td>
+        <td align="center">1110</td>
+        <td align="center">Е</td>
+      </tr>
+      <tr>
+        <td align="center">15</td>
+        <td align="center">1111</td>
+        <td align="center">F</td>
+      </tr>
+    </table>      <p>&nbsp;</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p03.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p04.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">3</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

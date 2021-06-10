@@ -1,0 +1,396 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="90">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | 2 | | <a href="p03.html">3</a> | <br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><FORM name="d"> <INPUT type="text" size="4" name="d2"></FORM></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">      
+      <h4 align="center">2. Расчёт цепи со смешанным соединением резисторов</h4>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><h3><b>Задание</b> </h3>
+      <p>Определить токи (<b>I</b>) и напряжения (<b>U</b>)&nbsp; в цепи (рис.12.1) согласно данных своего варианта (таблица 12-1).</p>
+      <h3><b>Пример</b></h3>
+    <p><u>Данные:</u> Е=2 <i>В</i>; r0=0,5 <i>Ом</i>; r1=3,5 <i>Ом</i>;r2=5 <i>Ом</i>; r3=100 <i>Ом</i>; r4=25 <i>Ом</i>.</p>
+    <p>Находим <i><b>проводимость</b></i> (<b>g</b> в <i>Сименсах</i>) параллельно соединенных ветвей:</p>
+    <blockquote>
+      <p><b>g<sub>АБ</sub>= g<sub>2</sub>+g<sub>3</sub>+g</b><sub>4</sub><b>= 1/r<sub>2</sub> + 1/r<sub>3</sub> +1/r<sub>4</sub></b> = 1/5+1/100+1/25 = 0,25 <i>Сим</i>,</p>
+    </blockquote>
+    <p>отсюда следует, что сопротивление (r) этого участка (АБ) &#8211;</p>
+    <blockquote>
+      <p><b>r<sub>АБ</sub> = 1/g<sub>АБ</sub></b>= 4 <i>Ом</i>;</p>
+    </blockquote>
+    <p>общее сопротивление всей цепи &#8211;</p>
+    <blockquote>
+      <p><b>r = r<sub>0</sub> + r<sub>1</sub>+ r<sub>АБ</sub></b> = 0,5 + 3,5 + 4 = 8 <i>Ом</i>.</p>
+    </blockquote>
+    <p>Ток (I) в неразветвленной части цепи &#8211;</p>
+    <blockquote>
+      <p><b>I<sub>1</sub> = E/r +2/8</b> = 0,25 <i>A</i></p>
+    </blockquote>
+    <p>Напряжение (U) между точками А и Б &#8211;</p>
+    <blockquote>
+      <p><b>U<sub>АБ</sub> = I<sub>1</sub>* r<sub>АБ</sub></b>= 0,25 * 4= 1 <i>В</i>.</p>
+    </blockquote>
+    <p>Ток в отдельных ветвях:</p>
+    <blockquote>
+      <p><b>I<sub>2</sub>= U<sub>АБ</sub>/ r<sub>2</sub></b> = 1/5 = 0,2 <i>A</i>;&nbsp;&nbsp; &nbsp;<b>I<sub>3</sub>= U<sub>АБ</sub>/ r<sub>3</sub></b> = 1/100 = 0,01 <i>A</i>;&nbsp;&nbsp; &nbsp; <b>I<sub>4</sub>= U<sub>АБ</sub>/ r<sub>4</sub></b> = 1/25 = 0,04 <i>A</i></p>
+    </blockquote>
+    <p>&nbsp;</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><a name="ChapMid"></a><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/pr1-1.png" width="496" height="702" alt="1"><br>
+      Рис.12.1. Смешанное соединение резисторов R1 &#8211; R4.<br>
+    <hr width="50%">
+    <p>&nbsp;</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><div>Таблица 12-1. Варианты данных</div>
+      <table cellspacing="1" cellpadding="2" align="center" border="1">
+        <col width="98">
+        <col width="83" span="7">
+        <tr>
+          <td width="98" align="center"><b>Рабочее    место</b></td>
+          <td width="83" align="center"><b>E </b>(В)</td>
+          <td width="83" align="center"><b>r0 </b>(Ом)</td>
+          <td width="83" align="center"><b>r1 </b>(Ом)</td>
+          <td width="83" align="center"><b>r2 </b>(Ом)</td>
+          <td width="83" align="center"><b>r3 </b>(Ом)</td>
+          <td width="83" align="center"><b>r4 (</b>Ом)</td>
+        </tr>
+        <tr>
+          <td align="center"><b>01</b></td>
+          <td align="center">1,5</td>
+          <td align="center">0,05</td>
+          <td align="center">2,0</td>
+          <td align="center">4,0</td>
+          <td align="center">6,0</td>
+          <td align="center">8,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>02</b></td>
+          <td align="center">3,0</td>
+          <td align="center">0,10</td>
+          <td align="center">3,0</td>
+          <td align="center">5,0</td>
+          <td align="center">7,0</td>
+          <td align="center">9,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>03</b></td>
+          <td align="center">4,5</td>
+          <td align="center">0,15</td>
+          <td align="center">4,0</td>
+          <td align="center">6,0</td>
+          <td align="center">8,0</td>
+          <td align="center">10,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>04</b></td>
+          <td align="center">6,0</td>
+          <td align="center">0,20</td>
+          <td align="center">5,0</td>
+          <td align="center">7,0</td>
+          <td align="center">9,0</td>
+          <td align="center">11,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>05</b></td>
+          <td align="center">7,5</td>
+          <td align="center">0,25</td>
+          <td align="center">6,0</td>
+          <td align="center">8,0</td>
+          <td align="center">10,0</td>
+          <td align="center">12,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>06</b></td>
+          <td align="center">9,0</td>
+          <td align="center">0,30</td>
+          <td align="center">7,0</td>
+          <td align="center">9,0</td>
+          <td align="center">11,0</td>
+          <td align="center">13,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>07</b></td>
+          <td align="center">10,5</td>
+          <td align="center">0,35</td>
+          <td align="center">8,0</td>
+          <td align="center">10,0</td>
+          <td align="center">12,0</td>
+          <td align="center">14,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>08</b></td>
+          <td align="center">12,0</td>
+          <td align="center">0,40</td>
+          <td align="center">9,0</td>
+          <td align="center">11,0</td>
+          <td align="center">13,0</td>
+          <td align="center">15,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>09</b></td>
+          <td align="center">13,5</td>
+          <td align="center">0,45</td>
+          <td align="center">10,0</td>
+          <td align="center">12,0</td>
+          <td align="center">14,0</td>
+          <td align="center">16,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>10</b></td>
+          <td align="center">15,0</td>
+          <td align="center">0,50</td>
+          <td align="center">11,0</td>
+          <td align="center">13,0</td>
+          <td align="center">15,0</td>
+          <td align="center">17,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>11</b></td>
+          <td align="center">16,5</td>
+          <td align="center">0,55</td>
+          <td align="center">12,0</td>
+          <td align="center">14,0</td>
+          <td align="center">16,0</td>
+          <td align="center">18,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>12</b></td>
+          <td align="center">18,0</td>
+          <td align="center">0,60</td>
+          <td align="center">13,0</td>
+          <td align="center">15,0</td>
+          <td align="center">17,0</td>
+          <td align="center">19,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>13</b></td>
+          <td align="center">19,5</td>
+          <td align="center">0,65</td>
+          <td align="center">14,0</td>
+          <td align="center">16,0</td>
+          <td align="center">18,0</td>
+          <td align="center">20,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>14</b></td>
+          <td align="center">21,0</td>
+          <td align="center">0,70</td>
+          <td align="center">15,0</td>
+          <td align="center">17,0</td>
+          <td align="center">19,0</td>
+          <td align="center">21,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>15</b></td>
+          <td align="center">1,5</td>
+          <td align="center">0,05</td>
+          <td align="center">2,0</td>
+          <td align="center">4,0</td>
+          <td align="center">6,0</td>
+          <td align="center">8,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>16</b></td>
+          <td align="center">3,0</td>
+          <td align="center">0,10</td>
+          <td align="center">3,0</td>
+          <td align="center">5,0</td>
+          <td align="center">7,0</td>
+          <td align="center">9,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>17</b></td>
+          <td align="center">4,5</td>
+          <td align="center">0,15</td>
+          <td align="center">4,0</td>
+          <td align="center">6,0</td>
+          <td align="center">8,0</td>
+          <td align="center">10,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>18</b></td>
+          <td align="center">6,0</td>
+          <td align="center">0,20</td>
+          <td align="center">5,0</td>
+          <td align="center">7,0</td>
+          <td align="center">9,0</td>
+          <td align="center">11,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>19</b></td>
+          <td align="center">7,5</td>
+          <td align="center">0,25</td>
+          <td align="center">6,0</td>
+          <td align="center">8,0</td>
+          <td align="center">10,0</td>
+          <td align="center">12,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>20</b></td>
+          <td align="center">9,0</td>
+          <td align="center">0,30</td>
+          <td align="center">7,0</td>
+          <td align="center">9,0</td>
+          <td align="center">11,0</td>
+          <td align="center">13,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>21</b></td>
+          <td align="center">10,5</td>
+          <td align="center">0,35</td>
+          <td align="center">8,0</td>
+          <td align="center">10,0</td>
+          <td align="center">12,0</td>
+          <td align="center">14,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>22</b></td>
+          <td align="center">12,0</td>
+          <td align="center">0,40</td>
+          <td align="center">9,0</td>
+          <td align="center">11,0</td>
+          <td align="center">13,0</td>
+          <td align="center">15,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>23</b></td>
+          <td align="center">13,5</td>
+          <td align="center">0,45</td>
+          <td align="center">10,0</td>
+          <td align="center">12,0</td>
+          <td align="center">14,0</td>
+          <td align="center">16,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>24</b></td>
+          <td align="center">15,0</td>
+          <td align="center">0,50</td>
+          <td align="center">11,0</td>
+          <td align="center">13,0</td>
+          <td align="center">15,0</td>
+          <td align="center">17,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>25</b></td>
+          <td align="center">16,5</td>
+          <td align="center">0,55</td>
+          <td align="center">12,0</td>
+          <td align="center">14,0</td>
+          <td align="center">16,0</td>
+          <td align="center">18,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>26</b></td>
+          <td align="center">18,0</td>
+          <td align="center">0,60</td>
+          <td align="center">13,0</td>
+          <td align="center">15,0</td>
+          <td align="center">17,0</td>
+          <td align="center">19,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>27</b></td>
+          <td align="center">19,5</td>
+          <td align="center">0,65</td>
+          <td align="center">14,0</td>
+          <td align="center">16,0</td>
+          <td align="center">18,0</td>
+          <td align="center">20,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>28</b></td>
+          <td align="center">21,0</td>
+          <td align="center">0,70</td>
+          <td align="center">15,0</td>
+          <td align="center">17,0</td>
+          <td align="center">19,0</td>
+          <td align="center">21,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>29</b></td>
+          <td align="center">1,5</td>
+          <td align="center">0,05</td>
+          <td align="center">2,0</td>
+          <td align="center">4,0</td>
+          <td align="center">6,0</td>
+          <td align="center">8,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>30</b></td>
+          <td align="center">3,0</td>
+          <td align="center">0,10</td>
+          <td align="center">3,0</td>
+          <td align="center">5,0</td>
+          <td align="center">7,0</td>
+          <td align="center">9,0</td>
+        </tr>
+        <tr>
+          <td align="center"><b>31</b></td>
+          <td align="center">4,5</td>
+          <td align="center">0,15</td>
+          <td align="center">4,0</td>
+          <td align="center">6,0</td>
+          <td align="center">8,0</td>
+          <td align="center">10,0</td>
+        </tr>
+      </table>
+    <p>&nbsp;</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p02.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p03.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">2</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

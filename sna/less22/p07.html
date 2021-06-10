@@ -1,0 +1,168 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p08.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | 7 | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.7.7. Сдвиговые регистры</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p><b><i>Регистры сдвига</i></b> или сдвиговые регистры (<i>англ</i>. shift register) представляют собой, как уже отмечалось, последовательно соединенную цепочку триггеров. Основной режим их работы &#8211; это сдвиг разрядов кода, записанного в эти триггеры, То есть по тактовому сигналу содержимое каждого предыдущего триггера переписывается в следующий по порядку в цепочке триггер. Код, хранящийся в регистре, с каждым тактом сдвигается на один разряд в сторону старших разрядов или в сторону младших разрядов, что и дало название регистрам данного типа. </p>
+    <p>В связи с названием направления сдвига в сдвиговых регистрах часто возникает путаница. Сдвиг бывает двух видов: вправо (основной режим, который есть у всех сдвиговых регистров) и влево (этот режим есть только у некоторых, реверсивных сдвиговых регистров). Названия эти отражают внутреннюю структуру регистров сдвига (рис. 22.8) и перезапись сигналов последовательно по цепочке триггеров. При этом триггеры, вполне естественно, нумеруются слева направо, <i>например</i>, от 0 до 7 (или от 1 до 8) для 8-разрядных регистров. В результате сдвиг информации регистром вправо представляет собой сдвиг в сторону разрядов, имеющих большие номера, а сдвиг информации регистром влево &#8211; это сдвиг в сторону разрядов, имеющих меньшие номера.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/22-08.gif" width="519" height="150"><br><br>Рис. 22.8. Направление сдвига в сдвиговых регистрах.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="left" valign="top"><p>Однако, как известно, в любом двоичном числе слева расположены старшие разряды, а справа &#8211; младшие разряды. Поэтому сдвиг двоичного числа вправо будет сдвигом в сторону младших разрядов, а сдвиг влево &#8211; сдвигом в сторону старших разрядов. Это противоречие, не чей-то злой умысел, просто так исторически сложилось, и об этом надо помнить разработчику цифровой аппаратуры.</p>
+    <p>В стандартные серии цифровых микросхем входит несколько типов сдвиговых регистров, отличающихся возможными режимами работы, режимами записи, чтения и сдвига, а также типом выходных каскадов (2С или 3С). Большинство регистров сдвига имеет восемь разрядов. На рис. 22.9 представлены для примера четыре типа микросхем регистров сдвига.</p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><div><img src="img/22-09.gif" width="519" height="228"><br><br>Рис. 22.9. Сдвиговые регистры.</div>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="center" valign="top"><p>Регистр <b>ИР8</b> – наиболее простой из регистров сдвига. Он представляет собой 8-разрядную линию задержки, то есть имеет только один информационный вход, на который подается последовательная сдвигаемая информация (точнее, два входа, объединенных по функции <i><b>2И</b></i>), и восемь параллельных выходов. Сдвиг в сторону выходов со старшими номерами осуществляется по переднему фронту тактового сигнала С. Имеется также вход сброса <b>-R</b>, по нулевому сигналу на котором все выходы регистра сбрасываются в нуль. Таблица истинности регистра ИР8 приведена в табл. 22.5.</p>
+      <div>
+        <table width="449" border="0" cellpadding="2" cellspacing="1">
+          <caption>
+            Табл. 22.5. Таблица истинности регистра сдвига ИР8
+          </caption>
+          <tbody>
+            <tr>
+              <th colspan="4" align="center" bgcolor="#d8d8d8">Входы </th>
+              <th colspan="4" align="center" bgcolor="#d8d8d8">Выходы</th>
+            </tr>
+            <tr>
+              <th align="center" bgcolor="#d8d8d8"> -R </th>
+              <th align="center" bgcolor="#d8d8d8"> C </th>
+              <th align="center" bgcolor="#d8d8d8"> D1 </th>
+              <th align="center" bgcolor="#d8d8d8"> D2 </th>
+              <th align="center" bgcolor="#d8d8d8"> Q0 </th>
+              <th align="center" bgcolor="#d8d8d8"> Q1 </th>
+              <th align="center" bgcolor="#d8d8d8">... </th>
+              <th align="center" bgcolor="#d8d8d8"> Q7 </th>
+            </tr>
+            <tr>
+              <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">X</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">X</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">X</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">...</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">X</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">X</td>
+              <td colspan="4" align="center" valign="top" bgcolor="#eaeaea">Не меняются</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+              <td colspan="4" align="center" valign="top" bgcolor="#eaeaea">Не меняются</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">0 &#8594; 1</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">Q0</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">...</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">Q6</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">0 &#8594;  1</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">Q0</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">...</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">Q6</td>
+            </tr>
+            <tr>
+              <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">0 &#8594; 1</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">Q0</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">...</td>
+              <td align="center" valign="top" bgcolor="#eaeaea">Q6</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    <p>&nbsp;</p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="center" valign="top">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p07.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p08.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">7</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

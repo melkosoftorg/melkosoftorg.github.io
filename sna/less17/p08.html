@@ -1,0 +1,84 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p09.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | 8 | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.2.8. Применение элементов И, И-НЕ, ИЛИ, ИЛИ-НЕ (продолжение)</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Рассмотрим два примера совместного использования элементов И, И-НЕ, ИЛИ, ИЛИ-НЕ (рис. 17.12). Пусть необходимо смешать два сигнала, каждый из которых может быть разрешен или запрещен. Пусть полярность входных сигналов и сигналов разрешения — положительная, а выходной сигнал должен быть отрицательным. В этом случае надо взять два двухвходовых элемента <b>И</b> и смешать их выходные сигналы с помощью двухвходового элемента <b>ИЛИ-НЕ</b> (<i><b>а</b></i>). </p>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/17-12.gif" width="569" height="136"><br><br>Рис. 17.12.  Примеры совместного использования элементов.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="left" valign="top"><p>Пусть необходимо смешать два отрицательных сигнала и один положительный сигнал, причем результирующий сигнал может быть разрешен или запрещен. Полярность сигнала разрешения — отрицательная, полярность выходного сигнала — отрицательная. Для этого нужно взять трехвходовой элемент <b>И</b>, инвертор для положительного входного сигнала и двухвходовой элемент <b>ИЛИ</b> (<i><b>б</b></i>). </p>
+    <p>Элементы <b>И, И-НЕ, ИЛИ, ИЛИ-НЕ</b> могут использоваться также в качестве инверторов или повторителей (рис. 17.13), для чего необходимо объединить входы или на неиспользуемые входы подать сигнал нужного уровня. Второе предпочтительнее, так как объединение входов не только увеличивает входной ток, но и несколько снижает быстродействие элементов.</p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="center" valign="top"><img src="img/17-13.gif" width="604" height="147"><br><br>Рис. 17.13.  Инверторы и повторители.</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><p>По функции <b>И</b> часто объединяются входы более сложных микросхем. Иначе говоря, какая-то функция выполняется только тогда, когда на все объединенные по <b>И</b> входы поступают сигналы нужной полярности. Чаще всего по <b>И</b> объединяются входы выбора микросхемы <i><b>CS</b></i> и входы управления третьим состоянием выхода микросхемы <b>EZ</b>. На рис. 17.14 показано три примера такого объединения по <b>И</b>. При этом надо учитывать, что на инверсные входы для выполнения функции должны поступать нулевые сигналы, а на прямые входы — единичные сигналы. Примерами могут служить микросхемы КР556РТ4, КР556РТ5, КР1533АП14, КР1533АП15.</p>
+    <div><img src="img/17-14.gif" width="442" height="71"><br><br>Рис. 17.14. Объединение по И входов микросхем.</div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p08.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p09.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">8</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

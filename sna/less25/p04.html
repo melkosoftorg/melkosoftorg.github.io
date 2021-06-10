@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p05.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | 4 | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.10.4. Микросхемы ППЗУ отечественного производства</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Фирмами-производителями цифровых микросхем выпускается немало самых разнообразных ПЗУ и ППЗУ. Различаются микросхемы постоянной памяти своим объемом (от <b>32 байт</b> до <b>8 Мбайт</b> и более), организацией (обычно количество разрядов данных бывает 4, 8 или 16), способами управления (назначением управляющих сигналов), типами выходных каскадов (обычно ОК или 3С), быстродействием (обычно задержка составляет от единиц до сотен наносекунд). Но суть всех микросхем ПЗУ остается одной и той же: имеется шина адреса, на которую надо подавать код адреса нужной ячейки памяти, имеется шина данных, на которую выдается код, записанный в адресуемой ячейке, и имеются входы управления, которые разрешают или запрещают выдачу информации из адресуемой ячейки на шину данных.</p>
+    <p>На рис. 25.4 представлены для примера несколько простейших и типичных микросхем постоянной памяти отечественного производства.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/25-04.gif" width="484" height="231"><br><br>
+      Рис. 25.4. Примеры микросхем ППЗУ отечественного производства.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p><b>Микросхема К155РЕ3</b> (зарубежный аналог — <b>N8223N</b>) представляет собой однократно программируемое ППЗУ с организацией 32 х 8. Исходное состояние (до программирования) — все биты всех ячеек нулевые. Для программирования (записи информации) используется специальный программатор, подающий на разряды данных импульсы высокого напряжения. Тип выходных каскадов — открытый коллектор, то есть обязательно надо включать на выходах резисторы, подсоединенные к шине питания. Имеется один управляющий вход –CS, при положительном уровне сигнала на котором на всех выходах устанавливаются единицы. </p>
+    <p><b>Микросхема КР556РТ4</b> (зарубежный аналог — <b>I3601</b>) — это также однократно программируемая постоянная память с организацией 256х4. Исходное состояние (до программирования): все биты всех ячеек нулевые. Тип выходных каскадов — ОК. Два управляющих входа -CS1 и –CS2 объединены по принципу И, то есть для разрешения работы микросхемы (для перевода выходов в активное состояние) оба эти сигнала должны быть нулевыми. Для записи информации в микросхему используется программатор. </p>
+    <p><b>Микросхема КР556РТ18</b> (зарубежный аналог — <b>HM76161</b>) также является однократно программируемым ППЗУ и имеет организацию 2Кх8. Тип выходов микросхемы — 3С. Имеются три управляющих входа: один инверсный –CS1, два других — прямые CS2 и CS3, объединенных по функции И. Выходы данных переходят в активное состояние при нулевом уровне на –CS1 и при единичных уровнях на CS2 и CS3. Если входы управления используются для подачи управляющих сигналов (то есть выходы могут переходить в третье состояние) то на выходы надо включать нагрузочные резисторы, подключенные к шине питания. Исходное состояние микросхемы (до программирования) — все биты всех ячеек в единице. </p>
+    <p><b>Микросхема К573РФ8</b> (зарубежный аналог — <b>I27256</b>) — это пример памяти РПЗУ с ультрафиолетовым стиранием информации. Чтобы перепрограммировать память, необходимо ее стереть, для чего в течение некоторого времени (обычно несколько минут) надо облучать микросхему через окошко в корпусе ультрафиолетовым светом (можно использовать медицинский кварцевый облучатель). Стертая микросхема имеет все биты, установленные в единицу. Затем проводится процедура записи с помощью программатора, несколько отличающегося от программаторов однократно программируемых микросхем. Управляющие входы –CS и –CE должны быть установлены в нуль для перевода выходов микросхемы в активное состояние. Имеется специальный вход UPR для подачи программирующего высокого напряжения, который при чтении информации из микросхемы надо подключать к напряжению питания. Тип выходных каскадов — 3С. Микросхемы этого типа самые медленные, их задержки самые большие.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p04.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p05.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">4</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

@@ -1,0 +1,85 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=http://prep.scc/%7Esna/uch/os/less28_1/p09.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | <br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.13.8. Использование ЦАП для управляемой обработки аналоговых сигналов</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Преобразование цифровых кодов в аналоговый сигнал — это не единственное применение микросхем ЦАП. Они могут также использоваться для управляемой обработки аналоговых сигналов, <i>например</i>, для усиления и ослабления аналоговых сигналов в заданное число раз. Для этого лучше всего подходят умножающие ЦАП, которые допускают изменение уровня опорного напряжения в широких пределах, в том числе и с изменением его знака. Таких микросхем ЦАП выпускается сейчас достаточно много, с различным быстродействием и с различным количеством разрядов входного кода.</p>
+    <p>Самая простейшая схема — это цифровой аттенюатор (ослабитель) аналогового сигнала (рис. 28.11), применяемый часто для регулировки амплитуды выходного сигнала генератора на основе ЦАП.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/28-11.gif" width="496" height="165"><br><br>
+      Рис. 28.11. Аттенюатор аналогового сигнала на ЦАП.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Схема практически ничем не отличается от схемы на рис. 28.9. Но два важных отличия все же имеются: вместо постоянного опорного напряжения подается переменный аналоговый сигнал, а ЦАП  должен быть обязательно умножающим. Выходной сигнал связан со входным по простой формуле:</p>
+      <div align="center"><b>U<sub>ВЫХ</sub> = –U<sub>ВХ</sub> * N2<sup>-n</sup></b></div>
+      
+<p>то есть выходной сигнал пропорционален входному (с инверсией), а коэффициент пропорциональности определяется входным   цифровым кодом <b>N</b>. Коэффициент пропорциональности изменяется в данном случае от нуля и почти до единицы с шагом,   равным <b>2<sup>-n</sup></b>.</p>
+<p>Входной регистр ЦАП  в данном случае также необходим, поскольку при неодновременном переключении разрядов входного   кода на выходной сигнал ЦАП  могут накладываться короткие импульсы значительной амплитуды. Требования к быстродействию ЦАП  (к величине его времени установления) в данном включении не слишком высоки, так как амплитуду выходного сигнала   обычно требуется менять нечасто. А частота входного аналогового сигнала может быть довольно большой, она никак не   связана с временем установления ЦАП.</p>
+<p>Последняя схема с применением ЦАП, которую мы рассмотрим, — это схема сдвига аналогового сигнала на величину, задаваемую входным цифровым кодом. Сдвиг представляет собой, по сути, сложение аналогового сигнала с постоянным напряжением. Такая задача довольно часто встречается в аналого-цифровых системах.</p>
+<p>Схема сдвига (рис. 28.12) включает в себя преобразователь цифрового кода в выходное напряжение и аналоговый сумматор на операционном усилителе. Величина напряжения сдвига входного сигнала будет равна <b>U<sub>REF</sub>* 2<sup>-n </sup>*N</b>. Поскольку применяются два инвертирующих операционных усилителя, инверсии входного сигнала на выходе в данном случае не будет. Если нужен как положительный, так и отрицательный сдвиг, то необходимо применять ЦАП с биполярным выходным сигналом.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="center" valign="top"><img src="img/28-12.gif" width="496" height="184"><br><br>Рис. 28.12. Схема управляемого сдвига аналогового сигнала.</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p03.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://prep.scc/%7Esna/uch/os/less28_1/p09.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">8</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

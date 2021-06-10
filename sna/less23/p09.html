@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p00.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1 </a>| | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | 9 |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.8.9. Делители частоты</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p><b><i>Основное применение асинхронных счётчиков состоит в построении всевозможных делителей частоты, то есть устройств, выдающих выходной сигнал с частотой, в несколько раз меньшей, чем частота входного сигнала.</i></b> В данном случае нас интересует не выходной код счетчика, то есть не все его разряды одновременно, а только один разряд, поэтому взаимные задержки отдельных разрядов не играют роли, полная задержка переключения счётчика не имеет значения. Простейший пример делителя частоты на два &#8211; это триггер в счетном режиме или счётчик, выходным сигналом которого является выход первого, младшего разряда <b>1</b>. </p>
+    <p>При построении делителей частоты иногда важна не только частота выходного сигнала, но и его форма, его <i><b>скважность</b></i>, то есть отношение периода следования импульсов к длительности этих импульсов. В таких случаях чаще всего требуется <i><b>меандр</b></i> &#8211; цифровой сигнал со <i>скважностью</i>, равной <i><b>двум</b></i> (длительность импульсов равна длительности паузы между ними). Получить меандр из любого сигнала довольно просто: надо использовать дополнительный делитель частоты на <b>2</b>, правда, при этом частота выходного сигнала уменьшится еще вдвое. </p>
+    <p>Простейший пример такого делителя частоты на десять приведен на рис. 23.11. В делителе использован счетчик <b>ИЕ2</b>, у которого одноразрядный внутренний счетчик включен после трехразрядного внутреннего счетчика. Трехразрядный счетчик делит частоту входного сигнала на <b>5</b>, но выходные импульсы имеют скважность, не равную двум (она равна 5). Одноразрядный счетчик делит частоту еще вдвое и одновременно формирует меандр. Задержки переключения разрядов счетчика относительно друг друга на рисунке не показаны (применяем первый уровень представления, логическую модель).</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/23-11.gif" width="503" height="150"><br><br>Рис. 23.11. Делитель частоты на 10, выдающий меандр.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>На асинхронных счётчиках можно строить также <i><b>управляемые делители частоты</b></i>, то есть такие делители, выходная частота которых определяется управляющим кодом. На рис. 23.12 показан делитель на <b>2n</b>, где <b>n</b> &#8211; целое. Восьмиразрядный счетчик <b>ИЕ19</b> работает по входному сигналу с тактовой частотой <b>f<sub>T</sub></b>, а выходной 8-входовый мультиплексор <b>КП7</b> передает на выход схемы один из <b>7</b> разрядов счетчика или же входной сигнал. Выбор номера канала производится входным управляющим 3-разрядным кодом. <i>Например</i>, при тактовой частоте <b>f<sub>T</sub></b> = 10 МГц, то есть при периоде входного сигнала 100 нс период выходного сигнала может составлять 100 нс, 200 нс, 400 нс, 800 нс, 1,6 мкс, 3,2 мкс, 6,4 мкс, 12,8 мкс.</p>
+    <div align="center"><img src="img/23-12.gif" width="500" height="257"><br><br>Рис. 23.12. Управляемый делитель частоты на асинхронном счетчике.</div>
+    <p>---</p>
+    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p09.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p00.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">9</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>
