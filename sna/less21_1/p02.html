@@ -1,0 +1,82 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=http://prep.scc/%7Esna/uch/os/less21_1/p07.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1 </a>| | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.3.6. Применение триггеров Шмитта</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Наиболее распространенное применение триггеров Шмитта — это формирователь сигнала начального сброса по включению питания схемы (рис. 18.9). Необходимость такого сигнала сброса вызвана тем, что при включении питания выходные сигналы сложных микросхем, имеющих внутреннюю память (например, регистров, счетчиков), могут принимать произвольные значения, что не всегда удобно. Привести их в необходимое состояние (чаще всего — установить их в нуль) как раз и призван сигнал начального сброса. </p>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/18-09.gif" width="462" height="131"><br><br>
+      Рис. 18.9.  Формирователь импульса начальной установки по включению питания.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><p>Для формирования сигнала начального сброса используется простая <i>RC-цепочка</i>, причем конденсатор берется с большой емкостью. Напряжение на конденсаторе при включении питания нарастает медленно, в результате чего на выходе триггера Шмитта формируется положительный импульс. Использовать для этого обычный инвертор не рекомендуется. </p>
+    <p>Точно так же триггеры Шмитта рекомендуется применять во всех случаях, когда с помощью емкости формируется сигнал с пологими, затянутыми фронтами. В отличие от обычных логических элементов, триггеры Шмитта всегда обеспечивают надежную и стабильную работу. Правда, надо учитывать, что триггеры Шмитта имеют несколько большую задержку, чем обычные логические элементы. </p>
+    <p>Еще одно применение использование триггера Шмитта состоит в построении генераторов импульсов. В отличие от генераторов на обычных инверторах, в данном случае схема получается гораздо проще: достаточно всего лишь одного инвертирующего триггера Шмитта, одного резистора (порядка сотен Ом) и одного конденсатора (рис. 18.10). При этом очень удобно, что конденсатор одним выводом присоединен к общему проводу, к &quot;земле&quot;. Это позволяет применять электролитические конденсаторы большой ёмкости, а также переменные конденсаторы. Использование двухвходовых триггеров Шмитта дает возможность легко разрешать или запрещать генерацию с помощью управляющего сигнала <i><b>Разр</b></i>. При уровне логической единицы на входе <i><b>Разр</b></i>. генерация идет, при уровне логического нуля генерации — нет.</p>
+    <div><img src="img/18-10.gif" width="425" height="99"><br><br>
+      Рис. 18.10.  Управляемый генератор на триггере Шмитта.</div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="left" valign="top">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p02.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://prep.scc/%7Esna/uch/os/less21_1/p07.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">6</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

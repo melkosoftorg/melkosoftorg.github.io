@@ -1,0 +1,124 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p03.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+span.math {letter-spacing:0.2em;padding-left:0.25em;padding-right:0.05em;white-space:nowrap;font-family:"Times New Roman";}
+span.mfun {letter-spacing:0em;padding-right:0.2em;}
+span.mi {font-style:italic;color:red;}
+span.mn {letter-spacing:0em;padding-right:0.2em;}
+span.mn {color:green;}
+span.msub {letter-spacing:0.1em;/*?0.1*/padding-right:0.2em;font-size:0.7em;}
+span.msub {vertical-align:sub;  color:blue;margin-left:-0.15em;}
+span.msup {letter-spacing:0.1em;/*?0.1*/padding-right:0.2em;font-size:0.7em;}
+</style>
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | 2 | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>1.3.2.  Метод узлового напряжения</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p><b>Метод узлового напряжения</b> рекомендуется использовать в том случае, если сложную   электрическую схему можно упростить, заменяя последовательно и параллельно   соединенные резисторы эквивалентными, используя при необходимости преобразование   треугольника сопротивлений в эквивалентную звезду. Если полученная схема   содержит несколько параллельно соединенных активных и пассивных ветвей, как,   например, схема на рис. 1.3.2, то ее расчет и анализ весьма просто можно   произвести методом узлового напряжения.</p>
+<p>Пренебрегая сопротивлением проводов, соединяющих ветви цепи, в ее   схеме (рис. 1.3.2) можно выделить два узла: <b>a</b> и <b>b</b>. В зависимости от значений и   направлений ЭДС и напряжений, а также значений сопротивлений ветвей между   узловыми точками <b>a</b> и <b>b</b> установится определенное узловое напряжение <b>Uab</b>.   Предположим, что оно направлено так, как показано на рис. 1.3.2, и известно. Зная   напряжение <b>Uab</b> легко найти токи во всех ветвях.</p>
+      <p>Выберем положительные направления токов и обозначим их на схеме.   Запишем уравнения по второму закону Кирхгофа для контуров, проходящих по   первой и второй ветви, содержащих источники ЭДС, совершая обход контуров по   часовой стрелке.</p>
+      <p>Первая ветвь: <b>E1=I1(r01+R1)+Uab</b>.</p>
+      <p>Вторая ветвь: <b>−E2=−I2(r02+R2)+Uab</b>.</p>
+    <p>&nbsp;</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/li_02025.jpg" alt="1.3.2" height="254" width="464"><br>Рис.1.3.2</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><p>Определим значения токов, возникающих в первой и второй ветвях,</p>
+      <p></p>
+      <div><img src="img/lf_02054.gif" class="vamid" alt="gif-file, 2KB" height="52" width="220">,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (1.20)</div>
+      <p></p>
+      <div><img src="img/lf_02055.gif" class="vamid" alt="gif-file, 2KB" height="52" width="229">,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (1.21)</div>
+      <p>где: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <img src="img/lf_02056.gif" class="vamid" alt="gif-file, 2KB" height="52" width="101">; <img src="img/lf_02057.gif" class="vamid" alt="gif-file, 2KB" height="52" width="108">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#8212;&nbsp;  проводимости соответственно первой и второй ветвей.</p>
+      <p>Запишем уравнения по второму закону Кирхгофа для ветвей, содержащих источники напряжений, совершая обход контуров также по
+        часовой стрелке.</p>
+      <p>Третья ветвь: <b>Uab&#8722;U1+I3R3=0</b>.</p>
+      <p>Четвертая ветвь: <b>Uab+U2&#8722;I4R4=0</b>.</p>
+      <p>Определим значения токов, возникающих в третьей и четвертой ветвях,</p>
+      <p></p>
+      <p><img src="img/lf_02058.gif" class="vamid" alt="gif-file, 2KB" height="52" width="227">, &nbsp;&nbsp;&nbsp;&nbsp; (1.22)</p>
+      <p class="FFFR"></p>
+      <p class="CCCC"><img src="img/lf_02059.gif" class="vamid" alt="gif-file, 2KB" height="52" width="233">,  &nbsp;&nbsp; (1.23)</p>
+      <p class="JJJJ">где: <img src="img/lf_02060.gif" class="vamid" alt="gif-file, 2KB" height="52" width="67">; <img src="img/lf_02061.gif" class="vamid" alt="gif-file, 2KB" height="52" width="68"> – проводимости соответственно третьей и четвертой ветвей.</p>
+      <p class="rJJJ">Ток в пятой ветви определим по <i>закону Ома</i>:</p>
+      <p class="FFFR"></p>
+      <p class="CCCC"><img src="img/lf_02062.gif" class="vamid" alt="gif-file, 2KB" height="52" width="135">,    &nbsp;&nbsp;&nbsp; (1.24)</p>
+      <p class="JJJJ">где &nbsp; <img src="img/lf_02063.gif" class="vamid" alt="gif-file, 2KB" height="52" width="68">&nbsp; – проводимость пятой ветви.</p>
+      <p class="rJJJ">Для вывода формулы, позволяющей определить напряжение <span onclick="tex2htm.Copy2Clipboard(this.title)" title="U_{ab}"><b>Uab</b></span>, напишем уравнение по первому закону Кирхгофа  для узла <b>a</b>:</p>
+      <p><b>I1&#8722;I2+I3&#8722;I4&#8722;I5=0</b>.</p>
+      <p class="rJJJ">После замены токов их выражениями (1.20) – (1.24) и соответствующих преобразований получим</p>
+      <p class="CCCC"><img src="img/lf_02064.gif" class="vamid" alt="gif-file, 2KB" height="52" width="267">.</p>
+      <p class="rJJJ">Формула узлового напряжения в общем случае имеет вид</p>
+      <p class="FFFR"></p>
+      <p class="CCCC"><img src="img/lf_02065.gif" class="vamid" alt="gif-file, 2KB" height="53" width="157">.  &nbsp;&nbsp;&nbsp; (1.25)</p>
+      <p class="rJJJ">При расчете электрической цепи методом узлового напряжения после определения величины напряжения <span onclick="tex2htm.Copy2Clipboard(this.title)" title="U_{ab}"><b>Uab</b></span> значения токов в ветвях находят по их выражениям (1.20) – (1.24).</p>
+      <p class="rJJJ">При записи формулы (1.25) следует задаться положительным направлением узлового напряжения <span onclick="tex2htm.Copy2Clipboard(this.title)" title="U_{ab}"><b>Uab</b></span>. Со знаком «<b>+</b>» в (1.25) должны входить ЭДС, направленные между точками <b>a</b> и <b>b</b> встречно напряжению <span onclick="tex2htm.Copy2Clipboard(this.title)" title="U_{ab}"><b>Uab</b></span>, и напряжения ветвей, направленные согласно с <span onclick="tex2htm.Copy2Clipboard(this.title)" title="U_{ab}"><b>Uab</b></span>. Знаки в формуле (1.25) не зависят от направления токов ветвей.</p>
+      <p class="rJJJ">При расчете и анализе электрических цепей методом 
+        узлового напряжения рекомендуется выбирать положительные направления 
+        токов после определения узлового напряжения. В этом случае при расчете 
+        токов по выражениям (1.20) – (1.24) положительные направления токов 
+        нетрудно выбрать таким образом, чтобы все они совпадали с их 
+        действительными направлениями.</p>
+      <p class="rJJJ">Проверка правильности произведенных расчетов проводится 
+        по первому закону Кирхгофа для узла <b>a</b> или <b>b</b>, а также составлением 
+    уравнения баланса мощностей.</p>      <p>&nbsp;</p>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p02.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p03.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">2</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

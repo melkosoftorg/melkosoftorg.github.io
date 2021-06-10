@@ -1,0 +1,191 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p07.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%" colspan="2">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1 </a>| | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | 6 | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td colspan="2"><div align="center">
+      <h3>2.4.6. Мультиплексоры</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td colspan="2" align="left" valign="top"><p><b><i>Мультиплексоры</i></b> (английское <i>Multiplexer</i>) <i><b>предназначены для поочередной передачи на один выход одного из нескольких входных сигналов, то есть для их мультиплексирования.</b></i> Количество мультиплексируемых входов называется количеством каналов мультиплексора, а количество выходов называется числом разрядов мультиплексора. Например, 2-канальный 4-разрядный мультиплексор имеет 4 выхода, на каждый из которых может передаваться один из двух входных сигналов. А 4-канальный 2-разрядный мультиплексор имеет 2 выхода, на каждый из которых может передаваться один из четырех входных сигналов. Число каналов мультиплексоров, входящих в стандартные серии, составляет от 2 до 16, а число разрядов — от 1 до 4, причем чем больше каналов имеет мультиплексор, тем меньше у него разрядов.</p>
+    <p> Управление работой мультиплексора (выбор номера канала) осуществляется с помощью входного кода адреса. Например, для 4-канального мультиплексора необходим 2-разрядный управляющий (адресный) код, а для 16-канального — 4-разрядный код. Разряды кода обозначаются <b>1, 2, 4, 8</b> или <b>А0, А1, А2, А3</b>. Мультиплексоры бывают с выходом <b>2С</b> и с выходом <b>3С</b>. Выходы мультиплексоров бывают прямыми и инверсными. Выход <b>3С</b> позволяет объединять выходы мультиплексоров с выходами других микросхем, а также получать двунаправленные и мультиплексированные линии. Некоторые микросхемы мультиплексоров имеют вход разрешения/запрета <b>С </b>(другое обозначение — S), который при запрете устанавливает прямой выход в нулевой уровень. </p>
+    <p>На рис. 19.10 показаны для примера несколько микросхем мультиплексоров из состава стандартных серий. В отечественных сериях мультиплексоры имеют код типа микросхемы <b>КП</b>. На схемах микросхемы мультиплексоров обозначаются буквами <b>MS</b>.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/19-10.gif" width="579" height="294"><br><br>Рис. 19.10. Примеры микросхем мультиплексоров.</td>
+    <td align="center" valign="top"><div id="id_104">
+      <table border="0" cellpadding="2" cellspacing="1">
+        <caption>
+          Табл. 19.3. Таблица истинности 8-канального мультиплексора
+          </caption>
+        <tbody>
+          <tr>
+            <th colspan="4" align="center" valign="middle" bgcolor="#d8d8d8">Входы </th>
+            <th colspan="2" align="center" valign="middle" bgcolor="#d8d8d8"> Выходы</th>
+          </tr>
+          <tr>
+            <th align="center" valign="middle" bgcolor="#d8d8d8">&nbsp;&nbsp;4&nbsp;&nbsp;</th>
+            <th align="center" valign="middle" bgcolor="#d8d8d8">&nbsp;&nbsp;2&nbsp;&nbsp;</th>
+            <th align="center" valign="middle" bgcolor="#d8d8d8">&nbsp;&nbsp;1&nbsp;&nbsp;</th>
+            <th align="center" valign="middle" bgcolor="#d8d8d8">&nbsp;&nbsp;-EZ&nbsp;&nbsp;</th>
+            <th align="center" valign="middle" bgcolor="#d8d8d8">&nbsp;&nbsp;&nbsp;Q&nbsp;&nbsp;&nbsp;</th>
+            <th align="center" valign="middle" bgcolor="#d8d8d8">&nbsp;&nbsp;&nbsp;-Q&nbsp;&nbsp;&nbsp;</th>
+          </tr>
+          <tr>
+            <td align="center" valign="middle" bgcolor="#eaeaea">X</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">X</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">X</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">Z</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">Z</td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">D0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">-D0</td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">D1</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">-D1</td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">D2</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">-D2</td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">D3</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">-D3</td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">D4</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">-D4</td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">D5</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">-D5</td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">D6</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">-D6</td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">D7</td>
+            <td align="center" valign="middle" bgcolor="#eaeaea">-D7</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td colspan="2" align="left" valign="top"><p>В табл. 19.3 в качестве примера приведена таблица истинности одноразрядного 8-канального мультиплексора с выходами <b>3С</b> (<i><b>КП15</b></i>). В этой таблице сигналы на входах <b>0...7</b> обозначены <b>D0...D7</b>, прямой выход — <b>Q</b>, инверсный выход — <b>–Q</b>, <b>Z</b> — третье состояние выхода. При единице на входе <b>–EZ</b> оба выхода находятся в третьем состоянии. При нуле на входе <b>–EZ</b> выходной сигнал на прямом выходе повторяет состояние входного сигнала, номер которого задается входным кодом на входах <i><b>1, 2, 4</b></i>. Сигнал на инверсном выходе противоположен по полярности сигналу на прямом выходе.</p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td colspan="2" align="left" valign="top"><p>На рис. 19.11 приведена временная диаграмма работы 4-канального мультиплексора. В зависимости от входного кода на выход передается один из четырех входных сигналов. При запрещении работы на выходе устанавливается нулевой сигнал вне зависимости от входных сигналов.</p>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td colspan="2" align="center" valign="top"><img src="img/19-11.gif" width="458" height="202"><br><br>Рис. 19.11. 4-канальный мультиплексор. Временная диаграмма работы. </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td colspan="2" align="left" valign="top"><p>Конкретным примером мультиплексора может служить микросхема К155КП7 изображенная ниже на рисунках 19.12 (Внешний вид) и 19.13 (Условное обозначение)</p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="center" valign="top"><img src="img/K155KP7.jpg" width="200" height="200"><br>
+      Рис. 19.12. Внешний вид микросхемы К155КП7.</td>
+    <td align="center" valign="top"><img src="img/K155KP7_s.gif"><br>
+      Рис. 19.13. Условное обозначение микросхемы К155КП7.</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td colspan="2"><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p06.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p07.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">6</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

@@ -1,0 +1,78 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p06.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | 5 | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.11.5. SDR SDRAM</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><p>Возможно,<b> SDRAM</b> «как таковая» (в её первоначальном варианте <b>SDR SDRAM</b>, <i>например</i>: PC66, PC100, PC133) на сегодня уже не является столь актуальным видом памяти, тем не менее, все  перечисленные выше виды принадлежат одному и тому же классу и базируются примерно на одних и тех же принципах функционирования, которые мы и рассмотрим  далее.</p>
+      <div><img src="img/pc-133.jpg" alt="3" width="563" height="417"><br>
+        <br>
+        Рис. 26.4. Память фирмы Hynix SDRAM PC-133 (256Mb).</div>
+    <p> Аббревиатура SDRAM расшифровывается как Synchronous Dynamic Random Access Memory — синхронная динамическая память с произвольным доступом. Остановимся подробнее на каждом из этих определений. </p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Под «синхронностью» обычно понимается строгая привязка управляющих сигналов и временных диаграмм функционирования памяти к частоте системной шины, т.е. под «<i><b>синхронной</b></i>» операцией SDRAM в настоящее время следует понимать строгую привязку временных интервалов отправки команд и данных по соответствующим интерфейсам устройства памяти к частоте шины памяти (проще говоря, все операции в ОЗУ совершаются строго по фронту/срезу синхросигнала интерфейса памяти).</p>
+      <p>Понятие «<i><b>динамической</b></i>» памяти, DRAM, относится ко всем типам оперативной памяти, начиная с самой древней, «обычной» асинхронной динамической памяти и заканчивая современной DDR3. Этот термин вводится в противоположность понятия «статической» памяти (SRAM) и означает, что содержимое каждой ячейки памяти периодически необходимо обновлять (ввиду особенности ее конструкции, продиктованной экономическими соображениями). В то же время, статическая память, характеризующаяся более сложной и более дорогой конструкцией ячейки и применяемая в качестве кэш-памяти в процессорах (а ранее — и на материнских платах), свободна от циклов регенерации, т.к. в ее основе лежит не емкость (динамическая составляющая), а триггер (статическая составляющая). </p>
+    <p>Наконец, стоит также упомянуть о «<i><b>памяти с произвольным доступом</b></i>» — Random Access Memory, RAM. Традиционно, это понятие противопоставляется устройствам «памяти только на чтение» — Read-Only Memory, ROM. Тем не менее, противопоставление это не совсем верно, т.к. из него можно сделать вывод, что память типа ROM не является памятью с произвольным доступом. Это неверно, потому как доступ к устройствам ROM может осуществляться в произвольном, а не строго последовательном порядке. И на самом деле, наименование «RAM» изначально противопоставлялось ранним типам памяти, в которых операции чтения/записи могли осуществляться только в последовательном порядке. В связи с этим, более правильно назначение и принцип работы оперативной памяти отражает аббревиатура «RWM» (Read-Write Memory), которая, тем не менее, встречается намного реже. Заметим, что русскоязычным сокращениям RAM и ROM — ОЗУ (оперативное запоминающее устройство) и ПЗУ (постоянное запоминающее устройство), соответственно, подобная путаница не присуща.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Общий принцип организации и функционирования микросхем динамической памяти (<b>DRAM</b>) практически един для всех ее типов — как первоначальной асинхронной, так и современной синхронной. Исключение составляют разве что экзотические варианты, тем не менее, существовавшие еще до появления <b>SDRAM</b>, вроде Direct Rambus DRAM (<b>DRDRAM</b>). Массив памяти DRAM можно рассматривать как матрицу (двумерный массив) элементов (строго говоря, это понятие относится к логическому уровню организации микросхемы памяти,  но его необходимо ввести здесь для наглядности), каждый из которых содержит одну или несколько физических ячеек (в зависимости от конфигурации микросхемы), способных вмещать элементарную единицу информации — один бит данных. Ячейки представляют собой сочетание транзистора (ключа) и конденсатора (запоминающего элемента). Доступ к элементам матрицы осуществляется с помощью декодеров адреса строки и адреса столбца, которые управляются сигналами <b>RAS#</b> (сигнал выбора строки — Row Access Strobe) и <b>CAS#</b> (сигнал выбора столбца — Column Access Strobe).</p>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p05.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p06.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">5</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

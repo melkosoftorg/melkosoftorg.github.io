@@ -1,0 +1,292 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p09.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | 8 | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.8.8. Асинхронные счётчики</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p><b><i>Асинхронные счётчики</i></b> строятся из простой цепочки JK-триггеров, каждый из которых работает в счётном режиме. Выходной сигнал каждого триггера служит входным сигналом для следующего триггера. Поэтому все разряды (выходы) асинхронного счетчика переключаются последовательно (отсюда название &#8211; <i>последовательные счетчики</i>), один за другим, начиная с младшего и кончая старшим. Каждый следующий разряд переключается с задержкой относительно предыдущего (рис. 23.9.), то есть, вообще говоря, асинхронно, не одновременно с входным сигналом и с другими разрядами. </p>
+    <p>Чем больше разрядов имеет счетчик, тем большее время ему требуется на полное переключение всех разрядов. Задержка переключения каждого разряда примерно равна задержке триггера, а полная задержка установления кода на выходе счетчика равна задержке одного разряда, умноженной на число разрядов счетчика. Легко заметить, что при периоде входного сигнала, меньшем полной задержки установления кода счетчика, правильный код на выходе счетчика просто не успеет установиться, поэтому такая ситуация не имеет смысла. Это накладывает жесткие ограничения на период (частоту) входного сигнала, причем увеличение, к примеру, вдвое количества разрядов счетчика автоматически уменьшает вдвое предельно допустимую частоту входного сигнала.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/23-09.gif" width="620" height="151"><br><br>Рис. 23.9. Временная диаграмма работы 4-разрядного асинхронного счетчика.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Таким образом, если нам нужен выходной код асинхронного счётчика, то есть все его выходные сигналы (разряды) одновременно, то должно выполняться следующее неравенство: <b>T &gt; Nt<sub>з</sub></b>, </p>
+    <p>где <b>T</b> - период входного сигнала, <b>N</b> - число разрядов счетчика, <b>t<sub>з</sub></b> - время задержки одного разряда. </p>
+    <p>Надо еще учесть, что за период входного сигнала должно успеть сработать устройство (узел), на которое поступает выходной код счетчика, иначе счетчик просто не нужен; поэтому ограничение на частоту входного сигнала обычно бывает еще жестче.</p>
+    <p>В составе стандартных серий цифровых микросхем асинхронных счетчиков немного. Для примера на рис. 23.10 приведены три из них: 4-х разрядный двоично-десятичный счётчик <b>ИЕ2</b>, 4-х разрядный двоичный счетчик <b>ИЕ5</b> и 8-и разрядный двоичный счетчик <b>ИЕ19</b> (он же сдвоенный четырехразрядный счетчик).</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="center" valign="top"><img src="img/23-10.gif" width="496" height="139"><br><br>Рис. 23.10. Асинхронные счетчики стандартных серий.</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="left" valign="top"><p>У всех этих счётчиков управление работой очень простое, есть всего лишь входы сброса в нуль или входы установки в <b>9</b> (только у ИЕ2). Все асинхронные счетчики работают по отрицательному фронту входного сигнала <i><b>С</b></i> (или, что то же самое, по заднему фронту положительного входного сигнала). У всех трех счетчиков выделены две независимые части, что увеличивает возможности их применения. При объединении этих двух частей получается счетчик максимальной разрядности. Выходы счетчиков обозначают на схемах 0, 1, 2, 3, ... (как номера разрядов выходного двоичного кода) или 1, 2, 4, 8, ... (как веса каждого разряда двоичного кода). </p>
+    <p><b><i>Счётчик </i>ИЕ2</b> (рис. 23.10) имеет две части: один триггер (вход <i>С1</i>, выход <i>1</i>) и три триггера (вход <i>С2</i> и выходы <i>2, 4, 8</i>). Таким образом, он состоит из одноразрядного счетчика и трехразрядного счетчика. Одиночный триггер работает в обычном счетном режиме, изменяя свое состояние по каждому отрицательному фронту сигнала <i><b>С1</b></i>, то есть делит частоту входного сигнала на <i><b>2</b></i>. Три оставшихся триггера включены таким образом, чтобы считать до <i><b>5</b></i>, то есть делить входную частоту сигнала <i><b>С2</b></i> на <b>9</b>. После достижения кода <b>4</b> (то есть 100) на выходах <i><b>2, 4</b></i> и <i><b>8</b></i> этот трехразрядный счетчик по следующему отрицательному фронту сигнала <i><b>С2</b></i> сбрасывается в нуль. В результате при объединении выхода <i><b>1</b></i> микросхемы со входом <i><b>С2</b></i> мы получаем 4-разрядный двоично-десятичный счетчик, делящий частоту входного сигнала <i><b>С1</b></i> на <b>10</b> и сбрасывающийся в нуль после достижения на выходах <i>1, 2, 4, 8</i> кода <b>9</b> (то есть 1001) по отрицательному фронту сигнала <i><b>С1</b></i>.</p>
+    <p>Счетчик <b>ИЕ2</b> имеет два входа асинхронного сброса в нуль <i><b>R1</b></i> и <i><b>R2</b></i>, объединенных по функции <b>И</b>, и два входа установки в <b>9</b> &#8211; <i><b>S1</b></i> и <i><b>S2</b></i>, также объединенных по функции <b>И</b>, причем установка в <b>9</b> блокирует установку в нуль. Наличие этих входов сброса и установки позволяет строить на базе счетчика ИЕ2 делители частоты с разными коэффициентами деления. Правда, этот счетчик используется довольно редко, значительно реже, чем другие асинхронные счетчики <b>ИЕ5</b> и <b>ИЕ19</b>.</p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="center" valign="top"><div>
+      <table width="348" border="0" cellpadding="2" cellspacing="1">
+        <caption>
+          Табл. 23.2. Таблица истинности счётчика ИЕ2
+          </caption>
+        <tbody>
+          <tr>
+            <th colspan="5" align="center" bgcolor="#d8d8d8">Входы </th>
+            <th colspan="4" align="center" bgcolor="#d8d8d8"> Выходы</th>
+          </tr>
+          <tr>
+            <th align="center" bgcolor="#d8d8d8"> С1 </th>
+            <th align="center" bgcolor="#d8d8d8"> R1 </th>
+            <th align="center" bgcolor="#d8d8d8"> R2 </th>
+            <th align="center" bgcolor="#d8d8d8"> S1 </th>
+            <th align="center" bgcolor="#d8d8d8"> S2 </th>
+            <th align="center" bgcolor="#d8d8d8">8</th>
+            <th align="center" bgcolor="#d8d8d8">4</th>
+            <th align="center" bgcolor="#d8d8d8">2</th>
+            <th align="center" bgcolor="#d8d8d8">1</th>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">X</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">1 &#8594; 0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">X</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td colspan="4" align="center" valign="top" bgcolor="#eaeaea">Счет</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">1 &#8594; 0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td colspan="4" align="center" valign="top" bgcolor="#eaeaea">Счет</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">1 &#8594; 0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td colspan="4" align="center" valign="top" bgcolor="#eaeaea">Счет</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">1 &#8594; 0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td colspan="4" align="center" valign="top" bgcolor="#eaeaea">Счет</td>
+          </tr>
+        </tbody>
+      </table>
+      &nbsp; 
+    </div>
+    <div id="mark_27"></div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="left" valign="top"><p><i>Таблица истинности</i> асинхронного счётчика ИЕ2 при соединенном выходе 1 и входе С2 (при 4-разрядном выходном коде) приведена в табл. 23.2, а состояния выходов при счете входных импульсов по тактам представлены в табл. 23.3.</p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="center" valign="top"><div id="id_48">
+      <table width="399" border="0" cellpadding="2" cellspacing="1">
+        <caption>
+          Табл. 23.3. Состояния выходов счётчика ИЕ2 при счете входных импульсов
+          </caption>
+        <tbody>
+          <tr>
+            <th align="center" bgcolor="#d8d8d8">Такт</th>
+            <th align="center" bgcolor="#d8d8d8">Вых.8</th>
+            <th align="center" bgcolor="#d8d8d8">Вых.4</th>
+            <th align="center" bgcolor="#d8d8d8">Вых.2</th>
+            <th align="center" bgcolor="#d8d8d8">Вых.1</th>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">2</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">3</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">4</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">5</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">6</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">7</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">8</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">9</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">10</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="mark_48"></div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="left" valign="top"><p><b><i>Счётчик</i></b> <b>ИЕ5 </b>(рис. 23.10), точно так же как и <b>ИЕ2</b>, имеет две части: один триггер (одноразрядный счетчик) со входом <i><b>С1</b></i> и выходом <i><b>1</b></i> и три триггера (трехразрядный счетчик) со входом <i><b>С2</b></i> и выходами <i>2, 4, 8</i>. Оба счетчика &#8211; двоичные, то есть первый считает до двух, а второй &#8211; до 8. При объединении входа <i><b>С2</b></i> с выходом <i><b>1</b></i> получается 4-разрядный двоичный счетчик, считающий до <b>16</b>. Счет производится по отрицательному фронту входных сигналов <i><b>С1</b></i> и <i><b>С2</b></i>. Предусмотрена возможность сброса счетчика в нуль по сигналам <i><b>R1</b></i> и <i><b>R2</b></i>, объединенным по функции <b>И</b>.</p>
+    <p><b><i>Счётчик</i> ИЕ19</b> (рис. 23.10) можно считать сдвоенным вариантом счетчика ИЕ5. Он включает в себя два идентичных независимых друг от друга 4-разрядных асинхронных счетчика, каждый из которых имеет свой счетный вход <b>С</b> и свой вход сброса <b>R</b>. Считают оба счетчика, входящие в микросхему, по отрицательному фронту на своих входах <b>С1</b> и <b>С2</b>. Сбрасываются они единичными сигналами на своих входах сброса <b>R1</b> и <b>R2</b>. Счетчики, входящие в ИЕ19, можно использовать самостоятельно, но можно и объединить их для получения 8-разрядного асинхронного счетчика с выходами 1, 2, 4, 8, 16, 32, 64, 128.</p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p08.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p09.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">8</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

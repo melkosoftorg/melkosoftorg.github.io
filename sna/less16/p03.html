@@ -1,0 +1,90 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p04.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | 3 | | <a href="p04.html">4</a> | 
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.1.3. Арифметические основы</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p><b><i>Числовая информация</i></b> в компьютерах характеризуется:<br>
+      • &nbsp; системой счисления (двоичная, десятичная и др.);<br>
+      • &nbsp; видом числа (числа вещественные, комплексные, массивы);<br>
+    • &nbsp; типом числа (смешанное, целое, дробное);<br>
+    • &nbsp; формой представления числа (место запятой) — с природной (переменной), фиксированной, плавающей запятой;<br>
+    • &nbsp; разрядной сеткой и форматом числа;<br>
+    • &nbsp; диапазоном и точностью представления чисел;<br>
+    • &nbsp; способом кодирования отрицательных чисел — прямым, обратным и дополнительным кодами;<br>
+    • &nbsp; алгоритмами выполнения арифметических операций.</p>
+    <p><b><i>Системой счисления</i></b> называется совокупность цифр и правил для записи чисел. Запись числа в некоторой системе счисления называется его <i><b>кодом</b></i>. Все системы счисления делятся на позиционные и непозиционные. Для записи чисел в позиционной системе счисления используют определенное количество графических знаков (цифр и букв), которые отличаются один от другого. Число таких знаков <i><b>q</b></i> называют основанием позиционной системы счисления. В компьютерах используют позиционные системы с разным основанием.</p>
+    <p>    Система счисления с основанием <i>два</i> (цифры <b>0 и 1</b>) называется двоичной, система счисления с основанием <i>три</i> (цифры 0, 1,2) — троичной и т.д. В системах счисления с основанием меньше десяти используют десятичные цифры, а для основания больше десяти добавляют буквы латинского алфавита — А, В, С, D, E, F.</p>
+    <p>В компьютерах в основном  используют однородные позиционные системы счисления.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p> <i><b>Формы представления чисел</b></i><b></b></p>
+      <p>        Двоичные числа в компьютерах размещаются в ячейках памяти или в регистрах, которые состоят из запоминающих элементов — <i>триггеров</i>. В ячейке или триггере хранится значение одного двоичного разряда — бит информации. Разрядной сеткой компьютера называется совокупность запоминающих элементов для размещения одного двоичного числа. Для разных классов компьютеров длина разрядной сетки составляет <i>8, 16, 32, 64</i> и больше разрядов. Форматом называется способ размещения компонентов числа в разрядной сетке, то есть последовательность и позиции знака,<a title="дробная часть десятичного логарифма"> мантиссы</a>, порядка и др.</p>
+      <p>        В компьютерах используются две формы представления числа:<br>
+        • &nbsp; <i>с фиксированной запятой</i> перед старшим разрядом числа (для правильной дроби) или после младшего (для целого числа);<br>
+        • &nbsp; <i>с плавающей запятой</i>, место положения которой задается порядком числа. </p>
+      <p>Место запятой в обоих форматах понимается неявно, без использования дополнительных разрядов.  По традиции нумерация разрядов в больших машинах осуществляется слева направо, а в мини- и микрокомпьютерах и микропроцессорах — справа налево.</p>
+    <p><b><i>Арифметические операции</i></b></p>
+    <p>Все операции в компьютере выполняются в арифметико-логическом устройстве (<b>АЛУ</b>). Числа, которые участвуют в операциях, называются <i><b>операнд</b>ами</i>. Основной операцией в АЛУ является <i><b>сложение</b></i>. Операция вычитания заменяется сложением операндов в обратном или дополнительном кодах. Операции умножения и деления сводятся к многократным сложениям и сдвигам.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>&nbsp;</p>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p03.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p04.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">3</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

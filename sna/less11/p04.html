@@ -1,0 +1,95 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p05.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | 4 | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>1.14.4. Основные параметры серий ИМС</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Все <b>параметры</b> делятся на две большие группы:</p>
+      <ol>
+        <li><i><b>Статические параметры</b></i>, которые измеряются при неизменяемых входных и выходных сигналах.</li>
+        <li><i><b>Динамические параметры</b></i>, которые характеризуют временные и частотные характеристики.</li>
+      </ol>      </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p><b>Статические параметры</b> микросхем ТТЛ и К-МОП:</p>
+      <ol>
+        <li>Напряжение питания &#8211; <b>U<sub>пит</sub></b> , <i>В</i></li>
+        <li>Средняя потребляемая мощность &#8211; <b>Р<sub>ср </sub></b>, <i>мВт</i></li>
+        <li>Входное напряжение логической <b>1</b> &#8211; <b>U<sup>1</sup><sub>вx</sub></b> , <i>В</i></li>
+        <li>Входное напряжение логического <b>0</b> &#8211; <b>U<sup>0</sup><sub>вх</sub></b> , <i>В</i></li>
+        <li>Выходное напряжение лог.<b>1</b> &#8211; <b>U<sup>1</sup><sub>вых</sub></b><sub> </sub>, <i>В</i></li>
+        <li>Выходное напряжение лог.<b>0</b> &#8211; <b>U<sup>0</sup><sub>вых </sub></b>, <i>В</i></li>
+        <li>Ток входа при лог.<b>1</b> &#8211; <b>I<sup>1</sup><sub>вх</sub></b> , <i>мА</i></li>
+        <li>Ток входа при лог.<b>0</b> &#8211; <b>I<sup>0</sup><sub>вх</sub></b> , <i>мА</i></li>
+        <li>Ток выхода при лог.<b>1</b> &#8211; <b>I<sup>1</sup><sub>вых</sub></b> , <i>мА</i></li>
+        <li>Ток выхода при лог.<b>0</b> &#8211; <b>I<sup>0</sup><sub>вых</sub></b> , <i>мА</i></li>
+      </ol></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Наиболее распространены следующие <b>динамические параметры: </b></p>
+      <ol>
+        <li> <i>Задержка переключения из лог.</i> <b>1</b> <i>в лог.</i> <b>0</b>. Изменение выходного состояния любого цифрового элемента происходит за конечное время. Задержка переключения из лог. <b>1</b> в лог. <b>0</b> &#8211; это время, за которое сигнал изменится от 90 % до 10 % напряжения лог. <b>1</b>. </li>
+        <li> <i>Задержка переключения из лог.</i> <b>0</b> <i>в лог.</i> <b>1</b>. Задержка переключения из лог. <b>0</b> в лог. <b>1</b> - это время, за которое сигнал изменится от 10% до 90% напряжения лог. <b>1</b>. </li>
+        <li> <i>Задержка распространения при переключении из лог.</i> <b>1</b> <i>в лог.</i> <b>0</b>. Изменение выходных сигналов всегда происходит под воздействием входных сигналов. Но эти изменения происходят с определённой задержкой. Данный параметр позволяет оценить эту задержку. </li>
+        <li> <i>Задержка распространения при переключении из лог.</i> <b>0</b> <i>в лог.</i> <b>1</b>.  Время задержки распространения при переключении из лог. <b>1</b> в лог. <b>0</b> меньше, чем при переключении из лог. <b>0</b> в лог. <b>1</b>.</li>
+        <li> <i>Среднее время задержки распространения</i>. Данный параметр является основным. Находится как среднее арифметическое от задержки распространения при переключении из лог. <b>1</b> в лог. <b>0</b> и задержки распространения при переключении из лог. <b>0</b> в лог. <b>1</b>. </li>
+    </ol>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p04.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p05.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">4</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>
