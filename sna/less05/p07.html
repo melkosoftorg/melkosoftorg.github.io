@@ -1,0 +1,136 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p08.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%" colspan="4">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | 7 | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td colspan="4"><div align="center">
+      <h3>1.5.7. Основные параметры   биполярных транзисторов</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td colspan="4" align="left" valign="top"><p><b><i>Основные параметры:</i></b></p>
+      <ul>
+        <li><b>Коэффициент передачи по току</b>&nbsp;&#8211; <i><b>β</b></i></li>
+        <li><b>Входное сопротивление</b> &#8211; <i><b>R<sub>вх</sub></b></i></li>
+        <li><b>Выходная проводимость</b> &#8211; <i><b>G<sub>вых</sub></b></i><b></b></li>
+        <li><b>Обратный ток коллектор-эмиттер</b> &#8211; <i><b>I<sub>об.к-э</sub></b></i><b></b></li>
+        <li><b>Время включения</b> &#8211; <i><b>t<sub>в</sub></b></i><b></b></li>
+        <li><b>Предельная частота коэффициента передачи тока базы</b> &#8211; <i><b>f<sub>пр</sub></b></i><b></b></li>
+        <li><b>Обратный ток коллектора</b> &#8211; <i><b>I<sub>об.к</sub></b></i><b></b></li>
+        <li><b>Максимально допустимый ток</b> &#8211; <i><b>I<sub>max</sub></b></i><b></b></li>
+        <li><b>Граничная частота коэффициента передачи по схеме с общим эмиттером</b> &#8211; <i><b>f<sub>к</sub></b></i><b></b></li>
+      </ul>
+    <p></p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td colspan="4" align="left" valign="top"><p>Параметры транзистора делятся на <i>собственные</i> (первичные) и <i>вторичные</i>.   Собственные параметры характеризуют свойства транзистора, не зависимо   от схемы его включения. В качестве основных собственных параметров   принимают:</p>
+      <ul>
+      <li><b>коэффициент усиления по току &#8211;</b> <i><b>α</b></i>;</li>
+        <li><b>сопротивления эмиттера, коллектора и базы переменному току &#8211;</b>&nbsp; <i><b>r<sub>э</sub></b></i>, <i><b>r<sub>к</sub></b></i>, <i><b>r<sub>б</sub></b></i>,&nbsp; которые представляют собой:
+          <ul>
+            <li><i><b>r<sub>э</sub></b></i><b><i> </i></b>— сумму сопротивлений эмиттерной области и эмиттерного перехода;</li>
+            <li> <i><b>r<sub>к</sub></b></i><b><i> </i></b>— сумму сопротивлений коллекторной области и коллекторного перехода;</li>
+            <li><i><b>r<sub>б</sub></b></i><b><i> </i></b>— поперечное сопротивление базы.</li>
+          </ul>
+        <br><br>
+      <div>  <h4>Эквивалентная схема биполярного транзистора с использованием&nbsp; <i>h-параметров</i></h4></div>
+        
+    <p><b><i>Вторичные параметры</i></b> различны для различных схем включения транзистора   и, вследствие его нелинейности, справедливы только для низких частот и   малых амплитуд сигналов. Для вторичных параметров предложено несколько   систем параметров и соответствующих им эквивалентных схем. Основными   считаются <i>смешанные (гибридные) параметры</i>, обозначаемые буквой «<b>h</b>».</p>      
+    <p><b>Входное сопротивление</b> — сопротивление транзистора входному   переменному току при коротком замыкании на выходе. Изменение входного   тока является результатом изменения входного напряжения, без влияния   обратной связи от выходного напряжения:</p>
+    <p><b>h<sub>11</sub></b> = Um1/Im1 при Um2 = 0</p>
+<p><b>Коэффициент обратной связи по напряжению</b> показывает, какая   доля выходного переменного напряжения передаётся на вход транзистора   вследствие обратной связи в нём. Во входной цепи транзистора нет   переменного тока, и изменение напряжения на входе происходит только в   результате изменения выходного напряжения:</p>
+    <dl>
+      <dd><b>h<sub>12</sub></b> = U<sub>m1</sub>/U<sub>m2</sub>&nbsp;&nbsp;&nbsp; при I<sub>m1</sub> = 0</dd>
+    </dl>
+    <p><b>Коэффициент передачи тока</b> (коэффициент усиления по току)   показывает усиление переменного тока при нулевом сопротивлении нагрузки.   Выходной ток зависит только от входного тока без влияния выходного   напряжения:</p>
+    <dl>
+      <dd><b>h<sub>21</sub></b> = I<sub>m2</sub>/I<sub>m1</sub>&nbsp;&nbsp;&nbsp; при U<sub>m2</sub> = 0</dd>
+    </dl>
+    <p><b>Выходная проводимость</b> — внутренняя проводимость для   переменного тока между выходными зажимами. Выходной ток изменяется под   влиянием выходного напряжения:</p>
+    <dl>
+      <dd><b>h<sub>22</sub></b> = I<sub>m2</sub>/U<sub>m2</sub>&nbsp;&nbsp;&nbsp;&nbsp; при I<sub>m1</sub> = 0</dd>
+    </dl>
+    <p>Зависимость между переменными токами и напряжениями транзистора выражается уравнениями:</p>
+    <dl>
+      <dd>U<sub>m1</sub> = h<sub>11</sub>I<sub>m1</sub> + h<sub>12</sub>U<sub>m2</sub><br>
+      </dd>
+      <dd>I<sub>m2</sub> = h<sub>21</sub>I<sub>m1</sub> + h<sub>22</sub>U<sub>m2</sub></dd>
+    </dl>
+    <p>&nbsp;</p>
+    <p>В зависимости от схемы включения транзистора к цифровым индексам   h-параметров добавляются буквы: «<b>э</b>» — для схемы ОЭ, «<b>б</b>» — для схемы ОБ,   «<b>к</b>» — для схемы ОК.</p>
+    <p><b><i>Для схемы ОЭ:</i></b>&nbsp; I<sub>m1</sub> = I<sub>mб</sub>, I<sub>m2</sub> = I<sub>mк</sub>, U<sub>m1</sub> = U<sub>mб-э</sub>, U<sub>m2</sub> = U<sub>mк-э</sub>. <i>&nbsp; Например</i>, для данной схемы:</p>
+    <dl>
+      <dd>h<sub>21э</sub> = I<sub>mк</sub>/I<sub>mб</sub> = β.</dd>
+    </dl>
+    <p><b><i>Для схемы ОБ:</i></b>&nbsp;&nbsp; I<sub>m1</sub> = I<sub>mэ</sub>, I<sub>m2</sub> = I<sub>mк</sub>, U<sub>m1</sub> = U<sub>mэ-б</sub>, U<sub>m2</sub> = U<sub>mк-б</sub>.</p>
+    <p>&nbsp;</p>
+    <p><i>Собственные параметры транзистора связаны с <b>h</b>-параметрами, например <b>для схемы ОЭ:</b></i></p>
+      </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="center" valign="top"><img src="img/F1.png" width="146" height="37"></td>
+    <td align="center" valign="top"><img src="img/F2.png" width="139" height="41"></td>
+    <td align="center" valign="top"><img src="img/F3.png" width="144" height="37"></td>
+    <td align="center" valign="top"><img src="img/F4.png" width="139" height="46"></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td colspan="4" align="left" valign="top"><p>&nbsp;</p>
+      <p>С повышением частоты вредное влияние на работу транзистора начинает оказывать <i>ёмкость коллекторного перехода</i> <b><i>Cк</i></b>. Сопротивление ёмкости уменьшается, снижается ток через сопротивление нагрузки и, следовательно, коэффициенты усиления <b>α</b> и <b>β</b>. Сопротивление <i>ёмкости эмиттерного перехода</i> <b><i>Cэ</i></b> также снижается, однако она шунтируется малым сопротивлением перехода <b>r<sub>э</sub></b> и в большинстве случаев может не учитываться. Кроме того, при повышении частоты происходит дополнительное снижение коэффициента <b>β</b> в результате отставания фазы тока коллектора от фазы тока эмиттера, которое вызвано инерционность процесса перемещения носителей через базу от эммитерного перехода к коллекторному и инерционностью процессов накопления и рассасывания заряда в базе. Частоты, на которых происходит снижение коэффициентов <b>α</b> и <b>β</b> на 3 дБ, называются граничными частотами коэффициента передачи тока для схем <b>ОБ</b> и <b>ОЭ</b> соответственно. </p>
+    <p>В импульсном режиме импульс тока коллектора начинается с запаздыванием на время задержки <b>τ<sub>з</sub></b> относительно импульса входного тока, что вызвано конечным временем пробега носителей через базу. По мере накопления носителей в базе ток коллектора нарастает в течение длительности фронта <b>τ<sub>ф</sub></b>. Временем включения транзистора называется&nbsp;  <b>τ<sub>вкл</sub> = τ<sub>з</sub> + τ<sub>ф</sub></b>.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td colspan="4"><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p07.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p08.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">7</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

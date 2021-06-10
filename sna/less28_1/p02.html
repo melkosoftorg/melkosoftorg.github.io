@@ -1,0 +1,80 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=http://prep.scc/%7Esna/uch/os/less28_1/p08.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | <br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.13.7. Применение ЦАП</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p><b><i>Основное применение микросхем ЦАП</i></b> состоит в получении аналогового сигнала из последовательности цифровых кодов (рис. 28.9). </p>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/28-09.gif" width="479" height="139"><br><br>Рис. 28.9. Преобразование последовательности кодов в выходное напряжение.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Как правило, коды подаются на входы ЦАП через параллельный регистр, что позволяет обеспечить одновременность изменения всех разрядов входного кода ЦАП. При неодновременном изменении разрядов входного кода на выходе ЦАП появляются большие короткие импульсы напряжения, уровни которых не соответствуют ни одному из кодов. Однако, даже при одновременном изменении всех разрядов входного кода ЦАП, уровень напряжения, соответствующий поданному коду, устанавливается не сразу, а за время установления ЦАП <b>t<sub>уст</sub></b>, что связано с неидеальностью внутренних элементов ЦАП. Выходной ток ЦАП, как правило, устанавливается значительно быстрее выходного напряжения, так как он не зависит от инерционности операционного усилителя. Понятно, что условие правильной работы ЦАП состоит в том, чтобы длительность сохранения входного кода была больше, чем время установления ЦАП <b>t<sub>уст</sub></b>, иначе выходной сигнал не успеет принять значение, соответствующее входному коду. </p>
+    <p>Если подавать коды на вход ЦАП редко, то приведенная на рис. 28.9 схема может использоваться, <i>например</i>, в управляемом источнике питания, выходное напряжение которого задается входным кодом. Правда, при этом необходимо еще обеспечить большой выходной ток источника питания, применив внешний усилитель тока. Если же подавать коды на вход ЦАП с высокой частотой, то можно получить генератор (он же синтезатор) аналоговых сигналов произвольной формы. В этом случае коды, поступающие на ЦАП, называют кодами выборок (то есть мгновенных значений) генерируемого аналогового сигнала.</p>
+    <p>&nbsp;</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="center" valign="top"><img src="img/28-10_CirrusLogicCS4282-AB.jpg" width="636" height="480"><br><br>
+      Рис. 28.10. 8-канальный ЦАП Cirrus Logic CS4382 на звуковой плате Sound Blaster.</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p02.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://prep.scc/%7Esna/uch/os/less28_1/p08.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">7</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

@@ -1,0 +1,102 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p00.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1 </a>| | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | 9 |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.10.9. Компьютерные ПЗУ</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p><b>Компьютерные микросхемы ПЗУ классифицируют:</b></p>
+      <ul>
+        <li><b>По технологии изготовления кристалла</b>:
+<ul>
+            <li><b><i>ROM</i></b> — (англ. <i><span xml:lang="en" lang="en">read-only memory</span></i>, постоянное запоминающее устройство), масочное <strong>ПЗУ</strong>, изготавливается фабричным методом. В дальнейшем нет возможности изменить записанные данные.</li>
+            <li><b><i>PROM</i></b> — (англ. <i><span xml:lang="en" lang="en">programmable read-only memory</span></i>, программируемое <b>ПЗУ</b> (<b>ППЗУ</b>)) — <b>ПЗУ</b>, однократно «прошиваемое» пользователем.</li>
+            <li><b>EPROM</b> — (англ. <i><span xml:lang="en" lang="en">erasable programmable read-only memory</span></i>, перепрограммируемое <b>ПЗУ</b> (<b>ПППЗУ</b>)).   Например, содержимое микросхемы К537РФ1 стиралось при помощи   ультрафиолетовой лампы. Для прохождения ультрафиолетовых лучей к   кристаллу в корпусе микросхемы было предусмотрено окошко с кварцевым   стеклом.</li>
+            <li><b><i>EEPROM</i></b> — (англ. <i><span xml:lang="en" lang="en">electrically erasable programmable read-only memory</span></i>, электрически стираемое перепрограммируемое <b>ПЗУ</b>).   Память такого типа может стираться и заполняться данными несколько   десятков тысяч раз. Используется в твердотельных накопителях. Одной из   разновидностей EEPROM является <b>флеш-память</b> (англ. <i><span xml:lang="en" lang="en">flash memory</span></i>).</li>
+            <li><b><i>ПЗУ на магнитных доменах</i></b>,   например К1602РЦ5, имело сложное устройство выборки и хранило довольно   большой объём данных в виде намагниченных областей кристалла, при этом   не имея движущихся частей (см. Компьютерная память). Обеспечивалось неограниченное количество циклов перезаписи.</li>
+            <li><b><i>NVRAM</i></b>, non-volatile memory — «неразрушающаяся» память, строго говоря, не является ПЗУ. Это ОЗУ небольшого объёма, конструктивно совмещённое с батарейкой.  В NVRAM современных ЭВМ батарейка уже конструктивно не связана с ОЗУ и может быть заменена.</li>
+          </ul>
+        </li>
+        <li><b>По виду доступа</b>:
+<ul>
+            <li>С <b><i>параллельным доступом</i></b> (<b>parallel mode</b> или <b>random access</b>): такое ПЗУ может быть доступно в системе в адресном пространстве ОЗУ. Например, К573РФ5;</li>
+            <li>С <b><i>последовательным доступом</i></b>: такие ПЗУ часто используются для однократной загрузки констант или прошивки в процессор или ПЛИС, используются для хранения настроек каналов телевизора, и др. Например, 93С46, AT17LV512A.</li>
+          </ul>
+        </li>
+        <li><b>По способу <i>программирования</i> микросхем</b> (записи в них прошивки):
+<ul>
+            <li><b><i>Непрограммируемые ПЗУ</i></b>;</li>
+            <li><b><i>ПЗУ, программируемые только с помощью специального устройства</i></b> — <i>программатора ПЗУ</i> (как однократно, так и многократно прошиваемые). Использование   программатора необходимо, в частности, для подачи нестандартных и   относительно высоких напряжений (до +/- 27 В) на специальные выводы.</li>
+            <li><b><i>Внутрисхемно (пере)программируемые ПЗУ</i></b> (<b>ISP</b><i>, in-system programming</i>) —   такие микросхемы имеют внутри генератор всех необходимых высоких   напряжений, и могут быть перепрошиты без программатора и даже без   выпайки из печатной платы, программным способом.</li>
+          </ul>
+        </li>
+    </ul> 
+    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>&nbsp;</p>
+      <p><b>Применение ПЗУ</b></p>
+    <p>В постоянную память часто записывают микропрограмму управления техническим устройством: телевизором, сотовым телефоном, различными контроллерами, или компьютером (<b>BIOS</b>). </p>
+    <p><b>BootROM</b> — прошивка, такая, что если её записать в подходящую микросхему ПЗУ, установленную в сетевой карте, то становится возможна загрузка операционной системы на компьютер с удалённого узла локальной сети. Для встроенных в ЭВМ сетевых плат BootROM можно активировать через BIOS. </p>
+    <p><img src="img/Eprom.jpg" width="128" height="245" align="left">ПЗУ в IBM PC-совместимых ЭВМ располагается в адресном пространстве с <b>F600:0000</b> по <b>FD00:0FFF</b></p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>&nbsp;</p>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p09.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p00.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">9</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

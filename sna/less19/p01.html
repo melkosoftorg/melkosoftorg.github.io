@@ -1,0 +1,75 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="460; URL=p02.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | 1 | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.4.1.  Общие сведения о комбинационных микросхемах</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p><b><i>Комбинационные микросхемы</i></b> выполняют более сложные функции, чем простые логические элементы. Их входы объединены в функциональные группы и не являются полностью взаимозаменяемыми. Например, любые два входа логического элемента И-НЕ   совершенно спокойно можно поменять местами, от этого выходной сигнал никак не изменится, а для комбинационных микросхем это невозможно, так как у каждого входа — своя особая функция.</p>
+      <p>Объединяет комбинационные микросхемы с логическими элементами то, что они не имеют внутренней памяти. То есть уровни их выходных сигналов всегда однозначно определяются текущими уровнями входных сигналов и никак не связаны с предыдущими значениями входных сигналов. Любое изменение входных сигналов обязательно изменяет состояние выходных сигналов. Именно поэтому логические элементы иногда также называют комбинационными микросхемами, в отличие от последовательных (или последовательностных) микросхем, которые имеют внутреннюю память и управляются не уровнями входных сигналов, а их последовательностями. </p>
+      <p>Строго говоря, все комбинационные микросхемы внутри построены из простейших логических элементов, и эта их внутренняя   структура часто приводится в справочниках. Но для разработчика цифровой аппаратуры эта информация обычно лишняя, ему достаточно знать только таблицу истинности, только принцип преобразования входных сигналов в выходные, а также величины задержек между входами и выходами и уровни входных и выходных токов и напряжений. Внутренняя же структура важна для разработчиков микросхем, а также в тех редчайших случаях, когда надо построить новую комбинационную микросхему из микросхем простых логических элементов.</p>
+    <p>Состав набора комбинационных микросхем, входящих в стандартные серии, был определен исходя из наиболее часто встречающихся задач. Требуемые для этого функции реализованы в комбинационных микросхемах наиболее оптимально, с минимальными задержками и минимальным потреблением мощности. Поэтому пытаться повторить эту уже проделанную однажды работу не стоит. Надо просто уметь грамотно применять то, что имеется.</p>       </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/19-01.jpg" width="216" height="201"><br><br>Рис 19.1. Комбинационная схема К155ЛАЗ на логических элементах семейства ТТЛ.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>&nbsp;</p>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p01.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p02.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">1</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

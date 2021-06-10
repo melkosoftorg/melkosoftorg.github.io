@@ -1,0 +1,127 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p08.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | 7 | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.11.7. DDR2 и DDR3 </h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><p><b>DDR2 SDRAM</b> (<i>англ</i>. double-data-rate two synchronous dynamic random access memory — синхронная динамическая память с произвольным доступом и удвоенной скоростью передачи данных, второе поколение) — это тип оперативной памяти используемой в вычислительной технике в качестве оперативной и видеопамяти. Пришла на смену памяти DDR SDRAM.</p>
+      <p>Память DDR2 является прямым наследником DDR и близким родственником памяти первого поколения &#8211; SDRAM. Для DDR2 характерно увеличение частоты функционирования, усовершенствованная логика контроллера и сниженное энергопотребление. Новой памяти свойственна новая архитектура, которая имеет ряд фундаментальных отличий. Во-первых, в модулях памяти DDR2 используется 4-битная упреждающая выборка (4-bit Prefetch). Данная технология позволила по сравнению с частотой синхронизации увеличить скорость ввода/вывода данных в четыре раза, хотя частота тактовых импульсов по сравнению с наиболее продвинутыми реализациями SDRAM и DDR изменилась не существенно. Высокая скорость ввода/вывода у DDR2 достигается, как и у DDR, передачей двух блоков данных в пределах одного такта, что в совокупности с удвоенной частотой буферов ввода/вывода дает учетверенный показатель эффективной частоты. Другое серьезное нововведение DDR2 касается усовершенствования логики контроллера. В принципе, его можно рассматривать как следствие высоких задержек CAS Latency Time, RAS-to-CAS Delay и RAS Recharge Time, характерных для второго поколения DDR. Данную проблему, а также некоторые недостатки, свойственные протоколам работы SDR/DDR-памяти, должна решить технология &quot;отложенного CAS&quot; (Posted CAS) и механизм аддитивной латентности (Additive Latency). </p>
+      <div><img src="img/ddr2-2.jpg" width="634" height="486"><br><br>
+      Рис. 26.6. Модуль памяти  DDR2 (2Гб).</div>
+    <p> Основное отличие DDR2 от DDR — вдвое большая частота работы шины, по которой данные передаются в буфер микросхемы памяти. При этом, чтобы обеспечить необходимый поток данных, передача на шину осуществляется из четырёх мест одновременно. </p>
+    <div>Таблица 26.1. Технические стандарты микросхем DDR2</div>
+    <table border="1" cellpadding="4" cellspacing="0">
+      <tbody>
+        <tr>
+          <td align="center">Тип чипа</td>
+          <td align="center">Частота памяти</td>
+          <td align="center">Частота шины</td>
+          <td align="center">Эффективная частота</td>
+        </tr>
+        <tr>
+          <td align="center">DDR2-400</td>
+          <td align="center">100 МГц</td>
+          <td align="center">200 МГц</td>
+          <td align="center">400 МГц</td>
+        </tr>
+        <tr>
+          <td align="center">DDR2-533</td>
+          <td align="center">133 МГц</td>
+          <td align="center">266 МГц</td>
+          <td align="center">533 МГц</td>
+        </tr>
+        <tr>
+          <td align="center">DDR2-667</td>
+          <td align="center">166 МГц</td>
+          <td align="center">333 МГц</td>
+          <td align="center">667 МГц</td>
+        </tr>
+        <tr>
+          <td align="center">DDR2-800</td>
+          <td align="center">200 МГц</td>
+          <td align="center">400 МГц</td>
+          <td align="center">800 МГц</td>
+        </tr>
+        <tr>
+          <td align="center">DDR2-1066</td>
+          <td align="center">266 МГц</td>
+          <td align="center">533 МГц</td>
+          <td align="center">1066 МГц</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p>&nbsp;</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><p><b>DDR3 SDRAM</b> (<i>англ</i>. double-data-rate three synchronous dynamic random access memory &#8211; синхронная динамическая память с произвольным доступом и удвоенной скоростью передачи данных, третье поколение) — это тип оперативной памяти, используемой в вычислительной технике в качестве оперативной и видео- памяти. Пришла на смену памяти типа DDR2 SDRAM.</p>
+<div><img src="img/ddr3_4gb.jpg" width="748" height="419"><br><br>
+  Рис. 26.7. Модуль памяти Kingston DDR3 DDRAM (4GB,1333MHz). </div>
+  <p>  Среди основных преимуществ нового стандарта, прежде всего, стоит отметить меньшее энергопотребление, примерно на 40% чем у ходовых образцов модулей DDR2. Основной причиной экономии энергопотребления называют использование нового поколения чипов памяти DDR3, выпуск которых налажен у большинства производителей. Это позволяет снизить рабочие напряжения чипов – до 1,5 В у DDR3, что ниже 1,8 В у DDR2 или 2,5 В у DDR. </p>
+  <p>Производительность модулей памяти DDR3 в перспективе должна значительно превысить возможности нынешнего поколения памяти DDR2 – хотя бы потому, что теоретически эффективные частоты DDR3 будут располагаться в диапазоне 800 МГц – 1600 МГц (при тактовых частотах 400 МГц – 800 МГц). В то время как у DDR2 эффективные рабочие частоты составляют 400 МГц – 1066 МГц (тактовые частоты 200 МГц - 533 МГц), а у DDR – и вовсе 200 МГц – 600 МГц (100 МГц - 300 МГц). </p>
+  <p><b>Память DDR3</b> обладает 8-битным буфером предварительной выборки, в то время как у нынешней памяти DDR2 он 4-битный, а у DDR и вовсе был 2-битный. Буфер предварительной выборки (prefetch buffer), надо отметить, достаточно важный элемент современных модулей памяти, поскольку он отвечает за кэширование данных перед тем, как они будут востребованы. Еще одним преимуществом DDR3 можно смело назвать новую схемотехнику динамической внутрикристальной терминации (Dynamic On-Die <a title="завершение">Termination</a>), калибровка которой производится в процессе инициализации для достижения оптимального взаимодействия памяти и системы. Наконец, в отличие от DDR2, где терминация применялась только частично, память DDR3 обладает полной терминацией, включая адреса и команды. </p>
+  <p>Модули памяти DDR3 DIMM для настольных ПК будут обладать 240-контактной структурой, привычной нам по модулям DDR2; однако физической совместимости не будет благодаря различному расположению ключей DIMM. Такая защита, предотвращающая установку модулей DDR3 в платы под DDR2 и наоборот предусмотрена не только по причине поконтактной несовместимости модулей, но и в связи с разными напряжения питания и сигнальными уровнями разных поколений оперативной памяти. Минусом DDR3 против DDR2 можно назвать более высокую латентность.</p>
+    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><div><br>
+    <img src="img/ddr2-ddr3.jpg" width="400" height="400"><br><br>Рис. 26.8. Констуктивные отличия DDR2 и DDR3.</div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p07.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p08.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">7</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

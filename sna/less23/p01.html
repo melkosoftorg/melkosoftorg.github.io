@@ -1,0 +1,117 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="460; URL=p02.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+<script src="http://prep.scc/%7Esna/uch/os/Scripts/swfobject_modified.js" type="text/javascript"></script>
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | 1 | | <a href="p02.html">2</a> | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.8.1. Общая характеристика счётчиков</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p><img src="img/23-00.gif" width="268" height="472" hspace="5" vspace="1" align="left" title="Плата счётчика на JK-тригеррах"><b>Счётчик<i> &#8211; это устройство, на выходах которого получается двоичный или двоично-десятичный код, определяемый числом поступивших импульсов. </i></b></p>
+    <p>Счётчики могут строиться на T или JK -триггерах. </p>
+    <p><b><i>Основной параметр счётчика &#8211;  модуль счёта</i></b> (максимальное число единичных сигналов, которое может быть  сосчитано счётчиком).</p>
+    <p>Счётчики обозначают символами <b>СТ</b> (от англ. <b>c</b>oun<b>t</b>er).</p>
+    <p>Счётчики представляют собой более высокий, чем регистры, уровень сложности цифровых микросхем, имеющих внутреннюю память. Хотя в основе любого счётчика лежат те же самые триггеры, которые образуют и регистры, но в счетчиках триггеры соединены более сложными связями, в результате чего их функции <b><i>&#8211;</i></b> сложнее, и на их основе можно строить более сложные устройства, чем на регистрах. Точно так же, как и в случае регистров, внутренняя память счётчиков <b><i>&#8211;</i></b> оперативная, то есть ее содержимое сохраняется только до тех пор, пока включено питание схемы. С выключением питания память стирается, а при новом включении питания схемы содержимое памяти будет произвольным, случайным, зависящим только от конкретной микросхемы, то есть выходные сигналы счётчиков будут произвольными.</p>
+    <p>Как следует из самого названия, счётчики предназначены для счета входных импульсов. То есть с приходом каждого нового входного импульса двоичный код на выходе счетчика увеличивается (или уменьшается) на единицу. Срабатывать счетчик может по отрицательному фронту входного (тактового) сигнала (как на рисунке) или по положительному фронту. Режим счета обеспечивается использованием внутренних триггеров, работающих в счетном режиме. Выходы счетчика представляют собой как раз выходы этих триггеров. Каждый выход счетчика представляет собой разряд двоичного кода, причем разряд, переключающийся чаще других (по каждому входному импульсу), будет младшим, а разряд, переключающийся реже других, &#8211; старшим. </p>
+    <p>Счётчик может работать на увеличение выходного кода по каждому входному импульсу; это основной режим, имеющийся во всех счетчиках, он называется режимом прямого счета. Счётчик может также работать на уменьшение выходного кода по каждому входному импульсу; это режим обратного или инверсного счета, предусмотренный в счетчиках, называемых реверсивными. Инверсный счет бывает довольно удобен в схемах, где необходимо отсчитывать заданное количество входных импульсов. </p>
+    <p>Большинство счетчиков работают в обычном двоичном коде. <i>Например</i>, 4-разрядный счетчик в режиме прямого счета будет считать от 0 (код 0000) до 15 (код 1111), а 8-разрядный &#8211; от 0 (код 0000 0000) до 255 (код 1111 1111). После максимального значения кода счетчик по следующему входному импульсу переключается опять в 0, то есть работает по кругу. Если же счет &#8211; инверсный, то счетчик считает до нуля, а дальше переходит к максимальному коду 111...1. </p>
+    <p>Имеются также двоично-десятичные счетчики, предельный код на выходе которых не превышает максимального двоично-десятичного числа, возможного при данном количестве разрядов. <i>Например</i>, 4-разрядный двоично-десятичный счетчик в режиме прямого счета будет считать от 0 (код 0000) до 9 (код 1001), а затем снова от 0 до 9. А 8-разрядный двоично-десятичный счетчик будет считать от 0 (код 0000 0000) до 99 (код 1001 1001). При инверсном счете двоично-десятичные счетчики считают до нуля, а со следующим входным импульсом переходят к максимально возможному двоично-десятичному числу (то есть 9 - для 4-разрядного счетчика, 99 - для 8-разрядного счетчика). Двоично-десятичные счетчики удобны, например, при организации десятичной индикации их выходного кода. Применяются они гораздо реже обычных двоичных счетчиков.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/23-01.png" width="640" height="403"><br><br>
+      Рис. 23.1. Четырех-битный синхронный последовательный счётчик использующий JK-триггеры.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><p><i><img src="../img/video.jpg" alt="video" width="69" height="75" align="absmiddle" title="Видеоролик"> Посмотрите видео по данному вопросу</i></p>
+    <div align="center">
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="360" id="FLVPlayer">
+        <param name="movie" value="FLVPlayer_Progressive.swf" />
+        <param name="quality" value="high">
+        <param name="wmode" value="opaque">
+        <param name="scale" value="noscale">
+        <param name="salign" value="lt">
+        <param name="FlashVars" value="&amp;MM_ComponentVersion=1&amp;skinName=Clear_Skin_1&amp;streamName=img/Counters_general&amp;autoPlay=false&amp;autoRewind=false" />
+        <param name="swfversion" value="8,0,0,0">
+        <!-- Этот тег param предлагает пользователям Flash Player 6.0 r65 и более поздних версий загрузить последнюю версию Flash Player. Удалите его, если не хотите, чтобы пользователи видели запрос. -->
+        <param name="expressinstall" value="../Scripts/expressInstall.swf">
+        <!-- Следующий тег object не поддерживается браузером Internet Explorer. Поэтому скройте его от Internet Explorer при помощи IECC. -->
+        <!--[if !IE]>-->
+        <object type="application/x-shockwave-flash" data="FLVPlayer_Progressive.swf" width="640" height="360">
+          <!--<![endif]-->
+          <param name="quality" value="high">
+          <param name="wmode" value="opaque">
+          <param name="scale" value="noscale">
+          <param name="salign" value="lt">
+          <param name="FlashVars" value="&amp;MM_ComponentVersion=1&amp;skinName=Clear_Skin_1&amp;streamName=img/Counters_general&amp;autoPlay=false&amp;autoRewind=false" />
+          <param name="swfversion" value="8,0,0,0">
+          <param name="expressinstall" value="../Scripts/expressInstall.swf">
+          <!-- Браузер отображает следующее альтернативное содержимое для пользователей Flash Player 6.0 и более старых версий. -->
+          <div>
+            <h4>Для содержимого этой страницы требуется более новая версия Adobe Flash Player.</h4>
+            <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Получить проигрыватель Adobe Flash Player" /></a></p>
+          </div>
+          <!--[if !IE]>-->
+        </object>
+        <!--<![endif]-->
+      </object>
+    &nbsp;</div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p01.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p02.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">1</div></td>
+  </tr>
+</table>
+<script type="text/javascript">
+swfobject.registerObject("FLVPlayer");
+</script>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

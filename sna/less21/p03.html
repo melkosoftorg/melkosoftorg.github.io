@@ -1,0 +1,234 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p04.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | <a href="p02.html">2</a> | | 3 | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>2.6.3. Типы триггеров</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>В стандартные серии цифровых микросхем входит несколько типов микросхем триггеров, различающихся методами управления, а также входными и выходными сигналами. На схемах триггеры обозначаются буквой <b>Т</b>. В отечественных сериях микросхем триггеры имеют наименование <b>ТВ</b>, <b>ТМ</b> и <b>ТР</b> в зависимости от типа триггера. Наиболее распространены три типа: </p>
+      <ul>
+        <li><b>RS-триггер</b> (обозначается ТР) — самый простой триггер, но редко используемый (<i><b>а</b></i>). </li>
+        <li><b>JK-триггер</b> (обозначается ТВ) имеет самое сложное управление, также используется довольно редко (<i><b>б</b></i>). </li>
+        <li><b>D-триггер</b> (обозначается ТМ) — наиболее распространенный тип триггера (<i><b>в</b></i>). </li>
+      </ul>
+    <p>Примером <b>RS-триггера</b> является микросхема <b>ТР2</b>, в одном корпусе которой находятся четыре RS-триггера. Два триггера имеют по одному входу <b>–R</b> и <b>–S</b>, а два других триггера — по одному входу <b>–R</b> и по два входа <b>–S1</b> и <b>–S2</b>, объединенных по функции <b>И</b>. Все триггеры имеют только по одному прямому выходу. RS-триггер практически ничем не отличается по своим функциям от триггерной ячейки, рассмотренной ранее (см. рис. 21.1). </p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/17-02.gif" width="475" height="174" alt="2"><br><br>Рис. 21.2.  Триггеры трех основных типов.
+</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>Отрицательный импульс на входе <b>–R</b> перебрасывает выход в нуль, а отрицательный импульс на входе <b>–S</b> (или на любом из входов –S1 и –S2) перебрасывает выход в единицу. Одновременные сигналы на входах –R и –S переводят выход в единицу, а после окончания импульсов триггер попадает случайным образом в одно из своих устойчивых состояний. Таблица истинности триггера <b>ТР2</b> с двумя входами установки –S1 и –S2 представлена в табл. 7.2.</p>    </td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="center" valign="top"><div id="id_22">
+      <table width="299" border="0" cellpadding="2" cellspacing="1">
+        <caption>
+          Табл.7.2.&nbsp; Таблица истинности RS-триггера ТР2
+          </caption>
+        <tbody>
+          <tr>
+            <th colspan="2" align="center" bgcolor="#d8d8d8">Входы </th>
+            <th colspan="2" align="center" bgcolor="#d8d8d8"> Выходы</th>
+          </tr>
+          <tr>
+            <th width="50" align="center" bgcolor="#d8d8d8"> -R </th>
+            <th width="42" align="center" bgcolor="#d8d8d8"> -S </th>
+            <th width="47" align="center" bgcolor="#d8d8d8"> Q </th>
+            <th width="139" align="center" bgcolor="#d8d8d8"> -Q </th>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Без изменения</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">X</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">X</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">X</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Не определен</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">X</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Не определен</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="left" valign="top"><p><b>JK-триггер</b> значительно сложнее по своей структуре, чем RS-триггер. Он относится к так называемым тактируемым триггерам, то есть он срабатывает по фронту тактового сигнала. Примером может служить показанная на рис. 21.2 микросхема <b>ТВ9</b>, имеющая в одном корпусе два JK-триггера со входами сброса и установки -R и -S. Входы -R и -S работают точно так же, как и в RS-триггере, то есть отрицательный импульс на входе -R устанавливает прямой выход в нуль, а инверсный — в единицу, а отрицательный импульс на входе -S устанавливает прямой выход в единицу, а инверсный — в нуль. </p>
+    <p>Однако состояние триггера может быть изменено не только этими сигналами, но и сигналами на двух информационных входах <b>J</b> и <b>K</b> и синхросигналом <i><b>С</b></i>. Переключение триггера в этом случае происходит по отрицательному фронту сигнала <i><b>С</b></i> (по переходу из единицы в нуль) в зависимости от состояний сигналов <i><b>J</b></i> и <i><b>K</b></i>. При единице на входе <b>J</b> и нуле на входе К по фронту сигнала <i><b>С</b></i> прямой выход устанавливается в единицу (обратный — в нуль). При нуле на входе <b>J</b> и единице на входе К по фронту сигнала <i><b>С</b></i> прямой выход устанавливается в нуль (обратный — в единицу). При единичных уровнях на обоих входах <b>J</b> и <b>K</b> по фронту сигнала <i><b>С</b></i> триггер меняет состояние своих выходов на противоположные (это называется счетным режимом).</p>
+    <p>Наконец, самый распространенный <b>D-триггер</b> занимает, можно сказать, промежуточное положение между RS-триггером и JK-триггером. Помимо общих для всех триггеров входов установки и сброса <b>–S</b> и <b>–R</b>, он имеет один информационный вход <b>D</b> (вход данных) и один тактовый вход <b>C</b>. Примером может служить показанная на рис. 21.2&nbsp; микросхема <b>ТМ2</b>, содержащая в одном корпусе два D-триггера с прямыми и инверсными выходами.</p>
+    <p>Таблица истинности триггера <b>ТМ2</b> представлена в табл. 21.3</p></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="100%">&nbsp;</td>
+    <td align="center" valign="top"><div>
+      <table width="417" border="0" cellpadding="2" cellspacing="1">
+        <caption>
+          Табл.21.3. Таблица истинности D-триггера ТМ2
+          </caption>
+        <tbody>
+          <tr>
+            <th colspan="4" align="center" bgcolor="#d8d8d8">Входы </th>
+            <th colspan="2" align="center" bgcolor="#d8d8d8"> Выходы</th>
+          </tr>
+          <tr>
+            <th width="56" align="center" bgcolor="#d8d8d8">-S </th>
+            <th width="52" align="center" bgcolor="#d8d8d8">-R</th>
+            <th width="51" align="center" bgcolor="#d8d8d8">C </th>
+            <th width="64" align="center" bgcolor="#d8d8d8">D</th>
+            <th width="87" align="center" bgcolor="#d8d8d8">Q </th>
+            <th width="76" align="center" bgcolor="#d8d8d8">-Q</th>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td colspan="2" align="center" valign="top" bgcolor="#eaeaea">Не определено</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">01</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">01</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">0</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td colspan="2" align="center" valign="top" bgcolor="#eaeaea">Не меняется</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td colspan="2" align="center" valign="top" bgcolor="#eaeaea">Не меняется</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">1</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">10</td>
+            <td align="center" valign="top" bgcolor="#eaeaea">Х</td>
+            <td colspan="2" align="center" valign="top" bgcolor="#eaeaea">Не меняется</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      
+</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p03.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p04.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">3</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>

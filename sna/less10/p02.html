@@ -1,0 +1,75 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta HTTP-EQUIV=Cache-Control content=no-cache>
+<meta name="author" content="S.V. Danilenko">
+<meta http-equiv="refresh" content="360; URL=p03.html">
+<title>Основы электроники и цифровой схемотехники</title>
+<link href="../img/style02.css" rel="stylesheet" type="text/css">
+</head>
+<body oncopy="return false" onselectstart="return false">
+<a name="ChapTop"></a>
+<table width="98%" border="0" background="../img/bgkletka.gif" bgcolor="#FFFFFF">
+  <tr>
+    <td width="5%" height="58"><div align="center"></div></td>
+    <td width="90%">&nbsp; <div align="center"><a href="../cont/ktp-el.html" title="Календарно-тематический план">К Т П</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p00.html">План занятия</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/book.jpg" alt="1" width="59" height="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Страницы&nbsp; | <a href="p01.html">1</a> | | 2 | | <a href="p03.html">3</a> | | <a href="p04.html">4</a> | | <a href="p05.html">5</a> | | <a href="p06.html">6</a> | | <a href="p07.html">7</a> | | <a href="p08.html">8</a> | | <a href="p09.html">9</a> |<br/>
+    </div>
+    <hr width="100%" size="5" noshade></td>
+    <td width="5%"><div align="center"><form name="d"> <input type="text" size="4" name="d2"></form></div></td>
+  </tr>
+  <tr>
+    <td height="79"><div align="center"></div></td>
+    <td><div align="center">
+      <h3>1.13.2. Цифровое представление преобразуемой информации</h3>
+    </div></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p><b><i>Любой символ информации в цифровых устройствах кодируют в двоичном коде</i></b>, поэтому сигналы могут принимать только два значения: высокий или низкий уровень напряжения, наличие или отсутствие импульса напряжения и т. д. Обязательным условием при этом является возможность уверенного распознавания элементами цифровых схем двух значений сигналов, соответствующих символам <b>0</b> и <b>1</b>, в условиях изменения температуры окружающей среды, напряжения источника питания, воздействия других дестабилизирующих факторов. </p>
+      <p>    В устройствах цифровой электроники в большинстве случаев используются сигналы двух уровней — высокого и низкого. При этом обычно имеются в виду уровни напряжения, а не тока. Цифровые схемы конструируют таким образом, чтобы воздействие некоторого сигнала определялось не конкретным значением его напряжения, а тем, к какой из двух разновидностей сигналов (высокого или низкого уровня) этот сигнал относится. Предполагается, что каждый сигнал характеризуется «разумным» уровнем напряжения. При конструировании цифровых схем предпринимаются все меры к тому, чтобы, например, сигнал высокого уровня был не очень малым и не очень большим по напряжению. Если напряжение сигнала находится в установленных пределах, то конкретное значение напряжения практически никак не влияет на реакцию того устройства цифровой электроники, на которое этот сигнал подан. Такие сигналы принято называть цифровыми. Сигналы, не являющиеся цифровыми, называют <i>аналоговыми</i>.</p>
+      <p>Изобразим диаграмму, поясняющую выше изложенное (рис. 10.2). </p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="center" valign="top"><img src="img/10-2.png" width="401" height="346"><br>Рис. 10.2. Импульсные сигналы.</td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td height="100%"><div align="center"></div></td>
+    <td align="left" valign="top"><p>На этой диаграмме, соответствующей цифровым схемам транзисторно-транзисторной логики (<b>ТТЛ</b>), имеющей напряжение питания 5 В, укажем диапазоны напряжений для входных и выходных сигналов (заштрихованные прямоугольники). Это такие диапазоны, что сигнал, оказавшись в одном из них, безошибочно квалифицируется как сигнал высокого или низкого уровня. Высокому и низкому уровню сигналов ставятся в соответствие логические состояния <b>1</b> (<b>«истина»</b>) и <b>0</b> (<b>«ложь»</b>). Если высокому уровню сигналов ставится в соответствие состояние <b>1</b>, а низкому — состояние <b>0</b>, то говорят о так называемой позитивной (положительной) логике. Если высокому уровню соответствует состояние <b>0</b>, а низкому — <b>1</b>, то говорят о так называемой негативной (отрицательной) логике.</p>
+      <p>В настоящее время наметилась вполне определенная тенденция к отказу от чисто аналоговых схем и переходу к цифровым с широким применением микропроцессорной техники. Цифровая обработка сигналов дает широкие преимущества в смысле гибкости решений, технологичности конструкций, экономии энергопотребления. В схемотехническом плане в основе цифровой техники, а также значительного количества так называемых импульсных устройств лежат <i><b>электронные ключи</b></i>.</p></td>
+    <td><div align="center"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"></div></td>
+    <td><div align="center">
+      <hr width="100%" size="4" noshade>
+      <a href='javascript:history.go(-1)'><img src="../img/nazad.jpg" alt="Предыдущая" width="31" height="20"></a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="p02.html#ChapTop"><img src="../img/vverh.gif" alt="В начало страницы" width="20" height="31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="p03.html"><img src="../img/vpr.jpg" alt="Следующая" width="31" height="20"></a>
+      
+    </div></td>
+    <td><div align="center">2</div></td>
+  </tr>
+</table>
+</body>
+
+<script>
+var milisec=0
+var seconds=0
+document.d.d2.value='0'
+function display(){
+if (milisec>=9){
+milisec=0
+seconds+=1
+}
+else
+milisec+=1
+document.d.d2.value=seconds+"."+milisec
+setTimeout("display()",100)
+}
+display()
+</script>
+
+</html>
